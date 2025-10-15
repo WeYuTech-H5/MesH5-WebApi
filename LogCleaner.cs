@@ -9,6 +9,7 @@ namespace WeyuBiApi
 {
     public class LogCleaner
     {
+        //
         public static void CleanLogs()
         {
             // 每次啟動時執行清理
