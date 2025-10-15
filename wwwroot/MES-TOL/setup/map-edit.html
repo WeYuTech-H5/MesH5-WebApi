@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" href="../map/images/favicon.ico" />
+    <title>設備管理</title>
+    <link rel="stylesheet" href="../map/css/bootstrap.4.4.1.min.css" />
+    <link rel="stylesheet" href="../map/js/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="../map/css/loading_map.css" />
+    <link rel="stylesheet" href="../map/css/default.css" />
+    <style>
+      /* 样式可以在这里定义 */
+      .image-container {
+        max-width: 50vh; /* 设置图片容器的最大宽度为视口高度的90% */
+        max-height: 50vh; /* 设置图片容器的最大高度为视口高度的90% */
+        overflow: hidden; /* 超出容器的部分将被隐藏 */
+      }
+      .image-container img {
+        width: 75%; /* 图片宽度设置为父容器的100% */
+        height: auto; /* 图片高度自动调整以保持宽高比 */
+        display: block; /* 将图片设为块级元素，使其与父容器等宽 */
+      }
+    </style>
+  </head>
+
+  <body id="map-edit">
+    <!-- ---------------------------------------------------------------------- loading -->
+    <div class="loading" id="loading">
+      <div class="progress" id="progress">
+        Loading
+        <!-- <img src="../images/loading.gif" alt="this slowpoke moves"  width="100" /> -->
+        <div class="loader"></div>
+      </div>
+    </div>
+
+    <div id="contentWrapper">
+      <div id="main-content" class="main">
+        <div id="list"></div>
+        <div id="itemsWrapper">
+          <div class="form-group">
+            <label for="name"
+              >No<small class="text-danger"> * Required</small></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              value=""
+              id="map_no"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="desc"
+              >Name<small class="text-danger"> * Required</small></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              value=""
+              id="map_name"
+              required
+            />
+          </div>
+          <h6>Click to add</h6>
+          <div id="items"></div>
+        </div>
+      </div>
+      <header class="blog-header">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <div class="col-2 pt-1 image-container">
+            <a
+              href="./map-master-maintain.html?MODULE_NAME=EQP_MAINTAIN&SID=343133920970240&LEVEL=L2&BUTTON=A"
+              ><img
+                src="../../img/weyu/weyu_icon.png"
+                style="max-width: 120px"
+                alt="威友科技"
+            /></a>
+          </div>
+          <div class="col-8">
+            <strong>設備管理</strong>
+          </div>
+          <div class="col-2 text-right">
+            <!-- <button id="bgUpload" class="btn btn-info" data-toggle="modal" data-target="#example2Modal">返回配置圖一覽</button> -->
+            <a
+              href="./map-master-maintain.html?MODULE_NAME=EQP_MAINTAIN&SID=343133920970240&LEVEL=L2&BUTTON=A"
+              class="btn btn-info"
+              >Back</a
+            >
+            <button
+              id="removeCheck"
+              class="btn btn-danger"
+              data-toggle="modal"
+              data-target="#exampleModal"
+            >
+              清除設備
+            </button>
+            <button
+              id="saveAll"
+              class="btn btn-success"
+              onclick="EQPLAYOUTSETUP_SAVE()"
+            >
+              儲存
+            </button>
+          </div>
+        </div>
+      </header>
+    </div>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              請問確定要清除嗎？
+            </h5>
+          </div>
+          <div class="modal-body">此動作無法恢復。</div>
+          <div class="modal-footer justify-content-between">
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-dismiss="modal"
+              id="removeAll"
+            >
+              確定清除
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              取消
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="example2Modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="example2ModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">背景圖管理</h5>
+          </div>
+          <div class="modal-body">
+            <form id="EQPLAYOUTSETUP_uploadform">
+              <div class="custom-file">
+                <input
+                  type="file"
+                  id="EQPLAYOUTSETUP_filepath"
+                  class="custom-file-input"
+                  name="EQPLAYOUTSETUP_file1"
+                  data-options="prompt:'Choose a Image File...'"
+                />
+                <label class="custom-file-label" for="customFile">預覽</label>
+              </div>
+              <hr />
+              <p class="text-danger">* 提醒：圖片會依比例自動縮小。</p>
+            </form>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button
+              type="button"
+              id="cancelUpload"
+              class="btn btn-info"
+              data-dismiss="modal"
+            >
+              清空背景
+            </button>
+            <button
+              type="button"
+              id="EQPLAYOUTSETUP_uploadfile"
+              class="btn btn-primary"
+              data-dismiss="modal"
+            >
+              上傳
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="../map/js/jquery-3.4.1.min.js"></script>
+    <script
+      type="text/javascript"
+      src="../map/js/jquery-ui/jquery-ui.js"
+    ></script>
+    <script type="text/javascript" src="../../js/weyu/weyu_config.js"></script>
+    <script type="text/javascript" src="../map/js/popper.min.js"></script>
+    <script
+      type="text/javascript"
+      src="../map/js/bootstrap.4.4.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../map/js/jQuery-slimScroll-master/jquery.slimscroll.min.js"
+    ></script>
+    <script src="../../js/weyu/weyu_comm_function.js"></script>
+    <script src="../../js/weyu/weyu_comm_api_function.js"></script>
+    <script src="../../js/weyu/weyu_check.js"></script>
+    <script src="../../js/weyu/weyu_loading.js"></script>
+
+    <script type="text/javascript" src="../map/js/jquery.form.js"></script>
+
+    <script type="text/javascript" src="map-edit.js"></script>
+  </body>
+</html>

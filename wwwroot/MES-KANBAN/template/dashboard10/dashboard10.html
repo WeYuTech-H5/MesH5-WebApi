@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="../../css/weyu/input.css" rel="stylesheet">
+  <link href="../../css/weyu/weyu_right_navbar.css" rel="stylesheet">
+  <link href="../../css/comm/bootstrap.min.css" rel="stylesheet">
+  <link href="../dashboard10/dashboard10.css" rel="stylesheet">
+  <link href="../../css/weyu/template-menu.css" rel="stylesheet">
+  <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+
+
+</head>
+
+<body onload="onLoad()">
+  <div class="allWrapper relative min-h-full">
+    <header class="flex items-center w-full mt-2 overflow-hidden pb-2">
+      <div class="box-header">
+        <button id="menu" class="btn transparent-btn pl-4" aria-expanded="false">
+          <img id="menu-image" src="../../img/comm/icons/hamburger.svg" alt="Menu" />
+        </button>
+        <div id="dropdownMenu" class="menu-content">
+          <div class="d-flex h-100">
+            <button id="closeButton">
+              <img id="close-image" src="../../img/comm/icons/close.svg" alt="Menu" />
+            </button>
+            <div class="menu-tot">
+              <div class="menu-1">
+                <li>
+                  <a class="dropdown-item-title" href="../list/list.html">返回樣式列表</a>
+                </li>
+              </div>
+              <div class="menu-2">
+                <ul id="Menu" class="dropdown-item"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a id="logotext" href="../../index.html" class="fs-4 fw-bold"></a>
+      </div>
+      <div class="box-header">
+        <div class="fw-bold fs-5 Lang">
+          <span class="Lang">Operations Dashboard</span>
+        </div>
+      </div>
+      <div class="box-header">
+        <div class="time" id="current-time"></div>
+        <div id="settings">
+          <img id="settings-image" src="../../img/comm/user-gear-solid.svg" class="settings" alt="Settings" />
+        </div>
+        <div id="dropdown-menu" class="dropdown-content hidden">
+          <div id="langueStatus">Language Status</div>
+          <div id="accountStatus">Account Status</div>
+          <div id="logout">Logout</div>
+        </div>
+      </div>
+    </header>
+    <!-- 主設計 START -->
+    <div class="container-fluid mb-lg-5">
+
+      <!-- 上半部 -->
+      <div class="row g-2 mb-3">
+        <!-- box 1 -->
+        <div class="col-xl-4 col-md-6">
+          <div class="zz-box">
+            <div class="title">Single-day total road number</div>
+            <div class="row flex-grow-1">
+              <div class="col-6 box-item">
+                <div class="item-title">single day figures</div>
+                <div class="item-content" data-unit="tower">13</div>
+                <div class="item-span">Target &gt; 25% </div>
+              </div>
+              <div class="col-6 box-item">
+                <div class="item-title">single day figures</div>
+                <div class="item-content" data-unit="tower">7</div>
+                <div class="item-span">Target &gt; 30% </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- box 2 -->
+        <div class="col-xl-4 col-md-6">
+          <div class="zz-box">
+            <div class="title">Total Production</div>
+            <div class="row flex-grow-1">
+              <div class="col-5 box-item">
+                <div class="item-title">this month</div>
+                <div class="item-content" data-unit="ton">1120</div>
+                <div class="item-span">Target &gt; 2000 </div>
+              </div>
+              <div class="col-7 box-item">
+                <div class="item-chart justify-center">
+                  <div id="doughnutWrapper" class="chartWrapper"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- box 3 -->
+        <div class="col-xl-4 col-md-6">
+          <div class="zz-box">
+            <div class="title">text box 2</div>
+            <div class="row flex-grow-1">
+              <div class="col-xl-4 col-6 box-item">
+                <div class="item-title">Equipment Repair</div>
+                <div class="item-content" data-unit="%">83</div>
+                <div class="item-span">Target &gt; 80% </div>
+              </div>
+              <div class="col-xl-4 col-6 box-item">
+                <div class="item-title">Periodic maintenance</div>
+                <div class="item-content" data-unit="%">92</div>
+                <div class="item-span">Target &gt; 80% </div>
+              </div>
+              <div class="col-xl-4 box-item zz-border-top">
+                <div class="item-title">System Inspection</div>
+                <div class="item-content" data-unit="%">95</div>
+                <div class="item-span">Target &gt; 80% </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- box 4 -->
+        <div class="col-xl-4 col-md-6">
+          <div class="zz-box">
+            <div class="title">Power</div>
+            <div class="row flex-grow-1">
+              <div class="col-xl-3 col-6 box-item">
+                <div class="item-title">Fab 1</div>
+                <div class="item-content" data-unit="kWh">63</div>
+                <div class="item-span">Target &lt; 80 </div>
+              </div>
+              <div class="col-xl-3 col-6 box-item">
+                <div class="item-title">Fab 2</div>
+                <div class="item-content" data-unit="kWh">7</div>
+                <div class="item-span">Target &lt; 30 </div>
+              </div>
+              <div class="col-xl-6 box-item zz-border-top">
+                <div class="item-table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Device Serial Number</th>
+                        <th>Test Text</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>D-0000021</td>
+                        <td>18</td>
+                      </tr>
+                      <tr>
+                        <td>A-0000021</td>
+                        <td>10</td>
+                      </tr>
+                      <tr>
+                        <td>S-0000021</td>
+                        <td>4</td>
+                      </tr>
+                      <tr>
+                        <td>D-0000021</td>
+                        <td>9</td>
+                      </tr>
+                      <tr>
+                        <td>D-0000021</td>
+                        <td>18</td>
+                      </tr>
+                      <tr>
+                        <td>A-0000021</td>
+                        <td>10</td>
+                      </tr>
+                      <tr>
+                        <td>S-0000021</td>
+                        <td>4</td>
+                      </tr>
+                      <tr>
+                        <td>D-0000021</td>
+                        <td>9</td>
+                      </tr>
+                      <tr>
+                        <td>D-0000021</td>
+                        <td>18</td>
+                      </tr>
+                      <tr>
+                        <td>A-0000021</td>
+                        <td>10</td>
+                      </tr>
+                      <tr>
+                        <td>S-0000021</td>
+                        <td>4</td>
+                      </tr>
+                      <tr>
+                        <td>D-0000021</td>
+                        <td>9</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- box 5 -->
+        <div class="col-xl-4">
+          <div class="zz-box">
+            <div class="title">Energy Usage</div>
+            <div class="row flex-grow-1">
+              <div class="col-5 box-item">
+                <div class="item-title">Green Energy Share</div>
+                <div class="item-content" data-unit="%">25</div>
+                <div class="item-span">Target &gt; 20% </div>
+              </div>
+              <div class="col-7 box-item">
+                <div class="item-chart">
+                  <div id="pieWrapper" class="chartWrapper"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- box 6 -->
+        <div class="col-xl-4">
+          <div class="zz-box">
+            <div class="title">chart box 3</div>
+            <div class="row flex-grow-1">
+              <div class="col-5 box-item">
+                <div class="item-title">Average output</div>
+                <div class="item-content" data-unit="/capita">26</div>
+                <div class="item-span">Target &gt; 30 </div>
+              </div>
+              <div class="col-7 box-item">
+                <div class="item-chart">
+                  <div id="barWrapper" class="chartWrapper"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 下半部 -->
+      <div class="row g-2">
+        <div class="col-lg-6">
+          <div class="row flex-column g-2">
+            <!-- box 7 -->
+            <div class="col">
+              <div class="zz-box zz-box-200">
+                <div class="item-chart">
+                  <div id="ganttWrapper" class="chartWrapper"></div>
+                </div>
+              </div>
+            </div>
+            <!-- box 8 -->
+            <div class="col">
+              <div class="zz-box zz-box-500">
+                <div class="title">table name</div>
+                <div class="box-table box-table-450">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Device serial number</th>
+                        <th>output</th>
+                        <th>state</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>SN00123</td>
+                        <td>45</td>
+                        <td><span class="state rise">rise <i class="fa-solid fa-sort-up"></i></span></td>
+                      </tr>
+                      <tr>
+                        <td>SN00456</td>
+                        <td>78</td>
+                        <td><span class="state decline">decline <i class="fa-solid fa-sort-down"></i></i></span></td>
+                      </tr>
+                      <tr>
+                        <td>SN00789</td>
+                        <td>12</td>
+                        <td><span class="state decline">decline <i class="fa-solid fa-sort-down"></i></i></span></td>
+                      </tr>
+                      <tr>
+                        <td>SN00234</td>
+                        <td>99</td>
+                        <td><span class="state rise">rise <i class="fa-solid fa-sort-up"></i></span></td>
+                      </tr>
+                      <tr>
+                        <td>SN00567</td>
+                        <td>64</td>
+                        <td><span class="state decline">decline <i class="fa-solid fa-sort-down"></i></i></span></td>
+                      </tr>
+                      <tr>
+                        <td>SN00890</td>
+                        <td>0</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>SN00345</td>
+                        <td>37</td>
+                        <td><span class="state rise">rise <i class="fa-solid fa-sort-up"></i></span></td>
+                      </tr>
+                      <tr>
+                        <td>SN00678</td>
+                        <td>82</td>
+                        <td><span class="state rise">rise <i class="fa-solid fa-sort-up"></i></span></td>
+                      </tr>
+                      <tr>
+                        <td>SN00901</td>
+                        <td>54</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>SN01011</td>
+                        <td>23</td>
+                        <td><span class="state rise">rise <i class="fa-solid fa-sort-up"></i></span></td>
+                      </tr>
+                      <tr>
+                        <td>SN00567</td>
+                        <td>64</td>
+                        <td><span class="state decline">decline <i class="fa-solid fa-sort-down"></i></i></span></td>
+                      </tr>
+                      <tr>
+                        <td>SN00890</td>
+                        <td>0</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>SN00345</td>
+                        <td>37</td>
+                        <td><span class="state rise">rise <i class="fa-solid fa-sort-up"></i></span></td>
+                      </tr>
+                      <tr>
+                        <td>SN00678</td>
+                        <td>82</td>
+                        <td><span class="state decline">decline <i class="fa-solid fa-sort-down"></i></i></span></td>
+                      </tr>
+                      <tr>
+                        <td>SN00901</td>
+                        <td>54</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="row flex-column g-2">
+            <!-- box 9 -->
+            <div class="col">
+              <div class="zz-box zz-box-400">
+                <div class="item-chart">
+                  <div id="barLineWrapper" class="chartWrapper"></div>
+                </div>
+              </div>
+            </div>
+            <!-- box 10 -->
+            <div class="col">
+              <div class="zz-box zz-box-300">
+                <div class="title">table name</div>
+                <div class="box-table box-table-250">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>type</th>
+                        <th>group</th>
+                        <th>Construction time</th>
+                        <th>Device serial number</th>
+                        <th>Event overview</th>
+                        <th>Processing status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="state repair">repair</td>
+                        <td>Group 1</td>
+                        <td>2023/08/14</td>
+                        <td>SN12345</td>
+                        <td>Event 001</td>
+                        <td>processed</td>
+                      </tr>
+                      <tr>
+                        <td class="state repair">repair</td>
+                        <td>Group 2</td>
+                        <td>2023/08/15</td>
+                        <td>SN67890</td>
+                        <td>Event 002</td>
+                        <td class="state to-be-processed">to be processed</td>
+                      </tr>
+                      <tr>
+                        <td class="state repair">repair</td>
+                        <td>Group 3</td>
+                        <td>2023/08/16</td>
+                        <td>SN11223</td>
+                        <td>Event 003</td>
+                        <td>processed</td>
+                      </tr>
+                      <tr>
+                        <td class="state repair">repair</td>
+                        <td>Group 4</td>
+                        <td>2023/08/17</td>
+                        <td>SN44556</td>
+                        <td>Event 004</td>
+                        <td class="state to-be-processed">to be processed</td>
+                      </tr>
+                      <tr>
+                        <td class="state repair">repair</td>
+                        <td>Group 5</td>
+                        <td>2023/08/18</td>
+                        <td>SN78901</td>
+                        <td>Event 005</td>
+                        <td class="state to-be-processed">to be processed</td>
+                      </tr>
+                      <tr>
+                        <td class="state repair">repair</td>
+                        <td>Group 6</td>
+                        <td>2023/08/19</td>
+                        <td>SN33445</td>
+                        <td>Event 006</td>
+                        <td>processed</td>
+                      </tr>
+                      <tr>
+                        <td class="state repair">repair</td>
+                        <td>Group 7</td>
+                        <td>2023/08/20</td>
+                        <td>SN55667</td>
+                        <td>Event 007</td>
+                        <td>processed</td>
+                      </tr>
+                      <tr>
+                        <td class="state repair">repair</td>
+                        <td>Group 8</td>
+                        <td>2023/08/21</td>
+                        <td>SN77889</td>
+                        <td>Event 008</td>
+                        <td>processed</td>
+                      </tr>
+                      <tr>
+                        <td class="state repair">repair</td>
+                        <td>Group 9</td>
+                        <td>2023/08/22</td>
+                        <td>SN99001</td>
+                        <td>Event 009</td>
+                        <td>processed</td>
+                      </tr>
+                      <tr>
+                        <td class="state repair">repair</td>
+                        <td>Group 10</td>
+                        <td>2023/08/23</td>
+                        <td>SN11234</td>
+                        <td>Event 010</td>
+                        <td class="state to-be-processed">to be processed</td>
+                      </tr>
+                    </tbody>
+                    
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- 主設計 END -->
+    <div id="footer" class="position-fixed bottom-0 right-0 left-0 w-100"></div>
+
+  </div>
+  <div class="mainBG fixed left-0 top-0 right-0 bottom-0"></div>
+
+  <!-- <script src="../js/comm/cdn.jsdelivr.net_npm_chart.js"></script> -->
+  <script src="../../js/weyu/menu.js"></script>
+  <script src="../../js/comm/bootstrap.min.js"></script>
+  <script src="../../js/comm/jquery.min.js"></script>
+  <script src="../../js/weyu/weyu_config.js"></script>
+  <!-- <script src="../../js/weyu/weyu_comm_api_function.js"></script> -->
+  <!-- <script src="../../js/weyu/weyu_comm_function.js"></script> -->
+  <!-- <script src="../js/weyu/weyu_check.js"></script> -->
+  <script src="../dashboard10/dashboard10.js"></script>
+  <script src="../../js/weyu/weyu_header.js"></script>
+  <!-- <script src="../../js/weyu/weyu_menu.js"></script> -->
+  <script src="../../js/weyu/weyu_footer.js"></script>
+  <script src="../../js/weyu/weyu_right_navbar.js"></script>
+
+  <script src="../../js/comm/chartjs-plugin-datalabels.min.js"></script>
+  <script src="../../js/comm/cdn.jsdelivr.net_npm_chart.js"></script>
+  <script src="../../js/comm/chartjs-adapter-date-fns.bundle.min.js"></script>
+  <script src="../../js/comm/cdn.chart.true_numb.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js"></script>
+
+  <!-- 多語系翻譯 -->
+  <script type="text/javascript">
+    function onLoad() {
+      GetConfig();
+      SetDefaultSelectLang();
+      ChangeLang();//多國語言翻譯
+      console.log('onLoad 成功')
+    };
+    // 左上LOGO文字
+    $('#logotext').html(PROJECT_SAVE_NAME);
+  </script>
+
+</body>
+
+</html>

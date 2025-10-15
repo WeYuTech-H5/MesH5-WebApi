@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>WeyuBoard</title>
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <link href="../css/comm/dataTables.min.css" rel="stylesheet" />
+    <link href="../css/comm/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/zz/grid-smart-query.css" rel="stylesheet" media="all">
+    <link href="../css/comm/multiple-select.css" rel="stylesheet" />
+    <link href="../css/weyu/input.css" rel="stylesheet" />
+    <link href="../css/weyu/weyu_right_navbar.css" rel="stylesheet">
+    <link href="../css/comm/flatpickr.min.css" rel="stylesheet">
+
+</head>
+
+<body onload="onLoad()">
+    <!-- ------------------------------------------------------------------------------ loading -->
+    <div class="loading" id="loading">
+        <div class="progress" id="progress">
+            Loading
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <header class="flex items-center w-full mt-2">
+        <!--
+        <div><nav class="navbar"></nav>
+        
+        
+        </div>  
+        -->
+        <!--
+        <div id="navbar" class="fixed-top left-0 bg-black hidden-navbar overflow-hidden w-full transition-all duration-200 bg-opacity-60">
+
+            <div class="flex items-center">
+                
+                <button id="closeButton" class="text-white bg-transparent border-0">
+                <img src="../img/comm/icons/close.svg" alt="Menu" />
+                </button>
+
+                <button type="button" class="text-white text-xl font-bold bg-transparent border-0">ESG</button>
+
+            </div>
+            
+            <div id="menuList"></div>
+        </div>
+
+    -->  
+    <button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" style="background: transparent; border: 0;">
+        <img src="../img/comm/icons/hamburger.svg" alt="Menu" />
+    </button>
+
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel" style="background-color: #162a58;">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">ESG</h5>
+        <button type="button" class="" data-bs-dismiss="offcanvas" aria-label="Close" style="background: transparent; border: 0;">
+            <img src="../img/comm/icons/close.svg" alt="Menu" />
+        </button>
+      </div>
+      <div id="menuList" class="offcanvas-body"></div>
+    </div>
+      
+
+    <h1 style="font-size: 1.25em; font-weight: bold; line-height: 1; margin-top: 0.5em;">
+        <a id="logotext" href="../index.html"></a>
+    </h1>
+        <!--
+        <img class="LOGO" src="../img/weyu/brand.png" alt="Trademark">
+
+        -->
+        <!-- <div class="logotitle">WeyuBoard</div> -->
+        <div id="midtitle" class="title Lang">Operations Dashboard</div>
+
+      <div id="settings">
+        <img id="settings-image" src="../img/comm/user-gear-solid.svg" style="height: 1.5rem; width: 1.5rem" alt="Settings" />
+      </div>
+
+      <div id="dropdown-menu" class="dropdown-content hidden">
+        <div id="langueStatus">Language Status</div>
+        <div id="accountStatus">Account Status</div>
+        <div id="logout">Logout</div>
+      </div>
+         <!-- <div id="welcome">DEMO</div> -->
+
+        <!-- 下拉式選單 -->
+        <!--
+        <select id="selectlang">
+            <option value="en_us" class="option1">English</option>
+            <option value="zh_CHT" class="option1">繁體中文</option>
+            <option value="zh_CHS" class="option1">簡體中文</option>
+            <option value="TH" class="option1">ราชอาณาจักรไทย</option>
+            <option value="km" class="option1">ភាសាខ្មែរ</option>
+        </select>
+        -->
+         <!-- 
+            <div id="timenow">
+            <button onclick="Set_Clean() " id="buttoncss">登出</button>
+        </div>
+         -->
+    </header>
+    <div id="layout1">
+        <button id="backButton" class="btn tit Lang"><img src="../img/comm/circle-chevron-left-solid.svg" alt="返回前頁"><span class="Lang">Back</span></button>
+        <button data-bs-toggle="modal" data-bs-target="#Query" id="QueryData" class="btn tit Lang"><img src="../img/weyu/Inquire.png" alt="Query">Query</button>
+        <button id="ExportExcel" class="btn btn-outline-primary Lang" disabled="disabled">Export</button>
+        <button id="Maintain" class="btn btn-outline-primary Lang" onclick="MaintainHtml()" disabled="disabled">維護</button>
+        <button id="SwitchStatus" class="btn btn-outline-primary Lang" onclick="SwitchStatusHtml()" disabled="disabled">狀態切換</button>
+        <button id="SwitchMoudles" class="btn btn-outline-primary Lang" onclick="SwitchMoudlesHtml()" disabled="disabled">上下模具</button>
+        <!-- 調整頁數 -->
+        <div class="pagenum">
+            <select id="perPData"><option value="20">20</option><option value="50">50</option><option value="100">100</option></select>
+            <button id="PrePage" class="btn btn-outline-primary Lang" disabled="disabled">&larr;</button>
+            <input id="PageNum" value="1" style="width:40px; text-align: center;" />
+            <button id="NexPage" class="btn btn-outline-primary Lang" disabled="disabled">&rarr;</button>
+            <span id="totalnum"></span>
+        </div>
+
+    </div>
+    <div id="layout2">
+        <table id="example" class="row-border order-column stripe hover">
+            <thead>
+                <tr id="addtitle"></tr>
+            </thead>
+        </table>
+    </div>
+
+    <div class="modal  fade" id="Query" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="QueryModalLabel">Condiction</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="QueryClose"></button>
+                </div>
+                <div class="modal-body mx-2" id="QueryContent">
+                </div>
+                <div class="modal-footer">
+                    <!--<button type="button" id="Queryclean" class="btn btn-secondary">清空</button>-->
+                    <button type="button" id="QuerySave" class="btn btn-primary">查詢</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p style="text-align: right; margin-right: 10px; font-size:14px;">
+            Copr. 2023 WeYu Technology Co., Ltd. All Rights Reserved.
+        </p>
+    </footer>
+    <script src="../js/comm/jquery.min.js"></script>
+    <script>
+        var VersionTime = (new Date()).getTime();
+    </script>
+    <!-- <script src="../scripts/common/fontawesome-free-5.14.0-web/js/all.js"></script> -->
+    <!-- <script src="../scripts/common/fontawesome-free-5.14.0-web/js/fontawesome.js"></script> -->
+    <script src="../js/weyu/weyu_config.js?v="+VersionTime></script>
+    <script src="../js/weyu/weyu_comm_function.js?v="+VersionTime></script>
+    <script src="../js/weyu/weyu_comm_api_function.js?v="+VersionTime></script>
+    <script src="../js/weyu/weyu_check.js?v="+VersionTime></script>
+    <script src="../js/weyu/loading.js"></script>
+    <script src="../js/comm/dataTables.min.js"></script>
+    <script src="../js/comm/bootstrap.min.js"></script>
+    <script src="../js/comm/multiple-select.js"></script>
+    <script src="./link-order-grid-smart-query.js?v="+VersionTime></script>
+    <script src="../js/weyu/weyu_menu_bs.js"></script>
+    <script src="../js/weyu/weyu_header.js"></script>
+    <script src="../js/weyu/weyu_right_navbar.js"></script>
+    <script src="../js/comm/flatpickr.min.js"></script>
+
+    <!-- 多語系翻譯 -->
+    <script type="text/javascript">
+        function onLoad() {
+            DebugLog('onLoad Start');
+            GetConfig();
+            SetDefaultSelectLang();
+            ChangeLang();//多國語言翻譯
+            
+            DebugLog('onLoad END');
+        }
+        $(document).ready(function () {
+            $('#offcanvasWithBothOptionsLabel').html(PROJECT_SAVE_NAME);
+            $('#logotext').html(PROJECT_SAVE_NAME);
+            
+            DebugLog('ready Start');
+
+            $('#selectlang').on('change', function () {
+                try {
+                    DebugLog('selectlang on_change ' + this.value);
+                    UIChangeLng(this.value);
+                    //localStorageSetItem("eqp", this.value);
+                } catch (errorMessage) {
+                    DebugLogAndAlert(errorMessage);
+                }
+            });
+
+            DebugLog('ready END');
+        });
+
+    </script>
+</body>
+</html>

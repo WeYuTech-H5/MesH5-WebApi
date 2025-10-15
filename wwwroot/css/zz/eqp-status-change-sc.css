@@ -1,0 +1,1001 @@
+﻿.loading {
+    display: table;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    z-index: 5;
+}
+
+    .loading .progress {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        color: rgb(48, 48, 48);
+        font-size: 2em;
+        font-weight: 900;
+
+        background: radial-gradient(circle, #196eae, #1a3677, #162a58);    }
+
+.loader {
+    display: block;
+    margin: auto;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 13px solid #383838;
+    border-bottom: 13px solid #bafabe;
+    border-left: 13px solid #189cf4;
+    border-right: 13px solid #74bb1e;
+    width: 10vh;
+    height: 10vh;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 1s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ------------------------------------------------------------ */
+body {
+    /* background-color: #222222; */
+    background-color: rgba(221, 221, 221, 0.726);
+    background-blend-mode: multiply;
+    background: rgba(226, 226, 226, 0.658) url(../../../images/hjtw_inside.jpg) 0 0 no-repeat;
+    margin: 0;
+    background-size: cover;
+    min-height: 100vh;
+    min-width: 320px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-position: left bottom;
+    font-family: 'Noto Sans TC', '微軟正黑體' !important;
+}
+
+/* 菜單套件 */
+.navbar {
+    color: #fff;
+    margin-right: 5px;
+    /* float: left; */
+    /* position: absolute; */
+    border-right: solid 1px #4c4c4c4d;
+    padding: 1px 2px 0 0;
+}
+
+    .navbar button {
+        height: 25px;
+        width: 25px;
+        border: 1px #ffffff;
+        padding: 0;
+        /* margin-top: 2px; */
+    }
+
+        .navbar button .icon-bar {
+            background: #5e5e5e;
+            width: 15px;
+            height: 2px;
+            border-radius: 5px;
+            display: block;
+            margin: 1px auto 2px;
+        }
+
+.LOGO {
+    width: auto;
+    height: 28px;
+    margin-top: 1px;
+    margin-right: 18%;
+    /* flex-grow: 0; */
+}
+
+
+div#welcome {
+    margin-right: 22px;
+    color: #29166f;
+    font-weight: 600;
+}
+
+select#selectlang {
+    border: snow solid 2px;
+    background: -webkit-linear-gradient(-45deg, rgba(184,225,252,1) 0%,rgba(169,210,243,1) 4%,rgba(144,186,228,1) 14%,rgba(144,188,234,1) 15%, rgba(107,168,229,1) 93%,rgba(107,168,229,1) 35%,rgba(107,168,229,1) 38%,rgba(144,191,240,1) 57%,rgba(162,218,245,1) 83%,rgba(189,243,253,1) 100%);
+    flex-grow: 0;
+    padding: 0;
+    margin-right: 1%;
+    height: 23px;
+    font-size: 13px;
+}
+/* ______________________________________主要內容______________________________________________- */
+#layout2 {
+    background-color: #dbdbdb5b;
+    width: 98.5%;
+    margin: 10px;
+    border: 1px solid #333;
+}
+
+.option1 {
+    text-align: center;
+}
+
+@media screen and (max-width: 1125px) {
+    #timenow {
+        width: 70px;
+        height: auto;
+    }
+}
+
+/* ___________________________表格____________________________ */
+thead {
+    position: sticky;
+    background-color: #404E5C; /* rgb(60, 74, 112*/
+    top: 0;
+}
+
+/* thead img {
+  float: right;  
+} */
+
+table#example {
+    display: block;
+    height: 81vh;
+    margin: 10px;
+    width: 98.5% !important;
+    border: 1px solid #333;
+    overflow: auto;
+}
+
+th {
+    border-bottom: 0;
+    border-top: 0;
+    /* background: linear-gradient(0deg, #0772b5 0%, #0772b5 100%); */
+    color: #ececec;
+    font-weight: normal;
+}
+
+
+@media (max-width: 1270px) {
+
+    #layout2 {
+        background-color: #d7d7d7;
+        width: 98.5%;
+        margin: 10px;
+        border: 1px solid #333;
+        order: 2;
+    }
+
+    #layout3 {
+        width: 100%;
+        float: left;
+        margin-left: 5px;
+        order: 3;
+    }
+}
+
+#mybody {
+    width: 100%;
+    /* height: 96vh; */
+    display: flex;
+    flex-direction: column;
+}
+
+/* MultiGrid 多重表格 浮動位置*/
+#my-slider {
+    padding-top: 28px !important;
+}
+
+#sid_style {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+
+/* .................表格中 手掌開關設定 */
+thead {
+    cursor: url(../default/openhand.cur),move;
+}
+
+.rwdTable {
+    margin: 0;
+}
+
+h6 {
+    font-size: 70px;
+    margin: 0;
+    display: contents;
+    font-weight: initial;
+}
+
+#open {
+    font-size: 20px;
+    font-weight: initial;
+}
+
+.sp-top-thumbnails {
+    margin-left: 2px;
+}
+
+.sp-thumbnails-container.sp-top-thumbnails {
+    width: 578px;
+}
+
+h4#CustomHTMLTitle2 {
+    color: #26910c;
+}
+
+h4#CustomHTMLTitle3 {
+    color: #F5BB00;
+}
+
+h4#CustomHTMLTitle {
+    color: #0278cc;
+    font-size: 10vh;
+}
+
+h4#CustomHTMLTitle4 {
+    color: #bd1a20;
+}
+/* td{
+    background: rgb(241, 241, 241);
+    border-bottom: 1px solid #333;
+    font-size: .85em;
+  } */
+
+#finishdata {
+    width: 20px;
+    color: rgb(64 64 64);
+    /* position: fixed; */
+    float: left;
+    margin-top: -19%;
+    font-size: 75px;
+    margin-left: 45%;
+}
+
+@media (min-width: 1580px) {
+    #finishdata {
+        width: 20px;
+        color: rgb(255, 255, 255);
+        /* position: fixed; */
+        float: left;
+        margin-top: -46%;
+        font-size: 62px;
+        margin-left: 37%;
+    }
+}
+
+@media (max-width: 1380px) {
+    div#finishdata {
+        color: rgb(255, 255, 255);
+        /* position: fixed; */
+        float: left;
+        margin-top: -43.5%;
+        font-size: 38px;
+        margin-left: 38.1%;
+    }
+}
+
+td {
+    color: black;
+}
+
+#buttoncss {
+    margin: 0;
+    font-family: inherit !important;
+    font-size: 14px !important;
+    line-height: inherit !important;
+    border: inherit;
+    background-color: #efefef;
+}
+
+button#buttoncss:hover {
+    background-color: #dbdbdb;
+}
+
+label {
+    /* width: 185px;
+    position: absolute;
+    z-index: 2;
+    background-color: #404e5c;
+    color: #fff;
+    margin: -60px 10px -37px 11px;
+    padding: 6px;
+    font-size: 18px;
+    border-radius: 5px; */
+    margin: 5px;
+}
+
+div#example_wrapper select {
+    background-color: #ffffffde;
+    font-size: 14px;
+    padding: 0;
+}
+
+    div#example_wrapper select:hover {
+        /* background-color: #e0e0e0de; */
+    }
+
+div#example_info {
+    margin: 10px;
+}
+
+/* __________________________________跳出的視窗設定__________ */
+.modal-body {
+    position: relative;
+    display: flex;
+    flex: 1 1 auto;
+    padding: 1.5rem 2rem;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    overflow: auto;
+    height: 66vh;
+}
+/* 上方標題 */
+.modal-header {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #dee2e6;
+    border-top-left-radius: calc(.3rem - 1px);
+    border-top-right-radius: calc(.3rem - 1px);
+}
+/* 表單間距調整 */
+p {
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+select {
+    padding: 5px;
+    word-wrap: normal;
+    border-radius: 5px;
+}
+/* 文字輸入框 */
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 5px;
+    border-radius: 5px;
+    line-height: inherit;
+    border: 1px #9f9f9f solid;
+}
+
+
+
+
+h5#ADDModalLabel, h5#EDDModalLabel, h5#QueryModalLabel {
+    color: #5e5e5e;
+    font-size: 35px;
+}
+
+input#T_NO, input#T_NAME {
+    border: solid 2px #ff000040;
+}
+
+button#EditSave {
+    color: #fff;
+}
+
+
+th.sorting_disabled {
+    width: 7% !important;
+}
+
+.pagenum {
+    float: right;
+}
+
+/* _______________改版設定____________ */
+
+.tit {
+    /* height: 5vh; */
+    /* width: 17vh; */
+}
+
+
+
+/* total width */
+::-webkit-scrollbar {
+    background-color: #fff;
+    height: 10px;
+    width: 10px
+}
+
+/* background of the scrollbar except button or resizer */
+::-webkit-scrollbar-track {
+    /* background-color:#fff */
+    box-shadow: inset 0 0 6px rgb(0 0 0 / 30%);
+}
+
+    ::-webkit-scrollbar-track:hover {
+        background-color: #f4f4f4
+    }
+
+/* scrollbar itself */
+::-webkit-scrollbar-thumb {
+    background-color: #babac0;
+    border-radius: 10px;
+    /* border:5px solid #fff */
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #a0a0a5;
+        border: 2px solid #f4f4f4
+    }
+
+/* set button(top and bottom of the scrollbar) */
+::-webkit-scrollbar-button {
+    display: none
+}
+
+#DelRow img {
+    margin-right: 4px;
+}
+
+#SubmitData img {
+    margin-right: 4px;
+}
+
+/* ______________________表頭排序圖示設定_________________________ */
+/* hide the default sort order triangles */
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc {
+    /* background-image: none!important; */
+}
+
+    /* not sorted 沒點的時候 */
+    table.dataTable thead .sorting:after {
+        /* content: "\2195";
+    font-size: 14px;
+    opacity: .3;
+    float: right; */
+    }
+
+    /* sorted ascending 上 */
+    table.dataTable thead .sorting_asc:after {
+        /* color: rgb(255, 255, 255);
+    font-weight: 600;
+    content: "\2191";
+    opacity: 1; */
+    }
+
+    /* sorted descending 下 */
+    table.dataTable thead .sorting_desc:after {
+        /* content: "\2193";
+    opacity: 1;
+    color: white; */
+    }
+/* ___________表頭 點擊後版面寬度控制__________________ */
+th.Lang.text-nowrap.sorting {
+    width: 9% !important;
+}
+
+    th.Lang.text-nowrap.sorting.sorting_asc {
+        width: 9% !important;
+    }
+
+/* ________________excle按鈕________________ */
+button.dt-button.buttons-excel.buttons-html5 {
+    position: absolute;
+    z-index: 3;
+    margin-top: -71px;
+    margin-left: 36.5%;
+    border-radius: 5px;
+    background-color: #404e5c;
+    color: white;
+    font-family: 'Noto Sans TC', '微軟正黑體' !important;
+    border: 0;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 6px 12px 6px 12px;
+}
+
+    button.dt-button.buttons-excel.buttons-html5:hover {
+        color: aliceblue;
+        background-color: #3c4a70;
+    }
+
+svg {
+    margin-right: 5px;
+    margin: 3px;
+}
+
+/* _______表格中Td不換行________ */
+td, thead {
+    white-space: nowrap;
+}
+
+/* ___________________右下下一頁上一頁_____________________ */
+.prepage_bnt {
+    display: flex !important;
+    justify-content: space-evenly;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+select#perPData {
+    /* height: 30px; */
+}
+
+
+
+
+
+
+/* _________________________小於1280電腦尺寸______________________________________ */
+@media only screen and (min-width: 321px) and (max-width: 1530px) {
+    th.sorting_1 {
+        width: 8% !important;
+    }
+
+    button.dt-button.buttons-excel.buttons-html5 {
+        position: absolute;
+        z-index: 3;
+        margin-top: -71px;
+        margin-left: 44.2%;
+        border-radius: 5px;
+        background-color: #404e5c;
+        color: white;
+        font-family: 'Noto Sans TC', '微軟正黑體' !important;
+        border: 0;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 6px 12px 6px 12px;
+        float: left;
+    }
+}
+
+
+
+
+/* _________________________小於1280電腦尺寸______________________________________ */
+@media only screen and (min-width: 321px) and (max-width: 1280px) {
+    th.sorting_1 {
+        width: 8% !important;
+    }
+
+    button.dt-button.buttons-excel.buttons-html5 {
+        position: absolute;
+        z-index: 3;
+        margin-top: -71px;
+        margin-left: 44.2%;
+        border-radius: 5px;
+        background-color: #404e5c;
+        color: white;
+        font-family: 'Noto Sans TC', '微軟正黑體' !important;
+        border: 0;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 6px 12px 6px 12px;
+    }
+}
+
+
+
+
+/* ------------------------------------------------------------------- phone UI  */
+@media only screen and (min-width: 321px) and (max-width: 1000px) {
+    .ly2-1 .ly22-1 {
+        width: 44%;
+        float: left;
+        margin: 0;
+        padding: 0;
+        background: radial-gradient(circle, rgb(255 255 255 / 58%) 50%, rgb(156 156 156 / 9%) 100%);
+        border: solid #dcdcdc;
+        border-radius: 18px;
+    }
+
+    .ly2-1 .ly22-4 {
+        width: 44%;
+        float: left;
+        margin: 0;
+        background: radial-gradient(circle, rgb(255 255 255 / 58%) 50%, rgb(156 156 156 / 9%) 100%);
+        border: solid #dcdcdc;
+        border-radius: 18px;
+    }
+
+    .ly22-1 h5 {
+        margin: 0;
+        display: contents;
+        font-size: 130px;
+        font-weight: initial;
+    }
+
+    #midtitle {
+        flex-grow: 2;
+        font-weight: bolder;
+        display: flex;
+        font-size: 40px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .LOGO {
+        width: auto;
+        height: 70px;
+        margin-top: 1px;
+        margin-right: 5px;
+        flex-grow: 0;
+    }
+
+    .logotitle {
+        flex-grow: 0;
+        font-weight: bolder;
+        display: flex;
+        font-size: 40px;
+        align-items: center;
+        /* font-family: sans-serif; */
+    }
+
+    .titlehtml {
+        color: rgb(255, 255, 255);
+        text-align: center;
+        font-size: 40px;
+        font-weight: 600;
+        /* margin-top: 8px; */
+        /* padding-top: 6%; */
+    }
+
+    .ly22-4 h5 {
+        margin: 0;
+        display: contents;
+        font-size: 130px;
+        font-weight: initial;
+    }
+
+    .ly2-1 {
+        width: 100.55%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-content: flex-start;
+        align-items: center;
+    }
+
+    h4 {
+        margin: 0;
+        padding: 0;
+    }
+
+    h5 {
+        margin: 0;
+    }
+
+    .title {
+        color: rgb(41, 41, 41);
+        text-align: center;
+        font-size: 40px;
+        font-weight: 600;
+        /* padding-top: 6%; */
+    }
+    /* select {
+        background: -webkit-linear-gradient(-45deg, rgba(184,225,252,1) 0%,rgba(169,210,243,1) 4%,rgba(144,186,228,1) 14%,rgba(144,188,234,1) 15%, rgba(107,168,229,1) 93%,rgba(107,168,229,1) 35%,rgba(107,168,229,1) 38%,rgba(144,191,240,1) 57%,rgba(162,218,245,1) 83% ,rgba(189,243,253,1) 100%);
+        height: 39px;
+        font-size: 28px;
+        width: 55px;
+    } */
+
+    div#finishdata {
+        color: rgb(255, 255, 255);
+        /* position: fixed; */
+        float: left;
+        margin-top: -45.5%;
+        font-size: 95px;
+        margin-left: 38.1%;
+    }
+
+    .sp-thumbnail-text {
+        color: rgb(56, 56, 56);
+        font-size: 27px;
+    }
+
+    .sp-thumbnail-container {
+        height: 125px !important;
+        margin-top: -10px !important;
+    }
+
+    h4#CustomHTMLTitle2 {
+        color: #2aca03;
+        margin: 0;
+        /* margin-top: -50px; IPHONE */
+        padding: 0;
+    }
+
+    h4#CustomHTMLTitle3 {
+        color: #ccb202;
+        margin: 0;
+        /* margin-top: -50px; IPHONE */
+        padding: 0;
+    }
+
+    h4#CustomHTMLTitle {
+        color: #0278cc;
+        margin: 0;
+        /* margin-top: -50px; IPHONE */
+        padding: 0;
+    }
+
+    h4#CustomHTMLTitle4 {
+        color: #bd1a20;
+        margin: 0;
+        /* margin-top: -50px; IPHONE */
+        padding: 0;
+    }
+
+    .loading {
+        display: table;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 90%;
+        margin-top: 75px;
+        background: linear-gradient(135deg, rgba(76,76,76,1) 0%,rgb(206, 206, 206) 4%,rgb(196, 196, 196) 14%,rgb(241, 241, 241) 51%,rgb(231, 231, 231) 58%,rgb(209, 209, 209) 71%,rgb(184, 184, 184) 93%,rgb(105, 105, 105) 100%);
+        z-index: 5;
+    }
+
+        .loading .progress {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            color: rgb(37, 37, 37);
+            font-size: 4em;
+            font-weight: 900;
+        }
+
+    .loader {
+        display: block;
+        margin: auto;
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 26px solid #383838;
+        border-bottom: 26px solid #bafabe;
+        border-left: 26px solid #189cf4;
+        border-right: 26px solid #74bb1e;
+        width: 100px;
+        height: 100px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 1s linear infinite;
+    }
+
+    .navbar button .icon-bar {
+        background: #282380;
+        width: 30px;
+        height: 5px;
+        border-radius: 2px;
+        display: block;
+        margin: 7px auto 2px;
+    }
+
+    .navbar {
+        color: #fff;
+        /* margin-top: 12px; */
+    }
+
+    svg:not(:root).svg-inline--fa {
+        overflow: visible;
+        width: auto;
+        height: 40px;
+    }
+
+    .navbar button {
+        height: 50px;
+        width: 50px;
+        border: 1px #ffffff;
+        padding: 0;
+        /* margin-top: 2px; */
+    }
+
+    body {
+        background-color: rgba(221, 221, 221, 0.726);
+        background-blend-mode: multiply;
+        background: rgba(226, 226, 226, 0.658) url(../../../images/hjtw.jpg) 0 0 no-repeat;
+        margin: 0;
+        background-size: cover;
+        min-height: 100vh;
+        min-width: 320px;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        background-position: left bottom;
+        font-family: 'Noto Sans TC', '微軟正黑體';
+    }
+
+    button.dt-button.buttons-excel.buttons-html5 {
+        position: absolute;
+        z-index: 3;
+        margin-top: -89px;
+        margin-left: 83.3%;
+        border-radius: 5px;
+        background-color: #404e5c;
+        color: white;
+        font-family: 'Noto Sans TC', '微軟正黑體' !important;
+        border: 0;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 6px 12px 6px 12px;
+    }
+
+    table#example {
+        display: block;
+        height: 75vh;
+        margin: 10px;
+        width: 98.5% !important;
+        border: 1px solid #333;
+        overflow: auto;
+        font-size: 1.9vh;
+        white-space: nowrap;
+    }
+}
+/* ______________________________iphone UI___________________________________________ */
+
+
+#mybody .container {
+  border-top-right-radius: .5rem;
+  border-top-left-radius: .5rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  margin: 0 auto;
+  padding: 0;
+  width: 85%;
+}
+#mybody .rowContentWrapper {
+    display: flex;
+    /* max-height: 70vh; */
+    /* min-height: 70vh; */
+    /* overflow-y: scroll; */
+}
+#mybody label {
+  display: block;
+  padding: .8rem;
+  margin: 0;
+  width: 100%;
+  color: #Fff;
+  background-color: #0e8845;
+  border-radius: 5px;
+}
+#mybody .rowContentWrapper .col-sm-12 {
+  border-bottom: 1px dashed #ddd;
+  display: flex;
+}
+#mybody .rowContentWrapper .col-sm-12 .title {
+  text-align: right;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0.8rem;
+  width: 24%;
+  border-right: 1px solid #eee;
+  padding-right: 1rem;
+}
+#mybody .rowContentWrapper .col-sm-12 .text {
+  text-align: left;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0.8rem;
+  width: 24%;
+  border-right: 1px solid #eee;
+  padding-right: 1rem;
+}
+#mybody .rowContentWrapper .col-sm-12 .text3 {
+  display: flex;
+  align-items: center;  /* 垂直置中 */
+  text-align: left;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0.8rem;
+  width: 48%;
+  border-right: 1px solid #eee;
+  padding-right: 1rem;
+}
+
+#mybody .rowContentWrapper .col-sm-12 .title2 {
+  text-align: right;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0.8rem;
+  width: 40;
+  border-right: 1px solid #eee;
+  padding-right: 1rem;
+}
+#mybody .rowContentWrapper .col-sm-12 .text2 {
+  text-align: left;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0.8rem;
+  width: 40%;
+  border-right: 1px solid #eee;
+  padding-right: 1rem;
+}
+ 
+#mybody .rowContentWrapper input, 
+#mybody .rowContentWrapper select {
+  border-bottom: 1px sold #ccc;
+  max-height: 3rem;
+  margin: .8rem;
+  width: 70%;
+}
+#mybody .rowContentWrapper textarea {
+  border-bottom: 1px sold #ccc;
+  max-height: 15rem;
+  margin: .8rem;
+  resize: none;
+  width: 70%;
+
+}
+.btnTools {
+  background-color: #fff;
+  border-bottom-right-radius: .5rem;
+  border-bottom-left-radius: .5rem;
+  text-align: right;
+  margin: 0 auto;
+  padding: 1rem 0;
+  width: 85%;
+}
+.btnTools .row {
+  margin: 0 auto;
+  padding: 0;
+}
+@media screen and (max-width: 550px ) {
+  #mybody .rowContentWrapper {
+    border-bottom-right-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+    min-width: 320px
+  }
+  #mybody .rowContentWrapper .col-sm-12,
+  #mybody .rowContentWrapper .col-sm-12 :nth-child(odd) {
+    border-right: 0;
+    display: block;
+    text-align: left;
+
+  }  
+  #mybody .rowContentWrapper .col-sm-12 :nth-child(even) {
+
+  }
+  #CUR_STATUS, #mybody .rowContentWrapper input, 
+  #mybody .rowContentWrapper select, 
+  #mybody .rowContentWrapper textarea {
+    width: 95%;
+  }
+}
+.returnMsg {
+  background-color: #d4012f;
+  /* 綠色 #008626  */
+  border-radius: .5rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: .3rem;
+  justify-content: center;
+}
+
+
+#EQP_NAME {
+    max-height: 3rem;
+    margin: 0.8rem;
+    width: 50% !important;
+}
+
+
+

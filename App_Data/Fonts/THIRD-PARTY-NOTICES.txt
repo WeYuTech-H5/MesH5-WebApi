@@ -1,0 +1,13 @@
+This application bundles the following fonts under SIL Open Font License 1.1 (see OFL.txt):
+
+- Noto Sans (Regular, Bold), © Google and contributors
+  Source: https://github.com/notofonts/noto-fonts
+
+- Noto Sans Thai (Regular, Bold), © Google and contributors
+  Source: https://github.com/notofonts/noto-fonts
+
+- Noto Sans TC (Regular, Bold), © Google and contributors
+  Source: https://github.com/notofonts/noto-cjk
+
+- Noto Serif TC (Regular, Bold), © Google and contributors
+  Source: https://github.com/notofonts/noto-cjk

@@ -1,0 +1,78 @@
+#carousel-container {
+    max-width: 1200px;
+    min-width: 95%;
+    overflow: hidden;
+    margin: auto;
+    text-align: center;
+}
+#carousel-btn {
+    margin: auto;
+    width: 100%;
+    padding: 1rem 0;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    position: sticky;
+    bottom: 0;
+}
+#carousel-btn .btnWrapper {
+    display: flex;
+    margin: auto;
+    width: 320px;
+}
+#pagination {
+    background-color: #4791ca70;
+    border: 1px solid #4791ca;
+    border-radius: .3rem;
+    color: #fff;
+    display: flex;
+    margin: auto;
+    padding: .2rem 1rem;
+    text-align: center;
+}
+
+#carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    flex: 0 0 100%; /* Make each item occupy the full width of the container */
+}
+.btn {
+    background-color: #4791ca70;
+    border: 1px solid #4791ca;
+    border-radius: 50px;
+    color: #fff;
+    font-family: Arial;
+    font-size: 1em;
+    font-weight: bold;
+    padding: .3rem .7rem;
+}
+.btn:hover {
+    background-color: #4791ca;
+}
+.theCard {
+    background-color: #051b488a;
+    border: 1px solid #42cbff8f;
+}
+h3 {
+    color: #fff;
+}
+#tableWrapper {
+  border: 1px solid #3f81de;
+  border-radius: 5px;
+  background-color: rgba(47, 134, 255, 0.132);
+  margin: auto 3rem;
+  padding: 1rem;
+}
+
+@media all and (max-width:320px) {
+    #carousel-container {
+        width: 100%;
+    }
+    #tableWrapper {
+      margin: auto 0;
+      padding: 0;
+    }
+}

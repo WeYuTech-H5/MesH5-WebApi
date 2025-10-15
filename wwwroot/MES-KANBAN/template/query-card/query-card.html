@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link href="../../css/weyu/input.css" rel="stylesheet" />
+    <link href="../../css/weyu/weyu_right_navbar.css" rel="stylesheet" />
+    <link href="../../css/comm/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../css/weyu/template-menu.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="query-card.css" />
+    <link rel="stylesheet"  href="../../img/fontawesome-free-6.7.1-web/css/all.min.css"/>
+    <link rel="stylesheet" href="../../css/comm/daterangepicker.css"/>
+  </head>
+  <body onload="onLoad()">
+    <div class="relative min-h-full" style="z-index: 1">
+      <header class="flex items-center w-full mt-2 overflow-hidden pb-2">
+        <div class="box-header">
+          <button id="menu" class="btn transparent-btn pl-4" aria-expanded="false">
+            <img id="menu-image" src="../../img/comm/icons/hamburger.svg" alt="Menu" />
+          </button>
+          <div id="dropdownMenu" class="menu-content">
+            <div class="d-flex h-100">
+              <button id="closeButton">
+                <img id="close-image" src="../../img/comm/icons/close.svg" alt="Menu" />
+              </button>
+              <div class="menu-tot">
+                <div class="menu-1">
+                  <li>
+                    <a class="dropdown-item-title" href="../../index.html">返回首頁</a>
+                  </li>
+                </div>
+                <div class="menu-2">
+                  <ul id="Menu" class="dropdown-item"></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a id="logotext" href="../../index.html" class="fs-4 fw-bold"></a>
+        </div>
+        <div class="box-header">
+          <div class="fw-bold fs-5 Lang">
+            <span class="Lang">全機台瓦斯使用量推移圖</span>
+          </div>
+        </div>
+        <div class="box-header">
+          <div class="time" id="current-time"></div>
+          <div id="settings">
+            <img id="settings-image" src="../../img/comm/user-gear-solid.svg" class="settings" alt="Settings" />
+          </div>
+          <div id="dropdown-menu" class="dropdown-content hidden">
+            <div id="langueStatus">Language Status</div>
+            <div id="accountStatus">Account Status</div>
+            <div id="logout">Logout</div>
+          </div>
+        </div>
+      </header>
+      <!-- 主設計 START -->
+      <div class="card-container">
+        <div class="queryCard">
+          <!-- 上方功能方塊 -->
+          <div class="row align-items-center mb-3">
+            <div class="col-md-6 col-xl-3 mb-2">
+              <div class="input-group">
+                <span class="input-group-text fw-bold">種類</span>
+                <select class="form-select shadow-none" id="chartType">
+                  <option value="line">折線圖</option>
+                  <option value="bar">柱狀圖</option>
+                  <!-- Add more options as needed -->
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-3 mb-2">
+              <div class="input-group">
+                <span class="input-group-text fw-bold">間隔</span>
+                <select class="form-select shadow-none" id="timePeriod">
+                  <option value="hr">時</option>
+                  <option value="day">日</option>
+                  <option value="month">月</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-3 col-xxl-4 mb-2">
+              <div class="input-group timePeriodPicker">
+                <span class="input-group-text fw-bold">範圍</span>
+                <input
+                  type="text"
+                  id="dateRange"
+                  class="form-control shadow-none bg-white"
+                  placeholder="Select date range"
+                  readonly
+                />
+              </div>
+  
+            </div>
+            <div class="col-md-6 col-xl-3 col-xxl-2 mb-2 ps-0 d-flex justify-content-end">
+              <div
+                class="btn-toolbar gap-1"
+                role="toolbar"
+                aria-label="Toolbar"
+              >
+                <button
+                  id="isStackBtn"
+                  type="button"
+                  class="btn"
+                  title="堆疊圖"
+                >
+                  <i class="fa-solid fa-layer-group"></i>
+                </button>
+                <div class="btn-group" role="group" aria-label="Button Group">
+                  <button
+                    type="button"
+                    class="btn shadow-none switchBtn selected"
+                    data-bs-target="#display-area"
+                    data-bs-slide-to="0"
+                    title="圖表"
+                  >
+                    <i class="fa-solid fa-chart-line"></i>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn shadow-none switchBtn"
+                    data-bs-target="#display-area"
+                    data-bs-slide-to="1"
+                    title="表格"
+                  >
+                    <i class="fa-solid fa-table-list"></i>
+                  </button>
+                </div>
+  
+                <button
+                  id="dropdownId"
+                  type="button"
+                  class="btn"
+                  data-bs-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  title="更多選項"
+                >
+                  <i class="fas fa-ellipsis-v"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownId">
+                  <a class="dropdown-item" href="#" id="downloadImageBtn"><i class="fa-solid fa-download text-secondary"></i> download Image</a>
+                  <a class="dropdown-item" href="#" id="downloadXlsxBtn"><i class="fa-solid fa-download text-secondary"></i> download Data</a>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <!-- 下方顯示區 -->
+          <div id="display-area" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item display-content active">
+                <!-- chart圖 -->
+                <div class="chart-display h-100" id="chartWrapper">
+                </div>
+              </div>
+              <div class="carousel-item display-content">
+                <!-- 資料Table -->
+                <div class="table-display h-100 overflow-auto">
+                  <table id="gridTable" class="table table-light">
+                    <!-- JS動態插入 -->
+                  </table>
+                </div>
+              </div>
+            </div>
+            <!-- 資料時間 -->
+            <div class="text-end fs-6 fw-light mt-3 me-3 updateTime"></div>
+          </div>
+        </div>
+      </div>
+      <!-- 主設計 END -->
+      <div
+        id="footer"
+        class="position-fixed bottom-0 right-0 left-0 w-100"
+      ></div>
+    </div>
+    <div class="mainBG fixed left-0 top-0 right-0 bottom-0"></div>
+
+    <script src="../../js/comm/bootstrap.min.js"></script>
+    <script src="../../js/comm/jquery.min.js"></script>
+    <script src="../../js/weyu/weyu_config.js"></script>
+    <script src="../../js/weyu/weyu_comm_api_function.js"></script>
+    <script src="../../js/weyu/weyu_comm_function.js"></script>
+    <script src="../../js/weyu/weyu_check.js"></script>
+    <script src="../../js/weyu/weyu_header.js"></script>
+    <script src="../../js/weyu/weyu_footer.js"></script>
+    <script src="../../js/weyu/weyu_right_navbar.js"></script>
+    <script src="../../js/weyu/menu.js"></script>
+
+    <script src="../../js/comm/echart.min.js"></script>
+
+    <script src="../../img/fontawesome-free-6.7.1-web/js/all.min.js"></script>
+    <script src="../../js/comm/moment.min.js"></script>
+    <script src="../../js/comm/daterangepicker.min.js"></script>
+	  <script src="../../js/comm/xlsx.full.min.js"></script>
+    <script src="query-card.js"></script>
+    <!-- 多語系翻譯 -->
+    <script type="text/javascript">
+      function onLoad() {
+        GetConfig();
+        SetDefaultSelectLang();
+        ChangeLang(); //多國語言翻譯
+        console.log("onLoad 成功");
+      }
+      // 左上LOGO文字
+      $("#logotext").html(PROJECT_SAVE_NAME);
+    </script>
+  </body>
+</html>

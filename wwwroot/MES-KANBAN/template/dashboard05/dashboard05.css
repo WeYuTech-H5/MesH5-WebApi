@@ -1,0 +1,272 @@
+body,
+html {
+  background-color: #162a58;
+  color: #fff;
+  text-align: center;
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90vh;
+  border: 1px solid #000;
+}
+
+.item {
+  flex: 1;
+  border: 1px solid red;
+}
+
+span {
+  display: block;
+}
+
+.main {
+  margin-left: .5rem;
+}
+
+.aside {
+  margin-left: -1.5rem;
+}
+
+.box,
+.boxFull {
+  background-color: rgba(255, 255, 255, 0.07);
+  border: 5px solid #17344e;
+  border-radius: 3px;
+  display: block;
+  margin-right: .3rem;
+  margin-bottom: .5rem;
+  padding-bottom: .5rem;
+  padding-top: .5rem;
+}
+
+.box-width-100 {
+  width: 100%;
+}
+
+.box-width-50 {
+  width: 50%;
+}
+
+.box-height-100 {
+  height: 97%;
+}
+
+.box-m-height-3 {
+  height: 30%;
+  padding: 1rem;
+}
+
+.box-m-height-2 {
+  height: 18%;
+  padding: 2rem;
+}
+
+.box2 {
+  width: calc(100% / 2);
+}
+
+.box5 {
+  height: 18vh;
+  width: calc(100% / 5);
+}
+
+.box4 {
+  width: calc(100% / 4) !important;
+}
+
+.canvasWrapper canvas {
+  height: 13vh;
+}
+
+.box2 .box canvas {
+  height: 22vh;
+}
+
+.box.active {
+  background-color: rgb(32, 198, 107);
+}
+
+.box.offline {
+  background-color: rgb(103, 109, 103);
+}
+
+.box.danger {
+  background-color: rgb(238, 53, 102);
+}
+
+.box.off {
+  background-color: rgb(246, 188, 27);
+}
+
+.box span {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.box small {
+  color: #ebce66;
+  margin-left: .3rem;
+}
+
+span.active {
+  color: rgb(32, 198, 107);
+}
+
+span.danger {
+  color: rgb(238, 53, 102);
+}
+
+span.off {
+  color: rgb(246, 188, 27);
+}
+
+#settings,
+#settings img {
+  right: 0;
+  margin: 0
+}
+
+#tableContainer {
+  overflow-y: hidden;
+  width: 100%;
+}
+
+#theTable {
+  margin-bottom: .5rem;
+  margin-top: .5rem;
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+}
+
+#theTable tr {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+#theTable tr:first-child {
+  background-color: #3052b8;
+}
+
+#theTable tr:nth-child(even) {
+  background-color: #1e2a72;
+}
+
+#theTable th,
+#theTable td {
+  border-bottom: 1px solid #17344e;
+  border: 2px solid #102232;
+  padding: .5rem;
+}
+
+#theTable button {
+  border: 0;
+  background-color: #307ac4;
+  border-radius: 5px;
+  color: #fff;
+  padding: .1rem 1rem;
+  text-align: center;
+  margin: auto;
+}
+
+.table {
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.table td,
+.table th {
+  padding: .5rem .25rem .5rem;
+}
+
+canvas {
+  margin: .5rem;
+}
+
+@media all and (max-width: 1200px) {
+  .d-flex {
+    display: block !important;
+  }
+
+  .box.box5,
+  .box4 .box {
+    width: 100%;
+    min-height: 50vh;
+    padding: 1rem
+  }
+
+  .box4,
+  .box.box-width-50,
+  .box2 {
+    width: 100% !important;
+  }
+
+  .main,
+  .aside {
+    margin: auto;
+    text-align: center;
+    width: 100% !important;
+    display: block !important;
+    max-width: 100% !important;
+    flex: none;
+  }
+
+  .boxWrapper {
+    min-height: 5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .box canvas {
+    height: 4rem !important;
+  }
+}
+
+@media all and (min-width: 768px) {
+  #theTable thead {
+    display: table;
+  }
+
+  #theTable tbody {
+    display: block;
+    width: 100%;
+  }
+
+  #timming {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+@media all and (max-width: 767px) {
+  #tableContainer {
+    height: 100vh;
+  }
+
+  #theTable thead {
+    display: table;
+    table-layout: fixed;
+  }
+
+  #theTable tbody {
+    display: block;
+    max-height: 100vh !important;
+    overflow-y: auto;
+    width: 100%;
+  }
+
+  .box span {
+    font-size: 1em;
+  }
+
+  #settings {
+    right: 2rem;
+  }
+}

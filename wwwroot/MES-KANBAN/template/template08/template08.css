@@ -1,0 +1,63 @@
+.allWrapper {
+  z-index: 10;
+}
+li {
+  overflow-x: hidden;
+}
+
+.chartWrapper {
+  height: 100%;
+  padding: 0 10px 10px 10px;
+}
+
+.bg-box {
+  background-color: #00000043;
+  border: 1px solid #90e3ff6b;
+  padding-bottom: 40px;
+  padding-top: 10px;
+  height: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+.bg-box div {
+  flex: 1;
+}
+
+.text-content {
+  height: 100%;
+}
+.text-content div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.text-content div:nth-child(1){
+  height: 20%;
+  font-size: clamp(1.5rem, 4vh, 3rem);
+  font-weight: bold;
+  color: gold
+}
+.text-content div:nth-child(2){
+  height: 80%;
+  font-size: clamp(3rem, 15vh, 7rem);
+  color: skyblue
+}
+
+/* 輪播表格 START */
+.slider-nav {
+  display: flex;
+  color: white;
+  font-weight: bold;
+  background-color: rgba(100, 100, 100, 0.8);
+}
+.slider-nav div {
+  padding: 3px 20px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  user-select: none;
+}
+.slider-nav div:hover, .slider-nav .active {
+  background-color: rgba(3, 157, 196, 0.6);
+}
+/* 輪播表格 END */

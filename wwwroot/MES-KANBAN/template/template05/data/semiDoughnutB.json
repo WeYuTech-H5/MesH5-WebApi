@@ -1,0 +1,20 @@
+{
+    "labels": [
+        "Good",
+        "NG"
+    ],
+    "datasets": [
+        {
+            "data": [
+            56,
+            44
+            ],
+            "backgroundColor": [
+                "#f4c23b",
+                "rgba(150, 150, 150, 0.1)"
+            ],
+            "borderWidth": 0
+        }
+    ]
+    
+}

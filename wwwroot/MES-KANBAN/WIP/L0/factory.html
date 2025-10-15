@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAB_Kanban</title>
+    <link href="../../../css/comm/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../css/comm/dataTables.min.css" rel="stylesheet" />
+    <link href="../../../css/weyu/weyu_right_navbar.css" rel="stylesheet" />
+    <link href="../../css/dashboard07.css" rel="stylesheet" />
+
+  </head>
+  <style>
+  #main,
+  #run_count,
+  #totaloutput,
+  #main2,
+  #totaloutput2 {
+    width: 100%;
+    height: 30vh;
+  }
+
+  /* 為 ECharts dataView 表格添加全局樣式 */
+  .echarts-custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #222;
+    /* 表格背景色 */
+  }
+
+  .echarts-custom-table th,
+  .echarts-custom-table td {
+    padding: 10px;
+    border: 1px solid #444;
+    text-align: center;
+    color: white;
+  }
+
+  .echarts-custom-table th {
+    background-color: #555;
+    font-weight: bold;
+  }
+
+  .echarts-custom-table tr:nth-child(even) {
+    background-color: #333;
+    /* 偶數行不同背景色 */
+  }
+</style>
+
+<body>
+  <div class="loading" id="loading">
+    <div class="progress" id="progress">
+      Loading
+      <div class="loader"></div>
+    </div>
+  </div>
+  <!-- 商標標題時間 -->
+  <header class="align-items-center w-100 pt-2 mb-2">
+    <div id="brand" class="col-4 d-flex">
+      <a id="logotext" href="../../../index.html"></a>
+      <a href="../../KANBAN-menu.html" style="margin-left: 30px;height: 100%">
+          <img src="../../../img/comm/icon-back-24.png" alt="上一頁" />
+      </a>
+    </div>
+    <div id="title" class="fs-4 col-4 text-center fw-bold">
+      Dashboard
+    </div>
+
+    <div id="settings" class="col-2 d-flex justify-content-end">
+      <div id="timming" class="mx-3">00:00</div>
+      <img id="settings-image" src="../../../img/comm/user-gear-solid.svg" style="height: 1.5rem; width: 1.5rem;margin:0"
+        alt="Settings" />
+    </div>
+    <div id="dropdown-menu" class="dropdown-content hidden">
+      <div id="langueStatus">Language Status</div>
+      <div id="accountStatus">Account Status</div>
+      <div id="logout">Logout</div>
+    </div>
+  </header>
+
+  <!-- 內容開始 -->
+
+  <!-- <div class="row mx-auto  mt-3">
+    <div class="col-lg-12 ">
+      <div class="box">
+        <div id="run_count"></div>
+      </div>
+    </div>
+  </div> -->
+  <div class="row mx-auto  mt-3">
+    <div class="col-lg-12 ">
+      <div class="box">
+        <div id="main"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row mx-auto  mt-3">
+    <div class="col-lg-12 ">
+      <div class="box">
+        <div id="totaloutput"></div>
+      </div>
+    </div>
+  </div>
+   <div class="row mx-auto  mt-3">
+    <div class="col-lg-12 ">
+      <div class="box">
+        <div id="main2"></div>
+      </div>
+    </div>
+  </div>
+    <div class="row mx-auto  mt-3">
+    <div class="col-lg-12 ">
+      <div class="box">
+        <div id="totaloutput2"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row mx-auto">
+    <div class="col-lg-12">
+      <!-- <p class="fs-4 mt-3" class="text-center mt-2 mb-1">EQP Monitor</p class="fs-4"> -->
+      <div id="tableContainer">
+        <table id="theTable"></table>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer" class="position-fixed bottom-0 right-0 left-0 w-100"></div>
+
+
+    <script src="../../../js/comm/jquery.min.js"></script>
+    <script src="../../../js/comm/bootstrap.min.js"></script>
+    <script src="../../../js/weyu/weyu_config.js"></script>
+    <script src="../../../js/comm/dataTables.min.js"></script>
+    <script src="../../../js/weyu/weyu_comm_api_function.js"></script>
+    <script src="../../../js/weyu/weyu_header.js"></script>
+    <script src="../../../js/weyu/weyu_footer.js"></script>
+    <script src="../../../js/weyu/weyu_right_navbar.js"></script>
+    <script src="../../../js/weyu/weyu_menu_bs.js"></script>
+    <script src="../../../js/comm/echart.min.js"></script>
+
+    <script src="../../../js/comm/eqp/Chart.min.js"></script>
+    <script src="../../../js/comm/Chart.bundle.js"></script>
+    
+    
+    <script src="./factory.js"></script>
+    <script type="text/javascript">
+      function onLoad() {
+          GetConfig();
+          SetDefaultSelectLang();
+          ChangeLang();//多國語言翻譯
+          console.log('onLoad 成功')
+      };
+      // 左上LOGO文字
+      $('#logotext').html(PROJECT_SAVE_NAME);
+  
+    </script>
+  </body>
+</html>

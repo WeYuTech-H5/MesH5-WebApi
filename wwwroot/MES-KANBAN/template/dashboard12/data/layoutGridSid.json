@@ -1,0 +1,306 @@
+{
+    "result": true,
+    "Report_Schema": [
+        {
+            "QR_SID": 332245892683112,
+            "QR_CODE": "V_ZZ_2PCT_ITEM_LAST_DATA",
+            "QR_NAME": "V_ZZ_2PCT_ITEM_LAST_DATA",
+            "MASTER_SQL": "SELECT * FROM V_ZZ_2PCT_ITEM_LAST_DATA WHERE {CON}",
+            "VALID_GRID": "true",
+            "VALID_CHART": "false",
+            "CREATE_USER": "ADMINV2",
+            "CREATE_TIME": "2023-11-10T10:31:33.337",
+            "EDIT_USER": "ADMINV2",
+            "EDIT_TIME": "2023-11-10T10:31:33.337",
+            "CHART_TITLE": "",
+            "CHART_SUB_TITLE": "",
+            "DBLink": "SELF",
+            "VALID_REFRESH": "false",
+            "VALID_EXPORT": "false",
+            "xRotation": 0,
+            "VALID_PAGE": "true                                              ",
+            "GETDATAWHENFIRSTOPEN": null,
+            "SHOWGRIDTITLE": "true                                              ",
+            "GRIDROWBACKGROUND_FIELD": "",
+            "GRIDROWFOREGROUND_FIELD": "",
+            "ADDED_SQL": ""
+        }
+    ],
+    "Query_Cond": [],
+    "Grid_Schema": [
+        {
+            "QR_SID": 332245892683112,
+            "GRID_SID": 332245893447554,
+            "VALID_GRID": "true",
+            "ROWNUM": 10,
+            "VALID_REFRESH": "false",
+            "GRID_CAPTION": "",
+            "FIELDNAME": "AUTODC_ITEM",
+            "FIELDDATATYPE": "System.String",
+            "SHOW": "Yes",
+            "CAPTION": "AUTODC_ITEM",
+            "WIDTH": 0,
+            "CREATE_USER": "ADMINV2",
+            "CREATE_TIME": "2023-11-10T10:31:33.583",
+            "EDIT_USER": "ADMINV2",
+            "EDIT_TIME": "2023-11-10T10:31:33.583",
+            "SEQ": 1,
+            "COLOR_OP": "",
+            "COLOR_OP_VALUE": "",
+            "FIELD_COLOR": "",
+            "CanHyperLink": "",
+            "HyberLinkURL": "",
+            "HyperLinkFields": "",
+            "HyberLinkTitle": "",
+            "IFrameLoad": ""
+        },
+        {
+            "QR_SID": 332245892683112,
+            "GRID_SID": 332245893593328,
+            "VALID_GRID": "true",
+            "ROWNUM": 10,
+            "VALID_REFRESH": "false",
+            "GRID_CAPTION": "",
+            "FIELDNAME": "DC_ITEM_NAME",
+            "FIELDDATATYPE": "System.String",
+            "SHOW": "Yes",
+            "CAPTION": "DC_ITEM_NAME",
+            "WIDTH": 0,
+            "CREATE_USER": "ADMINV2",
+            "CREATE_TIME": "2023-11-10T10:31:33.593",
+            "EDIT_USER": "ADMINV2",
+            "EDIT_TIME": "2023-11-10T10:31:33.593",
+            "SEQ": 2,
+            "COLOR_OP": "",
+            "COLOR_OP_VALUE": "",
+            "FIELD_COLOR": "",
+            "CanHyperLink": "",
+            "HyberLinkURL": "",
+            "HyperLinkFields": "",
+            "HyberLinkTitle": "",
+            "IFrameLoad": ""
+        },
+        {
+            "QR_SID": 332245892683112,
+            "GRID_SID": 332245893593755,
+            "VALID_GRID": "true",
+            "ROWNUM": 10,
+            "VALID_REFRESH": "false",
+            "GRID_CAPTION": "",
+            "FIELDNAME": "AUTODC_OUTPUT",
+            "FIELDDATATYPE": "System.Decimal",
+            "SHOW": "Yes",
+            "CAPTION": "AUTODC_OUTPUT",
+            "WIDTH": 0,
+            "CREATE_USER": "ADMINV2",
+            "CREATE_TIME": "2023-11-10T10:31:33.593",
+            "EDIT_USER": "ADMINV2",
+            "EDIT_TIME": "2023-11-10T10:31:33.593",
+            "SEQ": 3,
+            "COLOR_OP": "",
+            "COLOR_OP_VALUE": "",
+            "FIELD_COLOR": "",
+            "CanHyperLink": "",
+            "HyberLinkURL": "",
+            "HyperLinkFields": "",
+            "HyberLinkTitle": "",
+            "IFrameLoad": ""
+        },
+        {
+            "QR_SID": 332245892683112,
+            "GRID_SID": 332245893597826,
+            "VALID_GRID": "true",
+            "ROWNUM": 10,
+            "VALID_REFRESH": "false",
+            "GRID_CAPTION": "",
+            "FIELDNAME": "DESCRIPTION",
+            "FIELDDATATYPE": "System.String",
+            "SHOW": "Yes",
+            "CAPTION": "DESCRIPTION",
+            "WIDTH": 0,
+            "CREATE_USER": "ADMINV2",
+            "CREATE_TIME": "2023-11-10T10:31:33.597",
+            "EDIT_USER": "ADMINV2",
+            "EDIT_TIME": "2023-11-10T10:31:33.597",
+            "SEQ": 4,
+            "COLOR_OP": "",
+            "COLOR_OP_VALUE": "",
+            "FIELD_COLOR": "",
+            "CanHyperLink": "",
+            "HyberLinkURL": "",
+            "HyperLinkFields": "",
+            "HyberLinkTitle": "",
+            "IFrameLoad": ""
+        }
+    ],
+    "Grid_Data": [
+        {
+            "AUTODC_ITEM": "2PCT40900",
+            "DC_ITEM_NAME": "二外氣溫度",
+            "AUTODC_OUTPUT": 24.8,
+            "DESCRIPTION": "A1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40901",
+            "DC_ITEM_NAME": "外氣濕度",
+            "AUTODC_OUTPUT": 63,
+            "DESCRIPTION": "B1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40902",
+            "DC_ITEM_NAME": "水管壓力",
+            "AUTODC_OUTPUT": 2.14,
+            "DESCRIPTION": "C1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40903",
+            "DC_ITEM_NAME": "管路溫度T6 (回水)",
+            "AUTODC_OUTPUT": 28.1,
+            "DESCRIPTION": "D1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40904",
+            "DC_ITEM_NAME": "管路壓力",
+            "AUTODC_OUTPUT": 2.15,
+            "DESCRIPTION": "E1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40905",
+            "DC_ITEM_NAME": "管路溫度T5 (出水)",
+            "AUTODC_OUTPUT": 24.5,
+            "DESCRIPTION": "F1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40906",
+            "DC_ITEM_NAME": "變頻器EV3FAN  ",
+            "AUTODC_OUTPUT": 42.74,
+            "DESCRIPTION": "G1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40907",
+            "DC_ITEM_NAME": "變頻器EV1內循環  ",
+            "AUTODC_OUTPUT": 57.55,
+            "DESCRIPTION": "H1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40908",
+            "DC_ITEM_NAME": "變頻器EV5外循環  ",
+            "AUTODC_OUTPUT": 48,
+            "DESCRIPTION": "I1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40909",
+            "DC_ITEM_NAME": "變頻器EV4FAN  ",
+            "AUTODC_OUTPUT": 42.64,
+            "DESCRIPTION": "J1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40911",
+            "DC_ITEM_NAME": "變頻器EV6外循環  ",
+            "AUTODC_OUTPUT": 48,
+            "DESCRIPTION": "L1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40912",
+            "DC_ITEM_NAME": "管路溫度T3  ",
+            "AUTODC_OUTPUT": 25.6,
+            "DESCRIPTION": "M1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40913",
+            "DC_ITEM_NAME": "管路溫度T1  ",
+            "AUTODC_OUTPUT": 26.4,
+            "DESCRIPTION": "N1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40914",
+            "DC_ITEM_NAME": "變頻器EV2內循環  ",
+            "AUTODC_OUTPUT": 0,
+            "DESCRIPTION": "O1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40915",
+            "DC_ITEM_NAME": "管路溫度T4  ",
+            "AUTODC_OUTPUT": 29,
+            "DESCRIPTION": "P1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40916",
+            "DC_ITEM_NAME": "管路溫度T2  ",
+            "AUTODC_OUTPUT": 27.6,
+            "DESCRIPTION": "Q1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40917",
+            "DC_ITEM_NAME": "變頻器頻率1  ",
+            "AUTODC_OUTPUT": 57.55,
+            "DESCRIPTION": "R1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40918",
+            "DC_ITEM_NAME": "變頻器頻率2  ",
+            "AUTODC_OUTPUT": 0,
+            "DESCRIPTION": "S1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40919",
+            "DC_ITEM_NAME": "變頻器頻率3  ",
+            "AUTODC_OUTPUT": 42.74,
+            "DESCRIPTION": "T1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40920",
+            "DC_ITEM_NAME": "變頻器頻率4",
+            "AUTODC_OUTPUT": 42.64,
+            "DESCRIPTION": "U1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40921",
+            "DC_ITEM_NAME": "變頻器頻率5",
+            "AUTODC_OUTPUT": 48,
+            "DESCRIPTION": "V1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40922",
+            "DC_ITEM_NAME": "變頻器頻率6",
+            "AUTODC_OUTPUT": 48,
+            "DESCRIPTION": "W1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40932",
+            "DC_ITEM_NAME": "變頻器-1運轉 ",
+            "AUTODC_OUTPUT": 1,
+            "DESCRIPTION": "X1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40936",
+            "DC_ITEM_NAME": "變頻器-2運轉  ",
+            "AUTODC_OUTPUT": 0,
+            "DESCRIPTION": "Y1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40940",
+            "DC_ITEM_NAME": "變頻器-3運轉",
+            "AUTODC_OUTPUT": 1,
+            "DESCRIPTION": "Z1"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40944",
+            "DC_ITEM_NAME": "變頻器-4運轉",
+            "AUTODC_OUTPUT": 1,
+            "DESCRIPTION": "A2"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40948",
+            "DC_ITEM_NAME": "變頻器-5運轉",
+            "AUTODC_OUTPUT": 1,
+            "DESCRIPTION": "B2"
+        },
+        {
+            "AUTODC_ITEM": "2PCT40952",
+            "DC_ITEM_NAME": "變頻器-6運轉",
+            "AUTODC_OUTPUT": 1,
+            "DESCRIPTION": "C2"
+        }
+    ]
+}

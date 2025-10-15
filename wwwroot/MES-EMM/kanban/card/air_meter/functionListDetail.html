@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title class="Lang">Air Meter Current Info</title>
+    <link href="../../../css/comm/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../../css/weyu/footer.css" rel="stylesheet" />
+    <link href="../../../css/weyu/functionList.css" rel="stylesheet" />
+    <link href="../../../css/weyu/functionListDetail.css" rel="stylesheet" />
+    <link href="../../../css/weyu/defaultBTN.css" rel="stylesheet" />
+    <link href="../../../css/weyu/user_account.css" rel="stylesheet" />
+    <link href="../../../css/weyu/offcanvas.css" rel="stylesheet" />
+  </head>
+  <body onload="onLoad()">
+    <div class="container">
+      <div class="row">
+        <div class="col-9">
+          <h1>
+            <button
+              class="btn"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasExample"
+              aria-controls="offcanvasExample"
+            >
+              <img src="../../../img/zz/hamburger.svg" class="btnHamburger w-5" />
+            </button>
+            <a href="../../../EMS-index.html" class="text-decoration-none text-white fs-4 fs-bold">
+              EMS RWD
+            </a>
+            <span class="Lang">Air Meter Current Info</span>
+          </h1>
+        </div>
+        <div class="col-3 text-end">
+          <div class="dropdown" id="mainMenu">
+            <button class="btn btn-secondary dropdown-toggle mainMenu-btn mt-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../../../img/zz/user-gear-solid.svg" class="" style="height: 1.5rem" alt="account">
+            </button>
+            <ul class="dropdown-menu dropdown-content" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" id="langueStatus">ENGLISH</a></li>
+              <li><a class="dropdown-item" id="accountStatus">Account</a></li>
+              <li><a class="dropdown-item" id="changePassword">Change Password</a></li>
+              <li><a class="dropdown-item" id="logout">Logout</a></li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="container-fluid menu">
+      <div class="row">
+        <div class="col-12">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="d-flex justify-content-start align-items-center py-3">
+                  <button class="ms-2 btn btn-active d-flex align-items-center" id="btnBackURL">
+                    <img src="../../../img/comm/circle-chevron-left-solid.svg" alt="">
+                    <span class="Lang">Back</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-3">
+      <div class="row">
+        <div id="meter-container" class="col-md-12">
+          <div class="container">
+            <!-- 標題 -->
+            <div class="row">
+              <div class="col-md-6 d-flex contentTitle">
+                 <h3><strong id="FAB" class="fs-2">FAB</strong> (<span id="EQPNAME" class="fs-6"></span>)</h3>
+              </div>
+              <div class="col-md-6 contentTitle text-end">
+                <h3><span id="dateTime">2024-08-09</span></h3>
+              </div>
+            </div>
+            <!--  內容區  -->
+            <div class="row panelDetailWrapper">
+              <div class="col-md-6 panelDetail">
+                <div class="canvasWrapper">
+                  <h4 class="Lang">Temperature</h4>
+                  <canvas id="beBoxA"></canvas>
+                </div>
+              </div>
+              <div class="col-md-6 panelDetail">
+                <div class="canvasWrapper">
+                  <h4 class="Lang">Pressure</h4>
+                  <canvas id="beBoxB"></canvas>
+                </div>
+              </div>
+              <div class="col-md-12 panelDetail">
+                <div class="canvasWrapper">
+                  <h4 class="Lang">Frequency</h4>
+                  <canvas id="beBoxC"></canvas>
+                </div>
+              </div>
+              <div class="col-md-6 panelDetail">
+                <div class="canvasWrapper">
+                  <h4 class="Lang">Instant Flow</h4>
+                  <canvas id="beBoxD"></canvas>
+                </div>
+              </div>
+              <div class="col-md-6 panelDetail">
+                <div class="canvasWrapper">
+                  <h4 class="Lang">Cumulative Flow</h4>
+                  <canvas id="beBoxE"></canvas>
+                </div>
+              </div>
+              
+              <!-- <div class="col-md-6 panelDetail">
+                <div class="canvasWrapper">
+                  <h4>PF</h4>
+                  <canvas id="beBoxF"></canvas>
+                </div>
+              </div> -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer" class="fixed bottom-0 w-full"></div>
+    <script src="../../../js/weyu/weyu_footer2.js"></script>
+    <script src="../../../js/comm/jquery.min.js"></script>
+    <script src="../../../js/comm/bootstrap.min.js"></script>
+    <script src="../../../js/comm/Chart.bundle.js"></script>
+    <script src="../../../js/comm/cdn.jsdelivr.net_npm_chart.js"></script>
+    <script src="../../../js/weyu/weyu_config.js"></script>
+    <script src="../../../js/weyu/weyu_comm_api_function.js"></script>
+    <script src="../../../js/weyu/weyu_comm_function.js"></script>
+    <script src="../../../js/weyu/weyu_sidebar_menu.js"></script>
+    <script src="functionListDetail.js"></script>
+    <script src="../../../js/weyu/weyu_header.js"></script>
+    <script src="../../../js/weyu/weyu_footer.js"></script>
+
+    <!-- 多語系翻譯 -->
+    <script type="text/javascript">
+      function onLoad() {
+        GetConfig();
+        SetDefaultSelectLang();
+        ChangeLang(); //多國語言翻譯
+      }
+      // 左上LOGO文字
+      $("#logotext").html(PROJECT_SAVE_NAME);
+    </script>
+    <script>
+      $(document).ready(function () {
+        $(".subMenu").click(function () {
+          $(".subMenu li").toggle();
+        });
+      });
+    </script>
+
+    <script>
+      function functionList() {
+        document.body.style.opacity = 0;
+        setTimeout(function () {
+          window.location.href = "functionList.html";
+        }, 500);
+      }
+    </script>
+  </body>
+</html>

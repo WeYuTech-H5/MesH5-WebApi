@@ -1,0 +1,21 @@
+[
+    {
+        "LV": "L1",
+        "URL": "MES-KANBAN/KANBAN-menu.html"
+    },
+    {
+        "LV": "L2",
+        "MODULE_NAME": "SMART_MASTER",
+        "BUTTON": "A",
+        "URL": "MES-ADM/ADM_GridMenu.html?MODULE_TYPE=MES-ADM&MODULE_NAME=SMART_MASTER&LEVEL=L1"
+    },
+
+
+
+    {
+        "LV": "L2",
+        "MODULE_NAME": "USER_AUTHZ",
+        "BUTTON": "A",
+        "URL": "MES-ADM/ADM_GridMenu.html?MODULE_TYPE=MES-ADM&MODULE_NAME=USER_AUTHZ&LEVEL=L1"
+    }
+]

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>WeyuBoard</title>
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <link href="../../../css/comm/dataTables.min.css" rel="stylesheet">
+    <link href="../../../css/comm/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../css/zz/eqp-status-change.css" rel="stylesheet" media="all">
+    <link href="../css/jquery.datetimepicker.min.css" rel="stylesheet">
+    <link href="../../../css/weyu/input.css" rel="stylesheet">
+    <link href="../../../css/weyu/weyu_right_navbar.css" rel="stylesheet">
+    <link href="../../css/wo-check-in-out.css" rel="stylesheet">
+  </head>
+
+  <body onload="onLoad()" style="overflow-x: hidden">
+    <!-- ------------------------------------------------------------------------------ loading -->
+
+    <div class="loading" id="loading">
+      <div class="progress" id="progress">
+        Loading
+        <div class="loader"></div>
+      </div>
+    </div>
+
+    <header>
+      <button
+        class=""
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasWithBothOptions"
+        aria-controls="offcanvasWithBothOptions"
+        style="background: transparent; border: 0"
+        disabled
+      >
+        <img src="../../../img/comm/icons/hamburger.svg" alt="Menu" />
+      </button>
+
+      <div
+        class="offcanvas offcanvas-start"
+        data-bs-scroll="true"
+        tabindex="-1"
+        id="offcanvasWithBothOptions"
+        aria-labelledby="offcanvasWithBothOptionsLabel"
+        style="background-color: #162a58"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+            Title
+          </h5>
+          <button
+            type="button"
+            class=""
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+            style="background: transparent; border: 0"
+          >
+            <img src="../../../img/comm/icons/close.svg" alt="Menu" />
+          </button>
+        </div>
+        <div id="menuList" class="offcanvas-body"></div>
+      </div>
+
+      <h1
+        style="
+          font-size: 1.25em;
+          font-weight: bold;
+          line-height: 1;
+          margin-top: 0.5em;
+        "
+      >
+        <a id="logotext" href="../../../index.html">Title</a>
+      </h1>
+      <div id="midtitle" class="title Lang">WO Report OPI</div>
+      <div id="welcome"></div>
+      <div id="settings">
+        <img
+          id="settings-image"
+          src="../../../img/comm/user-gear-solid.svg"
+          style="height: 1.5rem; width: 1.5rem"
+          alt="Settings"
+        />
+      </div>
+
+      <div id="dropdown-menu" class="dropdown-content hidden">
+        <div id="langueStatus">Language Status</div>
+        <div id="accountStatus">Account Status</div>
+        <div id="logout">Logout</div>
+      </div>
+    </header>
+    <div id="layout1">
+      <!-- 共用按鈕 -->
+      <button id="backButton" class="btn tit Lang"><img src="../../../img/comm/circle-chevron-left-solid.svg" alt="返回前頁"><span class="Lang">Back</span></button>
+  </div>
+    <!-- -----------------------------------------------主要內容 -->
+    <div style="margin-top:20px" id="mybody">
+      <div class="container">
+        <div class="row rowContentWrapper">
+          <div class="col-sm-12">
+            <div class="Lang title">Department</div>
+            <div class="Lang text fs-2" id="DEPARTMENT"></div>
+          </div>
+          <div class="col-sm-12">
+            <div class="Lang title">Account</div>
+            <div class="Lang text d-flex flex-column gap-4">
+              <button class="input-button" id="ACCOUNT_NO_1">select user1</button>
+              <button class="input-button" id="ACCOUNT_NO_2">select user2</button>
+            </div>
+            <div class="Lang title">Equipment</div>
+            <div class="Lang text d-flex flex-column">
+              <button class="input-button" id="EQP_NO">select equipment</button>
+              <div id="EQPNAME"></div>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="Lang title">Work Order</div>
+            <div class="Lang text d-flex flex-column">
+              <button class="input-button" id="WO">select MO</button>
+            </div>
+            <div class="Lang title">WC</div>
+            <div class="Lang text" id="WC"></div>
+          </div>
+          <div class="col-sm-12">
+            <div class="Lang title">Part Number</div>
+            <div class="Lang text" id="PART_NO"></div>
+            <div class="Lang title">Planned Quantity</div>
+            <div class="Lang text" id="ERP_QTY"></div>
+          </div>
+          <div class="col-sm-12">
+            <div class="Lang title">Check-In Time</div>
+            <div class="Lang text d-flex flex-column">
+              <button class="input-button" id="CHECK_IN_TIME" disabled>select check-in time</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container btnTools">
+      <div class="row">
+        <div class="col-sm-12 d-flex justify-content-center">
+          <button type="button" id="checkInBtn" class="Lang button button-blue">Check-In</button>
+        </div>
+      </div>
+    </div>
+
+  <div class="modal fade" id="optionModal" tabindex="-1" aria-labelledby="optionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-fullscreen-md-down">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Click to select</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row align-items-center mb-3 bg-primary-subtle p-1 rounded-3">
+            <label for="keyword" class="col-auto col-form-label fs-4">Search</label>
+            <div class="col">
+              <input type="text" class="form-control" id="keyword" autocomplete="off">
+            </div>
+          </div>
+          <div class="option-content">
+          </div>
+        </div>
+        <div class="modal-footer" id="woMaintainLink">
+          <a href="">Can't find WO? click here to add.</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="timeModal" tabindex="-1" aria-labelledby="timeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-fullscreen-lg-down">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Click to select</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h2>Date:</h2>
+          <input type="date" id="selectDate">
+          <br>
+          <h2>Time:</h2>
+          <input type="time" id="selectTime">
+          <br>
+          <div id="ganttWrapper" class="chartWrapper">
+            <canvas id="ganttChart"></canvas>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+          <button type="button" class="btn btn-primary" id="saveTime">save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <footer>
+      <p style="text-align: center; margin-right: 10px; font-size: 14px;color:white">
+        Copr. 2023 WeYu Technology Co., Ltd. All Rights Reserved.
+      </p>
+    </footer>
+    <script src="../../../js/comm/jquery.min.js"></script>
+    <script>
+      var VersionTime = new Date().getTime();
+    </script>
+    <script src="../../../js/comm/eqp/Chart.min.js"></script>
+    <script src="../../../js/comm/Chart.bundle.js"></script>
+    <script src="../../../js/comm/chartjs-plugin-gantt.min.js"></script>
+    <script src="../js/chart_config.js"></script>
+    <script src="../../../js/weyu/weyu_config.js?v=" +VersionTime></script>
+    <script src="../../../js/weyu/weyu_comm_api_function.js?v=" +VersionTime></script>
+    <script src="../../../js/weyu/weyu_comm_function.js?v=" +VersionTime></script>
+    <script src="../../../js/weyu/weyu_check.js?v=" +VersionTime></script>
+    <script src="../../../js/comm/dataTables.min.js"></script>
+    <script src="../../../js/comm/bootstrap.min.js"></script>
+    <script defer src="../../../js/weyu/weyu_header.js"></script>
+    <script src="../../../js/weyu/weyu_right_navbar.js"></script>
+
+    <script src="wo-check-in.js"></script>
+
+    <!-- 多語系翻譯 -->
+
+    <script type="text/javascript">
+      function onLoad() {
+        DebugLog("onLoad Start");
+        GetConfig();
+        SetDefaultSelectLang();
+        ChangeLang(); //多國語言翻譯
+
+        DebugLog("onLoad END");
+      }
+      $(document).ready(function () {
+        DebugLog("ready Start");
+        $("#offcanvasWithBothOptionsLabel").html(PROJECT_SAVE_NAME);
+        $("#logotext").html(PROJECT_SAVE_NAME);
+        $("#selectlang").on("change", function () {
+          try {
+            DebugLog("selectlang on_change " + this.value);
+            UIChangeLng(this.value);
+            //localStorageSetItem("eqp", this.value);
+          } catch (errorMessage) {
+            DebugLogAndAlert(errorMessage);
+          }
+        });
+
+        DebugLog("ready END");
+      });
+    </script>
+  </body>
+</html>

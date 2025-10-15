@@ -1,0 +1,41 @@
+{
+    "datasets":[
+              {
+                "pointBackgroundColor":"#ffd257",
+                "backgroundColor":"#ffd257",
+                "borderColor":"#ffd257",
+                "label": "產品A",
+                "data": [
+                    30,
+                    25,
+                    53,
+                    13,
+                    55,
+                    53
+                ],
+                "type": "line",
+                "yAxisID": "y1"
+              },
+              {
+                "backgroundColor":"#57e5ff",
+                "label": "產品B",
+                "data": [
+                    151,
+                    362,
+                    143,
+                    634,
+                    145,
+                    356
+                ],
+                "yAxisID": "y2"
+              }
+             ],
+    "labels": [
+        "人員A",
+        "人員B",
+        "人員C",
+        "人員D",
+        "人員E",
+        "人員F"
+    ]
+}

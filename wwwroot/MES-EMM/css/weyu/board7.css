@@ -1,0 +1,124 @@
+body,
+html {
+  background-color: #19368b;
+  color: #fff;
+  text-align: center;
+}
+span {
+  display: block;
+}
+.box {
+  background-color: #315ec5;
+  border: 5px solid #1b3165;
+  border-radius: 3px;
+  display: block;
+  margin: .3rem 0;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+.box.active {
+  background-color: rgb(32, 198, 107);
+}
+.box.offline {
+  background-color: rgb(103, 109, 103);
+}
+.box.danger {
+  background-color: rgb(238, 53, 102);
+}
+.box.off {
+  background-color: rgb(246, 188, 27);
+}
+.box span {
+  font-size: 2em;
+  font-weight: bold;
+}
+span.active {
+  color: rgb(32, 198, 107);
+}
+span.danger {
+  color: rgb(238, 53, 102);
+}
+span.off {
+  color: rgb(246, 188, 27);
+}
+
+#settings,
+#settings img {
+  right: 0;
+  margin: 0
+}
+
+#tableContainer {
+  overflow-y: hidden;
+  width: 100%;
+}
+#theTable {
+  margin-bottom: .5rem;
+  margin-top: .5rem;
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+}
+
+#theTable tr {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+#theTable tr:first-child {
+  background-color: #3052b8;
+}
+#theTable tr:nth-child(even){
+	background-color: #1e2a72;
+}
+#theTable th,
+#theTable td {
+  border-bottom: 1px solid #17344e;
+  border : 2px solid #102232;
+  padding: .5rem;
+}
+#theTable button {
+  border: 0;
+  background-color: #307ac4;
+  border-radius: 5px;
+  color: #fff;
+  padding: .1rem 1rem;
+  text-align: center;
+  margin: auto;
+}
+#theTable thead {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+#theTable tbody {
+  display: block;
+  overflow-y: auto;
+  width: 100%;
+}
+  #theTable tbody tr {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+  }
+@media all and (min-width: 768px) {
+  #timming {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+@media all and (max-width: 767px) {
+  #tableContainer {
+    height: 100vh;
+  }
+  #theTable tbody {
+    max-height: 100vh!important;
+  }
+  .box span {
+    font-size: 1.2em;
+  }
+  #settings {
+    right: 2rem;
+  }
+}

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title class="Lang">E-Kanban</title>
+  <link href="../css/comm/bootstrap.4.4.1.min.css" rel="stylesheet" />
+  <link href="../css/weyu/weyu_right_navbar.css" rel="stylesheet" />
+  <link href="../css/weyu/board8.css" rel="stylesheet" />
+  <link href="../css/weyu/user_account.css" rel="stylesheet" />
+</head>
+
+<body onload="onLoad()">
+  <!-- 商標標題時間 -->
+  <header class="d-flex align-items-center justify-content-between p-2">
+
+    <button class="btn btn-primary d-flex align-items-center" id="btnBack">
+      <img src="../img/comm/circle-chevron-left-solid.svg" style="height: 15px;" class="mr-2">
+      <span class="Lang">BACK</span>
+    </button>
+
+    <div id="title" class="col-md-8 col-lg-10 text-center position-relative">
+      <span class="Lang">E-Kanban</span>
+      <div id="timming" class="position-absolute" style="right: 0; top: 0;">15:53</div>
+    </div>
+  
+    <div class="dropdown" id="mainMenu">
+      <button class="btn btn-secondary dropdown-toggle mainMenu-btn mt-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="../img/zz/user-gear-solid.svg" class="" style="height: 1.5rem" alt="account">
+      </button>
+      <ul class="dropdown-menu dropdown-content text-light" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" id="langueStatus">ENGLISH</a></li>
+        <li><a class="dropdown-item" id="accountStatus">Account</a></li>
+        <li><a class="dropdown-item" id="logout">Logout</a></li>
+      </ul>
+    </div>
+
+  </header>
+
+  <!-- 內容開始 -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10 col-lg-10 main">
+        <div class="d-flex flex-row text-center justify-content-between">
+          <div class="box box-width-100">
+            <span class="Lang">kWh</span> 
+            <span>
+              <strong id="dailyAmount">6458.4</strong>
+              <small>kWh</small>
+            </span>
+          </div>
+          <div class="box box-width-100">
+            <span class="Lang">Frequency</span>
+            <span>
+              <strong id="freq">49.92</strong>
+              <small>Hz</small>
+            </span>
+          </div>
+          <div class="box box-width-100">
+            <span class="Lang">Power Factor</span>
+            <span>
+              <strong id="PF">0.83</strong>
+            </span>
+          </div>
+          <div class="box box-width-100">
+            <span class="Lang">kW</span>
+            <span>
+              <strong id="kwTOT">4346.3</strong>
+              <small>kW</small>
+            </span>
+          </div>
+          <div class="box box-width-100">
+            <span class="Lang">Current</span>
+            <span>
+              <strong id="current">16.3</strong>
+              <small>A</small>
+            </span>
+          </div>
+        </div>
+        <div class="d-flex flex-row justify-content-between">
+          <div class="text-center box box5">
+            <div class="canvasWrapper">
+              <canvas id="boxA" width="100%"></canvas>
+            </div>
+          </div>
+          <div class="text-center box box5">
+            <div class="canvasWrapper">
+              <canvas id="boxB" width="100%"></canvas>
+            </div>
+          </div>
+          <div class="text-center box box5">
+            <div class="canvasWrapper">
+              <canvas id="boxC" width="100%"></canvas>
+            </div>
+          </div>
+          <div class="text-center box box5">
+            <div class="canvasWrapper">
+              <canvas id="boxD" width="100%"></canvas>
+            </div>
+          </div>
+          <div class="text-center box box5">
+            <div class="canvasWrapper">
+              <canvas id="boxE" width="100%"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex flex-row justify-content-between">
+          <div class="box4">
+            <div class="box box-width-100 box-m-height-2">
+              <div class="canvasWrapper">
+                <span class="Lang">All Factory Usage (Monthly)</span>
+                <span>
+                  <strong id="monthUsed">32458.6</strong>
+                  <small>kWh</small>
+                </span>
+              </div>
+            </div>
+            <div class="box box-width-100 box-m-height-3">
+              <div class="canvasWrapper">
+                <canvas id="boxF" width="100%"></canvas>
+              </div>
+            </div>
+            <div class="box box-width-100 box-m-height-2">
+              <div class="canvasWrapper">
+                <span class="Lang">All Factory Usage (Yearly)</span>
+                <span>
+                  <strong id="yearUsed">832458.1</strong>
+                  <small>kWh</small>
+                </span>
+              </div>
+            </div>
+            
+            <div class="box box-width-100 box-m-height-3">
+              <div class="canvasWrapper">
+                <canvas id="boxG" width="100%"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="box box-width-50">
+            <span class="Lang">Meter Usage Ratio</span>
+            <div class="canvasWrapper">
+              <canvas id="boxH" width="100%"></canvas>
+            </div>
+          </div>
+          <div class="box2">
+            <div class="box">
+              <span class="Lang">Each Factory Usage (Monthly)</span>
+              
+              <div class="canvasWrapper">
+                <canvas id="boxI" width="100%"></canvas>
+              </div>
+            </div>
+            <div class="box">
+              <span class="Lang">Each Factory Usage (Yearly)</span>
+              <div class="canvasWrapper">
+                <canvas id="boxJ" width="100%"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="col-2 aside">
+        <div class="box box-width-100 box-height-100">
+          <h4 class="fw-bold">
+            <span class="Lang">(Month) Meter Ranking</span>
+          </h4>
+          <div class="table-responsive">
+            <table width="100%" class="table" id="rankingTable">
+              <thead>
+                <th>SCADA</th>
+                <th>kWh</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td width="20%">1</td>
+                  <td width="40%">EQP</td>
+                  <td width="40%">12345</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>EQP</td>
+                  <td>12345</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="col-12 text-center">
+    <small>© COPYRIGHT – WEYU TECHNOLOGY CO.,LTD.</small>
+  </footer>
+
+  <script src="../js/comm/jquery.min.js"></script>
+  <script src="../js/comm/bootstrap.min.js"></script>
+  <!-- <script src="../js/comm/Chart.bundle.js"></script> -->
+  <script src="../js/comm/cdn.jsdelivr.net_npm_chart.js"></script>
+  <script src="../js/comm/chartjs-plugin-datalabels.js"></script>
+  <script src="../js/weyu/weyu_comm_api_function.js"></script>
+  <script src="../js/weyu/weyu_comm_function.js"></script>
+  <script src="../js/weyu/weyu_config.js"></script>
+  <script src="../js/weyu/weyu_header.js"></script>
+  <script src="Overview.js"></script>
+  <script type="text/javascript">
+    function onLoad() {
+      GetConfig();
+      SetDefaultSelectLang();
+      ChangeLang(); //多國語言翻譯
+    }
+  </script>
+  <script>
+    document.getElementById("btnBack").onclick = function() {
+        window.location.href = window.location.protocol+"//"+default_ip+"/"+PROJECT_NAME+ "/"+kanbanRoute+"/card/functionList.html?LEVEL=L1"; // 将此 URL 替换为你希望重定向的 URL
+    }
+</script>
+
+</body>
+
+</html>

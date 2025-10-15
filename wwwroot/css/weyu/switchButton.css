@@ -1,0 +1,64 @@
+.switch {
+    font-weight: bold;
+    caret-color: transparent;
+    position: relative;
+    display: inline-block;
+    width: 5rem;
+    height: 1.6rem;
+    background-color: #4791ca70;
+    border: 1px solid #4791ca;
+    border-radius: 1.5rem;
+    transition: all 0.3s linear;
+    overflow: visible;
+    cursor: pointer;
+}
+
+input#carouselSwitchPlay[type="checkbox"]:checked + .switch::before {
+    content: "Autoplay";
+    position: absolute;
+    top: .2rem;
+    left: .5rem;
+}
+input#carouselSwitchUpdate[type="checkbox"]:checked + .switch::before {
+    content: "Update";
+    position: absolute;
+    top: .2rem;
+    left: .5rem;
+}
+.switch::after {
+    content: "";
+    cursor: pointer;
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: all 0.3s linear;
+    z-index: 2;
+}
+
+input[type="checkbox"]:checked + .switch:after {
+    translate: 4rem 0;
+}
+
+input[type="checkbox"]:checked + .switch {
+    background-color: #4791ca;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+#slideAutoPlay,
+#updateData {
+    margin: .5rem .5rem;
+}
+
+@media all and (max-width: 1200px) {
+    #switchBtnBar {
+        position: relative;
+        top: -0.5rem;
+        right: 0;
+    }
+}

@@ -1,0 +1,37 @@
+.btnHamburger {
+  height: 1rem;
+  width: 1.8rem;
+}
+.btn-close-white {
+  background: url(../../img/zz/close.svg) 0 0 no-repeat!important;
+  height: 1.2rem;
+  width: 1.4rem;
+}
+.btn-default {
+  background-color: rgb(14, 91, 178);
+  border-radius: 3px;
+  color: #fff;
+}
+
+.btn-active {
+  background-color: rgb(14, 91, 178);
+  border-radius: 3px;
+  color: #fff;
+  -webkit-box-shadow: 0px 12px 3px -10px rgb(15, 30, 60, .5);
+  -moz-box-shadow: 0px 12px 3px -10px rgb(15, 30, 60, .5);
+  box-shadow: 0px 12px 3px -10px rgba(15, 30, 60, .5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-active:hover {
+  background-color: #3694ca;
+  transform: translateY(-5px);
+  box-shadow: 0px 15px 10px -10px rgba(15, 30, 60, 0.7); 
+}
+
+.btn-default:hover {
+  background-color: rgb(6, 72, 149);
+}
+.btn-default img {
+  height: 1rem;
+  width: auto;
+}

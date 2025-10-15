@@ -1,0 +1,86 @@
+
+.offcanvas {
+  background: #0f3d6c;
+  color: #fff;
+}
+
+.offcanvas-header img {
+  width: 30px; /* 設置圖示的寬度 */
+  height: auto; /* 高度自動調整以保持比例 */
+  max-height: 50px; /* 設置圖示的最大高度，確保不會過大 */
+  margin-right: 2px; /* 圖示和標題之間的間距 */
+  object-fit: contain; /* 確保圖示在框內完整顯示 */
+}
+
+.offcanvas-backdrop.show {
+  backdrop-filter: blur(70px);
+  opacity: .7;
+}
+.offcanvas-body ul li {
+  list-style: none;
+}
+.offcanvas-body a {
+  border-left: 5px solid transparent;
+  color: #fff;
+  display: block;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  padding: 1rem;
+  text-decoration: none;
+}
+.offcanvas-body a:hover {
+  border-left-color: #ffae00;
+  background-color:rgba( 255, 255, 255, .2);
+}
+.offcanvas-body ul li span {
+  display: inline-block;
+  text-align: center;
+  width: 2rem;
+}
+.offcanvas-body img {
+  height: 1rem;
+  margin-right: .5rem;
+  width: auto;
+}
+
+.offcanvas {
+  background-color: #002D62; /* 這個顏色應該和你的 Sidebar 背景顏色一致 */
+}
+
+.custom-menu .list-group-item {
+  display: flex;
+  align-items: center; 
+  padding: 10px 15px;
+  background-color: transparent;
+  border: none;
+  padding: 10px 15px; /* 增加內邊距，讓項目更舒適 */
+  transition: background-color 0.3s, box-shadow 0.3s; /* 添加平滑過渡效果 */
+  transition: transform 0.3s, background-color 0.3s; /* 為 transform 和背景色添加過渡效果 */
+}
+
+.custom-menu .list-group-item img {
+  width: 20px; /* 設置圖示的寬度 */
+  height: 20px; /* 設置圖示的高度 */
+  margin-right: 10px; /* 圖示與文字之間的間距 */
+}
+
+.custom-menu .list-group-item a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  align-items: center; /* 圖標與文字垂直對齊 */
+}
+
+.custom-menu .list-group-item a i {
+  margin-right: 10px; /* 圖標與文字之間的間距 */
+  font-size: 1.2em; /* 增加圖標大小 */
+}
+
+.custom-menu .list-group-item a:hover {
+  color: #FFDD00; /* 滑鼠懸停時改變文字顏色 */
+}
+
+.custom-menu .list-group-item:hover {
+  transform: translateX(10px); /* 滑鼠懸停時項目向右移動 */
+}

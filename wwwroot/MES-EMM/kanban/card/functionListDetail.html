@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title class="Lang">Meter Info Today</title>
+    <link href="../../css/comm/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../css/weyu/footer.css" rel="stylesheet" />
+    <link href="../../css/weyu/functionList.css" rel="stylesheet" />
+    <link href="../../css/weyu/functionListDetail.css" rel="stylesheet" />
+    <link href="../../css/comm/flatpickr.min.css" rel="stylesheet">
+    <link href="../../css/weyu/defaultBTN.css" rel="stylesheet" />
+    <link href="../../css/weyu/user_account.css" rel="stylesheet" />
+    <link href="../../css/weyu/offcanvas.css" rel="stylesheet" />
+  </head>
+  <body onload="onLoad()">
+    <div class="container">
+      <div class="row">
+        <div class="col-9">
+          <h1>
+            <button
+              class="btn"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasExample"
+              aria-controls="offcanvasExample"
+            >
+              <img src="../../img/zz/hamburger.svg" class="btnHamburger w-5" />
+            </button>
+            <a href="../../EMS-index.html" class="text-decoration-none text-white fs-4 fs-bold">
+              EMS RWD
+            </a>
+            <span class="Lang">Meter Info Today</span>
+          </h1>
+        </div>
+        <div class="col-3 text-end">
+          <!-- <div class="dropdown" id="mainMenu">
+            <button class="btn btn-secondary dropdown-toggle mainMenu-btn mt-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../../img/zz/user-gear-solid.svg" class="" style="height: 1.5rem" alt="account">
+            </button>
+            <ul class="dropdown-menu dropdown-content" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" id="langueStatus">ENGLISH</a></li>
+              <li><a class="dropdown-item" id="accountStatus">Account</a></li>
+              <li><a class="dropdown-item" id="changePassword">Change PWD</a></li>
+              <li><a class="dropdown-item" id="logout">Logout</a></li>
+            </ul>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid menu">
+      <div class="row">
+        <div class="col-12">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="d-flex justify-content-start align-items-center py-2">
+                  <!-- <a href="../../zz_query/zz_production.html?MODULE_NAME=Kanban&LEVEL=L1" class="active">
+                    <img src="../../img/comm/circle-chevron-left-solid.svg" alt="" />Back
+                  </a> -->
+                  <button class="ms-2 btn btn-active d-flex align-items-center" id="btnBackURL">
+                    <img src="../../img/comm/circle-chevron-left-solid.svg" alt="">
+                    <span class="Lang">Back</span>
+                  </button>
+                    <!-- <button
+                    class="btn btn-active d-flex align-items-center"
+                    data-bs-toggle="modal"
+                    data-bs-target="#queryModal"
+                    >
+                      <img src="../../img/zz/search.svg" class="w-4 mr-2" />
+                    <span>搜尋</span>
+                  </button> -->
+                  <!-- <a href="" class="active">
+                    <img src="../../img/zz/elect-active.svg" alt="" />電力監測
+                  </a>
+                  <a href="../EPower/All_query.html">
+                    <img src="../../img/zz/info-active.svg" alt="" />用電資訊
+                  </a>
+                  <a href="">
+                    <img src="../../img/zz/percent-active.svg" alt="" />用電佔比
+                  </a>
+                  <a href="">
+                    <img src="../../img/zz/setting-active.svg" alt="" />參數設定 -->
+                  <!-- </a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-3">
+      <div class="row">
+        <div id="meter-container" class="col-md-12">
+          <div class="container">
+            <!-- 標題 -->
+            <div class="row">
+              <div class="col-md-6 d-flex contentTitle">
+                <!-- <button id="btnBack" onclick="functionList()"><</button> -->
+                <!-- <h3><strong class="fs-3" id="FAB"></strong> (<span class="fs-6" id="EQP_NAME"></span>)</h3> -->
+                <h3><strong class="fs-3" id="FAB"></strong> (<span class="fs-6" id="EQP_NAME"></span>)</h3>
+              </div>
+              <div class="col-md-6 d-flex-contentTitle text-end">
+                <h3><span id="DATE"></span></h3>
+              </div>
+            </div>
+            <!--  內容區  -->
+            <div class="row panelDetailWrapper">
+              <!-- <div class="col-md-6 panelDetail">
+                <div class="canvasWrapper">
+                  <h4>
+                    <span class="Lang">Voltage</span>
+                  </h4>
+                  <canvas id="beBoxA"></canvas>
+                </div>
+              </div> -->
+              <div class="col-md-12 panelDetail">
+                <div class="canvasWrapper">
+                  <h4>
+                    <span class="Lang">Electricity Used</span>
+                  </h4>
+                  <canvas id="beBoxD"></canvas>
+                </div>
+              </div>
+              <div class="col-md-6 panelDetail">
+                <div class="canvasWrapper">
+                  <h4>
+                    <span class="Lang">Current</span>
+                  </h4>
+                  <canvas id="beBoxC"></canvas>
+                </div>
+              </div>
+              <div class="col-md-6 panelDetail">
+                <div class="canvasWrapper">
+                  <h4>
+                    <span class="Lang">Volt</span>
+                  </h4>
+                  <canvas id="beBoxB"></canvas>
+                </div>
+              </div>
+              <div class="col-md-6 panelDetail">
+                <div class="canvasWrapper">
+                  <h4>
+                    <span class="Lang">Frequency</span>
+                  </h4>
+                  <canvas id="beBoxE"></canvas>
+                </div>
+              </div>
+              <div class="col-md-6 panelDetail">
+                <div class="canvasWrapper">
+                  <h4>
+                    <span class="Lang">PF</span>
+                  </h4>
+                  <canvas id="beBoxF"></canvas>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="offcanvas offcanvas-start" 
+    tabindex="-1" 
+    id="offcanvasExample" 
+    aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+          <!-- <img src="../../../img/comm/drop-svgrepo-com.svg" alt="water"> -->
+          <h2 class="offcanvas-title fw-bold" id="offcanvasExampleLabel">EMS RWD</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+          <!-- 側邊欄內的選單 -->
+          <ul class="list-group custom-menu">
+              <li class="list-group-item">
+                  <img src="../../img/weyu/electric.svg" alt="electric">
+                  <a href="functionList.html" class="Lang">Electricity</a>
+              </li>
+              <li class="list-group-item">
+                <img src="../../img/comm/earth-asia-solid.svg" alt="electric">
+                <a href="air_meter/air_card.html?LEVEL=L1" class="Lang">Air Flow</a>
+              </li>
+              <li class="list-group-item">
+                <img src="../../img/comm/earth-asia-solid.svg" alt="electric">
+                <a href="air_meter/nitrogen_card.html?LEVEL=L1" class="Lang">Nitrogen Flow</a>
+              </li>
+              <li class="list-group-item">
+                <img src="../../img/comm/drop-svgrepo-com.svg" alt="electric">
+                <a href="water_meter/Tap_water_card.html?LEVEL=L1" class="Lang">City Water</a>
+              </li>
+              <li class="list-group-item">
+                <img src="../../img/comm/drop-svgrepo-com.svg" alt="electric">
+                <a href="water_meter/Waste_water_card.html?LEVEL=L1" class="Lang">Wastewater</a>
+              </li>
+          </ul>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="queryModal"
+      tabindex="-1"
+      aria-labelledby="queryModalSearch"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-3 text-black-50" id="queryModalSearch">Query</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body text-black">
+            <div id="modalContent"></div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+            type="button"
+            id="searchBtn"
+            class="btn btn-primary"
+          >
+            Search
+          </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="footer" class="fixed bottom-0 w-full"></div>
+    <script src="../../js/weyu/weyu_footer2.js"></script>
+    <script src="../../js/comm/jquery.min.js"></script>
+    <script src="../../js/comm/bootstrap.min.js"></script>
+    <script src="../../js/comm/Chart.bundle.js"></script>
+    <script src="../../js/comm/cdn.jsdelivr.net_npm_chart.js"></script>
+    <script src="../../js/comm/flatpickr.min.js"></script>
+
+
+    <script src="../../js/weyu/weyu_config.js"></script>
+    <script src="../../js/weyu/weyu_comm_api_function.js"></script>
+    <script src="../../js/weyu/weyu_comm_function.js"></script>
+    <script src="functionListDetail.js"></script>
+    <script src="../../js/weyu/weyu_header.js"></script>
+    <script src="../../js/weyu/weyu_footer.js"></script>
+
+    <!-- 多語系翻譯 -->
+    <script type="text/javascript">
+      function onLoad() {
+        GetConfig();
+        SetDefaultSelectLang();
+        ChangeLang(); //多國語言翻譯
+      }
+      // 左上LOGO文字
+      $("#logotext").html(PROJECT_SAVE_NAME);
+    </script>
+    <script>
+      $(document).ready(function () {
+        $(".subMenu").click(function () {
+          $(".subMenu li").toggle();
+        });
+      });
+    </script>
+
+    <script>
+      function functionList() {
+        document.body.style.opacity = 0;
+        setTimeout(function () {
+          window.location.href = "functionList.html";
+        }, 500);
+      }
+    </script>
+  </body>
+</html>

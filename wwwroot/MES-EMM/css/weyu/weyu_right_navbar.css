@@ -1,0 +1,76 @@
+
+#settings img {
+    cursor: pointer;
+    margin: .8rem 0 1rem 0;
+}
+#dropdown-menu {
+    display: hidden;
+}
+#dropdown-menu div {
+    padding: .5rem 0;
+}
+#dropdown-menu button {
+    border: 0;
+    background: transparent;
+    color: #fff;
+}
+header {
+    position: relative;
+    color: #fff;
+    display: flex;
+}
+h5.offcanvas-title,
+header a {
+    color: #fff;
+    text-decoration: none;
+}
+#settings {
+    position: absolute;
+    right: 1.5rem;
+}
+#midtitle {
+    border-left: 1px solid #38719d;
+    margin-left: 1rem;
+    flex-grow: 2;
+    font-weight: bolder;
+    display: flex;
+    padding: 0.5rem 0 0.5rem 1rem;
+    line-height: 0px;
+    align-self: center;
+}
+/* Style the dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(20, 46, 107, 0.778);
+    border: 1px solid rgba(38, 80, 179, 0.778);
+    min-width: 180px; /* Adjust the width as needed */
+    top: 3rem;
+    right: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Style the individual menu items */
+.dropdown-content > div:first-child:after {
+    border: 0;
+}
+.dropdown-content > div:after {
+    content: " ";
+    border-bottom: 1px solid rgb(0, 106, 255);
+    width: 80%;
+    position: absolute;
+    left: 10%
+}
+.dropdown-content > div {
+    position: relative;
+    padding: .2rem;
+    background-color: #162a58; /* Add a border between items */
+    text-align: center;
+}
+
+/* Style the last menu item (Logout) */
+#logout {
+    border-bottom: none; /* Remove the border for the last item */
+}
+  

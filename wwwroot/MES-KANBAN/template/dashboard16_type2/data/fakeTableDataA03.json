@@ -1,0 +1,17 @@
+[
+    {
+        "EQP_NO": "RT-C11",
+        "STATUS": "Alarm",
+        "STATUS_CHANGE_TIME": "2024-12-06 10:01:02.143"
+    },
+    {
+        "EQP_NO": "RT-C36",
+        "STATUS": "Alarm",
+        "STATUS_CHANGE_TIME": "2024-12-06 08:48:49.533"
+    },
+    {
+        "EQP_NO": "RT-C37",
+        "STATUS": "Alarm",
+        "STATUS_CHANGE_TIME": "2024-12-06 08:48:49.837"
+    }
+]

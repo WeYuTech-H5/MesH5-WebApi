@@ -1,0 +1,243 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="icon" href="img/favicon.ico">
+  <link rel="stylesheet" href="../../css/comm/bootstrap.4.4.1.min.css">
+  <link rel="stylesheet" href="EQPInfo.css">
+  <link rel="stylesheet" href="../../css/comm/dataTables.min.css">
+
+  <title>Cloud Box Dashboard</title>
+  
+</head>
+<body onload="onLoad()">
+
+  <!-- 商標標題時間 -->
+    <header class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-2">
+          
+          <nav class="navbar"></nav>
+          <h1 class="brand">
+            <a href="../index.html">
+              <img src="img/brand.png" alt="威友科技" />
+            </a>
+            <a href="javascript:history.back()" style="margin-left: 15px; display: none">
+              <img src="img/icon-back-24.png" alt="上一頁" />
+            </a>
+          </h1>
+        </div>
+
+        <div class="col-sm-12 col-md-12 col-lg-3 d-flex align-items-center">
+          <select id="EQPList"></select>
+        </div>
+        
+        <div class="col-sm-12 col-md-12 col-lg-2">
+          <h2 class="title Lang" id="dashboardTitle">Dashboard</h2>
+        </div>
+        <div id="timenow" class="col-md-12 col-lg-2 d-flex align-items-center">
+          <!-- <input id='date' type="date"> -->
+          <button id="data_show" class="w-50">yyyy/MM/dd</button>
+          <input type="date" id="date" class="invisible position-absolute">
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-2 d-flex align-items-center">
+          <!-- 下拉式選單 -->
+            <select id="selectlang">
+              <option value="en_us" class="option1">English</option>
+              <option value="zh_CHT" class="option1">繁體中文</option>
+              <option value="zh_CHS" class="option1">簡體中文</option>
+              <option value="TH" class="option1">ราชอาณาจักรไทย</option>
+              <option value="km" class="option1">ភាសាខ្មែរ</option>
+            </select>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-1">
+          <button style="background: #999 ;margin-top: 15px;color: #fff;float:right;border: 0;font-size: .8em;font-family:Arial;" onclick="signout()">Sign Out</button>
+         
+        </div>
+      </div>
+    </header>
+  
+  <!-- 主內容區 -->
+  <div id="main-content" class="main">
+    <div class="container-fluid">
+      <div class="row">
+
+        <!-- Day -->
+        <div class="col-sm-12 col-md-3">
+          <h3 id="titleA"></h3>
+          <div id="titleAWrapper" class="chartWrapper d-flex">
+            <div class="context">
+              <p>IoT Output</p>
+              <p id="OUTPUT_DAY"></p>
+              <div style="display: flex;"><span style="min-width:60%;text-align: right;padding-right: 0.2rem;">counter:</span><span id="COUNTER_DAY"></span></div>
+              <div style="display: flex;"><span style="min-width:60%;text-align: right;padding-right: 0.2rem;">diff:</span><span id="LOSS_DAY"></span></div>
+            </div>
+            <div class="divider"></div>
+            <div class="context">
+              <p>Output</p>
+              <p id="KEYIN_OUTPUT_DAY"></p>
+              <div style="display: flex;"><span style="min-width:50%;text-align: right;padding-right: 0.2rem;">yield:</span><span id="KEYIN_YIELD_DAY"></span></div>
+              <div style="display: flex;"><span style="min-width:50%;text-align: right;padding-right: 0.2rem;">NG:</span><span id="KEYIN_NG_DAY"></span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Night -->
+        <div class="col-sm-12 col-md-3">
+          <h3 id="titleB"></h3>
+          <div id="titleBWrapper" class="chartWrapper d-flex">
+            <div class="context">
+              <p>IoT Output</p>
+              <p id="OUTPUT_NIGHT"></p>
+              <div style="display: flex;"><span style="min-width:60%;text-align: right;padding-right: 0.2rem;">counter:</span><span id="COUNTER_NIGHT"></span></div>
+              <div style="display: flex;"><span style="min-width:60%;text-align: right;padding-right: 0.2rem;">diff:</span><span id="LOSS_NIGHT"></span></div>
+            </div>
+            <div class="divider"></div>
+            <div class="context">
+              <p>Output</p>
+              <p id="KEYIN_OUTPUT_NIGHT"></p>
+              <div style="display: flex;"><span style="min-width:50%;text-align: right;padding-right: 0.2rem;">yield:</span><span id="KEYIN_YIELD_NIGHT"></span></div>
+              <div style="display: flex;"><span style="min-width:50%;text-align: right;padding-right: 0.2rem;">NG:</span><span id="KEYIN_NG_NIGHT"></span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Total -->
+        <div class="col-sm-12 col-md-3">
+          <h3 id="titleC"></h3>
+          <div id="titleCWrapper" class="chartWrapper d-flex">
+            <div class="context">
+              <p>IoT Output</p>
+              <p id="OUTPUT_TOTAL"></p>
+              <div style="display: flex;"><span style="min-width:60%;text-align: right;padding-right: 0.2rem;">counter:</span><span id="COUNTER_TOTAL"></span></div>
+              <div style="display: flex;"><span style="min-width:60%;text-align: right;padding-right: 0.2rem;">diff:</span><span id="LOSS_TOTAL"></span></div>
+            </div>
+            <div class="divider"></div>
+            <div class="context">
+              <p>Output</p>
+              <p id="KEYIN_OUTPUT_TOTAL"></p>
+              <div style="display: flex;"><span style="min-width:50%;text-align: right;padding-right: 0.2rem;">yield:</span><span id="KEYIN_YIELD_TOTAL"></span></div>
+              <div style="display: flex;"><span style="min-width:50%;text-align: right;padding-right: 0.2rem;">NG:</span><span id="KEYIN_NG_TOTAL"></span></div>
+            </div>
+          </div>
+        </div>
+
+      <!-- OEE NEW -->
+      <div class="col-sm-12 col-md-3">
+        <h3 id="titleD"></h3>
+        <div id="titleDWrapper" class="chartWrapper  d-flex">
+          <div class="context">
+            <p style="font-size:1.5rem">OEE
+              <span class="OEE_HINT">
+                <img src="img/info-icon.svg" alt="Info Icon" style="width:1.1rem; height:1.1rem;margin-bottom: 5px;">
+                <span class="OEE_HINT_TEXT">
+                   <b><u>OEE</u></b> = Availability * Performance * yield <br>
+                   <b><u>Availability</u></b> = Run / (Run + Idle) <br>
+                   <b><u>Performance</u></b> = Standard Cycle Time / Actual Cycle Time<br>
+                   <b><u>yield</u></b> = Output / IoT Output <br>
+                   <span id="high-square">&#9632;</span>:><span id="high-standard">80</span>%  <span id="mid-square">&#9632;</span>:<span id="mid-standard">60-80</span>%  <span id="low-square">&#9632;</span>:<<span id="low-standard">60</span>%<br>
+                     *This chart represents the average of the total number of work-order
+                </span>
+            </span>
+            </p>
+     
+
+            <p id="totalOEE"></p>
+            <p>Target &gt; 80% </p>
+          </div>
+          <div class="divider"></div>
+
+          <div id="horizontalBarChartWrapper" style="width:60%;margin-right: 3%">
+            <canva id="horizontalBarChart"></canvas>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+
+      <div class="row">
+        <!-- 機況甘特圖 -->
+        <div class="col-12">
+          <h3 id="chartFTitle"></h3>
+          <div id="colors"></div>
+          <div id="chartFWrapper" class="chartWrapper">
+             <canvas id="chartF"></canvas>
+           </div>
+
+        </div>
+        <!-- 產量柱狀圖 -->
+        <div class="col-12">
+          <div id="chartCWrapper" class="chartWrapper">
+            <canvas id="chartC"></canvas>
+          </div>
+          <div id="chartGWrapper" class="chartWrapper">
+            <canvas id="chartG"></canvas>
+          </div>
+        </div>
+        <!-- grid 表格 -->
+        <div id="layout2">
+            <table id="example" class="row-border order-column stripe hover">
+                <thead>
+                    <tr id="addtitle">
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  
+  <script src="../../js/comm/jquery.min.js"></script>
+  <script src="../../js/comm/bootstrap.min.js"></script>
+  <script src="../../js/comm/eqp/Chart.min.js"></script>
+  <script src="../../js/comm/Chart.bundle.js"></script>
+  <script src="../../js/comm/chartjs-plugin-gantt.min.js"></script>
+  <script src="../../js/weyu/weyu_config.js"></script>
+  <script src="../../js/weyu/weyu_comm_function.js"></script>
+  <script src="../../js/comm/dataTables.min.js"></script>
+  <script src="js/chart_config.js"></script>
+  <script src="EQPInfo.js"></script>
+  
+  <!-- 多語系翻譯 -->
+  <script type="text/javascript">
+
+    function onLoad() {
+      DebugLog('onLoad Start');
+      GetConfig();
+      SetDefaultSelectLang();
+      ChangeLang();//多國語言翻譯
+      
+      DebugLog('onLoad END');
+    }
+    $(document).ready(function () {
+      DebugLog('ready Start');
+
+      $('#selectlang').on('change', function () {
+        try {
+          DebugLog('selectlang on_change ' + this.value);
+          UIChangeLng(this.value);
+          //localStorageSetItem("eqp", this.value);
+        } catch (errorMessage) {
+          DebugLogAndAlert(errorMessage);
+        }
+      });
+
+      DebugLog('ready END');
+    });
+
+  </script>
+  <script>
+    $('.navbar').hide() //隱藏側邊選單
+    $('.navbar').hide() //隱藏側邊選單
+    if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+      $(".brand a").show()
+    }else{
+      $(".brand a:first-child").contents().unwrap(); //停用超連結
+    }
+  </script>
+</body>
+</html>

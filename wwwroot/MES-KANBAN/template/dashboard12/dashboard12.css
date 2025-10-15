@@ -1,0 +1,121 @@
+.allWrapper {
+  z-index: 10;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+li {
+  overflow-x: hidden;
+}
+
+.text-success {
+  color: rgba(50, 255, 47, 0.8) !important
+}
+
+.bg-container {
+  background-color: #00000043;
+  border: 1px solid #90e3ff6b;
+  width: 98%;
+  margin: auto;
+}
+.custom-area {
+  height: 800px;
+}
+
+.chartWrapper {
+  height: 100%;
+  padding: 0 10px 10px 10px;
+}
+.flex-column .chartWrapper{
+  flex: 1;
+}
+
+.layout-bg {
+  background-color: rgba(100, 100, 100, 0.4);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.layout-img {
+  max-width: 100%;
+  height: auto;
+  /* border:1px solid red */
+}
+.layout-item {
+  background-color: white;
+  position: absolute; /* 絕對定位以定位到背景圖片上 */
+  /* transform: translate(-50%, -50%); 讓 item 的中心對齊指定的座標 */
+  font-size: clamp(0.8rem, 1.2vw, 1rem); /* 最小 1rem，最大 3rem，根據視窗調整 */
+  display: flex;
+  border: 1px solid #91dbf8;
+  /* cursor: move; */
+}
+.layout-item div:nth-child(1){
+  padding: 0 1px;
+  background-color: #91dbf8;
+}
+.layout-item div:nth-child(2){
+  padding: 0 3px;
+}
+
+/* 輪播表格 START */
+.slider-nav {
+  display: flex;
+  color: white;
+  font-weight: bold;
+  background-color: rgba(100, 100, 100, 0.8);
+}
+.slider-nav div {
+  padding: 3px 20px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  user-select: none;
+}
+.slider-nav div:hover, .slider-nav .active {
+  background-color: rgba(3, 157, 196, 0.6);
+}
+#toggleTouch {
+  cursor: pointer;
+}
+/* 輪播表格 END */
+
+/* Loading畫面 START */
+/* 父容器樣式 */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+
+/* 轉圈動畫樣式 */
+.loading-spinner {
+  width: 80px;
+  height: 80px;
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-top: 8px solid #3498db; /* 修改此處顏色以匹配需求 */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* 錯誤訊息樣式 */
+.error-message {
+  text-align: center;
+  font-size: 16px;
+  color: red;
+  padding: 20px;
+}
+
+/* 轉圈動畫定義 */
+@keyframes spin {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+/* Loading畫面 END */
+

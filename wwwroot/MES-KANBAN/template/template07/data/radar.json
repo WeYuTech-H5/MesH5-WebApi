@@ -1,0 +1,47 @@
+{
+    "labels": [
+        "訂單量",
+        "總金額",
+        "平均交期",
+        "客訴",
+        "付款天數"
+    ],
+    "datasets": [
+        {
+            "label": "產品A",
+            "pointBackgroundColor": "#0099CC",
+            "borderColor": "#0099CC",
+            "data": [
+                15,
+                36,
+                14,
+                1,
+                29
+            ]
+        },
+        {
+            "label": "產品B",
+            "pointBackgroundColor": "#00CC99",
+            "borderColor": "#00CC99",
+            "data": [
+                20,
+                10,
+                30,
+                57,
+                33
+            ]
+        },
+        {
+            "label": "產品C",
+            "pointBackgroundColor": "#6633FF",
+            "borderColor": "#6633FF",
+            "data": [
+                30,
+                25,
+                53,
+                29,
+                48
+            ]
+        }
+    ]
+}

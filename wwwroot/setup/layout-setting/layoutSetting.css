@@ -1,0 +1,9 @@
+.allWrapper {
+  z-index: 10;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+li {
+  overflow-x: hidden;
+}

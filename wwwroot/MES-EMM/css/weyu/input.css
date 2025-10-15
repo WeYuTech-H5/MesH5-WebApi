@@ -1,0 +1,329 @@
+html,
+body,
+footer {
+    background-color: #162a58;
+}
+header {
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+}
+#title {
+  border-left: 1px solid #38719d;
+  margin-left: 1rem;
+  padding-left: 1rem
+}
+.mainBG {
+  background: radial-gradient(circle, #196eae, #1a3677, #162a58);
+}
+.border-warning {
+  border-color: red;
+}
+#midtitle {
+  color:#88ccff;
+  font-size: 1em;
+  font-weight: bold;
+}
+.defaultBox {
+  background-color: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: .25em;
+}
+
+#itemList {
+  padding-bottom: 3rem;
+}
+#itemList .defaultBox {
+  padding-bottom: 1rem;
+  margin: 0 2rem 2rem 0;
+  max-width: 23%;
+}
+#itemList .defaultBox:nth-child(4n) {
+  margin-right: 0;
+}
+@media screen and (max-width: 1200px) {
+  
+  #itemList .defaultBox {
+    max-width: 23%;
+    margin: 0 1rem 2rem 0;
+  }
+}
+@media screen and (max-width: 640px) {
+  
+  #itemList .defaultBox {
+    max-width: 30%;
+    margin: 0 1rem 2rem 0;
+  }
+  #itemList .defaultBox:nth-child(4n) {
+    margin-right: 1rem;
+  }
+  #itemList .defaultBox:nth-child(3n) {
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 460px) {
+  
+  #itemList .defaultBox {
+    max-width: 46%;
+    margin: 0 1rem 2rem 0;
+  }
+  #itemList .defaultBox:nth-child(4n) {
+    margin-right: 1rem;
+  }
+  #itemList .defaultBox:nth-child(3n) {
+    margin-right: 1rem;
+  }
+  #itemList .defaultBox:nth-child(2n) {
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 320px) {
+  
+  #itemList .defaultBox {
+    max-width: 100%;
+    margin: 0 0 2rem 0;
+  }
+  #itemList .defaultBox:nth-child(4n) {
+    margin-right: 0;
+  }
+  #itemList .defaultBox:nth-child(3n) {
+    margin-right: 0;
+  }
+  #itemList .defaultBox:nth-child(2n) {
+    margin-right: 0;
+  }
+}
+.offcanvas-header {
+  color: #fff;
+}
+#navbar.fixed {
+  z-index: 99;
+}
+#menuList {
+  color: #fff;
+  min-height: 80vh;
+  overflow-y: scroll;
+}
+#menuList li {
+  list-style: none;
+  list-style-type: none;
+  margin-bottom: 1.5em;
+}
+#menuList li a {
+  color: #fff;
+  width: 95%;
+  text-decoration: none;
+}
+
+#menuList li a:hover {
+  background: rgb(0, 43, 106);
+}
+.menu-item {
+  padding: 10px 20px;
+  color: #fff;
+  position: relative;
+  cursor: pointer;
+}
+#footer .flex {
+  background: linear-gradient(transparent, #162a58);
+  color: #fff;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 2px;
+  align-items: top;
+  position: sticky;
+  bottom: 0;
+}
+#footer img {
+  height: 22px;
+  width: auto;
+}
+.drop-shadow-md {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  --tw-drop-shadow: none !important;
+  filter: none !important;
+  --tw-ring-color: none !important;
+}
+input:-internal-autofill-selected {
+  appearance: menulist-button;
+  background-image: none !important;
+  background-color: transparent !important;
+  color: fieldtext !important;
+}
+/* 隱藏元素 */
+.hide {
+  display: none;
+}
+/* 痛用，按鈕間圖案寬度 */
+button img {
+  vertical-align: middle;
+  width: 1em!important;
+}
+.rowContentWrapper {
+  background-color: #fff;
+  border-radius: .5rem;
+  min-height: 600px;
+}
+
+.flex {
+  display: flex;
+}
+.justify-start {
+  justify-items: start;
+}
+.justify-center {
+  justify-items: center;
+}
+.justify-end {
+  justify-items: end;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.right-0 {
+  right: 0;
+}
+.w-1200 {
+  max-width: 1200px;
+  min-width: 95%;
+}
+.top-25{
+  top: 2.5rem;
+}
+#layout1 button.warring {
+  background-color: #de9825!important;
+  border: 1px solid #de9825!important;
+}
+#layout1 button.warring:hover {
+  background-color: #d65d00!important;
+  border: 1px solid #d65d00!important;
+}
+#layout1 button.alarm {
+  background-color: #ca4747!important;
+  border: 1px solid #ca4747!important;
+}
+#layout1 button.alarm:hover { 
+  background-color: #ac1e1e!important;
+  border: 1px solid #ac1e1e!important;
+}
+.d-flex.mb-1 {
+  border-bottom: 1px dotted #ddd;
+  padding-bottom: 0.25rem;
+}
+.modal-body input[type=checkbox]  {
+  height: 30px;
+  font-size: 1em;
+  width: 30px;
+  vertical-align: -4px;
+}
+#layout1 {
+  display: flex;
+  width: 100%;
+  border-top: #189cf4;
+  background: linear-gradient(to right, rgb(39, 72, 122) 0%, rgb(32, 72, 132)46%, rgb(23, 89, 194) 74%, rgb(0, 58, 140) 100%);
+  justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.5rem 0;
+}
+
+@media all and (max-width:1200px) {
+  #layout1{
+    display: block;
+    justify-content: center;
+  }
+  #layout1 .btnWrapper {
+    margin-bottom: 1rem;
+  }
+}
+div#layout1 img {
+  margin-right: 5px;
+  width: 16px;
+}
+
+#layout1 button {
+  background-color: #4791ca70;
+  border: 1px solid #4791ca;
+  border-radius: 3px;
+  color: #fff;
+  font-family: Arial;
+  font-size: .9em;
+  font-weight: bold;
+  margin: 0 .2rem .5rem;
+  padding: .2rem .5rem;
+}
+#layout1 button:hover {
+  background-color: #4791ca;
+}
+
+div#layout1.multi {
+  margin-bottom: 2rem!important;
+  padding: 2rem 1rem 5rem!important;
+}
+span.divider {
+  background-color: #c2e9fc;
+  height: 1.5rem;
+  width: 1px;
+  margin: 0 5px;
+  display: inline-flex;
+  vertical-align: middle;
+}
+@media all and (max-width:460px) {
+  div#layout1 span.divider {
+    height: 3rem!important;
+  }
+}
+.dataTables_wrapper span {
+  color: #333;
+}
+.dataTables_wrapper {
+  border-radius: 5px;
+}
+.dataTables_wrapper caption {
+  color:#d3e3ff;
+  font-size: 1.6em;
+  font-weight: bold;
+}
+.datatableWrapper {
+  caption-side: top;
+}
+table.datatableWrapper {
+  background-color: #fff;
+  margin: auto!important;
+  width: 100%!important;
+}
+.datatableWrapper th,
+.datatableWrapper td {
+  min-width: 80px;
+  word-break: break-all;
+  white-space: break-spaces;
+  vertical-align: top;
+}
+table.dataTable.dtr-inline.collapsed>tbody>tr.parent>td.dtr-control:before, 
+table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th.dtr-control:before {
+  color: rgb(18, 151, 18)!important;
+}
+table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, 
+table.dataTable.dtr-inline.collapsed>tbody>tr>th.dtr-control:before {
+  color: rgb(41, 199, 41)!important;
+}
+table#example {
+  max-width: 100%!important;
+}
+
+.fontColorError {
+  color: #ff1500;
+}
+.fontColorIdle {
+  color: #ffc800;
+}
+.fontColorRun {
+  color: #18a918;
+}

@@ -1,0 +1,46 @@
+#mainMenu {
+    background-color: transparent;
+}
+
+.mainMenu-btn {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.mainMenu-btn:hover {
+    background-color: rgba(111, 149, 239, 0.5) !important;
+    border-color: transparent !important;
+}
+
+.mainMenu-btn:focus {
+    background-color: rgba(49, 201, 252, 0.25) !important;
+    border-color: transparent !important;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.dropdown-content {
+    background-color: rgba(20, 46, 107, 0.9);
+    border: 1px solid rgba(38, 80, 179, 0.9);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-item button {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    font-weight: bold;
+    font-size: large;
+    color: #fff !important;
+}
+
+.dropdown-menu {
+    z-index: 1050;
+}
+
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+    background-color: rgba(111, 149, 239, 0.5) !important;
+    color: inherit !important;
+}

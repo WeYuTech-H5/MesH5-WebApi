@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link href="../css/zz/Taipower/comm/bootstrap.4.4.1.min.css" rel="stylesheet" />
+    <link href="../css/zz/Taipower/weyu/boardA.css" rel="stylesheet" />
+    <style>
+      #time {
+            position: fixed;
+            top: 15px;
+            right: 10px;
+            background: linear-gradient(to right, #549CBB, #00bfff);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+        }
+        #backbtn {
+            position: fixed;
+            top: 15px;
+            left: 10px;
+            background: linear-gradient(to right, #549CBB, #00bfff);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            cursor: pointer; /* 使鼠标在悬停时显示为手型图标 */
+        }
+    </style>
+  </head>
+  <body>
+    <div id="time"></div>
+    <div id="backbtn">Back</div>
+    <div class="container">
+      <div class="row">
+        <h2 class="title">GEMTEK-當日用電明細</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-lg-3 aside">
+          <div class="boxWrapper">
+            <div class="text" id="TODAY_MAX_KWH_TOT_TIME">
+              yyyy/MM/dd HH:mm<span id="TODAY_MAX_KWH_TOT">N/A KW</span>當日最高用電時間
+            </div>
+            <canvas id="boxT1"></canvas>
+          </div>
+          <div class="boxWrapper">
+            <div class="text" id="MONTH_MAX_KWH_TOT_TIME">
+              yyyy/MM/dd HH:mm<span id="MONTH_MAX_KWH_TOT">N/A KW</span>當月最高用電時間
+            </div>
+            <canvas id="boxT2"></canvas>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-9">
+          <div class="boxWrapper">
+            <div class="title">當日已匯入系統之 15 分鐘需量 kWh tot Max</div>
+            <canvas id="boxT3" height="6" width="10"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <h2 class="title">GEMTEK-當日用電分析統計</h2>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-md-4">
+          <div class="boxWrapper">
+            <div class="title">尖峰 kWh</div>
+            <div class="text" id="Peak">N/A%</div>
+            <canvas id="boxA"></canvas>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="boxWrapper">
+            <div class="title">半尖峰 kWh</div>
+            <div class="text" id="Semi-Peak">N/A%</div>
+            <canvas id="boxB"></canvas>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="boxWrapper">
+            <div class="title">離峰 kWh</div>
+            <div class="text" id="Off-Peak">N/A%</div>
+            <canvas id="boxD"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-3">
+          <div class="boxWrapper">
+            <div class="title" id="title_KWH_TOT">本日累積用電</div>
+            <!-- <div class="text fixedB">累積用量<br /><div id="TODAY_SUMMARY_KWH_TOT">N/A</div></div> -->
+            <div class="text fixed" id="TODAY_SUMMARY_KWH_TOT_PER">N/A%</div>
+            <canvas id="boxE"></canvas>
+          </div>
+        </div>
+        <div class="col-12 col-md-9 boxF">
+          <div class="boxWrapper">
+            <div class="title">近期用電度數 kWh</div>
+            <canvas id="boxF" height="50" width="150"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <footer class="col-12 text-center">
+          <small>© COPYRIGHT – WEYU TECHNOLOGY CO.,LTD.</small>
+        </footer>
+      </div>
+    </div>
+
+    <script src="../js/zz/Taipower/jquery.min.js"></script>
+    <script src="../js/zz/Taipower/bootstrap.min.js"></script>
+    <script src="../js/zz/Taipower/Chart.min.js"></script>
+    <script src="../js/weyu/weyu_config.js"></script>
+    <script src="Taipower.js"></script>
+    <script>
+      document.getElementById("backbtn").onclick = function() {
+          window.location.href = window.location.protocol+"//"+default_ip+"/"+PROJECT_NAME+"/"+kanbanRoute+ "/zz_query/zz_production.html?MODULE_NAME=Kanban&LEVEL=L1"; // 将此 URL 替换为你希望重定向的 URL
+      }
+  </script>
+  </body>
+</html>

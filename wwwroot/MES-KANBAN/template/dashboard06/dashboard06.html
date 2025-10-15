@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban</title>
+    <link href="../../css/comm/bootstrap.4.4.1.min.css" rel="stylesheet" />
+    <link href="../../css/weyu/weyu_right_navbar.css" rel="stylesheet" />
+    <link href="dashboard06.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- 商標標題時間 -->
+    <header class="flex items-center w-100 pt-2 mb-2">
+      <div class="col-1"><!-- Menu BTN --></div>
+      <div
+        id="title"
+        class="col-md-8 col-lg-10 text-center position-relative pt-1"
+      >
+        EMS 用電管理平台
+        <div id="timming" class="">14:30</div>
+      </div>
+
+      <div id="settings" class="col-1 position-relative text-end">
+        <img
+          id="settings-image"
+          src="../../img/comm/user-gear-solid.svg"
+          style="height: 1.5rem; width: 1.5rem"
+          alt="Settings"
+        />
+      </div>
+      <div id="dropdown-menu" class="dropdown-content hidden">
+        <div id="langueStatus">Language Status</div>
+        <div id="accountStatus">Account Status</div>
+        <div id="logout">Logout</div>
+      </div>
+    </header>
+
+    <!-- 內容開始 -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6 col-lg-3">
+          <div class="box">
+            <h2>即時用電</h2>
+            <span>
+              <strong id="dailyAmount">40</strong>
+              <small>kWh</small>
+            </span>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="box">
+            <h2>本日用電</h2>
+            <span>
+              <strong id="PFamount">240</strong>
+              <small>kWh</small>
+            </span>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="box">
+            <h2>本月用電</h2>
+            <span>
+              <strong id="demandAmount">1,240</strong>
+              <small>kWh</small>
+            </span>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="box">
+            <h2>本年用電</h2>
+            <span>
+              <strong id="currentAmount">1,240,000</strong>
+              <small>kWh</small>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div class="box">
+            <h2>年度用電量趨勢圖</h2>
+            <div class="chartWraper canvasA">
+              <canvas id="canvasA"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="row">
+            <div class="col-6">
+              <div class="box">
+                <h2>即時需量</h2>
+                <span>
+                  <strong id="currentAmount">42.56</strong>
+                  <small>kW</small>
+                </span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="box">
+                <h2>本月最大需量</h2>
+                <span>
+                  <strong id="currentAmount">1,300</strong>
+                  <small>kW</small>
+                </span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="box">
+                <h2>本月單位面積能耗</h2>
+                <span>
+                  <strong id="currentAmount">11.56</strong>
+                  <small>kWh / m &sup2; </small>
+                </span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="box">
+                <h2>本月人均能耗</h2>
+                <span>
+                  <strong id="currentAmount">12.48</strong>
+                  <small>kWh / 人</small>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div class="box">
+            <h2>
+              區域用電量情況
+              <select>
+                <option>月</option>
+              </select>
+              <select>
+                <option>2022年8月</option>
+              </select>
+            </h2>
+            <div class="row">
+              <div class="col-12 col-lg-5">
+                <div class="chartWraper canvasB">
+                  <canvas id="canvasB" height="25" width="25"></canvas>
+                </div>
+              </div>
+              <div class="col-12 col-lg-7 report">
+                <div>
+                  <strong>1</strong>A 區生產中心
+                  <span>62,00<small>Kwh</small></span>
+                  <span class="equealToPass">同比去年同期</span>
+                  <span class="reportEnd up">15.3%</span>
+                </div>
+                <div>
+                  <strong>2</strong>B 區生產中心
+                  <span>21,00<small>Kwh</small></span>
+                  <span class="equealToPass">同比去年同期</span>
+                  <span class="reportEnd up">6.5%</span>
+                </div>
+                <div>
+                  <strong>3</strong>C 區生產中心
+                  <span>20,79<small>Kwh</small></span>
+                  <span class="equealToPass">同比去年同期</span>
+                  <span class="reportEnd down">3.5%</span>
+                </div>
+                <div>
+                  <strong>4</strong>D 區生產中心
+                  <span>20,21<small>Kwh</small></span>
+                  <span class="equealToPass">同比去年同期</span>
+                  <span class="reportEnd down">3.5%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="box">
+            <h2>近30日用電量趨勢圖</h2>
+            <div class="chartWraper canvasC">
+              <canvas id="canvasC"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="col-12 text-center">
+      <small>© COPYRIGHT – WEYU TECHNOLOGY CO.,LTD.</small>
+    </footer>
+
+    <script src="../../js/comm/jquery.min.js"></script>
+    <script src="../../js/comm/bootstrap.min.js"></script>
+    <script src="../../js/comm/Chart.bundle.js"></script>
+    <script src="../../js/comm/chartjs-plugin-labels.js"></script>
+    <script src="../../js/comm/cdn.jsdelivr.net_npm_chart.js"></script>
+    <script src="../../js/weyu/weyu_config.js"></script>
+    <script src="../../js/weyu/weyu_header.js"></script>
+    <script src="../../js/weyu/weyu_right_navbar.js"></script>
+    <script src="../../js/weyu/weyu_menu.js"></script>
+    <script src="../../js/weyu/weyu_menu_bs.js"></script>
+    <script src="../../js/weyu/weyu_comm_api_function.js"></script>
+    <script src="../../js/weyu/weyu_comm_function.js"></script>
+    <script src="dashboard06.js"></script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+{
+    "labels": [
+        "202405",
+        "202406",
+        "202407",
+        "202408",
+        "202409",
+        "202410"
+    ],
+    "datasets": [
+        {
+            "label": "稼動率",
+            "borderColor": "#3cffed",
+            "pointBackgroundColor": "#3cffed",
+            "steppedLine": "true",
+            "data": [
+                78,
+                69,
+                75,
+                86,
+                91,
+                88
+            ]
+        }
+    ]
+}

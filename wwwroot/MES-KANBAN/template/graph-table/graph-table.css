@@ -1,0 +1,30 @@
+.chart-container {
+	width: 80%;
+	margin: 10px auto;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	background-color: #f9f9f9;
+}
+.display-content {
+	height: 400px;
+}
+.chart-controls {
+}
+
+.chart-display {
+	width: 100%;
+	height: 400px;
+}
+
+#dateRange {
+	cursor: pointer;
+}
+
+.switchBtn {
+	border: 1px solid #a0a0a0 !important;
+}
+
+.switchBtn.selected {
+	background-color: #cfcfcf8b;
+}

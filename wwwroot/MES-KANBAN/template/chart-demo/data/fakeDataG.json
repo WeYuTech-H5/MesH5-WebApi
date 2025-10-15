@@ -1,0 +1,46 @@
+{
+    "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+    ],
+    "datasets": [
+        {
+            "radius": 5,
+            "pointRadius": 8,
+            "pointHoverRadius": "10",
+            "label": "散佈圖",
+            "backgroundColor": [
+                "RED",
+                "GREEN",
+                "BLUE",
+                "YELLOW",
+                "ORANGE"
+            ],
+            "borderColor": "transparent",
+            "data": [
+                {
+                    "x": "0",
+                    "y": "0"
+                },
+                {
+                    "x": "8.5",
+                    "y": "3.7"
+                },
+                {
+                    "x": "-6.5",
+                    "y": "5.3"
+                },
+                {
+                    "x": "7",
+                    "y": "-2.3"
+                },
+                {
+                    "x": "-7.8",
+                    "y": "-3.2"
+                }
+            ]
+        }
+    ]
+}

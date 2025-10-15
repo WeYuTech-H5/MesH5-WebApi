@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title class="Lang">IoT and Power Usage</title>
+    <link href="../../css/comm/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../css/weyu/footer.css" rel="stylesheet" />
+    <link href="../../css/weyu/functionList.css" rel="stylesheet" />
+    <link href="../../css/weyu/IOTchart.css" rel="stylesheet" />
+    <link href="../../css/comm/flatpickr.min.css" rel="stylesheet">
+    <link href="../../css/weyu/defaultBTN.css" rel="stylesheet" />
+    <link href="../../css/weyu/user_account.css" rel="stylesheet" />
+    <link href="../../css/weyu/offcanvas.css" rel="stylesheet" />
+  </head>
+  <body onload="onLoad()">
+    <div class="container">
+      <div class="row">
+        <div class="col-9">
+          <h1>
+            <!-- <button
+              class="btn"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasExample"
+              aria-controls="offcanvasExample"
+            >
+              <img src="../../img/zz/hamburger.svg" class="btnHamburger w-5" />
+            </button> -->
+            <a href="../../EMS-index.html" class="text-decoration-none text-white fs-4 fs-bold">
+              EMS RWD
+            </a>
+            <span class="Lang">IoT and Power Usage</span>
+          </h1>
+        </div>
+        <div class="col-3 text-end">
+          <!-- <div class="dropdown" id="mainMenu">
+            <button class="btn btn-secondary dropdown-toggle mainMenu-btn mt-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../../img/zz/user-gear-solid.svg" class="" style="height: 1.5rem" alt="account">
+            </button>
+            <ul class="dropdown-menu dropdown-content" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" id="langueStatus">ENGLISH</a></li>
+              <li><a class="dropdown-item" id="accountStatus">Account</a></li>
+              <li><a class="dropdown-item" id="changePassword">Change PWD</a></li>
+              <li><a class="dropdown-item" id="logout">Logout</a></li>
+            </ul>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid menu">
+      <div class="row">
+        <div class="col-12">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="d-flex justify-content-start align-items-center py-2">
+                  <button class="ms-2 btn btn-active d-flex align-items-center" id="btnBackURL">
+                    <img src="../../img/comm/circle-chevron-left-solid.svg" alt="">
+                    <span class="Lang">Back</span>
+                  </button>
+                  <!-- <button class="ms-2 btn btn-active d-flex align-items-center" id="resetZoom">
+                    <img src="../../img/zz/search.svg" alt="">
+                    <span class="Lang">Reset Zoom</span>
+                  </button> -->
+                  <!-- <button class="btn btn-active my-3 ms-3 d-flex align-items-center" onclick="showMenu('today')">
+                    <img src="../../img/zz/info-active.svg" alt="">
+                    <span class="Lang">Meter Current Info</span>
+                  </button>
+                  <button class="btn btn-active my-3 ms-3 d-flex align-items-center" onclick="showMenu('daily')">
+                    <img src="../../img/zz/info-active.svg" alt="">
+                    <span class="Lang">Daily Power Usage</span>
+                  </button>
+                  <button class="btn btn-active my-3 ms-3 d-flex align-items-center" onclick="showMenu('iot')">
+                    <img src="../../img/zz/info-active.svg" alt="">
+                    <span class="Lang">IoT Power Usage</span>
+                  </button>
+                  <button class="btn btn-active my-3 ms-3 d-flex align-items-center" onclick="showMenu('details')">
+                    <img src="../../img/zz/info-active.svg" alt="">
+                    <span class="Lang">Meter History</span>
+                  </button>
+                  <button class="btn btn-active my-3 ms-3 d-flex align-items-center" onclick="showMenu('maintenance')">
+                    <img src="../../img/zz/info-active.svg" alt="">
+                    <span class="Lang">Meter Maintenance</span>
+                  </button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-3 w-full">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p class="fw-bold fs-1 Lang">IoT Output and Power Usage</p>
+        </div>
+      </div>
+      <div class="col-12 d-flex">
+        <div class="col-md-6 chartDetailWrapper">
+          <div class="canvasWrapper">
+            <button class="reset-zoom" id="resetZoomJV02">
+              <img src="../../img/zz/search.svg" class="zoom-reset">
+            </button>
+            <h4 class="Lang">JV02</h4>
+            <canvas id="beBoxJV02"></canvas>
+          </div>
+        </div>
+        <div class="col-md-6 chartDetailWrapper">
+          <div class="canvasWrapper">
+            <button class="reset-zoom" id="resetZoomJV03">
+              <img src="../../img/zz/search.svg" class="zoom-reset">
+            </button>
+            <h4 class="Lang">JV03</h4>
+            <canvas id="beBoxJV03"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 d-flex">
+        <div class="col-md-6 chartDetailWrapper">
+          <div class="canvasWrapper">
+            <button class="reset-zoom" id="resetZoomJV04">
+              <img src="../../img/zz/search.svg" class="zoom-reset">
+            </button>
+            <h4 class="Lang">JV04</h4>
+            <canvas id="beBoxJV04"></canvas>
+          </div>
+        </div>
+        <div class="col-md-6 chartDetailWrapper">
+          <div class="canvasWrapper">
+            <button class="reset-zoom" id="resetZoomJA14">
+              <img src="../../img/zz/search.svg" class="zoom-reset">
+            </button>
+            <h4 class="Lang">JA14</h4>
+            <canvas id="beBoxJA14"></canvas>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div id="footer" class="fixed bottom-0 w-full"></div>
+    <script src="../../js/weyu/weyu_footer2.js"></script>
+    <script src="../../js/comm/jquery.min.js"></script>
+    <script src="../../js/comm/bootstrap.min.js"></script>
+    <script src="../../js/comm/Chart.bundle.js"></script>
+    <script src="../../js/comm/cdn.jsdelivr.net_npm_chart.js"></script>
+    <script src="../../js/comm/hammer.min.js"></script>
+    <script src="../../js/comm/chartjs-plugin-zoom.min.js"></script>
+    <script src="../../js/comm/flatpickr.min.js"></script>
+
+    <script src="../../js/weyu/weyu_config.js"></script>
+    <script src="../../js/weyu/weyu_comm_api_function.js"></script>
+    <script src="../../js/weyu/weyu_comm_function.js"></script>
+    <script src="IOT_EM_Chart.js"></script>
+    <script src="../../js/weyu/weyu_header.js"></script>
+    <!-- <script src="../../js/weyu/weyu_footer.js"></script> -->
+
+    <!-- 多語系翻譯 -->
+    <script type="text/javascript">
+      function onLoad() {
+        GetConfig();
+        SetDefaultSelectLang();
+        ChangeLang(); //多國語言翻譯
+      }
+      // 左上LOGO文字
+      $("#logotext").html(PROJECT_SAVE_NAME);
+    </script>
+    <script>
+      $(document).ready(function () {
+        $(".subMenu").click(function () {
+          $(".subMenu li").toggle();
+        });
+      });
+    </script>
+
+    <script>
+      function functionList() {
+        document.body.style.opacity = 0;
+        setTimeout(function () {
+          window.location.href = "functionList.html";
+        }, 500);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+{
+    "labels": ["機況"],
+    "datasets": [
+        {
+            "label": "運行",
+            "data": [
+                ["2022-01-01T00:00", "2022-01-01T01:30"]
+            ],
+            "backgroundColor": ["green"],
+            "categoryPercentage": 1,
+            "barPercentage": 1
+        },
+        {
+            "label": "待機",
+            "data": [
+                ["2022-01-01T01:30", "2022-01-01T02:30"]
+            ],
+            "backgroundColor": ["orange"],
+            "categoryPercentage": 1,
+            "barPercentage": 1
+        },
+        {
+            "label": "運行",
+            "data": [
+                ["2022-01-01T02:30", "2022-01-01T04:30"]
+            ],
+            "backgroundColor": ["green"],
+            "categoryPercentage": 1,
+            "barPercentage": 1
+        },
+        {
+            "label": "待機",
+            "data": [
+                ["2022-01-01T04:30", "2022-01-01T05:00"]
+            ],
+            "backgroundColor": ["orange"],
+            "categoryPercentage": 1,
+            "barPercentage": 1
+        },
+        {
+            "label": "運行",
+            "data": [
+                ["2022-01-01T05:00", "2022-01-01T07:30"]
+            ],
+            "backgroundColor": ["green"],
+            "categoryPercentage": 1,
+            "barPercentage": 1
+        },
+        {
+            "label": "關機",
+            "data": [
+                ["2022-01-01T07:30", "2022-01-01T09:30"]
+            ],
+            "backgroundColor": ["#ff4500"],
+            "categoryPercentage": 1,
+            "barPercentage": 1
+        },
+        {
+            "label": "運行",
+            "data": [
+                ["2022-01-01T09:30", "2022-01-01T10:30"]
+            ],
+            "backgroundColor": ["green"],
+            "categoryPercentage": 1,
+            "barPercentage": 1
+        }
+    ]
+}

@@ -1,0 +1,191 @@
+*,h1 {
+    color: white;
+}
+
+.card {
+    text-align: center;
+    border: 3px solid rgba(0, 51, 76, 0.5); /* 半透明的细边框 */
+    padding: 12px;
+    border-radius: 12px;
+    margin: 10px;
+    background: linear-gradient(145deg, 
+                rgba(114, 190, 234, 0.5), 
+                rgba(1, 99, 149, 0.5)); /* 背景颜色添加透明度 */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.25);
+}
+.card h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.card h2 {
+    font-size: 2rem;
+    /* font-weight: bold; */
+}
+.card h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.card p {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+}
+.chart-wrapper {
+    position: relative;
+    width: 70%;
+    margin: 0 auto;
+}
+.doughnut-tag {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%; /* 使背景為圓形 */
+    /* padding: 0; 可調整圓的大小 */
+    width: 75%; /* 圓的直徑 */
+    height: 75%; /* 圓的直徑 */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+}
+.doughnut-tag p {
+    font-size: 6rem;
+}
+.hint-bar{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+}
+.percent {
+    width: 100%;
+    position: relative;
+}
+
+.percent::after {
+    content: "%";
+    font-size: 1.2rem;
+}
+
+.square {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    margin-right: 1px;
+    background-color: #000000;
+}
+.square-red {
+    background-color: #EB3645;
+  }
+.square-yellow{
+    background-color:#FFA552;
+}
+.square-green{
+    background-color:#5bbfb3;
+}
+
+/* Loading畫面 */
+.loading {
+    display: table;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    z-index: 5;
+}
+
+.loading .progress {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: rgb(48, 48, 48);
+    font-size: 2em;
+    font-weight: 900;
+    background: radial-gradient(circle, #196eae, #1a3677, #162a58);
+}
+
+.loader {
+    display: block;
+    margin: auto;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 13px solid #383838;
+    border-bottom: 13px solid #bafabe;
+    border-left: 13px solid #189cf4;
+    border-right: 13px solid #74bb1e;
+    width: 10vh;
+    height: 10vh;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 1s linear infinite;
+}
+/* Safari */
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ========= */
+.menu-btn {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin-top: 5px;
+    margin-right: 25px;
+    background-color: #34dba1a2;
+    color: white;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.menu-btn:hover {
+    background-color: #29b990bc;
+}
+
+.menu-btn .arrow {
+    display: inline-block;
+    margin-left: 5px;
+    transition: transform 0.5s ease;
+}
+
+.menu-btn:hover .arrow {
+    transform: translateX(8px);
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>WeyuBoard</title>
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <link href="../../../css/comm/dataTables.min.css" rel="stylesheet" />
+    <link href="../../../css/comm/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../../css/zz/master-detail-v2.css" rel="stylesheet" media="all">
+    <link href="../../../css/zz/master-maintain-new.css" rel="stylesheet" media="all">
+    <link href="../../../css/comm/jquery.datetimepicker.min.css" rel="stylesheet" />
+    <link href="../../../css/weyu/input.css" rel="stylesheet" />
+    <link href="../../../css/weyu/weyu_right_navbar.css" rel="stylesheet">
+</head>
+
+<body onload="onLoad()" style="overflow-x: hidden">
+    <!-- ------------------------------------------------------------------------------ loading -->
+
+    <div class="loading" id="loading">
+        <div class="progress" id="progress">
+            Loading
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <header class="flex items-center w-full mt-2">
+        <!--菜單-->
+
+        <!-- <button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" style="background: transparent; border: 0;">
+            <img src="../../../img/zz/hamburger.svg" alt="Menu" />
+        </button> -->
+    
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel" style="background-color: #162a58;">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">WO Maintain</h5>
+            <!-- <button type="button" class="" data-bs-dismiss="offcanvas" aria-label="Close" style="background: transparent; border: 0;">
+                <img src="../../../img/zz/hamburger.svg" alt="Menu" />
+            </button> -->
+          </div>
+          <div id="menuList" class="offcanvas-body"></div>
+        </div>
+          
+    
+        <h1 style="font-size: 1.25em; font-weight: bold; line-height: 1; margin-top: 0.5em;">
+            <a id="logotext" href="../../../EMS-index.html">GEMTEK</a>
+        </h1>
+        <div class="company">
+            <nav class="navbar"></nav>
+            <div class="board-name" id="midtitle">WO Maintain</div>
+        </div>
+
+
+        <div id="settings">
+            <img id="settings-image" src="../../../img/comm/user-gear-solid.svg" style="height: 1.5rem; width: 1.5rem" alt="Settings" />
+        </div>
+
+        <div id="dropdown-menu" class="dropdown-content hidden">
+        <div id="langueStatus">Language Status</div>
+        <div id="accountStatus">Account Status</div>
+        <div id="changePassword">Change Password</div>
+        <div id="logout">Logout</div>
+        </div>
+    </header>
+    <div id="layout1" class="layout-btns">
+        <!-- Button trigger modal -->
+        <div id="container" class="container-head">
+            <button id="backLink" class="btn tit Lang"><img src="../../../img/comm/circle-chevron-left-solid.svg" alt="返回前頁"><span class="Lang">Back</span></button>
+            
+        </div>
+        <!-- Modal -->
+    </div>
+    <!-- -----------------------------------------------主要內容 -->
+    <div id="mybody">
+        <!-- 搜尋條件卡片 -->
+        <div id="query-card" class="card mb-4">
+            <div class="card-header">
+                搜尋條件
+            </div>
+            <div class="card-body">
+                <div class="row input-bar">
+                    <div class="col-md-6 mb-3">
+                        <label for="MMsid" class="Lang form-label">Choose a MasterMaintain:</label>
+                        <input class="form-control w-75" list="MMList" name="myBrowser" id="MMsid" onchange="startFetchDetail()" onclick="clearSelect()" required autocomplete="off" placeholder="輸入群組"/>
+                        <datalist id="MMList"></datalist>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="keyword" class="form-label">關鍵字:</label>
+                        <div class="d-flex">
+                            <input type="text" class="form-control w-75" id="keyword" placeholder="輸入關鍵字">
+                            <button id="searchBtn" style="background-color: #004aa5;color:white; padding:0 1rem">搜尋</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex radio-bar">
+                    <input type="radio" id="selectShowAll" name="selectShow" value="All" onchange="getDetailTable()" checked="checked">
+                    <label for="selectShowAll"><div class="Lang">All</div></label>
+                    <input type="radio" id="selectShowBind" name="selectShow" value="Bind" onchange="getBindDetailTable()">
+                    <label for="selectShowBind"><div class="Lang">Bind</div></label>
+                    <input type="radio" id="selectShowUnbind" name="selectShow" value="Unbind" onchange="getUnbindDetailTable()" >
+                    <label for="selectShowUnbind"><div class="Lang">Unbind</div></label>
+                </div>
+            </div>
+        </div>
+        <div id="layout3">
+            <table id="MasterMaintainDetail" class="row-border order-column stripe hover">  
+                <thead>
+                  <tr id="trDT">
+                  </tr>
+                </thead>
+            </table>
+        </div>
+        <div id="button-bar" class="button">
+            <button id="ResetButton" onclick="ResetDataTable()"><div class="Lang">Reset</div></button>
+            <button id="SaveButton" onclick="DataSave()"><div class="Lang">Save</div></button>
+        </div>
+
+
+    </div>
+    <div id="footer" class="relative z-10 fixed bottom-0 w-full"></div>
+    <script src="../../../js/comm/jquery.min.js"></script>
+    <script>
+        var VersionTime = (new Date()).getTime();
+    </script>
+    <script src="../../../js/weyu/weyu_config.js?v="+VersionTime></script>
+    <script src="../../../js/weyu/weyu_comm_api_function.js?v="+VersionTime></script>
+    <script src="../../../js/weyu/weyu_comm_function.js?v="+VersionTime></script>
+    <script src="../../../js/weyu/weyu_check.js?v="+VersionTime></script>
+    <script src="../../../js/weyu/loading.js"></script>
+    <script src="../../../js/comm/dataTables.min.js"></script>
+    <script src="../../../js/comm/bootstrap.min.js"></script>
+    <script defer src="./master-detail-v2.js?v="+VersionTime></script>
+    <script src="../../../js/weyu/weyu_right_navbar.js"></script>
+    <script src="../../../js/weyu/weyu_header.js"></script>
+    <script src="../../../js/weyu/weyu_footer.js"></script>
+    <!-- 多語系翻譯 -->
+
+    <script type="text/javascript">
+        function onLoad() {
+            DebugLog('onLoad Start');
+            GetConfig();
+            SetDefaultSelectLang();
+            ChangeLang(); //多國語言翻譯
+
+            DebugLog('onLoad END');
+        }
+        $(document).ready(function() {
+            DebugLog('ready Start');
+
+            $('#selectlang').on('change', function() {
+                try {
+                    DebugLog('selectlang on_change ' + this.value);
+                    UIChangeLng(this.value);
+                    //localStorageSetItem("eqp", this.value);
+                } catch (errorMessage) {
+                    DebugLogAndAlert(errorMessage);
+                }
+            });
+
+            DebugLog('ready END');
+        });
+    </script>
+</body>
+
+</html>

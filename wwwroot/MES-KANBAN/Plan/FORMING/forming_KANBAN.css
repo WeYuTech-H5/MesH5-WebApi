@@ -1,0 +1,25 @@
+/* datatable no data  */
+table.dataTable td.dataTables_empty {
+    text-align: left !important;
+    /* 取消置中，改靠左 */
+    padding-left: 10px !important;
+    color: #666;
+}
+
+
+/* html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  
+} */
+
+.nowrap-column {
+  white-space: nowrap;
+}
+
+/* table.dataTable{
+    table-layout: auto;
+} */
+
+

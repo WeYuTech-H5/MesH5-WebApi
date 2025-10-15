@@ -1,0 +1,140 @@
+/* ========== 定義全域變數 ========== */
+:root {
+    --content-bg-color: rgba(0, 11, 55, 0.4);
+    --content-border-color: #90e3ff6b;
+    --table-header-color: #2276bf;
+}
+
+/* ========== 全局樣式 ========== */
+html,
+body {
+    color: white;
+}
+
+.allWrapper {
+    z-index: 10;
+}
+
+.box {
+    background-color: var(--content-bg-color);
+    border: 1px solid var(--content-border-color);
+}
+.chart-wrapper {
+    height: 100%;
+}
+.height-200 {
+    height: 200px;
+}
+.height-300 {
+    height: 300px;
+}
+.height-400 {
+    height: 400px;
+}
+.height-500 {
+    height: 500px;
+}
+/* ========== 容器樣式(box-table) ========== */
+.box-table  {
+    position: relative; /* 需要设置父容器为 relative */
+    overflow: auto;
+    text-align: center;
+}
+
+.box-table::-webkit-scrollbar {
+    display: none;
+}
+
+.box-table table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+/* 固定表格标题和 h6 */
+.box-table h6,
+.box-table th {
+    position: sticky;
+    z-index: 10; /* 确保在内容上方 */
+    background-color: var(--table-header-color); /* 背景色 */
+}
+
+.box-table h6 {
+    top: 0; /* 固定在顶部 */
+    box-sizing: border-box; /* 確保邊框包含在高度內 */
+    height: 24px; /* 固定總高度 */
+    line-height: 23px; /* 調整行高 */
+    border-bottom: 1px solid #fcfcfc50;
+    margin-bottom: 0;
+}
+.box-table th {
+    top: 24px; /* 固定在h6下方 */
+}
+.box-table tbody tr {
+    line-height: 32px;
+    border-bottom: 1.5px dotted rgba(174, 174, 174, 0.5)
+}
+
+/* ========== 容器樣式(box-group) ========== */
+.box-group {
+    display: flex;
+    flex-wrap: wrap; /* 允許換行 */
+}
+.group-item {
+    width: 25%;
+    height: 190px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid var(--content-border-color);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0) 85%, rgba(2, 76, 196, 0.5) 100%);
+}
+.group-item h5 {
+    margin-bottom: 0;
+    margin-top: 10px;
+    font-size: calc(1rem + .3vw);
+    color:white
+}
+.group-item p {
+    margin-bottom: 0;
+    font-size: calc(5rem + .3vw);;
+}
+
+@media screen and (max-width: 992px) {
+    .group-item {
+        width: 50%;
+    }
+}
+@media screen and (max-width: 576px) {
+    .group-item {
+        width: 100%;
+    }
+}
+
+/* 輪播表格 START */
+.slider-nav {
+    display: flex;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(141, 141, 141, 0.35);
+}
+.slider-nav div {
+    padding: 3px 20px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    user-select: none;
+}
+.slider-nav div:hover, .slider-nav .active {
+    background-color: var(--table-header-color);
+}
+.carousel-inner::-webkit-scrollbar {
+    display: none;
+}
+
+.table-dark {
+    --bs-table-bg: rgba(25, 46, 60, 0.7); /* 深藍色，70% 不透明 */
+    --bs-table-striped-bg: rgba(38, 63, 82, 0.7); /* 更亮的藍色條紋背景 */
+    --bs-table-hover-bg: rgba(41, 66, 94, 0.8); /* 更亮的藍色 hover 背景 */
+    --bs-table-border-color: rgba(255, 255, 255, 0.15); /* 輕微白色邊框 */
+}
+/* 輪播表格 END */

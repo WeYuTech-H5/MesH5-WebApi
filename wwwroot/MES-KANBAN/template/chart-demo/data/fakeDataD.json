@@ -1,0 +1,51 @@
+{
+    "labels": [
+        "人員A",
+        "人員B",
+        "人員C",
+        "人員D",
+        "人員E",
+        "人員F"
+    ],
+    "datasets": [
+        {
+            "label": "產品A",
+            "backgroundColor": "#76d679",
+            "stack": "Stack 0",
+            "data": [
+                15,
+                36,
+                14,
+                63,
+                14,
+                35
+            ]
+        },
+        {
+            "label": "產品B",
+            "backgroundColor": "#11738e",
+            "stack": "Stack 0",
+            "data": [
+                20,
+                10,
+                30,
+                38,
+                25,
+                48
+            ]
+        },
+        {
+            "label": "產品C",
+            "backgroundColor": "#57e5ff",
+            "stack": "Stack 0",
+            "data": [
+                30,
+                25,
+                53,
+                13,
+                55,
+                53
+            ]
+        }
+    ]
+}

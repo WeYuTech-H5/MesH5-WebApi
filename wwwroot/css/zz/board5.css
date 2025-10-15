@@ -1,0 +1,54 @@
+.wrapperUp .num {
+  margin-left: .5rem;
+  padding-left: .5rem;
+}
+.wrapperUp .num h4,
+.wrapperUp .num strong {
+  border: 1px solid rgba(15, 88, 137, 0.818);
+  line-height: 1;
+}
+.wrapperUp .num h4 {
+  background-color: rgba(15, 88, 137, 0.818);
+  font-size: .8em;
+  padding-left: .5rem;
+}
+.wrapperUp .num strong {
+  background-color: rgba(38, 74, 98, 0.484);
+  color: rgb(255, 79, 85);
+  display: block;
+  margin-bottom: .5rem;
+  padding-right: .5rem;
+  text-align: right;
+}
+h3 a {
+  padding: .3rem .4rem;
+}
+h3 a img {
+  vertical-align: bottom;
+  width: .9em
+}
+.theCard {
+  background-color: #1530688a;
+  font-size: .9em;
+}
+.theCard .title {
+  background-color: #2b5da5;
+  display: flex;
+  align-items: center;
+  margin-top: 2px;
+  min-height: 40px;
+  padding: .5rem;
+}
+span.valWrapper {
+  width: 38px;
+  text-align: center;
+}
+.wrapperUp canvas {
+  width: 320px;
+  margin: auto;
+  height: auto;
+  max-width: 96%;
+}
+.tableLatest.m1 {
+  margin: 0!important;
+}

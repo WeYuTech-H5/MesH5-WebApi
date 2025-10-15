@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="../../css/weyu/input.css" rel="stylesheet">
+  <link href="../../css/weyu/weyu_right_navbar.css" rel="stylesheet">
+  <link href="../../css/comm/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/kanban-L1.css" rel="stylesheet" />
+
+</head>
+<body onload="onLoad()">
+  <div class="relative min-h-full" style="z-index: 10;">
+    <div class="loading" id="loading">
+        <div class="progress" id="progress">
+            Loading
+            <div class="loader"></div>
+        </div>
+    </div>
+    <header class="w-full mt-2">
+
+      <a id="logotext" href="../../index.html" class="fs-4 fw-bold ps-3"></a>
+
+      
+      <div id="title" class="fw-bold fs-5 Lang">
+        <span class="Lang">Kanban</span>
+      </div>
+
+      <div id="settings">
+        <img id="settings-image" src="../../img/comm/user-gear-solid.svg" style="height: 1.5rem; width: 1.5rem" alt="Settings" />
+      </div>
+
+      <div id="dropdown-menu" class="dropdown-content hidden">
+        <div id="langueStatus">Language Status</div>
+        <div id="accountStatus"><img src="" alt="" />Account Status</div>
+        <div id="logout"><button class="ml-auto p-4">
+          Logout
+        </button>
+        </div>
+      </div>
+
+    </header>
+    <!-- 主設計 START -->
+    <div class="row mx-auto">
+        <div id="dcCard" class="card col">
+            <h1>DC</h1>
+            <div class="chart-wrapper">
+                <canvas id="dcChart"></canvas>
+                <div class="doughnut-tag">
+                    <h2>OEE</h2>
+                    <p class="percent" id="dcOEE"></p>
+                </div>
+            </div>
+            <div class="hint-bar">
+                <span class="square square-red"></span>:&lt;<span id="low-standard">60</span>%
+                <span class="square square-yellow"></span>:<span id="mid-standard">60-80</span>%
+                <span class="square square-green"></span>:&gt;<span id="high-standard">80</span>%
+            </div>
+            <div class="stats">
+                <div>
+                    <h3>A(%)</h3>
+                    <p id="dcAVL"></p>
+                </div>
+                <div>
+                    <h3>P(%)</h3>
+                    <p id="dcPRF"></p>
+                </div>
+                <div>
+                    <h3>Q(%)</h3>
+                    <p id="dcYLD"></p>
+                </div>
+            </div>
+        </div>
+        <div id="cncCard" class="card col">
+            <h1>CNC</h1>
+            <div class="chart-wrapper">
+                <canvas id="cncChart"></canvas>
+                <div class="doughnut-tag">
+                    <h2>OEE</h2>
+                    <p class="percent" id="cncOEE"></p>
+                </div>
+            </div>
+            <div class="hint-bar">
+                <span class="square square-red"></span>:&lt;<span id="low-standard">60</span>%
+                <span class="square square-yellow"></span>:<span id="mid-standard">60-80</span>%
+                <span class="square square-green"></span>:&gt;<span id="high-standard">80</span>%
+            </div>
+            <div class="stats">
+                <div>
+                    <h3>A(%)</h3>
+                    <p id="cncAVL"></p>
+                </div>
+                <div>
+                    <h3>P(%)</h3>
+                    <p id="cncPRF"></p>
+                </div>
+                <div>
+                    <h3>Q(%)</h3>
+                    <p id="cncYLD"></p>
+                </div>
+            </div>
+        </div>
+        <div id="qcCard" class="card col">
+            <h1>QC</h1>
+            <div class="chart-wrapper">
+                <canvas id="qcChart"></canvas>
+                <div class="doughnut-tag">
+                    <h2>Completion</h2>
+                    <p class="percent" id="qcCompletion"></p>
+                </div>
+            </div>
+            <div class="hint-bar">
+                <span id="ENTERED_TIME_COUNT">0</span> / <span id ="TOTAL_TIME_COUNT">0</span>
+            </div>
+            <div class="stats">
+                <div>
+                    <h3>Pass</h3>
+                    <p id="qcPass"></p>
+                </div>
+                <div>
+                    <h3>On-time</h3>
+                    <p id="qcOntime"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 主設計 END -->
+    <!-- <div class="d-flex justify-content-end mb-5">
+        <button class="menu-btn">MENU <span class="arrow">>>></span></button>
+    </div> -->
+    <div id="footer" class="position-fixed bottom-0 right-0 left-0 w-100"></div>
+
+  </div>
+  <div class="mainBG fixed left-0 top-0 right-0 bottom-0"></div>
+
+  <script src="../../js/comm/cdn.jsdelivr.net_npm_chart.js"></script>
+  <script src="../../js/comm/bootstrap.min.js"></script>
+  <script src="../../js/comm/jquery.min.js"></script>
+  <script src="../../js/weyu/weyu_config.js"></script>
+  <script src="../../js/weyu/weyu_comm_api_function.js"></script>
+  <script src="../../js/weyu/weyu_comm_function.js"></script>
+  <script src="../../js/weyu/weyu_check.js"></script>
+  <script src="../../js/weyu/weyu_header.js"></script>
+  <script src="../../js/weyu/weyu_footer.js"></script>
+  <script src="../../js/weyu/weyu_right_navbar.js"></script>
+  <script src="kanban-L1.js"></script>
+  <!-- 多語系翻譯 -->
+  <script type="text/javascript">
+    function onLoad() {
+        GetConfig();
+        SetDefaultSelectLang();
+        ChangeLang();//多國語言翻譯
+        console.log('onLoad 成功')
+    };
+    // 左上LOGO文字
+    $('#logotext').html(PROJECT_SAVE_NAME);
+  </script>
+
+</body>
+</html>

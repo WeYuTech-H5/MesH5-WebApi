@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="../../css/weyu/input.css" rel="stylesheet">
+  <link href="../../css/weyu/weyu_right_navbar.css" rel="stylesheet">
+  <link href="../../css/comm/bootstrap.min.css" rel="stylesheet">
+  <link href="../template02/template02.css" rel="stylesheet">
+  <link href="../../css/weyu/template-menu.css" rel="stylesheet">
+
+</head>
+
+<body onload="onLoad()">
+  <div class="allWrapper relative min-h-full">
+    <header class="flex items-center w-full mt-2 overflow-hidden pb-2">
+      <div class="box-header">
+        <button id="menu" class="btn transparent-btn pl-4" aria-expanded="false">
+          <img id="menu-image" src="../../img/comm/icons/hamburger.svg" alt="Menu" />
+        </button>
+        <div id="dropdownMenu" class="menu-content">
+          <div class="d-flex h-100">
+            <button id="closeButton">
+              <img id="close-image" src="../../img/comm/icons/close.svg" alt="Menu" />
+            </button>
+            <div class="menu-tot">
+              <div class="menu-1">
+                <li>
+                  <a class="dropdown-item-title" href="../list/list.html">返回樣式列表</a>
+                </li>
+              </div>
+              <div class="menu-2">
+                <ul id="Menu" class="dropdown-item"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a id="logotext" href="../../index.html" class="fs-4 fw-bold"></a>
+      </div>
+      <div class="box-header">
+        <div class="fw-bold fs-5 Lang">
+          <span class="Lang">Operations Dashboard</span>
+        </div>
+      </div>
+      <div class="box-header">
+        <div class="time" id="current-time"></div>
+        <div id="settings">
+          <img id="settings-image" src="../../img/comm/user-gear-solid.svg" class="settings" alt="Settings" />
+        </div>
+        <div id="dropdown-menu" class="dropdown-content hidden">
+          <div id="langueStatus">Language Status</div>
+          <div id="accountStatus">Account Status</div>
+          <div id="logout">Logout</div>
+        </div>
+      </div>
+    </header>
+    <div class="container-fluid mb-lg-5">
+      <div class="row h-100">
+        <!-- 左 -->
+        <div class="framework col-12 col-lg-3  flex-column ">
+          <div class="box-1 flex-grow-1 mb-2">
+            <canvas id="BarChartA"></canvas>
+          </div>
+          <div class="box-1 flex-grow-1">
+            <canvas id="BarChartB"></canvas>
+          </div>
+        </div>
+        <!-- 中 -->
+        <div class="framework col-12 col-lg-9 flex-column">
+          <div class="box-2 d-flex">
+
+            <div class="h-auto box-3 col-3 d-flex flex-column text-center position-relative">
+              <div class="DoughnutChart d-flex justify-content-center">
+                <canvas id="myDoughnutChart"></canvas>
+                <div class="Doughnuttext pt-4">
+                  <div id="OEE"></div>
+                </div>
+              </div>
+            </div>
+            <div class="mid_top h-auto box-3 col-3 d-flex flex-column text-center position-relative white:100%">
+              <span class="title text-white overflow-y-hidden pt-2"> Good Ratio</span>
+              <div class="doughnut">
+                <canvas id="dashboardChartA"></canvas>
+                <div class="oeeValue">
+                  <span>43%</span>
+                </div>
+              </div>
+            </div>
+            <div class="mid_top h-auto box-3 col-3 d-flex flex-column text-center position-relative">
+              <span class="title text-white overflow-y-hidden pt-2">OEE(%)</span>
+              <div class="doughnut">
+                <canvas id="dashboardChartB"></canvas>
+                <div class="oeeValue">
+                  <span>63%</span>
+                </div>
+              </div>
+            </div>
+            <div class="mid_top h-auto box-3 col-3 d-flex flex-column text-center position-relative white:100%">
+              <div class="w-100 box-4 flex-grow-1 ">
+                <div class="w-100">
+                  <span class="titlerate text-green d-flex justify-content-center align-items">
+                    totay Utilization rate
+                  </span>
+                  <strong class="text-green">7</strong>
+                </div>
+              </div>
+              <div class=" w-100 box-4 flex-grow-1">
+                <div class="w-100">
+                  <span class="titlerate text-green d-flex justify-content-center align-items">
+                    Utilization rate 
+                  </span>
+                  <strong class="text-green ">7</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="box-2 mt-1 tablebox">
+            <div class="w-100 overflow-hidden">
+              <div class="tabletitle overflow-hidden ">機台運行狀況</div>
+              <div class="d-flex w-100">
+                <div id="tableA" class="button">廠區一</div>
+                <div id="tableB" class="button unselected">廠區二</div>
+                <div id="tableC" class="button unselected">廠區三</div>
+              </div>
+              <table id="datatable1" class="w-100">
+                <div id="gridB1Container" class="grid-container visible"></div>
+                <div id="gridB2Container" class="grid-container hidden"></div>
+                <div id="gridB3Container" class="grid-container hidden"></div>
+              </table>
+            </div>
+          </div>
+          <div class="box-2 mt-1  flex-grow-1 d-flex w-100">
+            <div class="box-5"><canvas id="BarChartD"></canvas></div>
+            <div class="box-5"><canvas id="BarChartC"></canvas></canvas></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 主設計 END -->
+    <div id="footer" class="position-fixed bottom-0 right-0 left-0 w-100"></div>
+
+  </div>
+  <div class="mainBG fixed left-0 top-0 right-0 bottom-0"></div>
+
+  <!-- <script src="../js/comm/cdn.jsdelivr.net_npm_chart.js"></script> -->
+   <script src="../../js/weyu/menu.js"></script>
+  <script src="../../js/comm/bootstrap.min.js"></script>
+  <script src="../../js/comm/jquery.min.js"></script>
+  <script src="../../js/weyu/weyu_config.js"></script>
+  <script src="../../js/weyu/weyu_comm_api_function.js"></script>
+  <script src="../../js/weyu/weyu_comm_function.js"></script>
+  <script src="../js/weyu/weyu_check.js"></script>
+  <script src="../template02/template02.js"></script>
+  <script src="../../js/weyu/weyu_header.js"></script>
+  <script src="../../js/weyu/weyu_footer.js"></script>
+  <script src="../../js/weyu/weyu_right_navbar.js"></script>
+
+  <script src="../../js/comm/chartjs-plugin-datalabels.min.js"></script>
+  <script src="../../js/comm/cdn.jsdelivr.net_npm_chart.js"></script>
+  <script src="../../js/comm/cdn.chart.true_numb.js"></script>
+
+  <!-- 多語系翻譯 -->
+  <script type="text/javascript">
+    function onLoad() {
+      GetConfig();
+      SetDefaultSelectLang();
+      ChangeLang();//多國語言翻譯
+      console.log('onLoad 成功')
+    };
+    // 左上LOGO文字
+    $('#logotext').html(PROJECT_SAVE_NAME);
+  </script>
+
+</body>
+
+</html>

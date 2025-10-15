@@ -1,0 +1,89 @@
+/* ========== 全局設置 ========== */
+:root {
+    --primary-color: #2b5797;
+    --secondary-color: #1e3d6b;
+}
+
+* {
+    caret-color: transparent; /* 隱藏閃爍線條 */
+}
+
+/* ========== 選單樣式 ========== */
+.portfolio-item {
+    transition: all 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+}
+
+/* ========== 篩選區域樣式 ========== */
+.filter-section {
+    background: rgb(198, 222, 255); /* 篩選區域背景色 */
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.filter-title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+.filter-button {
+    transition: all 0.3s ease;
+    margin: 0.25rem;
+    border-radius: 50em; /* 圓形按鈕 */
+}
+
+.filter-button.active,
+.filter-button:hover {
+    color: white !important;
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color);
+}
+
+/* ========== 關鍵字標籤樣式 ========== */
+.keywords-tag {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.8rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 20px;
+    display: inline-block;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.keywords-tag:hover {
+    background-color: #e9ecef;
+}
+
+.keywords-tag.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* ========== 卡片樣式 ========== */
+.card {
+    border: none;
+    background-color: rgba(53, 126, 200, 0.834); /* 卡片背景色 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.card-title {
+    color: white;
+    font-weight: 600;
+}
+.card-image {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px 4px 0 0; /* 圖片上方圓角 */
+}
+.card-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+}

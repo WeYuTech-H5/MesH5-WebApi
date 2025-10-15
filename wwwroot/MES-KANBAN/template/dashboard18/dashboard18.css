@@ -1,0 +1,70 @@
+/* ========== 全局樣式 ========== */
+* {
+    font-family: 'Poppins', sans-serif;
+}
+*
+.allWrapper {
+    z-index: 10;
+}
+
+.chart-wrapper {
+    height: 100%;
+}
+
+.grid-container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 每行2个区域，等宽 */
+    grid-template-rows: repeat(2, 1fr); /* 每列3行，等高 */
+    border-radius: 8px 0 0 8px; /* 圆角边框 */
+    background-color: #e8e8e8; /* 背景色 */
+    padding: 10px; /* 内边距 */
+    gap: 2px; /* 网格项之间的间距 */
+}
+@media screen and (max-width:992px) { 
+    .grid-container{
+        border-radius: 8px 8px 0 0;
+    }
+}
+
+.grid-item {
+    background-color: #fff; /* 网格项背景为白色 */
+    border: 1px solid #dee2e6; /* 浅灰色边框 */
+    border-radius: 5px; /* 圆角 */
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    padding: 4px; /* 内边距 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* 轻微阴影 */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* 添加动态效果 */
+}
+
+.grid-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* 增强阴影效果 */
+}
+
+.item-title {
+    padding: 0 3px 0 3px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #495057; /* 深灰色标题字体 */
+    text-transform: uppercase; /* 标题大写 */
+    letter-spacing: 0.5px; /* 增加字母间距 */
+}
+
+.item-content {
+    margin-left: 1rem;
+    font-size: 20px;
+    font-weight: 500; /* 内容字体适中 */
+    color: #212529; /* 深色内容字体 */
+    line-height: 1.5; /* 增加行高 */
+    display: flex;
+    align-items: center; /* 垂直居中 */
+}
+.item-content::after {
+    content: attr(data-unit);
+    margin-left: 3px;
+    font-size: 1rem;
+    opacity: 0.8;
+    font-weight: bold;
+}

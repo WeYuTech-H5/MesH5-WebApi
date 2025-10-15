@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>WeyuBoard</title>
+
+    <link href="../../css/comm/dataTables.min.css" rel="stylesheet" />
+    <link href="../map/css/bootstrap.4.4.1.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../map/css/offcanvas.css">
+    <link href="../../css/comm/jquery.datetimepicker.min.css" rel="stylesheet" />
+    <link href="../map/css/popup_v2.css" rel="stylesheet" media="all">
+    <link href="../map/css/popup.css" rel="stylesheet" />
+
+    <style type="text/css">
+        .row {
+            --bs-gutter-x: 0 rem;
+        }
+        .dataTables_scrollHeadInner {
+            background-color: #404E5C;
+        }
+    </style>
+</head>
+
+<body >
+    <header>
+        <div><nav class="navbar"></nav></div>  <!--菜單-->
+        <img class="LOGO" src="../map/images/brand.png" style="margin-right:0%" alt="Trademark">
+        <!-- <div class="logotitle">WeyuBoard</div> -->
+        <div id="midtitle" class="title Lang">Operations Dashboard</div>
+        <div id="welcome"></div>
+
+        <!-- 下拉式選單 -->
+        <select id="selectlang">
+            <option value="en_us" class="option1">English</option>
+            <option value="zh_CHT" class="option1">繁體中文</option>
+            <option value="zh_CHS" class="option1">簡體中文</option>
+            <option value="TH" class="option1">ราชอาณาจักรไทย</option>
+            <option value="km" class="option1">ភាសាខ្មែរ</option>
+        </select>
+    </header>
+    <div id="eqpListBackground" class="eqpListBackground container" style="height:95vh">
+        <div class="mt-4" style="background-color:white;height:90%;box-shadow: 0px 3px 5px 0px ;">
+            <div id="eqpList" style="padding:1em">
+                <div  style="box-shadow: 0px 3px 5px 0px ;padding:0;">
+               <table class="table" id="eqpGrid" style="width:100%">
+                   <thead>
+                       <tr>
+                           <th class="Lang">WO</th>
+                           <th class="Lang">PART_NO</th>
+                           <th class="Lang">EQP_NO</th>
+                           <th class="Lang">EQP_NAME</th>
+                           <th class="Lang">EQP_STATUS</th>
+                           <th class="Lang">USER</th>
+                       </tr>
+                   </thead>
+               </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../map/js/common/jquery-3.4.1.min.js"></script>
+    <script src="../map/js/offcanvas.js"></script>
+    <script src="../../js/comm/eqp/Chart.min.js"></script>
+
+    <script src="../../js/comm/fontawesome-free-5.14.0-web/js/all.js"></script>
+    <script src="../../js/comm/fontawesome-free-5.14.0-web/js/fontawesome.js"></script>
+
+    <script src="../../js/weyu/weyu_config.js"></script>
+    <script src="../../js/weyu/loading.js"></script>
+    <script src="../../js/comm/dataTables.min.js"></script>
+    <script src="../map/js/bootstrap.4.4.1.min.js"></script>
+    <script src="../map/js/jquery.datetimepicker.full.min.js"></script>
+    <script src="popup.js"></script>
+    <script type="text/javascript">
+        function onLoad() {
+            // DebugLog('onLoad Start');
+            // GetConfig();
+            // SetDefaultSelectLang();
+            // ChangeLang();//多國語言翻譯
+            // DebugLog('onLoad END');
+        }
+
+        $(document).ready(function () {
+            // DebugLog('ready Start');
+            // $('#selectlang').on('change', function () {
+            //     try {
+            //         DebugLog('selectlang on_change ' + this.value);
+            //         UIChangeLng(this.value);
+            //         //localStorageSetItem("eqp", this.value);
+            //     } catch (errorMessage) {
+            //         DebugLogAndAlert(errorMessage);
+            //     }
+            // });
+            // DebugLog('ready END');
+            $.fn.GetDataBySql();
+            $.fn.DataTableMaintain("eqpGrid");
+            $.fn.DataAppend();
+            // $.fn.SetColorByColorObject("eqpGrid");
+            // $.fn.HyperLinkEvent("eqpGrid");
+            // ChangeLang();
+
+        });
+    </script>
+</body>
+</html>

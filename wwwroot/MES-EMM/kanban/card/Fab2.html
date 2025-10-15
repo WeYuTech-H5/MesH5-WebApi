@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title class="Lang">Meter Info Today</title>
+    <link href="../../css/comm/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../css/weyu/footer.css" rel="stylesheet" />
+    <link href="../../css/weyu/functionList.css" rel="stylesheet" />
+    <link href="../../css/weyu/defaultBTN.css" rel="stylesheet" />
+    <link href="../../css/weyu/user_account.css" rel="stylesheet" />
+    <link href="../../css/weyu/offcanvas.css" rel="stylesheet" />
+  </head>
+  <body onload="onLoad()">
+    <div class="container">
+      <div class="row">
+        <div class="col-9">
+          <h1>
+            <button
+              class="btn"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasExample"
+              aria-controls="offcanvasExample"
+            >
+              <img src="../../img/zz/hamburger.svg" class="btnHamburger w-5" />
+            </button>
+            <a href="../../EMS-index.html" class="text-decoration-none text-white fs-4 fs-bold">
+              EMS RWD
+            </a>
+            <span class="Lang">Meter Info Today</span>
+          </h1>
+        </div>
+        <div class="col-3 text-end">
+          <div class="dropdown" id="mainMenu">
+            <button class="btn btn-secondary dropdown-toggle mainMenu-btn mt-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../../img/zz/user-gear-solid.svg" class="" style="height: 1.5rem" alt="account">
+            </button>
+            <ul class="dropdown-menu dropdown-content" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" id="langueStatus">ENGLISH</a></li>
+              <li><a class="dropdown-item" id="accountStatus">Account</a></li>
+              <li><a class="dropdown-item" id="changePassword">Change PWD</a></li>
+              <li><a class="dropdown-item" id="logout">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid menu">
+      <div class="row">
+        <div class="col-12">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="d-flex flex-row">
+                  <button class="btn btn-active my-3 ms-3 d-flex align-items-center" onclick="showMenu('today')">
+                    <img src="../../img/zz/info-active.svg" alt="">
+                    <span class="Lang">Meter Current Info</span>
+                  </button>
+                  <button class="btn btn-active my-3 ms-3 d-flex align-items-center" onclick="showMenu('daily')">
+                    <img src="../../img/zz/info-active.svg" alt="">
+                    <span class="Lang">Daily Power Usage</span>
+                  </button>
+                  <button class="btn btn-active my-3 ms-3 d-flex align-items-center" onclick="showMenu('details')">
+                    <img src="../../img/zz/info-active.svg" alt="">
+                     <span class="Lang">Meter History</span>
+                  </button>
+                  <button class="btn btn-active my-3 ms-3 d-flex align-items-center" onclick="showMenu('maintenance')">
+                    <img src="../../img/zz/info-active.svg" alt="">
+                     <span class="Lang">Meter Maintenance</span>
+                  </button>
+                  <!-- <a href="../card/functionList.html?LEVEL=L1">
+                    <img src="../../img/zz/info-active.svg" alt="" />GEMTEK(VN)
+                  </a>
+                  <a href="../card/Fab1.html?LEVEL=L1">
+                    <img src="../../img/zz/info-active.svg" alt="" />Non-EMS 一廠
+                  </a>
+                  <a href="../card/Fab2.html?LEVEL=L1">
+                    <img src="../../img/zz/info-active.svg" alt="" />EMS 廠
+                  </a>
+                  <a href="../card/Fab3.html?LEVEL=L1">
+                    <img src="../../img/zz/info-active.svg" alt="" />Non-EMS 二廠
+                  </a>
+                  <a href="../card/All_query.html?LEVLE=L1" class="d-none">
+                    <img src="../../img/zz/info-active.svg" alt="" />Daily Factory Usage
+                  </a>
+                  <a href="../card/FifteenMinute_query.html?LEVLE=L1" class="d-none">
+                    <img src="../../img/zz/info-active.svg" alt="" />Meter History
+                  </a>
+                  <a href="../card/Daily_EM_query.html?LEVLE=L1" class="d-none">
+                    <img src="../../img/zz/info-active.svg" alt="" />電表每日用量
+                  </a>
+                  <a href="setup/master-maintain-em.html?MODULE_NAME=EM_MAINTAIN&SID=353681744946113&LEVEL=L3" class="d-none">
+                    <img src="../../img/zz/setting-active.svg" alt="" />電量參數設定
+                  </a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-md-12 col-lg-3 aside"  data-default-menu="today">
+          <div class="mr-1 ml-1 contentWrapper">
+            <ul class="subMenu" id="submenu">
+            </ul>
+          </div>
+        </div>
+        <div id="meter-container" class="col-md-12 col-lg-9">
+          <!-- 主機台 -->
+          <div class="row">
+            <div class="col-md-12 mt-2">
+              <div class="d-flex justify-content-center align-center">
+                <span class="Lang text-white fs-1 fw-bold">EMS Meter Info Today</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-12 subMain">
+              <div class="row itemWrapper">
+                <!-- 子機台1 -->
+                <div class="col-12 col-lg-5 item error">
+                  <div class="mr-1 ml-2 contentWrapper">
+                    <div class="detailWrapper">
+                      <div class="detail">
+                        <span>
+                          <strong>EMS</strong>
+                          (<strong id="mainEQPNO5">MSB-ATS</strong>)
+                        </span>
+                        <span>
+                          <button
+                            class="btn"
+                            onclick="functionListDetail('MSB_ATS')"
+                          >
+                            <img src="../../img/zz/newWindow.svg" alt="" /></button
+                        ></span>
+                      </div>
+                      <div class="detail">
+                        <span class='Lang'>kWh</span>
+                        <span id="kWhTotal5">22742 / 22822 / 22689</span>
+                      </div>
+                      <div class="detail">
+                        <span class='Lang'>Voltage</span>
+                        <span id="Voltage5">22742 / 22822 / 22689</span>
+                      </div>
+                      <div class="detail">
+                        <span class='Lang'>Volt</span>
+                        <span id="Volt5">22742 / 22822 / 22689</span>
+                      </div>
+                      <div class="detail">
+                        <span class='Lang'>Current</span>
+                        <span id="Current5">36 / 37 / 37</span>
+                      </div>
+                      <div class="detail">
+                        <span class='Lang'>Total kW</span>
+                        <span id="KWtotal5">5739<br />2023-08-35 08:42:22</span>
+                      </div>
+                      <div class="detail">
+                        <span class='Lang'>Total kVA</span>
+                        <span id="kVAtotal5">523<br />2023-08-35 08:42:22</span>
+                      </div>
+                      <div class="detail">
+                        <span class='Lang'>Total kVAr</span>
+                        <span id="kVARtotal5">523<br />2023-08-35 08:42:22</span>
+                      </div>
+                      <div class="detail">
+                        <span class='Lang'>Avgerage PF</span>
+                        <span id="avgPF5">36 / 37 / 37</span>
+                      </div>
+                      <div class="detail">
+                        <span class='Lang'>Freq</span>
+                        <span id="Freq5">36 / 37 / 37</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 子機台2 -->
+                <div class="col-12 col-lg-5 item run">
+                  <div class="mr-2 contentWrapper">
+                    <div class="detailWrapper">
+                      <div class="detail">
+                        <span>
+                          <strong>EMS</strong>
+                          (<strong id="mainEQPNO6">TPPLV</strong>)
+                        </span>
+                        <span>
+                          <button
+                            class="btn"
+                            onclick="functionListDetail('TPPLV')"
+                          >
+                            <img src="../../img/zz/newWindow.svg" alt="" /></button
+                        ></span>
+                      </div>
+                      <div class="detail">
+                        <span class='Lang'>kWh</span>
+                        <span id="kWhTotal6">66746 / 66866 / 66689</span>
+                      </div>
+                      <div class="detail">
+                        <span class='Lang'>Voltage</span>
+                        <span id="Voltage6">66746 / 66866 / 66689</span>
+                      </div>
+                      <div class="detail">
+                        <span class='Lang'>Volt</span>
+                        <span id="Volt6">66746 / 66866 / 66689</span>
+                      </div>
+                      <div class="detail">
+                        <span class='Lang'>Current</span>
+                        <span id="Current6">36 / 37 / 37</span>
+                      </div>
+                      <div class="detail">
+                        <span class='Lang'>Total kW</span>
+                        <span id="KWtotal6">1739<br />2024-08-31 08:46:66</span>
+                      </div>
+                      <div class="detail">
+                        <span class='Lang'>Total kVA</span>
+                        <span id="kVAtotal6">163<br />2024-08-31 08:46:66</span>
+                      </div>
+                      <div class="detail">
+                        <span class='Lang'>Total kVAr</span>
+                        <span id="kVARtotal6">163<br />2024-08-31 08:46:66</span>
+                      </div>
+                      <div class="detail">
+                        <span class='Lang'>Avgerage PF</span>
+                        <span id="avgPF6">36 / 37 / 37</span>
+                      </div>
+                      <div class="detail">
+                        <span class='Lang'>Freq</span>
+                        <span id="Freq6">36 / 37 / 37</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 子機台3 -->
+                <!-- <div class="col-12 col-lg-5 item run">
+                  <div class="mr-1 ml-2 contentWrapper">
+                    <div class="detailWrapper">
+                      <div class="detail">
+                        <span><strong id="mainEQPNO3">ACB2</strong></span>
+                        <button
+                          class="btn"
+                          onclick="functionListDetail('ACB2')"
+                        >
+                          <img src="../../img/zz/newWindow.svg" alt="" />
+                        </button>
+                      </div>
+                      <div class="detail">
+                        <span>Voltage</span>
+                        <span id="Voltage3">22742 / 22822 / 22689</span>
+                      </div>
+                      <div class="detail">
+                        <span>Volt</span>
+                        <span id="Volt3">22742 / 22822 / 22689</span>
+                      </div>
+                      <div class="detail">
+                        <span>Current</span>
+                        <span id="Current3">36 / 37 / 37</span>
+                      </div>
+                      <div class="detail">
+                        <span>Total kW</span>
+                        <span id="KWtotal3">1739<br />2023-08-31 08:42:22</span>
+                      </div>
+                      <div class="detail">
+                        <span>Total kVA</span>
+                        <span id="kVAtotal3">123<br />2023-08-31 08:42:22</span>
+                      </div>
+                      <div class="detail">
+                        <span>Total kVAr</span>
+                        <span id="kVARtotal3">123<br />2023-08-31 08:42:22</span>
+                      </div>
+                      <div class="detail">
+                        <span>Avgerage PF</span>
+                        <span id="avgPF3">36 / 37 / 37</span>
+                      </div>
+                      <div class="detail">
+                        <span>Freq</span>
+                        <span id="Freq3">36 / 37 / 37</span>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+
+                <!-- 子機台4 -->
+                <!-- <div class="col-12 col-lg-5 item">
+                  <div class="mr-1 ml-2 contentWrapper">
+                    <div class="detailWrapper">
+                      <div class="detail">
+                        <span><strong id="mainEQPNO4">LV1_MAY</strong></span>
+                        <button
+                          class="btn"
+                          onclick="functionListDetail('LV1_MAY')"
+                        >
+                          <img src="../../img/zz/newWindow.svg" alt="" />
+                        </button>
+                      </div>
+                      <div class="detail">
+                        <span>Voltage</span>
+                        <span id="Voltage4">22742 / 22822 / 22689</span>
+                      </div>
+                      <div class="detail">
+                        <span>Volt</span>
+                        <span id="Volt4">22742 / 22822 / 22689</span>
+                      </div>
+                      <div class="detail">
+                        <span>Current</span>
+                        <span id="Current4">36 / 37 / 37</span>
+                      </div>
+                      <div class="detail">
+                        <span>Total kW</span>
+                        <span id="KWtotal4">1739<br />2023-08-31 08:42:22</span>
+                      </div>
+                      <div class="detail">
+                        <span>Total kVA</span>
+                        <span id="kVAtotal4">123<br />2023-08-31 08:42:22</span>
+                      </div>
+                      <div class="detail">
+                        <span>Total kVAr</span>
+                        <span id="kVARtotal4">123<br />2023-08-31 08:42:22</span>
+                      </div>
+                      <div class="detail">
+                        <span>Avgerage PF</span>
+                        <span id="avgPF4">36 / 37 / 37</span>
+                      </div>
+                      <div class="detail">
+                        <span>Freq</span>
+                        <span id="Freq4">36 / 37 / 37</span>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+
+                <!-- 子機台5 -->
+                <!-- <div class="col-12 col-lg-5 item idle">
+                  <div class="mr-2 contentWrapper">
+                    <div class="detailWrapper">
+                      <div class="detail">
+                        <span><strong id="mainEQPNO5">LV1_MAY_ATS</strong></span>
+                        <span>
+                          <button
+                            class="btn"
+                            onclick="functionListDetail('LV1_MAY_ATS')"
+                          >
+                            <img src="../../img/zz/newWindow.svg" alt="" />
+                          </button>
+                        </span>
+                      </div>
+                      <div class="detail">
+                        <span>Voltage</span>
+                        <span id="Voltage5">22742 / 22822 / 22689</span>
+                      </div>
+                      <div class="detail">
+                        <span>Volt</span>
+                        <span id="Volt5">22742 / 22822 / 22689</span>
+                      </div>
+                      <div class="detail">
+                        <span>Current</span>
+                        <span id="Current5">36 / 37 / 37</span>
+                      </div>
+                      <div class="detail">
+                        <span>Total kW</span>
+                        <span id="KWtotal5">1739<br />2023-08-31 08:42:22</span>
+                      </div>
+                      <div class="detail">
+                        <span>Total kVA</span>
+                        <span id="kVAtotal5">123<br />2023-08-31 08:42:22</span>
+                      </div>
+                      <div class="detail">
+                        <span>Total kVAr</span>
+                        <span id="kVARtotal5">123<br />2023-08-31 08:42:22</span>
+                      </div>
+                      <div class="detail">
+                        <span>Avgerage PF</span>
+                        <span id="avgPF5">36 / 37 / 37</span>
+                      </div>
+                      <div class="detail">
+                        <span>Freq</span>
+                        <span id="Freq5">36 / 37 / 37</span>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="offcanvas offcanvas-start" 
+    tabindex="-1" 
+    id="offcanvasExample" 
+    aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+          <h2 class="offcanvas-title fw-bold" id="offcanvasExampleLabel">EMS RWD</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+          <ul class="list-group custom-menu">
+            <li class="list-group-item">
+              <img src="../../img/weyu/electric.svg" alt="electric">
+              <a href="functionList.html" class="Lang">Electricity</a>
+            </li>
+            <li class="list-group-item">
+              <img src="../../img/comm/earth-asia-solid.svg" alt="electric">
+              <a href="air_meter/air_card.html?LEVEL=L1" class="Lang">Air Flow</a>
+            </li>
+            <li class="list-group-item">
+              <img src="../../img/comm/earth-asia-solid.svg" alt="electric">
+              <a href="air_meter/nitrogen_card.html?LEVEL=L1" class="Lang">Nitrogen Flow</a>
+            </li>
+            <li class="list-group-item">
+              <img src="../../img/comm/drop-svgrepo-com.svg" alt="electric">
+              <a href="water_meter/Tap_water_card.html?LEVEL=L1" class="Lang">City Water</a>
+            </li>
+            <li class="list-group-item">
+              <img src="../../img/comm/drop-svgrepo-com.svg" alt="electric">
+              <a href="water_meter/Waste_water_card.html?LEVEL=L1" class="Lang">Wastewater</a>
+            </li>
+          </ul>
+      </div>
+    </div> -->
+
+    <div id="footer" class="fixed bottom-0 w-full"></div>
+    <script src="../../js/weyu/weyu_footer2.js"></script>
+    <script src="../../js/comm/jquery.min.js"></script>
+    <script src="../../js/comm/bootstrap.min.js"></script>
+    <script src="../../js/weyu/weyu_config.js"></script>
+    <script src="../../js/weyu/weyu_comm_api_function.js"></script>
+    <script src="../../js/weyu/weyu_comm_function.js"></script>
+    <script src="../../js/weyu/emsButtonMenu.js"></script>
+    <script src="../../js/weyu/weyu_sidebar_menu.js"></script>
+    <script src="functionList.js"></script>
+    <!-- <script src="../js/weyu/weyu_check.js"></script> -->
+    <script src="../../js/weyu/weyu_header.js"></script>
+    <script src="../../js/weyu/weyu_footer.js"></script>
+    <!-- <script src="../js/weyu/weyu_loading.js"></script> -->
+
+    <!-- 多語系翻譯 -->
+    <script type="text/javascript">
+      function onLoad() {
+        GetConfig();
+        SetDefaultSelectLang();
+        ChangeLang(); //多國語言翻譯
+      }
+      // 左上LOGO文字
+      $("#logotext").html(PROJECT_SAVE_NAME);
+    </script>
+    <script>
+      $(document).ready(function () {
+        $(".subMenu").click(function () {
+          $(".subMenu li").toggle();
+        });
+      });
+    </script>
+
+    <script>
+      function functionListDetail(EQP_NO) {
+        document.body.style.opacity = 0;
+        setTimeout(function () {
+          window.location.href = "functionListDetail.html?EQP_NO=" + EQP_NO;
+        }, 500);
+      }
+    </script>
+  </body>
+</html>
