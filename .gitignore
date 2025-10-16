@@ -407,6 +407,15 @@ FodyWeavers.xsd
 # Local History for Visual Studio Code
 .history/
 
+# JetBrains Rider / IntelliJ project settings
+.idea/
+
+# Excel runtime artifacts
+excel/output/**
+!excel/output/.gitkeep
+excel/uploads/**
+!excel/uploads/.gitkeep
+
 # Built Visual Studio Code Extensions
 *.vsix
 
