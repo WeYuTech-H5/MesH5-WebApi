@@ -1855,7 +1855,11 @@ namespace MESH5_WEBAPI_20250228V2.Controllers
 
                         string UPDATE_SQL = "";
 
-                        if (string.IsNullOrEmpty(data.CHECK_OUT_TIME))
+                        if (string.IsNullOrEmpty(data.CHECK_OUT_TIME)&& string.IsNullOrEmpty(data.CHECK_IN_TIME))
+                        {
+                            UPDATE_SQL = "ACCOUNT_NO=ACCOUNT_NO";
+                        }
+                        else if (string.IsNullOrEmpty(data.CHECK_OUT_TIME))
                         {
                             //CHECK-OUT-TIME 空值 表示 輸入的為 CHECK-IN-TIME
                             UPDATE_SQL = $@"CHECK_IN_TIME='{data.CHECK_IN_TIME}'";
