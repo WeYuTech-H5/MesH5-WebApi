@@ -87,6 +87,8 @@ namespace MESH5_WEBAPI_20250228V2.Controllers
             public string USER_NO { get; set; }
             public string INPUT_FORM_NAME { get; set; }
             public string COMMENT { get; set; }
+            public string ZZ_LOT_ATTR1 { get; set; }
+            public string ZZ_LOT_ATTR2 { get; set; }
         }
         
         /// <summary>
@@ -133,6 +135,8 @@ namespace MESH5_WEBAPI_20250228V2.Controllers
                     data.REPORT_TIME,
                     data.USER_NO,
                     data.INPUT_FORM_NAME,
+                    data.ZZ_LOT_ATTR1,
+                    data.ZZ_LOT_ATTR2,
                     data.COMMENT,
                     ref weyuToken) ?? new List<string>();
 
