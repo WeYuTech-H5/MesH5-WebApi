@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Login</title>
+  <link href="css/weyu/input.css" rel="stylesheet">
+  <script src="css/comm/cdn.tailwindcss.com.css"></script>
+  <style>
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+  </style>
+</head>
+<body>
+  <div class="relative flex flex-col z-10 h-screen  justify-center">
+
+    <!-- 表單 開始 -->
+    <form class="flex flex-col items-center justify-center mb-3" id="loginForm">
+
+      <!-- 表單內容區 開始 -->
+      <div class="p-8 rounded-md backdrop-blur-sm m-auto border-[1px] bg-sky-300/30 border-sky-200/30 drop-shadow-xl text-white">
+        
+        <div class="flex flex-col mb-3 w-full justify-center text-center">
+          <!-- 商標及名稱 開始 -->
+          <img src="./img/zz/login/brand.svg" alt="LOGO" class="h-[2.5rem]" />
+          <h1 id="logotext"></h1>
+          <!-- 商標及名稱 結束 -->
+          <small id="welcomeText">Welcome back, please log in.</small>
+        </div>
+
+        <!-- 使用者欄位 開始 -->
+        <div id="idWrapper">
+          <label for="id" class="flex items-center mb-4 w-full bg-white rounded-full">
+            <div class="flex justify-center w-1/7 text-end">
+              <img src="img/comm/user-shield-solid.svg" class="icon h-[2rem] p-2 pl-5">
+            </div>
+            <div class="flex flex-grow w-grow">
+              <input 
+                placeholder="User ID or account" 
+                type="text" 
+                id="id"
+                class="text-[#353B4B] bg-transparent placeholder-[#7F838E] w-full h-[2rem] p-5 pl-[.5rem] 
+                       focus:outline-none 
+                       drop-shadow-md
+                       "
+              >
+            </div>
+          </label>
+        </div>
+        <!-- 使用者欄位 結束 -->
+
+        <!-- 密碼欄位 開始 -->
+        <div id="idWrapper"">
+          <label for="pw" class="flex items-center mb-4 w-full bg-white rounded-full">
+            <div class="flex justify-center w-1/7 text-end">
+              <img src="img/comm/lock-solid.svg" class="icon h-[2rem] p-2 pl-5">
+            </div>
+            <div class="flex flex-grow w-grow">
+            <input 
+              placeholder="The password" 
+              type="password"
+              id="pw" 
+              class="text-[#353B4B] bg-transparent placeholder-[#7F838E] w-full h-[2rem] p-5 pl-[.5rem] 
+                     focus:outline-none 
+                     drop-shadow-md
+                     "
+            >
+            </div>
+          </label>
+        </div>
+        <!-- 密碼欄位 結束 -->
+
+
+        <!-- 登入按鈕 開始 -->
+        <div class="justify-center flex items-center mt-[0.625rem] mb-[0.625rem]">
+          <button type="button" id="login" class="bg-blue-900 hover:bg-blue-950 text-white
+          rounded-l-full rounded-r-full pt-3 pb-3   w-[20.5rem]">Log In</button>
+        </div>
+        <!-- 登入按鈕 結束 -->
+        
+        <!-- 錯誤提示訊息 開始 -->
+        <div id="errorMSG" class="text-red-300 font-bold text-lg h-[30px]" style="display: none;">
+          Check the account and the password, please.
+        </div>
+        <!-- 錯誤提示訊息 結束 -->
+        
+        <div class="text-white text-center m-5" id="id89"> ... OR ... </div>
+
+        <!-- 語系選擇 開始 -->
+        <div id="langWrapper" class="flex mb-4">
+          <div class="flex justify-center w-1/6 bg-blue-800 rounded-l-full ">
+            <img src="img/comm/earth-asia-solid.svg" class="icon h-[3rem] p-3">
+          </div>
+          <div class="flex flex-grow bg-blue-800 w-grow rounded-r-full w-full">
+            <div class="dropdown inline-block relative w-full">
+              <div class="text-white rounded flex items-center w-full p-3 relative">
+                <p id="selectedLang">English</p>
+                <svg class="fill-current grow absolute right-5 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+              </div>
+              <ul class="dropdown-menu bg-blue-800 pl-3 text-white absolute top-0 pt-3 left-0 hidden h-[10rem] w-full overflow-y-scroll">
+                <!-- value 填入語系代碼 -->
+                <li><button type="button" class="mb-3 w-full text-start" value="en_us" onclick="SelectLang(this.value)" selected>English</button></li>
+                <li><button type="button" class="mb-3 w-full text-start" value="zh_CHT" onclick="SelectLang(this.value)">正體中文</button></li>
+                <li><button type="button" class="mb-3 w-full text-start" value="zh_CHS" onclick="SelectLang(this.value)">簡體中文</button></li>
+                <li><button type="button" class="mb-3 w-full text-start" value="ja-JP" onclick="SelectLang(this.value)">日本語</button></li>
+                <li><button type="button" class="mb-3 w-full text-start" value="" onclick="SelectLang(this.value)">Bahasa Indonesia</button></li>
+                <li><button type="button" class="mb-3 w-full text-start" value="TH" onclick="SelectLang(this.value)">ภาษาไทย</button></li>
+                <li><button type="button" class="mb-3 w-full text-start" value="vi-VN" onclick="SelectLang(this.value)">Tiếng Việt</button></li>
+                <li><button type="button" class="mb-3 w-full text-start" value="" onclick="SelectLang(this.value)">Filipino</button></li>
+                <li><button type="button" class="mb-3 w-full text-start" value="" onclick="SelectLang(this.value)">español</button></li>
+              </ul>
+            </div>
+          </div>
+          
+          
+        </div>
+        <!-- 語系選擇 結束 -->
+
+        <!-- 訪客模式 開始 -->
+        <div class="bg-blue-800 hover:bg-[#293c70] text-[#fff] rounded-l-full rounded-r-full group">
+          <a href="index.html" class="flex items-center">
+            <div class="flex justify-center w-1/6 bg-blue-800 rounded-l-full mr-2 group-hover:bg-[#293c70]">
+              <img src="img/comm/id-card-regular.svg" class="icon h-[3rem] p-3 group-hover:opacity-75">
+            </div>
+            <p id="guestMode">Guest TV mode</p>
+          </a>
+        </div>
+        <!-- 訪客模式 結束 -->
+        <div class="text-white text-center m-5"><span id="showUsers"></span></div>
+
+      </div>
+      <!-- 表單內容區 結束 -->
+    </form>
+    <!-- 表單 結束 -->
+    <div class="text-sm text-white/40 text-center">© COPYRIGHT – WEYU TECHNOLOGY CO.,LTD.</div>
+  </div>
+  <div class="mainBG fixed left-0 top-0 right-0 bottom-0"></div>
+  
+  <script src="js/comm/jquery.min.js"></script>
+  <script src="js/weyu/weyu_config.js"></script>
+  <script src="js/weyu/weyu_comm_function.js"></script>
+  <script src="login.js"></script>
+  <script>
+    // LOGO文字
+    $('#logotext').html(PROJECT_SAVE_NAME);
+  </script>
+</body>
+</html>

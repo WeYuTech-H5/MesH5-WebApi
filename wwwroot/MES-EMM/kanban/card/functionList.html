@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title class="Lang">Meter Info Today</title>
+    <link href="../../css/comm/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../css/weyu/footer.css" rel="stylesheet" />
+    <link href="../../css/weyu/functionList.css" rel="stylesheet" />
+    <link href="../../css/weyu/defaultBTN.css" rel="stylesheet" />
+    <link href="../../css/weyu/user_account.css" rel="stylesheet" />
+    <link href="../../css/weyu/offcanvas.css" rel="stylesheet" />
+  </head>
+  <body onload="onLoad()">
+    <div class="container">
+      <div class="row">
+        <div class="col-9">
+          <h1>
+            <button
+              class="btn"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasExample"
+              aria-controls="offcanvasExample"
+            >
+              <img src="../../img/zz/hamburger.svg" class="btnHamburger w-5" />
+            </button>
+            <a href="../../EMS-index.html" class="text-decoration-none text-white fs-4 fs-bold">
+              EMS RWD
+            </a>
+            <span class="Lang">Meter Info Today</span>
+          </h1>
+        </div>
+        <div class="col-3 text-end">
+          <!-- <div class="dropdown" id="mainMenu">
+            <button class="btn btn-secondary dropdown-toggle mainMenu-btn mt-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../../img/zz/user-gear-solid.svg" class="" style="height: 1.5rem" alt="account">
+            </button>
+            <ul class="dropdown-menu dropdown-content" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" id="langueStatus">ENGLISH</a></li>
+              <li><a class="dropdown-item" id="accountStatus">Account</a></li>
+              <li><a class="dropdown-item" id="changePassword">Change PWD</a></li>
+              <li><a class="dropdown-item" id="logout">Logout</a></li>
+            </ul>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid menu">
+      <div class="row">
+        <div class="col-12">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="d-flex flex-row">
+                  <button class="btn btn-active my-3 ms-3 d-flex align-items-center" onclick="showMenu('today')">
+                    <img src="../../img/zz/info-active.svg" alt="">
+                    <span class="Lang">Meter Current Info</span>
+                  </button>
+                  <button class="btn btn-active my-3 ms-3 d-flex align-items-center" onclick="showMenu('daily')">
+                    <img src="../../img/zz/info-active.svg" alt="">
+                    <span class="Lang">Daily Power Usage</span>
+                  </button>
+                  <button class="btn btn-active my-3 ms-3 d-flex align-items-center" onclick="showMenu('iot')">
+                    <img src="../../img/zz/info-active.svg" alt="">
+                    <span class="Lang">IoT Power Usage</span>
+                  </button>
+                  <button class="btn btn-active my-3 ms-3 d-flex align-items-center" onclick="showMenu('details')">
+                    <img src="../../img/zz/info-active.svg" alt="">
+                    <span class="Lang">Meter History</span>
+                  </button>
+                  <button class="btn btn-active my-3 ms-3 d-flex align-items-center" onclick="showMenu('maintenance')">
+                    <img src="../../img/zz/info-active.svg" alt="">
+                    <span class="Lang">Meter Maintenance</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-md-12 col-lg-3 aside" data-default-menu="today">
+          <div class="mr-1 ml-1 contentWrapper">
+            <ul class="subMenu my-2" id="submenu">
+            </ul>
+          </div>
+        </div>
+        <div id="meter-container" class="col-md-12 col-lg-9">
+          <!-- 主機台 -->
+
+          <div class="row">
+            <div class="col-md-12 mt-2">
+              <div class="d-flex justify-content-center position-relative">
+                <h1 class="fs-1 Lang text-center">Meter Info Today</h1>
+                <span id="dateTime" class="position-absolute mt-4 end-0 fs-5"></span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-12 subMain">
+              <div class="row itemWrapper">
+                <!-- 子機台1 -->
+                <div class="col-12 col-lg-5 item error">
+                  <div class="mr-1 ml-2 contentWrapper">
+                    <div class="detailWrapper">
+                      <div class="detail">
+                        <span><strong id="mainEQPNO1" class="fs-3">YUANYANG</strong></span>
+                        <div class="d-flex">
+                        <span class="fw-bold">
+                          <span class="Lang">Summary</span>
+                        </span>
+                        <button
+                        class="btn"
+                        onclick="functionListDetail('MAIN')"
+                      >
+                        <img src="../../img/zz/newWindow.svg" alt="" />
+                      </button>
+                      </div>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">kWh</span>
+                        <span id="kWhTotal1">22742 / 22822 / 22689</span>
+                      </div>
+                      <!-- <div class="detail">
+                        <span class="Lang">Voltage</span>
+                        <span id="Voltage1">22742 / 22822 / 22689</span>
+                      </div> -->
+                      <div class="detail">
+                        <span class="Lang">Volt</span>
+                        <span id="Volt1">22742 / 22822 / 22689</span>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">Current</span>
+                        <span id="Current1">36 / 37 / 37</span>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">Total kW</span>
+                        <span id="KWtotal1">1739<br />2023-08-31 08:42:22</span>
+                      </div>
+                      <!-- <div class="detail">
+                        <span class="Lang">Total kVA</span>
+                        <span id="kVAtotal1">123<br />2023-08-31 08:42:22</span>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">Total kVAr</span>
+                        <span id="kVARtotal1">123<br />2023-08-31 08:42:22</span>
+                      </div> -->
+                      <div class="detail">
+                        <span class="Lang">Avgerage PF</span>
+                        <span id="avgPF1">36 / 37 / 37</span>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">Freq</span>
+                        <span id="Freq1">36 / 37 / 37</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 子機台2 -->
+                <div class="col-12 col-lg-5 item run">
+                  <div class="mr-2 contentWrapper">
+                    <div class="detailWrapper">
+                      <div class="detail">
+                        <span><strong id="mainEQPNO2" class="fs-3 Lang">JV-02</strong></span>
+                        <div class="d-flex">
+                        <span class="fw-bold">
+                          <span class="Lang">Actual Summary</span>
+                          </span>
+                          <button
+                          class="btn"
+                          onclick="functionListDetail('JV02')"
+                        >
+                          <img src="../../img/zz/newWindow.svg" alt="" />
+                        </button>
+                        </div>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">kWh</span>
+                        <span id="kWhTotal2">22742 / 22822 / 22689</span>
+                      </div>
+                      <!-- <div class="detail">
+                        <span class="Lang">Voltage</span>
+                        <span id="Voltage2">22742 / 22822 / 22689</span>
+                      </div> -->
+                      <div class="detail">
+                        <span class="Lang">Volt</span>
+                        <span id="Volt2">22742 / 22822 / 22689</span>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">Current</span>
+                        <span id="Current2">36 / 37 / 37</span>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">Total kW</span>
+                        <span id="KWtotal2">1739<br />2023-08-31 08:42:22</span>
+                      </div>
+                      <!-- <div class="detail">
+                        <span class="Lang">Total kVA</span>
+                        <span id="kVAtotal2">123<br />2023-08-31 08:42:22</span>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">Total kVAr</span>
+                        <span id="kVARtotal2">123<br />2023-08-31 08:42:22</span>
+                      </div> -->
+                      <div class="detail">
+                        <span class="Lang">Avgerage PF</span>
+                        <span id="avgPF2">36 / 37 / 37</span>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">Freq</span>
+                        <span id="Freq2">36 / 37 / 37</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 子機台3 -->
+                <div class="col-12 col-lg-5 item">
+                  <div class="mr-1 ml-2 contentWrapper">
+                    <div class="detailWrapper">
+                      <div class="detail">
+                        <span><strong id="mainEQPNO3" class="fs-3 Lang">JV-03</strong></span>
+                        <div class="d-flex">
+                          <span class="fw-bold">
+                            <span class="Lang">Actual Summary</span>
+                          </span>
+                          <button
+                            class="btn"
+                            onclick="functionListDetail('JV03')"
+                          >
+                            <img src="../../img/zz/newWindow.svg" alt="" style="height: 20px;"/>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">kWh</span>
+                        <span id="kWhTotal3">22742 / 22822 / 22689</span>
+                      </div>
+                      <!-- <div class="detail">
+                        <span class="Lang">Voltage</span>
+                        <span id="Voltage3">22742 / 22822 / 22689</span>
+                      </div> -->
+                      <div class="detail">
+                        <span class="Lang">Volt</span>
+                        <span id="Volt3">22742 / 22822 / 22689</span>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">Current</span>
+                        <span id="Current3">36 / 37 / 37</span>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">Total kW</span>
+                        <span id="KWtotal3">1739<br />2023-08-31 08:42:22</span>
+                      </div>
+                      <!-- <div class="detail">
+                        <span class="Lang">Total kVA</span>
+                        <span id="kVAtotal3">123<br />2023-08-31 08:42:22</span>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">Total kVAr</span>
+                        <span id="kVARtotal3">123<br />2023-08-31 08:42:22</span>
+                      </div> -->
+                      <div class="detail">
+                        <span class="Lang">Avgerage PF</span>
+                        <span id="avgPF3">36 / 37 / 37</span>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">Freq</span>
+                        <span id="Freq3">36 / 37 / 37</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 子機台4 -->
+                <div class="col-12 col-lg-5 item idle">
+                  <div class="mr-1 ml-2 contentWrapper">
+                    <div class="detailWrapper">
+                      <div class="detail">
+                        <span><strong id="mainEQPNO4" class="fs-3 Lang">JV-04</strong></span>
+                        <div class="d-flex">
+                          <span class="fw-bold">
+                            <span class="Lang">Actual Summary</span>
+                          </span>
+                          <button
+                            class="btn"
+                            onclick="functionListDetail('JV04')"
+                          >
+                            <img src="../../img/zz/newWindow.svg" alt="" style="height: 20px;"/>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">kWh</span>
+                        <span id="kWhTotal4">22742 / 22822 / 22689</span>
+                      </div>
+                      <!-- <div class="detail">
+                        <span class="Lang">Voltage</span>
+                        <span id="Voltage4">22742 / 22822 / 22689</span>
+                      </div> -->
+                      <div class="detail">
+                        <span class="Lang">Volt</span>
+                        <span id="Volt4">22742 / 22822 / 22689</span>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">Current</span>
+                        <span id="Current4">36 / 37 / 37</span>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">Total kW</span>
+                        <span id="KWtotal4">1739<br />2023-08-31 08:42:22</span>
+                      </div>
+                      <!-- <div class="detail">
+                        <span class="Lang">Total kVA</span>
+                        <span id="kVAtotal4">123<br />2023-08-31 08:42:22</span>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">Total kVAr</span>
+                        <span id="kVARtotal4">123<br />2023-08-31 08:42:22</span>
+                      </div> -->
+                      <div class="detail">
+                        <span class="Lang">Avgerage PF</span>
+                        <span id="avgPF4">36 / 37 / 37</span>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">Freq</span>
+                        <span id="Freq4">36 / 37 / 37</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 子機台5 -->
+                <div class="col-12 col-lg-5 item idle">
+                  <div class="mr-2 contentWrapper">
+                    <div class="detailWrapper">
+                      <div class="detail">
+                        <span><strong id="mainEQPNO5" class="fs-3 Lang">JA-14</strong></span>
+                        <div class="d-flex">
+                        <span class="fw-bold">
+                          <span class="Lang">Actual Summary</span>
+                        </span>
+                          <button
+                            class="btn"
+                            onclick="functionListDetail('JA14')"
+                          >
+                            <img src="../../img/zz/newWindow.svg" alt="" />
+                          </button>
+                        </div>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">kWh</span>
+                        <span id="kWhTotal5">22742 / 22822 / 22689</span>
+                      </div>
+                      <!-- <div class="detail">
+                        <span class="Lang">Voltage</span>
+                        <span id="Voltage5">22742 / 22822 / 22689</span>
+                      </div> -->
+                      <div class="detail">
+                        <span class="Lang">Volt</span>
+                        <span id="Volt5">22742 / 22822 / 22689</span>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">Current</span>
+                        <span id="Current5">36 / 37 / 37</span>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">Total kW</span>
+                        <span id="KWtotal5">1739<br />2023-08-31 08:42:22</span>
+                      </div>
+                      <!-- <div class="detail">
+                        <span class="Lang">Total kVA</span>
+                        <span id="kVAtotal5">123<br />2023-08-31 08:42:22</span>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">Total kVAr</span>
+                        <span id="kVARtotal5">123<br />2023-08-31 08:42:22</span>
+                      </div> -->
+                      <div class="detail">
+                        <span class="Lang">Avgerage PF</span>
+                        <span id="avgPF5">36 / 37 / 37</span>
+                      </div>
+                      <div class="detail">
+                        <span class="Lang">Freq</span>
+                        <span id="Freq5">36 / 37 / 37</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 子機台6 -->
+                <!-- <div class="col-12 col-lg-5 item run">
+                  <div class="mr-2 contentWrapper">
+                    <div class="detailWrapper">
+                      <div class="detail">
+                        <span><strong id="mainEQPNO6">ACB1</strong></span>
+                        <span>
+                          <button
+                            class="btn"
+                            onclick="functionListDetail('ACB1')"
+                          >
+                            <img src="../../img/zz/newWindow.svg" alt="" />
+                          </button>
+                        </span>
+                      </div>
+                      <div class="detail">
+                        <span>kWh</span>
+                        <span id="kWhTotal6">22742 / 22822 / 22689</span>
+                      </div>
+                      <div class="detail">
+                        <span>Voltage</span>
+                        <span id="Voltage6">22742 / 22822 / 22689</span>
+                      </div>
+                      <div class="detail">
+                        <span>Volt</span>
+                        <span id="Volt6">22742 / 22822 / 22689</span>
+                      </div>
+                      <div class="detail">
+                        <span>Current</span>
+                        <span id="Current6">36 / 37 / 37</span>
+                      </div>
+                      <div class="detail">
+                        <span>Total kW</span>
+                        <span id="KWtotal6">1739<br />2023-08-31 08:42:22</span>
+                      </div>
+                      <div class="detail">
+                        <span>Total kVA</span>
+                        <span id="kVAtotal6">123<br />2023-08-31 08:42:22</span>
+                      </div>
+                      <div class="detail">
+                        <span>Total kVAr</span>
+                        <span id="kVARtotal6">123<br />2023-08-31 08:42:22</span>
+                      </div>
+                      <div class="detail">
+                        <span>Avgerage PF</span>
+                        <span id="avgPF6">36 / 37 / 37</span>
+                      </div>
+                      <div class="detail">
+                        <span>Freq</span>
+                        <span id="Freq6">36 / 37 / 37</span>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+
+              <!-- 子機台7 -->
+              <!-- <div class="col-12 col-lg-5 item run">
+                <div class="mr-2 contentWrapper">
+                  <div class="detailWrapper">
+                    <div class="detail">
+                      <span><strong id="mainEQPNO7">MP1</strong></span>
+                      <span>
+                        <button
+                          class="btn"
+                          onclick="functionListDetail('MP1')"
+                        >
+                          <img src="../../img/zz/newWindow.svg" alt="" />
+                        </button>
+                      </span>
+                    </div>
+                    <div class="detail">
+                      <span>kWh</span>
+                      <span id="kWhTotal7">22742 / 22822 / 22689</span>
+                    </div>
+                    <div class="detail">
+                      <span>Voltage</span>
+                      <span id="Voltage7">22742 / 22822 / 22689</span>
+                    </div>
+                    <div class="detail">
+                      <span>Volt</span>
+                      <span id="Volt7">22742 / 22822 / 22689</span>
+                    </div>
+                    <div class="detail">
+                      <span>Current</span>
+                      <span id="Current7">36 / 37 / 37</span>
+                    </div>
+                    <div class="detail">
+                      <span>Total kW</span>
+                      <span id="KWtotal7">1739<br />2023-08-31 08:42:22</span>
+                    </div>
+                    <div class="detail">
+                      <span>Total kVA</span>
+                      <span id="kVAtotal7">123<br />2023-08-31 08:42:22</span>
+                    </div>
+                    <div class="detail">
+                      <span>Total kVAr</span>
+                      <span id="kVARtotal7">123<br />2023-08-31 08:42:22</span>
+                    </div>
+                    <div class="detail">
+                      <span>Avgerage PF</span>
+                      <span id="avgPF7">36 / 37 / 37</span>
+                    </div>
+                    <div class="detail">
+                      <span>Freq</span>
+                      <span id="Freq7">36 / 37 / 37</span>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- 子機台8 -->
+              <!-- <div class="col-12 col-lg-5 item">
+                <div class="mr-2 contentWrapper">
+                  <div class="detailWrapper">
+                    <div class="detail">
+                      <span><strong id="mainEQPNO8">MP2</strong></span>
+                      <span>
+                        <button
+                          class="btn"
+                          onclick="functionListDetail('MP2')"
+                        >
+                          <img src="../../img/zz/newWindow.svg" alt="" />
+                        </button>
+                      </span>
+                    </div>
+                    <div class="detail">
+                      <span>kWh</span>
+                      <span id="kWhTotal8">22842 / 22822 / 22689</span>
+                    </div>
+                    <div class="detail">
+                      <span>Voltage</span>
+                      <span id="Voltage8">22842 / 22822 / 22689</span>
+                    </div>
+                    <div class="detail">
+                      <span>Volt</span>
+                      <span id="Volt8">22842 / 22822 / 22689</span>
+                    </div>
+                    <div class="detail">
+                      <span>Current</span>
+                      <span id="Current8">36 / 38 / 38</span>
+                    </div>
+                    <div class="detail">
+                      <span>Total kW</span>
+                      <span id="KWtotal8">1839<br />2023-08-31 08:42:22</span>
+                    </div>
+                    <div class="detail">
+                      <span>Total kVA</span>
+                      <span id="kVAtotal8">123<br />2023-08-31 08:42:22</span>
+                    </div>
+                    <div class="detail">
+                      <span>Total kVAr</span>
+                      <span id="kVARtotal8">123<br />2023-08-31 08:42:22</span>
+                    </div>
+                    <div class="detail">
+                      <span>Avgerage PF</span>
+                      <span id="avgPF8">36 / 38 / 38</span>
+                    </div>
+                    <div class="detail">
+                      <span>Freq</span>
+                      <span id="Freq8">36 / 38 / 38</span>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- 子機台9 -->
+              <!-- <div class="col-12 col-lg-5 item error">
+                <div class="mr-2 contentWrapper">
+                  <div class="detailWrapper">
+                    <div class="detail">
+                      <span><strong id="mainEQPNO9">ACMP</strong></span>
+                      <span>
+                        <button
+                          class="btn"
+                          onclick="functionListDetail('ACMP')"
+                        >
+                          <img src="../../img/zz/newWindow.svg" alt="" />
+                        </button>
+                      </span>
+                    </div>
+                    <div class="detail">
+                      <span>kWh</span>
+                      <span id="kWhTotal9">22942 / 22922 / 22699</span>
+                    </div>
+                    <div class="detail">
+                      <span>Voltage</span>
+                      <span id="Voltage9">22942 / 22922 / 22699</span>
+                    </div>
+                    <div class="detail">
+                      <span>Volt</span>
+                      <span id="Volt9">22942 / 22922 / 22699</span>
+                    </div>
+                    <div class="detail">
+                      <span>Current</span>
+                      <span id="Current9">36 / 39 / 39</span>
+                    </div>
+                    <div class="detail">
+                      <span>Total kW</span>
+                      <span id="KWtotal9">1939<br />2023-09-31 09:42:22</span>
+                    </div>
+                    <div class="detail">
+                      <span>Total kVA</span>
+                      <span id="kVAtotal9">123<br />2023-09-31 09:42:22</span>
+                    </div>
+                    <div class="detail">
+                      <span>Total kVAr</span>
+                      <span id="kVARtotal9">123<br />2023-09-31 09:42:22</span>
+                    </div>
+                    <div class="detail">
+                      <span>Avgerage PF</span>
+                      <span id="avgPF9">36 / 39 / 39</span>
+                    </div>
+                    <div class="detail">
+                      <span>Freq</span>
+                      <span id="Freq9">36 / 39 / 39</span>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="footer" class="fixed bottom-0 w-full"></div>
+    <script src="../../js/weyu/weyu_footer2.js"></script>
+    <script src="../../js/comm/jquery.min.js"></script>
+    <script src="../../js/comm/bootstrap.min.js"></script>
+    <script src="../../js/weyu/weyu_config.js"></script>
+    <script src="../../js/weyu/weyu_comm_api_function.js"></script>
+    <script src="../../js/weyu/weyu_comm_function.js"></script>
+    <script src="../../js/weyu/emsButtonMenu.js"></script>
+    <script src="../../js/weyu/weyu_sidebar_menu.js"></script>
+    <script src="functionList.js"></script>
+    <!-- <script src="../js/weyu/weyu_check.js"></script> -->
+    <script src="../../js/weyu/weyu_header.js"></script>
+    <script src="../../js/weyu/weyu_footer.js"></script>
+    <!-- <script src="../js/weyu/weyu_loading.js"></script> -->
+
+    <!-- 多語系翻譯 -->
+    <script type="text/javascript">
+      function onLoad() {
+        GetConfig();
+        SetDefaultSelectLang();
+        ChangeLang(); //多國語言翻譯
+      }
+      // 左上LOGO文字
+      $("#logotext").html(PROJECT_SAVE_NAME);
+    </script>
+    <script>
+      $(document).ready(function () {
+        $(".subMenu").click(function () {
+          $(".subMenu li").toggle();
+        });
+      });
+    </script>
+
+    <script>
+      function functionListDetail(EQP_NO) {
+        document.body.style.opacity = 0;
+        setTimeout(function () {
+          window.location.href = "functionListDetail.html?EQP_NO=" + EQP_NO;
+        }, 500);
+      }
+    </script>
+  </body>
+</html>

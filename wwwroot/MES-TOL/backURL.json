@@ -1,0 +1,12 @@
+[
+    {
+        "LV": "L1",
+        "URL": "MES-TOL/TOL_GridMenu.html"
+    },
+    {
+        "LV": "L2",
+        "MODULE_NAME": "Basic Information",
+        "BUTTON": "A",
+        "URL": "MES-TOL/TOL_GridMenu.html?MODULE_TYPE=MES-TOL&MODULE_NAME=Basic Information&LEVEL=L1"
+    }
+]

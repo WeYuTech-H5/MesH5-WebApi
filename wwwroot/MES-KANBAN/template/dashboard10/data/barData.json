@@ -1,0 +1,24 @@
+{
+    "labels":[
+        "Amy",
+        "Ben",
+        "Cindy",
+        "Dennis",
+        "Eason"
+    ],
+    "datasets":[
+        {
+            "label":["人員產出數"],
+            "data":[
+                11,
+                18,
+                25,
+                45,
+                31
+            ],
+            "backgroundColor":"rgba(64, 111, 255, 0.6)",
+            "borderWidth":1,
+            "borderColor":"rgba(64, 111, 255, 0.6)"
+        }
+    ]
+}

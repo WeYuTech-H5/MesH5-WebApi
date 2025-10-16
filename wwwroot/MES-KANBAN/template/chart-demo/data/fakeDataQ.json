@@ -1,0 +1,23 @@
+{
+    "labels": ["SE rod", "MAX las", "SE prog", "MAX man", "MAX hop"],
+    "datasets": [
+      {
+        "label": "CNT",
+        "data": [134, 56, 28, 20, 13],
+        "backgroundColor": ["#7a8a41", "#53ac36", "#6ee28d", "#63b4ae", "#89b3ff"],
+        "order": 1,
+        "yAxisID": "barChart"
+      },
+      {
+        "label": "%",
+        "data": [53.39, 75.5, 86.86, 94.83, 100],
+        "borderColor": "#FF0000",
+        "type": "line",
+        "order": 0,
+        "yAxisID": "lineChart",
+        "borderWidth": 3,
+        "borderRadius": 8
+      }
+    ]
+  }
+  

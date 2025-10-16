@@ -1,0 +1,16 @@
+{
+    "labels": ["Coal", "Natural Gas", "Oil","Solar","Wind"],
+    "datasets": [
+        {
+        "data": [38,17,20,17,8],
+        "backgroundColor": [
+            "#ffd257",
+            "#2c99b7",
+            "#20f4b3",
+            "#d5ed4e",
+            "#5dc4dd"
+        ],
+        "borderWidth": 0
+        }
+    ]
+}

@@ -1,0 +1,110 @@
+{
+    "result": true,
+    "Report_Schema": [
+        {
+            "QR_SID": 332098016080802,
+            "QR_CODE": "V_ZZ_PCT_INDEX_GRID1",
+            "QR_NAME": "V_ZZ_PCT_INDEX_GRID1",
+            "MASTER_SQL": "SELECT * FROM V_ZZ_PCT_INDEX_GRID1 WHERE {CON}",
+            "VALID_GRID": "true",
+            "VALID_CHART": "false",
+            "CREATE_USER": "ADMINV2",
+            "CREATE_TIME": "2023-11-08T17:50:23.18",
+            "EDIT_USER": "ADMINV2",
+            "EDIT_TIME": "2023-11-08T17:50:23.18",
+            "CHART_TITLE": "",
+            "CHART_SUB_TITLE": "",
+            "DBLink": "SELF",
+            "VALID_REFRESH": "false",
+            "VALID_EXPORT": "false",
+            "xRotation": 0,
+            "VALID_PAGE": "true                                              ",
+            "GETDATAWHENFIRSTOPEN": null,
+            "SHOWGRIDTITLE": "true                                              ",
+            "GRIDROWBACKGROUND_FIELD": "",
+            "GRIDROWFOREGROUND_FIELD": "",
+            "ADDED_SQL": ""
+        }
+    ],
+    "Query_Cond": [],
+    "Grid_Schema": [
+        {
+            "QR_SID": 332098016080802,
+            "GRID_SID": 332099423180140,
+            "VALID_GRID": "true",
+            "ROWNUM": 10,
+            "VALID_REFRESH": "false",
+            "GRID_CAPTION": "狀態清單",
+            "FIELDNAME": "CODE",
+            "FIELDDATATYPE": "System.String",
+            "SHOW": "Yes",
+            "CAPTION": "CODE",
+            "WIDTH": 0,
+            "CREATE_USER": "ADMINV2",
+            "CREATE_TIME": "2023-11-08T17:50:23.18",
+            "EDIT_USER": "ADMINV2",
+            "EDIT_TIME": "2023-11-08T17:50:23.18",
+            "SEQ": 1,
+            "COLOR_OP": "",
+            "COLOR_OP_VALUE": "",
+            "FIELD_COLOR": "",
+            "CanHyperLink": "N",
+            "HyberLinkURL": "",
+            "HyperLinkFields": "",
+            "HyberLinkTitle": "",
+            "IFrameLoad": "N"
+        },
+        {
+            "QR_SID": 332098016080802,
+            "GRID_SID": 332099423180948,
+            "VALID_GRID": "true",
+            "ROWNUM": 10,
+            "VALID_REFRESH": "false",
+            "GRID_CAPTION": "狀態清單",
+            "FIELDNAME": "STATUS",
+            "FIELDDATATYPE": "System.String",
+            "SHOW": "Yes",
+            "CAPTION": "STATUS",
+            "WIDTH": 0,
+            "CREATE_USER": "ADMINV2",
+            "CREATE_TIME": "2023-11-08T17:50:23.18",
+            "EDIT_USER": "ADMINV2",
+            "EDIT_TIME": "2023-11-08T17:50:23.18",
+            "SEQ": 2,
+            "COLOR_OP": "",
+            "COLOR_OP_VALUE": "",
+            "FIELD_COLOR": "",
+            "CanHyperLink": "N",
+            "HyberLinkURL": "",
+            "HyperLinkFields": "",
+            "HyberLinkTitle": "",
+            "IFrameLoad": "N"
+        }
+    ],
+    "Grid_Data": [
+        {
+            "CODE": "變頻器-1運轉 ",
+            "STATUS": "運轉"
+        },
+        {
+            "CODE": "變頻器-2運轉  ",
+            "STATUS": "停止"
+        },
+        {
+            "CODE": "變頻器-3運轉",
+            "STATUS": "運轉"
+        },
+        {
+            "CODE": "變頻器-4運轉",
+            "STATUS": "運轉"
+        },
+        {
+            "CODE": "變頻器-5運轉",
+            "STATUS": "運轉"
+        },
+        {
+            "CODE": "變頻器-6運轉",
+            "STATUS": "運轉"
+        }
+    ]
+}

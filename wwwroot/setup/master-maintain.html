@@ -1,0 +1,295 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>WeyuBoard</title>
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <link href="../css/comm/dataTables.min.css" rel="stylesheet" />
+    <link href="../css/comm/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/zz/master-maintain.css" rel="stylesheet" media="all">
+    <link href="../css/zz/master-maintain-new.css" rel="stylesheet" media="all">
+    <link href="../css/weyu/input.css" rel="stylesheet" />
+    <link href="../css/weyu/weyu_right_navbar.css" rel="stylesheet">
+    <link href="../css/comm/flatpickr.min.css" rel="stylesheet">
+</head>
+
+<style>
+    header {
+        padding-bottom: 0rem !important;
+        margin-top: 0rem !important;
+    }
+</style>
+
+
+<body onload="onLoad()" style="overflow-x: hidden">
+    <!-- ------------------------------------------------------------------------------ loading -->
+
+    <div class="loading" id="loading">
+        <div class="progress" id="progress">
+            Loading
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <header class="flex items-center w-full">
+
+        <button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+            aria-controls="offcanvasWithBothOptions" style="background: transparent; border: 0;">
+            <img src="../img/comm/icons/hamburger.svg" alt="Menu" />
+        </button>
+
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+            aria-labelledby="offcanvasWithBothOptionsLabel" style="background-color: #162a58;">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">WO Maintain</h5>
+                <button type="button" class="" data-bs-dismiss="offcanvas" aria-label="Close"
+                    style="background: transparent; border: 0;">
+                    <img src="../img/comm/icons/close.svg" alt="Menu" />
+                </button>
+            </div>
+            <div id="menuList" class="offcanvas-body"></div>
+        </div>
+
+
+        <h1 style="font-size: 1.25em; font-weight: bold; line-height: 1; margin-top: 0.5em;">
+            <a id="logotext" href="../index.html"></a>
+        </h1>
+        <div class="company">
+            <nav class="navbar"></nav>
+            <div class="board-name" id="midtitle">WO Maintain</div>
+        </div>
+
+
+        <div id="settings">
+            <span id="tokenExpiry"></span>
+            <img id="settings-image" src="../img/comm/user-gear-solid.svg" style="height: 1.5rem; width: 1.5rem"
+                alt="Settings" />
+        </div>
+
+        <div id="dropdown-menu" class="dropdown-content hidden">
+            <div id="langueStatus">Language Status</div>
+            <div id="accountStatus">Account Status</div>
+            <div id="logout">Logout</div>
+        </div>
+
+
+
+    </header>
+    <!-- -----------------------------------------------主要內容 -->
+    <div id="mybody">
+        <div id="layout1" class="layout-btns">
+            <div class="layoutOneBtnWrapper">
+                <button id="backButton" class="btn tit Lang"><img src="../img/comm/circle-chevron-left-solid.svg"
+                        alt="返回前頁"><span class="Lang">Back</span></button>
+                <button data-bs-toggle="modal" data-bs-target="#ADD" id="AddData" class="btn tit Lang"><img
+                        src="../img/comm/master-maintain/add-folder.png" alt="單筆新增"><span
+                        class="Lang">Add</span></button>
+                <button data-bs-toggle="modal" data-bs-target="#EDD" id="EditData" class="btn tit Lang"><img
+                        src="../img/comm/master-maintain/edit.png" alt="Edit"><span class="Lang">Edit</span></button>
+                <button data-bs-toggle="modal" data-bs-target="#COPY" id="CopyData" class="btn tit Lang">Copy</button>
+                <button data-bs-toggle="modal" data-bs-target="#Query" id="QueryData" class="Lang btn tit"><img
+                        src="../img/comm/master-maintain/Inquire.png" alt="Query"><span
+                        class="Lang">Query</span></button>
+                <!-- <button data-bs-toggle="modal" data-bs-target="#DELETE" id="DeleteData" class="btn tit Lang"><img src="../img/comm/master-maintain/delete_1.png" alt="Delete"><span class="Lang">Delete</span></button> -->
+                <button id="ExportExcel" class="btn btn-outline-primary Lang"><img src="../img/comm/Download.png"
+                        alt="Download"><span class="Lang">Export</span></button>
+                <button id="Appendix" class="btn btn-outline-primary Lang" style="display:none"><img
+                        src="../img/comm/Download.png" alt="Download"><span class="Lang">+Appendix</span></button>
+            </div>
+            <div class="pagenum">
+                <select id="perPData">
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+                <button id="PrePage" class="btn btn-outline-primary Lang" disabled="disabled">&larr;</button>
+                <input id="PageNum" value="1" style="width:40px; text-align: center;" />
+                <button id="NexPage" class="btn btn-outline-primary Lang" disabled="disabled">&rarr;</button>
+                <span id="totalnum"></span>
+            </div>
+        </div>
+        <div class="modal fade" id="EDD" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title Lang" id="EDDModalLabel">Edit</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            id="EditClose"></button>
+                    </div>
+                    <div class="modal-body" id="EDDContent">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="EditSave" class="btn btn-primary Lang">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="modal fade" id="ADD" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title Lang" id="ADDModalLabel">Add</h5>
+                            <!--<div id="CK" class="checkbox bg-light border rounded"><input type="checkbox" data-toggle="toggle" data-on="CK-ON" data-off="CK-OFF"></div>-->
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                                id="AddClose"></button>
+                        </div>
+                        <div class="modal-body" id="ADDContent">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="SaveData" class="btn btn-primary Lang">Save Data</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="modal fade" id="Query" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title Lang" id="QueryModalLabel">Query</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                                id="QueryClose"></button>
+                        </div>
+                        <div class="modal-body mx-2" id="QueryContent">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="Queryclean" class="btn btn-secondary Lang">Clean</button>
+                            <button type="button" id="QuerySave" class="btn btn-primary Lang">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="modal fade " id="DELETE" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="modal-title Lang" id="DELETEModalLabel">Delete</span>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                                id="QueryClose"></button>
+                        </div>
+                        <div class="modal-body mx-2" id="DELETEContent">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="DELETESave" class="btn btn-primary Lang">Delete</button>
+                            <button type="button" id="DELETECancel" data-bs-dismiss="modal" aria-label="Close"
+                                class="btn btn-primary Lang">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="COPY" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title Lang" id="COPYModalLabel">Copy</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            id="COPYClose"></button>
+                    </div>
+                    <div class="modal-body" id="COPYContent">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="COPYSave" class="btn btn-primary Lang">Save Data</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="layout2">
+            <table id="example" class="row-border order-column stripe hover">
+                <thead>
+                    <tr id="addtitle">
+                        <th class="Lang">state</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <footer>
+        <p style="text-align: right; margin-right: 10px; font-size:14px;">
+            Copr. 2023 WeYu Technology Co., Ltd. All Rights Reserved.
+        </p>
+    </footer>
+
+    <script src="../js/comm/jquery.min.js"></script>
+    <script>
+        var VersionTime = (new Date()).getTime();
+    </script>
+    <!-- <script src="../scripts/common/fontawesome-free-5.14.0-web/js/all.js"></script> -->
+    <!-- <script src="../scripts/common/fontawesome-free-5.14.0-web/js/fontawesome.js"></script> -->
+    <script src="../js/weyu/weyu_config.js?v=" +VersionTime></script>
+    <script src="../js/weyu/weyu_comm_api_function.js?v=" +VersionTime></script>
+    <script src="../js/weyu/weyu_comm_function.js?v=" +VersionTime></script>
+    <script src="../js/weyu/weyu_check.js?v=" +VersionTime></script>
+    <script src="../js/weyu/loading.js"></script>
+    <script src="../js/comm/dataTables.min.js"></script>
+    <script src="../js/comm/bootstrap.min.js"></script>
+    <!-- <script defer src="./master-maintain.js?v="+VersionTime></script> -->
+    <script src="../js/weyu/weyu_right_navbar.js"></script>
+    <script src="../js/weyu/weyu_header.js"></script>
+    <script src="../js/comm/flatpickr.min.js"></script>
+    <script src="../js/comm/sweetalert2.min.js"></script>
+
+    <script>
+        // 取得 URL 參數
+        const urlParams = new URLSearchParams(window.location.search);
+        const sid = urlParams.get('SID');
+
+        // 決定要載入哪個 script
+        let scriptSrc = '';
+
+        if (sid === '385218746086112') {
+            scriptSrc = './master-maintain-TOL-DETAIL.js';
+        } else {
+            scriptSrc = "./master-maintain.js?v=";
+        }
+
+        // 動態建立 <script> 並載入
+        if (scriptSrc) {
+            const script = document.createElement('script');
+            script.src = scriptSrc;
+
+            document.body.appendChild(script);
+        }
+    </script>
+
+    <!-- 多語系翻譯 -->
+
+    <script type="text/javascript">
+        function onLoad() {
+            DebugLog('onLoad Start');
+            GetConfig();
+            SetDefaultSelectLang();
+            ChangeLang(); //多國語言翻譯
+
+            DebugLog('onLoad END');
+        }
+        $(document).ready(function () {
+
+            DebugLog('ready Start');
+            $('#offcanvasWithBothOptionsLabel').html(PROJECT_SAVE_NAME);
+            $('#logotext').html(PROJECT_SAVE_NAME);
+
+            $('#selectlang').on('change', function () {
+                try {
+                    DebugLog('selectlang on_change ' + this.value);
+                    UIChangeLng(this.value);
+                    //localStorageSetItem("eqp", this.value);
+                } catch (errorMessage) {
+                    DebugLogAndAlert(errorMessage);
+                }
+            });
+
+            DebugLog('ready END');
+
+            $('#tokenExpiry').text('登入有效期:' + localStorage.getItem(PROJECT_SAVE_NAME + '_BI_TokenExpiry'));
+        });
+    </script>
+</body>
+
+</html>

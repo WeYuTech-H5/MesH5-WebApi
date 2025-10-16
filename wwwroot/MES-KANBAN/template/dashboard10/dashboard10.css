@@ -1,0 +1,208 @@
+/* ========== 全局樣式 ========== */
+.allWrapper {
+  z-index: 10;
+}
+
+li {
+  overflow-x: hidden;
+}
+
+*::-webkit-scrollbar {
+  display: none; /* 隱藏滾動條 */
+}
+
+/* ========== 容器樣式 ========== */
+.zz-box {
+  min-height: 200px;
+  background-color: #00000070;
+  border: 1px solid #90e3ff6b;
+  border-radius: 3px;
+  color: white;
+}
+
+.zz-box.zz-box-200 {
+  height: 200px;
+}
+.zz-box.zz-box-300 {
+  height: 300px;
+}
+.zz-box.zz-box-400 {
+  height: 400px;
+}
+.zz-box.zz-box-500 {
+  height: 500px;
+}
+
+.zz-box .title {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  margin: 5px auto;
+  text-decoration: underline;
+}
+
+/* ========== 內容區塊樣式 ========== */
+.box-item {
+  text-align: center;
+  height: 160px;
+}
+
+.box-table {
+  padding: 0 10px;
+  text-align: start;
+  color: #fff;
+  overflow: auto;
+  font-size: 14px;
+  line-height: 32px;
+}
+.box-table.box-table-250 {
+  height: 250px;
+}
+.box-table.box-table-450 {
+  height: 450px;
+}
+
+.box-table table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.box-table th {
+  background-color: rgb(27, 27, 27);
+  color: rgb(101, 178, 254);
+  font-weight: bolder;
+  position: sticky;
+  top: 0; /* 固定在表格頂部 */
+  z-index: 1;
+}
+
+.box-table tbody tr:nth-child(odd) {
+  background-color: #777777; /* 淺灰 */
+}
+
+.box-table tbody tr:nth-child(even) {
+  background-color: #5f5f5f; /* 深灰 */
+}
+
+.box-table td {
+  border: 1px solid #333; /* 黑色邊框 */
+}
+
+.box-table th,
+.box-table td {
+  padding-left: 5px; /* 內部邊距 */
+}
+
+/* ========== 項目樣式 ========== */
+.item-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(101, 178, 254);
+}
+
+.item-content {
+  color: #fff;
+  font-size: 35px;
+  height: 100px;
+  line-height: 100px;
+}
+
+.item-content::after {
+  content: attr(data-unit);
+  font-size: 14px;
+  margin-left: 3px;
+}
+
+.item-span {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.item-chart {
+  height: 100%;
+}
+
+.item-table {
+  text-align: start;
+  color: #fff;
+  height: 150px;
+  overflow: auto;
+  font-size: 10px;
+}
+
+.item-table th {
+  font-size: 12px;
+  font-weight: bold;
+  color: rgb(101, 178, 254);
+}
+
+.item-table table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* ========== 邊框樣式 ========== */
+.box-item + .box-item, 
+.box-item + .item-table, 
+.box-item + .item-chart {
+  border-left: 1px solid #90e3ff6b;
+}
+
+.zz-border-top {
+  position: relative; /* 伪元素參考上下文 */
+}
+
+.zz-border-top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12px;
+  width: calc(100% - 24px); /* 80% 寬度 */
+  height: 1px;
+  background-color: #90e3ff6b;
+  display: block;
+}
+/* ========== 表格文字樣式 ========== */
+.state {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.state.rise {
+  color: rgb(37, 244, 37);
+}
+
+.state.decline {
+  color: rgb(255, 144, 144);
+}
+.state.to-be-processed {
+  color: rgb(255, 209, 58);
+}
+.state.repair {
+  color: rgb(27, 228, 178);
+}
+
+/* ========== 響應式樣式 ========== */
+@media (min-width: 1200px) {
+  .zz-border-top::before {
+    display: none; /* lg 及以上隱藏 */
+  }
+}
+
+@media (max-width: 1200px) {
+  .zz-border-top {
+    border: 0 !important; /* lg 及以上隱藏 */
+  }
+  .item-table {
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+/* ========== 圖表容器樣式 ========== */
+.chartWrapper {
+  height: 100%;
+  padding-top: 10px;
+}

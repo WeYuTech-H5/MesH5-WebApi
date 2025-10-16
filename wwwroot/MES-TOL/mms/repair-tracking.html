@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="../../css/weyu/input.css" rel="stylesheet">
+  <link href="../../css/weyu/weyu_right_navbar.css" rel="stylesheet">
+  <link href="../../css/comm/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+  <link href="../../css/comm/dataTables.min.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/jquery.dataTables.min.css" integrity="sha512-1k7mWiTNoyx2XtmI96o+hdjP8nn0f3Z2N4oF/9ZZRgijyV4omsKOXEnqL1gKQNPy2MTSP9rIEWGcH/CInulptA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link href="repair-tracking.css" rel="stylesheet">
+</head>
+<body onload="onLoad()">
+  <div class="relative min-h-full">
+    <header class="w-full mt-2">
+
+      <a id="logotext" href="../../index.html" class="fs-4 fw-bold ps-3"></a>
+
+      
+      <div id="title" class="fw-bold fs-5 Lang">
+        <span class="Lang">維修回報</span>
+      </div>
+
+      <div id="settings">
+        <img id="settings-image" src="../../img/comm/user-gear-solid.svg" style="height: 1.5rem; width: 1.5rem" alt="Settings" />
+      </div>
+
+      <div id="dropdown-menu" class="dropdown-content hidden">
+        <div id="langueStatus">Language Status</div>
+        <div id="accountStatus"><img src="" alt="" />Account Status</div>
+        <div id="logout"><button class="ml-auto p-4">
+          Logout
+        </button>
+        </div>
+      </div>
+
+    </header>
+
+    <div id="layout1">
+      <!-- 共用按鈕 -->
+      <div class="layoutOneBtnWrapper">
+        <button id="backButton" class="btn tit Lang"><img src="../../img/comm/circle-chevron-left-solid.svg" alt="返回前頁"><span class="Lang">Back</span></button>
+        <!-- 可以再添加客製按鈕 -->
+      </div>
+    </div>
+
+    <!-- 主設計 START -->
+    <div class="form-container">
+      <!-- 頁面1：尚未檢修的清單列表 -->
+      <div id="inspectionListPage">
+        <div class="c-form-title"><span id="repairType"></span>待檢修清單</div>
+        <div class="row mt-2">
+          <div class="col-md-6 col-xl-3 mb-2">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text fw-bold">廠區</span>
+              <select class="form-select shadow-none" id="chartType">
+                <option value=""></option>
+                <option value="">廠區一</option>
+                <option value="">廠區二</option>
+                <!-- Add more options as needed -->
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-3 mb-2">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text fw-bold">機台</span>
+              <select class="form-select shadow-none" id="chartType">
+                <option value=""></option>
+                <option value="">機台01</option>
+                <option value="">機台02</option>
+                <option value="">機台03</option>
+                <!-- Add more options as needed -->
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-3 mb-2">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text fw-bold">原因碼</span>
+              <select class="form-select shadow-none" id="chartType">
+                <option value=""></option>
+                <option value="">原因1</option>
+                <option value="">原因2</option>
+                <option value="">原因3</option>
+                <!-- Add more options as needed -->
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-3 mb-2">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text fw-bold">優先序</span>
+              <select class="form-select shadow-none" id="chartType">
+                <option value=""></option>
+                <option value="">高</option>
+                <option value="">中</option>
+                <option value="">低</option>
+                <!-- Add more options as needed -->
+              </select>
+            </div>
+          </div>
+          <div class="col-xl-6 mb-2">
+            <div class="input-group input-group-sm timePeriodPicker">
+              <span class="input-group-text fw-bold">範圍</span>
+              <input
+                type="text"
+                id="dateRange"
+                class="form-control shadow-none bg-white"
+                placeholder="Select date range"
+                readonly
+              />
+            </div>
+          </div>
+          <div class="col-8 col-sm-9 col-xl-4 col-xxl-5 mb-2">
+            <div class="input-group input-group-sm">
+              <span class="input-group-text fw-bold" id="keyword">關鍵字</span>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                class="form-control shadow-none"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+          <div class="col-4 col-sm-3 col-xl-2 col-xxl-1 mb-2 text-end">
+            <button class="btn btn-sm border-secondary rounded-1 fw-bold"><i class="fa-solid fa-magnifying-glass fs-6"></i> 查詢</button>
+          </div>
+
+
+        </div>
+        <div id="tableContent">
+          <table id="listTable" class="display">
+            <thead>
+              <tr>
+                <th>案號</th>
+                <th>廠區</th>
+                <th>機台</th>
+                <th>原因碼</th>
+                <th>通報時間</th>
+                <th>優先序</th>
+                <th class="text-end">操作</th>
+              </tr>
+            </thead>
+            <tbody id="inspectionList">
+              <!-- 檢修清單會動態生成 -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 頁面2：維修紀錄回報表單 -->
+      <div id="repairReportPage" style="display: none;">
+        <div class="c-form-title mb-2 position-relative">
+          <div>維修紀錄回報</div>
+          <div class="position-absolute end-0 me-3">
+            <span class="fs-5 me-1">案號:<span id="caseNumber">XXXX-OOOO</span></span>
+            <i class="fa-solid fa-file-lines" data-bs-toggle="modal" data-bs-target="#descriptionModal"></i>
+          </div>
+        </div>
+
+        <form id="repairForm">
+          <div class="row">
+            <div class="col-lg-6 mb-3">
+              <label for="startTime" class="form-label">開始處理時間</label>
+              <input type="datetime-local" class="form-control" id="startTime" required>
+            </div>
+            <div class="col-lg-6 mb-3">
+              <label for="endTime" class="form-label">處理完成時間</label>
+              <input type="datetime-local" class="form-control" id="endTime" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="repairReason" class="form-label">判斷原因</label>
+            <select class="form-select" id="repairReason" required>
+              <option value="">選擇原因</option>
+              <option value="原因1">原因1</option>
+              <option value="原因2">原因2</option>
+              <option value="原因3">原因3</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="repairReason" class="form-label">處理分類</label>
+            <select class="form-select" id="repairReason" required>
+              <option value="">選擇原因</option>
+              <option value="類型1">類型1</option>
+              <option value="類型2">類型2</option>
+              <option value="類型3">類型3</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="repairDescription" class="form-label">處理描述</label>
+            <textarea class="form-control" id="repairDescription" rows="2" required></textarea>
+          </div>
+          <div class="d-flex justify-content-between">
+            <button type="button" class="btn btn-secondary fw-bold" id="backToList"><i class="fa-solid fa-arrow-left-long"></i> 返回清單列表</button>
+            <button type="submit" class="btn btn-primary fw-bold">提交</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal" id="descriptionModal" tabindex="-1" aria-labelledby="descriptionModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100  text-center" id="descriptionModalLabel">回報內容</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h5 class="fw-bold">故障分類</h5>
+            <p class="fw-light fs-5">設備</p>
+            <h5 class="fw-bold">故障原因</h5>
+            <p class="fw-light fs-5">機台過熱</p>
+            <h5 class="fw-bold">描述</h5>
+            <p class="fw-light fs-5">機台內部溫度超過安全操作範圍，導致自動關機以防止損壞。可能原因包括通風受阻、過度負載或冷卻系統故障</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 主設計 END -->
+    <div id="footer" class="position-fixed bottom-0 right-0 left-0 w-100"></div>
+
+  </div>
+
+  <!-- <script src="../../js/comm/cdn.jsdelivr.net_npm_chart.js"></script> -->
+  <script src="../../js/comm/bootstrap.min.js"></script>
+  <script src="../../js/comm/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment/min/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <script src="../../js/weyu/weyu_config.js"></script>
+  <script src="../../js/comm/dataTables.min.js"></script>
+  <script src="../../js/weyu/weyu_comm_api_function.js"></script>
+  <script src="../../js/weyu/weyu_comm_function.js"></script>
+  <!-- <script src="../../js/weyu/weyu_check.js"></script> -->
+  <script src="../../js/weyu/weyu_header.js"></script>
+  <script src="../../js/weyu/weyu_footer.js"></script>
+  <script src="../../js/weyu/weyu_right_navbar.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="repair-tracking.js"></script>
+  
+  <!-- 多語系翻譯 -->
+  <script type="text/javascript">
+    function onLoad() {
+        GetConfig();
+        SetDefaultSelectLang();
+        ChangeLang();//多國語言翻譯
+        console.log('onLoad 成功')
+    };
+    // 左上LOGO文字
+    $('#logotext').html(PROJECT_SAVE_NAME);
+  </script>
+
+</body>
+</html>

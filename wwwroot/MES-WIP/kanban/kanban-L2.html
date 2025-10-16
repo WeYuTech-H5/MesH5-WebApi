@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban</title>
+    <link href="../../css/comm/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/comm/dataTables.min.css" rel="stylesheet" />
+    <link href="../../css/weyu/weyu_right_navbar.css" rel="stylesheet" />
+    <link href="../css/kanban-L2.css" rel="stylesheet" />
+
+  </head>
+  <body>
+    <div class="loading" id="loading">
+      <div class="progress" id="progress">
+        Loading
+        <div class="loader"></div>
+      </div>
+    </div>
+    <!-- 商標標題時間 -->
+    <header class="align-items-center w-100 pt-2 mb-2">
+      <div id="brand" class="col-4 d-flex">
+        <a id="logotext" href="../../index.html"></a>
+        <a href="./kanban-L1.html" style="margin-left: 30px;height: 100%">
+          <img src="../../img/comm/icon-back-24.png" alt="上一頁" />
+        </a>
+      </div>
+      <div id="title" class="fs-4 col-4 text-center fw-bold">
+        Dashboard
+      </div>
+      <div class="col-2 d-flex">
+        <button id="data_show" class="w-100 text-center" style="max-width: 10rem;">yyyy/MM/dd</button>
+        <input type="date" id="date" class="invisible position-absolute">
+      </div>
+
+      <div id="settings" class="col-2 d-flex justify-content-end">
+        <div id="timming" class="mx-3">00:00</div>
+        <img
+          id="settings-image"
+          src="../../img/comm/user-gear-solid.svg"
+          style="height: 1.5rem; width: 1.5rem;margin:0"
+          alt="Settings"
+        />
+      </div>
+      <div id="dropdown-menu" class="dropdown-content hidden">
+        <div id="langueStatus">Language Status</div>
+        <div id="accountStatus">Account Status</div>
+        <div id="logout">Logout</div>
+      </div>
+    </header>
+
+    <!-- 內容開始 -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6 col-lg-3">
+          <div class="row">
+            <div class="col-12">
+              <div class="box">
+                <div class="col-12 "><p class="fs-4 fw-bold">Day shift</p class="fs-4"></div>
+                <div class="row">
+                  <div class="col-6 fw-bold">
+                    Manager
+                    <span id="day-manager"></span>
+                  </div>
+                  <div class="col-6 fw-bold">
+                    Output/capita
+                    <span id="day-output-per-capita"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-5 pe-0">
+              <div class="box info fw-bold">
+                OEE
+                <span class="percent" id="day-oee"></span>
+              </div>
+            </div>
+            <div class="col-7 ps-0">
+              <div class="box param">
+                <div class="row ps-3 pe-3">
+                  <div class="col-4 p-0 fw-bold">
+                    A
+                    <span class="percent" id="day-avl"></span>
+                  </div>
+                  <div class="col-4 p-0 fw-bold">
+                    P
+                    <span class="percent" id="day-prf"></span>
+                  </div>
+                  <div class="col-4 p-0 fw-bold">
+                    Q
+                    <span class="percent" id="day-yld"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="row">
+            <div class="col-12">
+              <div class="box">
+                <div class="col-12 "><p class="fs-4 fw-bold">Night shift</p class="fs-4"></div>
+                <div class="row">
+                  <div class="col-6 fw-bold">
+                    Manager
+                    <span id="night-manager"></span>
+                  </div>
+                  <div class="col-6 fw-bold">
+                    Output/capita
+                    <span id="night-output-per-capita"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-5 pe-0">
+              <div class="box info fw-bold">
+                OEE
+                <span class="percent" id="night-oee"></span>
+              </div>
+            </div>
+            <div class="col-7 ps-0">
+              <div class="box param">
+                <div class="row ps-3 pe-3">
+                  <div class="col-4 p-0 fw-bold">
+                    A
+                    <span class="percent" id="night-avl"></span>
+                  </div>
+                  <div class="col-4 p-0 fw-bold">
+                    P
+                    <span class="percent" id="night-prf"></span>
+                  </div>
+                  <div class="col-4 p-0 fw-bold">
+                    Q
+                    <span class="percent" id="night-yld"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-6">
+          <div class="row h-100">
+            <div class="col-6 pe-0">
+              <div class="box h-100"><p class="fs-4 fw-bold mb-2">Overall efficiency</p class="fs-4"><span class="percent" id="total-oee"></span></div>
+            </div>
+            <div class="col-6 ps-0">
+              <div class="box h-100"><p class="fs-4 fw-bold mb-2">Cumulative production time</p class="fs-4"><span id="total-product-time"></span></div>
+            </div>
+
+            <div class="col-4 pe-0">
+              <div class="box h-100"><p class="fs-4 fw-bold mb-2">Availability</p class="fs-4"><span class="danger percent" id="total-avl"></span></div>
+            </div>
+            <div class="col-4 px-0">
+              <div class="box h-100"><p class="fs-4 fw-bold mb-2">Performance</p class="fs-4"><span class="off percent" id="total-prf"></span></div>
+            </div>
+            <div class="col-4 ps-0">
+              <div class="box h-100"><p class="fs-4 fw-bold mb-2">Quality</p class="fs-4"><span class="active percent" id="total-yld"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mx-auto">
+      <div class="col-lg-12">
+        <!-- <p class="fs-4 mt-3" class="text-center mt-2 mb-1">EQP Monitor</p class="fs-4"> -->
+        <div id="tableContainer">
+          <table id="theTable"></table>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer" class="position-fixed bottom-0 right-0 left-0 w-100"></div>
+
+    <script src="../../js/comm/jquery.min.js"></script>
+    <script src="../../js/comm/bootstrap.min.js"></script>
+    <script src="../../js/weyu/weyu_config.js"></script>
+    <script src="../../js/comm/dataTables.min.js"></script>
+    <script src="../../js/weyu/weyu_comm_api_function.js"></script>
+    <script src="../../js/weyu/weyu_header.js"></script>
+    <script src="../../js/weyu/weyu_footer.js"></script>
+    <script src="../../js/weyu/weyu_right_navbar.js"></script>
+    <script src="../../js/weyu/weyu_menu_bs.js"></script>
+    <script src="kanban-L2.js"></script>
+    <script type="text/javascript">
+      function onLoad() {
+          GetConfig();
+          SetDefaultSelectLang();
+          ChangeLang();//多國語言翻譯
+          console.log('onLoad 成功')
+      };
+      // 左上LOGO文字
+      $('#logotext').html(PROJECT_SAVE_NAME);
+  
+    </script>
+  </body>
+</html>

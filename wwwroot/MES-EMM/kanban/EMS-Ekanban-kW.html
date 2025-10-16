@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title class="Lang">Dashboard</title>
+  <link href="../css/weyu/input.css" rel="stylesheet">
+  <link href="../css/weyu/weyu_right_navbar.css" rel="stylesheet">
+  <script src="../css/comm/cdn.tailwindcss.com.css"></script>
+  <link href="../css/comm/bootstrap.4.4.1.min.css" rel="stylesheet" />
+  <link href="../css/weyu/EMS-kanban-L1.css" rel="stylesheet" />
+</head>
+<body onload="onLoad()">
+  <div class="relative min-h-full z-10">
+    <header class="flex items-center w-full mt-2">
+
+      <a id="logotext" href="../EMS-index.html" class="text-white text-xl font-bold pl-6 text-decoration-none">GEMTEK</a>
+
+      
+      <div id="title" class="text-sky-200 font-bold flex flex-grow items-center ml-3 Lang">
+        <span class="Lang">Each Factory Max kW Today</span>
+      </div>
+
+      <div id="settings">
+        <img id="settings-image" src="../img/comm/user-gear-solid.svg" style="height: 1.5rem; width: 1.5rem" alt="Settings" />
+      </div>
+
+      <div id="dropdown-menu" class="dropdown-content hidden">
+        <div id="langueStatus">Language Status</div>
+        <div id="accountStatus"><img src="" alt="" />Account Status</div>
+        <div id="logout"><button class=" text-sky-200 ml-auto p-4">
+          Logout
+        </button>
+        </div>
+      </div>
+
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="card col">
+                <h1><span class="Lang">Max kW: </span><span id="TOTALCard">2300</span> kw</h1>
+                <h4><span class="Lang">Max kW Yesterday: </span><span id="lastDayKW">4200</span> kW</h4>
+                <div class="hint-bar title">
+                    <span class="low-square">■</span>:&lt;<span id="low-standard">60</span>%
+                    <span class="mid-square">■</span>:<span id="mid-standard">60-80</span>%
+                    <span class="high-square">■</span>:&gt;<span id="high-standard">80</span>%
+                    <div id="Contract" class="Lang">Contract Cap:</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- 主設計 START -->
+    <div class="container">
+        <div class="row">
+            <div id="ACard" class="card col">
+                <h1>JV02</h1>
+                <div class="box d-flex flex-column">
+                    <h2 class="Lang">Max kW Current:</h2>
+                    <p class="percent" id="AOEE"></p>
+                </div>
+                <!-- <div class="chart-wrapper"> -->
+                    <!-- <canvas id="AChart"></canvas> -->
+                    <!-- <div class="doughnut-tag"> -->
+                        <!-- <h2>OEE</h2> -->
+                    <!-- <div class="box">
+                        <h2 class="Lang">Max kW Current:</h2>
+                        <p class="percent" id="AOEE"></p>
+                    </div> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+                <div class="hint-bar">
+                    <!-- <span class="low-square">■</span>:&lt;<span id="low-standard">60</span>%
+                    <span class="mid-square">■</span>:<span id="mid-standard">60-80</span>%
+                    <span class="high-square">■</span>:&gt;<span id="high-standard">80</span>% -->
+                </div>
+                <div class="stats">
+                    <div>
+                        <h3><span class="Lang">Max kW Yesterday: </span><span id="lastJV02">4200</span> kW</h3>
+                        <p  id="AAVL"></p>
+                    </div>
+                    <!-- <div>
+                        <h3>ACB2</h3>
+                        <p id="APRF"></p>
+                    </div>
+                    <div>
+                        <h3>LV1-MAY</h3>
+                        <p id="AYLD"></p>
+                    </div> -->
+                </div>
+            </div>
+            <div id="BCard" class="card col">
+                <h1>JV03</h1>
+                <div class="box d-flex flex-column">
+                    <h2 class="Lang">Max kW Current:</h2>
+                    <p class="percent" id="BOEE"></p>
+                </div>
+                <div class="chart-wrapper">
+                    <!-- <canvas id="BChart"></canvas> -->
+                    <!-- <div class="doughnut-tag">
+                        <p class="percent" id="BOEE"></p>
+                    </div> -->
+                </div>
+                <div class="hint-bar">
+                    <!-- <span class="low-square">■</span>:&lt;<span id="low-standard">60</span>%
+                    <span class="mid-square">■</span>:<span id="mid-standard">60-80</span>%
+                    <span class="high-square">■</span>:&gt;<span id="high-standard">80</span>% -->
+                </div>
+                <div class="stats">
+                    <div>
+                        <h3><span class="Lang">Max kW Yesterday: </span><span id="lastJV03">4200</span> kW</h3>
+                        <p id="BAVL"></p>
+                    </div>
+                    <!-- <div>
+                        <h3>TPPLV</h3>
+                        <p id="BPRF"></p>
+                    </div> -->
+                    <!-- <div>
+                        <h3>資訊C</h3>
+                        <p id="BYLD"></p>
+                    </div> -->
+                </div>
+            </div>
+            <div id="CCard" class="card col">
+                <h1>JV04</h1>
+                <div class="box d-flex flex-column">
+                    <h2 class="Lang">Max kW Current:</h2>
+                    <p class="percent" id="CCompletion"></p>
+                </div>
+                <div class="chart-wrapper">
+                    <!-- <canvas id="CChart"></canvas> -->
+                    <!-- <div class="doughnut-tag"> -->
+                        <!-- <h2>Completion</h2> -->
+                    <!-- </div> -->
+                </div>
+                <div class="hint-bar">
+                    <!-- <span id="CENTERED_TIME_COUNT">0</span> / <span id ="CTOTAL_TIME_COUNT">0</span> -->
+                </div>
+                <div class="stats">
+                    <div>
+                        <h3><span class="Lang">Max kW Yesterday: </span><span id="lastJV04">4200</span> kW</h3>
+                        <p id="CPass"></p>
+                    </div>
+                    <!-- <div>
+                        <h3>MP1</h3>
+                        <p id="COntime"></p>
+                    </div>
+                    <div>
+                        <h3>MP2</h3>
+                        <p id="COntime"></p>
+                    </div>
+                    <div>
+                        <h3>ACMP</h3>
+                        <p id="COntime"></p>
+                    </div> -->
+                </div>
+                </div>
+
+           <div id="DCard" class="card col">
+                <h1>JA14</h1>
+                <div class="box d-flex flex-column">
+                    <h2 class="Lang">Max kW Current:</h2>
+                    <p class="percent" id="DCompletion"></p>
+                </div>
+                <div class="chart-wrapper">
+                    <!-- <canvas id="DChart"></canvas> -->
+                    <!-- <div class="doughnut-tag"> -->
+                         <!-- <h2>Completion</h2> -->
+                    <!-- </div> -->
+                </div>
+                <div class="hint-bar">
+                    <!-- <span id="DENTERED_TIME_COUNT">0</span> / <span id ="DTOTAL_TIME_COUNT">0</span> -->
+                </div>
+                <div class="stats">
+                    <div>
+                        <h3><span class="Lang">Max kW Yesterday: </span><span id="lastJA14">4200</span> kW</h3>
+                        <p id="DPass"></p>
+                    </div>
+                    <!-- <div>
+                        <h3>資訊A</h3>
+                        <p id="DPass"></p>
+                    </div>
+                    <div>
+                        <h3>資訊B</h3>
+                        <p id="DOntime"></p>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- 主設計 END -->
+    <div id="footer" class="fixed bottom-0 w-full"></div>
+
+  </div>
+  <div class="mainBG fixed left-0 top-0 right-0 bottom-0"></div>
+
+  <script src="../js/comm/cdn.jsdelivr.net_npm_chart.js"></script>
+  <script src="../js/comm/bootstrap.min.js"></script>
+  <script src="../js/comm/jquery.min.js"></script>
+  <script src="../js/weyu/weyu_config.js"></script>
+  <script src="../js/weyu/weyu_comm_api_function.js"></script>
+  <script src="../js/weyu/weyu_comm_function.js"></script>
+  <script src="../js/weyu/weyu_check.js"></script>
+  <script src="../js/weyu/weyu_header.js"></script>
+  <script src="../js/weyu/weyu_footer.js"></script>
+  <script src="../js/weyu/weyu_right_navbar.js"></script>
+  <script src="EMS-kanban-L1.js"></script>
+  <!-- 多語系翻譯 -->
+  <script type="text/javascript">
+    function onLoad() {
+        GetConfig();
+        SetDefaultSelectLang();
+        ChangeLang();//多國語言翻譯
+        console.log('onLoad 成功')
+    };
+    // 左上LOGO文字
+    $('#logotext').html(PROJECT_SAVE_NAME);
+  </script>
+
+</body>
+</html>

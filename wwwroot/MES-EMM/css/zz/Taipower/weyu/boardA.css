@@ -1,0 +1,71 @@
+body,
+html {
+  background-color: #CCEBF5;
+  font-family: Arial;
+  min-height: 100vh;
+}
+body {
+  background: url(../../images/weyu/background.svg) 0 100% no-repeat;
+  background-size: 100% auto;
+}
+h2.title {
+  background-color: #549CBB;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.4em;
+  font-weight: bold;
+  margin: 1rem 0;
+  padding: .5rem;
+  text-align: center;
+  width:  100%;
+}
+.boxWrapper {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+.boxWrapper canvas {
+  width: 100%!important;
+}
+div.title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.text {
+  color: #666;
+  bottom: 0;
+  font-size: 1.4em;
+  font-weight: bold;
+  position: absolute;
+  width: 100%;
+}
+.text.fixed {
+  bottom: 0;
+  height: 1rem;
+  top: 58%;
+}
+
+.text.fixedB {
+  font-size: 1em;
+  font-weight: normal;
+  height: 1rem;
+  top: 4rem;
+  text-align: left;
+}
+footer {
+  padding-bottom: 6rem;
+}
+.aside .text span {
+  color: rgb(212, 127, 29);
+  display: block;
+  font-size: 1.9em;
+}
+.aside .text {
+  top: 44%;
+  font-size: 1.08em;
+}
+@media all and (max-width:1200px) {
+  .aside .text {
+    font-size: 1em;
+  }
+}

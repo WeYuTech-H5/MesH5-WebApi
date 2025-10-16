@@ -1,0 +1,206 @@
+{
+	"JsonSchema": {
+	  "JsonSchema0001": [
+		{
+		  "field": "code",
+		  "type": "string",
+		  "example": "TOLERR0001",
+		  "description": "錯誤代碼，分類碼 + 編號"
+		},
+		{
+		  "field": "level",
+		  "type": "string",
+		  "example": "Error | Warning | Info",
+		  "description": "錯誤等級"
+		},
+		{
+		  "field": "position",
+		  "type": "string",
+		  "example": "TOLAction_H5.UpdateStatus",
+		  "description": "錯誤發生的位置或方法"
+		},
+		{
+		  "field": "en",
+		  "type": "string",
+		  "example": "TOL_NO not found",
+		  "description": "英文錯誤訊息"
+		},
+		{
+		  "field": "zh",
+		  "type": "string",
+		  "example": "機台主檔不存在此筆資料",
+		  "description": "中文錯誤訊息"
+		},
+		{
+		  "field": "suggestion",
+		  "type": "string",
+		  "example": "請確認輸入的 TOL_NO 是否正確",
+		  "description": "建議解法或補充說明"
+		},
+		{
+		  "field": "httpStatusCode",
+		  "type": "int",
+		  "example": 500,
+		  "description": "對應的 HTTP 錯誤碼（如 500、403、200）"
+		},
+		{
+		  "AdditionalExplanation": "如有客製化錯誤，模組名稱請用ZZERROR"
+		}
+	  ]
+	},
+    "TOLERR": {
+        "TOLERR0001": [
+            {
+                "code": "TOLERR0001",
+                "level": "Error",
+				"position": "",
+                "en": "TOL_NO not found in TOL_MASTER",
+                "zh": "機台主檔不存在此筆資料",
+                "suggestion": "請確認輸入的 TOL_NO 是否正確",
+                "httpStatusCode": 500
+            }
+        ],
+		"TOLERR0002": [
+            {
+                "code": "TOLERR0002",
+                "level": "Error",
+				"position": "",
+                "en": "TOL_STATUS_CODE not found in TOL_STATUS",
+                "zh": "機況主檔不存在此筆資料",
+                "suggestion": "請確認 TOL_STATUS_CODE 是否存在於資料庫",
+                "httpStatusCode": 500
+            }
+        ],
+		"TOLERR0003": [
+            {
+                "code": "TOLERR0003",
+                "level": "Error",
+				"position": "",
+                "en": "REASON_CODE not found in BAS_REASON",
+                "zh": "原因主檔不存在此筆資料",
+                "suggestion": "請確認原因碼是否存在",
+                "httpStatusCode": 500
+            }
+        ],
+		"TOLERR0004": [
+            {
+                "code": "TOLERR0004",
+                "level": "Error",
+				"position": "",
+                "en": "Failed to update TOL_MASTER status",
+                "zh": "修改機台主檔狀態出現異常",
+                "suggestion": "請確認資料是否正確並重試",
+                "httpStatusCode": 500
+            }
+        ]
+    },
+	"UMMERR": {
+		"UMMERR0001": [
+			{
+				"code": "UMMERR0001",
+				"level": "Error",
+				"position": "",
+				"en": "UMM_NO not found in UMM_MASTER",
+				"zh": "人員主檔不存在此筆資料",
+				"suggestion": "請確認輸入的 UMM_NO 是否正確",
+				"httpStatusCode": 500
+			}
+		],
+		"UMMERR0002": [
+			{
+				"code": "UMMERR0002",
+				"level": "Error",
+				"position": "",
+				"en": "UMM_STATUS_CODE not found in UMM_STATUS",
+				"zh": "人員主檔不存在此筆資料",
+				"suggestion": "請確認 UMM_STATUS_CODE 是否存在於資料庫",
+				"httpStatusCode": 500
+			}
+		],
+		"UMMERR0003": [
+			{
+				"code": "UMMERR0003",
+				"level": "Error",
+				"position": "",
+				"en": "REASON_CODE not found in BAS_REASON",
+				"zh": "原因主檔不存在此筆資料",
+				"suggestion": "請確認原因碼是否存在",
+				"httpStatusCode": 500
+			}
+		],
+		"UMMERR0004": [
+			{
+				"code": "UMMERR0004",
+				"level": "Error",
+				"position": "",
+				"en": "Failed to update UMM_MASTER status",
+				"zh": "修改人員主檔狀態出現異常",
+				"suggestion": "請確認資料是否正確並重試",
+				"httpStatusCode": 500
+			}
+		]
+	},
+    "AUTHERR": {
+        "AUTHERR0001": [
+            {
+                "code": "AUTHERR0001",
+                "level": "Warning",
+				"position": "",
+                "en": "Token verification failed",
+                "zh": "Token 驗證失敗",
+                "suggestion": "",
+                "httpStatusCode": 403
+            }
+        ],
+        "AUTHERR0002": [
+            {
+                "code": "AUTHERR0002",
+                "level": "Warning",
+				"position": "",
+                "en": "Session not found or expired",
+                "zh": "Session 不存在或已過期",
+                "suggestion": "請重新登入後再執行操作",
+                "httpStatusCode": 401
+            }
+        ]
+    },
+    "ZZUNKNOWN": {
+        "ZZUNKNOWN0001": [
+            {
+                "code": "ZZUNKNOWN0001",
+                "level": "Warning",
+				"position": "",
+                "en": "Unknown error",
+                "zh": "查無錯誤訊息，請參閱Exception",
+                "suggestion": "",
+                "httpStatusCode": 520
+            }
+        ]
+    },
+	"Transaction": {
+		"Transaction0001": [
+			{
+				"code": "Transaction0001",
+				"level": "Error",
+				"position": "",
+				"en": "Transaction Failed",
+				"zh": "交易失敗",
+				"suggestion": "請檢查錯誤訊息或SQL",
+				"httpStatusCode": 200
+			}
+		]
+	},
+    "Success": {
+		"Success0001": [
+			{
+				"code": "Success0001",
+				"level": "Info",
+				"position": "",
+				"en": "TOL status updated successfully",
+				"zh": "機台狀態變更成功",
+				"suggestion": "機台狀態變更成功",
+				"httpStatusCode": 200
+			}
+		]
+	}
+}

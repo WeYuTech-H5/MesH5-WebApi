@@ -1,0 +1,29 @@
+.allWrapper {
+  z-index: 10;
+}
+li {
+  overflow-x: hidden;
+}
+
+.bg-container {
+  background-color: #00000043;
+  border: 1px solid #90e3ff6b;
+  /* height: 100vh; */
+  width: 98%;
+  margin: auto;
+}
+
+.chartWrapper {
+  height: 100%;
+  padding: 0 10px 10px 10px;
+}
+
+/* 各圖形高度 */
+#barLineWrapper {
+  height: 240px
+}
+
+#stackBarAWrapper,
+#stackBarBWrapper {
+  height: 300px
+}

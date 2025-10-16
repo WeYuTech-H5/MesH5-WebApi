@@ -1,0 +1,56 @@
+[
+    {
+        "LV": "L1",
+        "URL": "MES-WIP/WIP-menu.html"
+    },
+
+     {
+        "LV": "L2",
+        "MODULE_NAME": "Basic_Information",
+        "BUTTON": "A",
+        "URL": "MES-WIP/WIP-menu.html?MODULE_TYPE=MES-WIP&MODULE_NAME=Basic_Information&LEVEL=L1"
+    },
+
+    {
+        "LV": "L2",
+        "MODULE_NAME": "WIP_QUERY",
+        "BUTTON": "HEATING",
+        "URL": "MES-WIP/WIP-menu.html?MODULE_TYPE=MES-WIP&MODULE_NAME=WIP_QUERY&LEVEL=L1"
+    },
+    {
+        "LV": "L2",
+        "MODULE_NAME": "WIP_QUERY",
+        "BUTTON": "FORMING",
+        "URL": "MES-WIP/WIP-menu.html?MODULE_TYPE=MES-WIP&MODULE_NAME=WIP_QUERY&LEVEL=L1"
+    },
+    {
+        "LV": "L3",
+        "MODULE_NAME": "WIP_QUERY",
+        "BUTTON": "HEATING",
+        "URL": "MES-WIP/WIP-menu.html?MODULE_TYPE=MES-WIP&MODULE_NAME=WIP_QUERY&LEVEL=L2&BUTTON=HEATING"
+    },
+    {
+        "LV": "L3",
+        "MODULE_NAME": "WIP_QUERY",
+        "BUTTON": "FORMING",
+        "URL": "MES-WIP/WIP-menu.html?MODULE_TYPE=MES-WIP&MODULE_NAME=WIP_QUERY&LEVEL=L2&BUTTON=FORMING"
+    },
+    {
+        "LV": "L2",
+        "MODULE_NAME": "WIP_OPI",
+        "BUTTON": "A",
+        "URL": "MES-WIP/WIP-menu.html?MODULE_TYPE=MES-WIP&MODULE_NAME=WIP_OPI&LEVEL=L1"
+    },
+    {
+        "LV": "L2",
+        "MODULE_NAME": "WIP_OPI",
+        "BUTTON": "A",
+        "URL": "MES-WIP/WIP-menu.html?MODULE_TYPE=MES-WIP&MODULE_NAME=WIP_OPI&LEVEL=L1"
+    },
+    {
+        "LV": "L2",
+        "MODULE_NAME": "WIP_OPI",
+        "BUTTON": "A",
+        "URL": "MES-WIP/WIP-menu.html?MODULE_TYPE=MES-WIP&MODULE_NAME=WIP_OPI&LEVEL=L1"
+    }
+]

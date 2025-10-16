@@ -1,0 +1,34 @@
+li {
+	overflow-x: hidden;
+}
+.card-container {
+	width: 80%;
+	margin: 10px auto;
+}
+.queryCard {
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	background-color: #f9f9f9;
+	padding: 20px;
+}
+.display-content {
+	height: 65vh;
+	max-height: 600px;
+}
+
+.chart-display {
+	width: 100%;
+	height: 400px;
+}
+
+#dateRange {
+	cursor: pointer;
+}
+
+.switchBtn {
+	border: 1px solid #a0a0a0 !important;
+}
+
+.switchBtn.selected {
+	background-color: #cfcfcf8b;
+}

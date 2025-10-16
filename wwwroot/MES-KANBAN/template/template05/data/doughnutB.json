@@ -1,0 +1,22 @@
+{
+    "labels":[
+        "Create",
+        "Finished",
+        "Terminated"
+    ],
+    "datasets": [
+        {
+            "data": [
+                49,
+                20,
+                31
+            ],
+            "backgroundColor": [
+                "#56a99f",
+                "#3f6e8a",
+                "#9cc081"
+            ],
+            "borderWidth": 0
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+#carousel-container,
+#carousel-btn {
+    max-width: 1200px;
+    min-width: 95%;
+    overflow: hidden;
+    margin: auto;
+    text-align: center;
+}
+
+#carousel-container {
+    padding-bottom: 1rem;
+}
+
+#carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    flex: 0 0 100%; /* Make each item occupy the full width of the container */
+}
+@media screen and (max-width: 1279px) {
+    #carousel-btn {
+        border-top: 1px solid rgba(127, 234, 255, 0.511);
+        background: linear-gradient(#162a58, #3472d0);
+        text-align: center;
+        width: 100%;
+        padding-top: 1rem;
+        position: sticky;
+        bottom: 0;
+    }
+}
+@media screen and (max-height: 610px) {
+    #carousel-btn {
+        border-top: 1px solid rgba(127, 234, 255, 0.511);
+        background: linear-gradient(#162a58, #3472d0);
+        text-align: center;
+        width: 100%;
+        padding-top: 1rem;
+        position: sticky;
+        bottom: 0;
+    }
+}
+.btn {
+    background-color: #4791ca70;
+    border: 1px solid #4791ca;
+    border-radius: 50px;
+    color: #fff;
+    font-family: Arial;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0 5rem 1rem;
+    padding: .3rem .7rem;
+}
+.btn:hover {
+    background-color: #4791ca;
+}
+.theCard {
+    background-color: #051b488a;
+    border: 1px solid #42cbff8f;
+}
+h3 {
+    color: #fff;
+}

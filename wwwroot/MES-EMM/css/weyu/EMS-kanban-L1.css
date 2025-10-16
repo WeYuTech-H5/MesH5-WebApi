@@ -1,0 +1,113 @@
+body {
+    color: white;
+}
+
+.card {
+    text-align: center;
+    border: 3px solid rgba(0, 51, 76, 0.5); /* 半透明的细边框 */
+    padding: 12px;
+    border-radius: 12px;
+    margin: 10px;
+    background: linear-gradient(145deg, 
+                rgba(114, 190, 234, 0.5), 
+                rgba(1, 99, 149, 0.5)); /* 背景颜色添加透明度 */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.25);
+}
+.card h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.card h2 {
+    font-size: 2rem;
+    /* font-weight: bold; */
+}
+.card h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.card p {
+    font-size: 2.5rem;
+}
+.chart-wrapper {
+    position: relative;
+    width: 70%;
+    margin: 0 auto;
+}
+.doughnut-tag {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%; /* 使背景為圓形 */
+    /* padding: 0; 可調整圓的大小 */
+    width: 75%; /* 圓的直徑 */
+    height: 75%; /* 圓的直徑 */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+}
+.doughnut-tag p {
+    font-size: 3.5rem;
+}
+.hint-bar{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+.hint-bar.title{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+}
+.percent {
+    width: 100%;
+    position: relative;
+}
+
+.percent::after {
+    content: "kw";
+    font-size: 1.2rem;
+}
+
+.low-square{
+    color:#5bbfb3;
+}
+.mid-square{
+    color:#FFA552;
+}
+.high-square{
+    color:#EB3645;
+}
+
+.box {
+    margin-top: 1.5rem;
+    margin-bottom: 1.2rem;
+    font-weight: bold !important;
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: rgba(209, 209, 209, 0.2);
+    align-items: center;
+    justify-content: center;
+}

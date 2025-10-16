@@ -1,0 +1,7 @@
+.panelDetailWrapper {
+    margin-top: 1rem;
+}
+
+canvas {
+    max-height:30vh;
+}

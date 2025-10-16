@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="../../css/weyu/input.css" rel="stylesheet">
+  <link href="../../css/weyu/weyu_right_navbar.css" rel="stylesheet">
+  <link href="../../css/comm/bootstrap.min.css" rel="stylesheet">
+  <link href="../template09/template09.css" rel="stylesheet">
+  <link href="../../css/weyu/template-menu.css" rel="stylesheet">
+
+</head>
+
+<body onload="onLoad()">
+  <div class="allWrapper relative min-h-full">
+    <header class="flex items-center w-full mt-2 overflow-hidden pb-2">
+      <div class="box-header">
+        <button id="menu" class="btn transparent-btn pl-4" aria-expanded="false">
+          <img id="menu-image" src="../../img/comm/icons/hamburger.svg" alt="Menu" />
+        </button>
+        <div id="dropdownMenu" class="menu-content">
+          <div class="d-flex h-100">
+            <button id="closeButton">
+              <img id="close-image" src="../../img/comm/icons/close.svg" alt="Menu" />
+            </button>
+            <div class="menu-tot">
+              <div class="menu-1">
+                <li>
+                  <a class="dropdown-item-title" href="../list/list.html">返回樣式列表</a>
+                </li>
+              </div>
+              <div class="menu-2">
+                <ul id="Menu" class="dropdown-item"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a id="logotext" href="../../index.html" class="fs-4 fw-bold"></a>
+      </div>
+      <div class="box-header">
+        <div class="fw-bold fs-5 Lang">
+          <span class="Lang">Operations Dashboard</span>
+        </div>
+      </div>
+      <div class="box-header">
+        <div class="time" id="current-time"></div>
+        <div id="settings">
+          <img id="settings-image" src="../../img/comm/user-gear-solid.svg" class="settings" alt="Settings" />
+        </div>
+        <div id="dropdown-menu" class="dropdown-content hidden">
+          <div id="langueStatus">Language Status</div>
+          <div id="accountStatus">Account Status</div>
+          <div id="logout">Logout</div>
+        </div>
+      </div>
+    </header>
+    <!-- 主設計 START -->
+    <div id="main-content" class="container-fluid main">
+      <div class="row">
+        
+        <div id="pl1" class="col-md-12 col-lg-6 col-xl-3"><div class="pCard RUN"><div class="pIntro"><h2><span class="eqpNo">B07-10-01</span><strong class="eqpStatus">RUN</strong></h2><h3 class="pTitle">軟心球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div><div class="pCard IDLE"><div class="pIntro"><h2><span class="eqpNo">B07-10-02</span><strong class="eqpStatus">IDLE</strong></h2><h3 class="pTitle">特大壁球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div><div class="pCard ERROR"><div class="pIntro"><h2><span class="eqpNo">B07-10-03</span><strong class="eqpStatus">ERROR</strong></h2><h3 class="pTitle">硬球心</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div><div class="pCard RUN"><div class="pIntro"><h2><span class="eqpNo">B07-10-04</span><strong class="eqpStatus">RUN</strong></h2><h3 class="pTitle">特大壁球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div><div class="pCard IDLE"><div class="pIntro"><h2><span class="eqpNo">B07-10-05</span><strong class="eqpStatus">IDLE</strong></h2><h3 class="pTitle">特大壁球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div><div class="pCard ERROR"><div class="pIntro"><h2><span class="eqpNo">B07-10-06</span><strong class="eqpStatus">ERROR</strong></h2><h3 class="pTitle">特大壁球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div></div>
+        <div id="pl2" class="col-md-12 col-lg-6 col-xl-3"><div class="pCard IDLE"><div class="pIntro"><h2><span class="eqpNo">B07-10-07</span><strong class="eqpStatus">IDLE</strong></h2><h3 class="pTitle">特大壁球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div><div class="pCard RUN"><div class="pIntro"><h2><span class="eqpNo">B07-10-08</span><strong class="eqpStatus">RUN</strong></h2><h3 class="pTitle">特大壁球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div><div class="pCard IDLE"><div class="pIntro"><h2><span class="eqpNo">B07-10-09</span><strong class="eqpStatus">IDLE</strong></h2><h3 class="pTitle">特大壁球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div><div class="pCard POWEROFF"><div class="pIntro"><h2><span class="eqpNo">B07-10-10</span><strong class="eqpStatus">POWEROFF</strong></h2><h3 class="pTitle">特大壁球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div><div class="pCard RUN"><div class="pIntro"><h2><span class="eqpNo">B07-10-11</span><strong class="eqpStatus">RUN</strong></h2><h3 class="pTitle">特大壁球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div><div class="pCard IDLE"><div class="pIntro"><h2><span class="eqpNo">B07-10-12</span><strong class="eqpStatus">IDLE</strong></h2><h3 class="pTitle">特大壁球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div></div>
+        <div id="pl3" class="col-md-12 col-lg-6 col-xl-3"><div class="pCard IDLE"><div class="pIntro"><h2><span class="eqpNo">B07-10-13</span><strong class="eqpStatus">IDLE</strong></h2><h3 class="pTitle">特大壁球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div><div class="pCard RUN"><div class="pIntro"><h2><span class="eqpNo">B07-10-14</span><strong class="eqpStatus">RUN</strong></h2><h3 class="pTitle">特大壁球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div><div class="pCard RUN"><div class="pIntro"><h2><span class="eqpNo">B07-10-15</span><strong class="eqpStatus">RUN</strong></h2><h3 class="pTitle">特大壁球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div><div class="pCard IDLE"><div class="pIntro"><h2><span class="eqpNo">B07-10-16</span><strong class="eqpStatus">IDLE</strong></h2><h3 class="pTitle">特大壁球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div><div class="pCard IDLE"><div class="pIntro"><h2><span class="eqpNo">B07-10-17</span><strong class="eqpStatus">IDLE</strong></h2><h3 class="pTitle">特大壁球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div><div class="pCard IDLE"><div class="pIntro"><h2><span class="eqpNo">B07-10-18</span><strong class="eqpStatus">IDLE</strong></h2><h3 class="pTitle">特大壁球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div></div>
+        <div id="pl4" class="col-md-12 col-lg-6 col-xl-3"><div class="pCard POWEROFF"><div class="pIntro"><h2><span class="eqpNo">B07-10-19</span><strong class="eqpStatus">POWEROFF</strong></h2><h3 class="pTitle">特大壁球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div><div class="pCard IDLE"><div class="pIntro"><h2><span class="eqpNo">B07-10-20</span><strong class="eqpStatus">IDLE</strong></h2><h3 class="pTitle">特大壁球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div><div class="pCard RUN"><div class="pIntro"><h2><span class="eqpNo">B07-10-21</span><strong class="eqpStatus">RUN</strong></h2><h3 class="pTitle">特大壁球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div><div class="pCard IDLE"><div class="pIntro"><h2><span class="eqpNo">B07-10-22</span><strong class="eqpStatus">IDLE</strong></h2><h3 class="pTitle">特大壁球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div><div class="pCard RUN"><div class="pIntro"><h2><span class="eqpNo">B07-10-23</span><strong class="eqpStatus">RUN</strong></h2><h3 class="pTitle">特大壁球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div><div class="pCard POWEROFF"><div class="pIntro"><h2><span class="eqpNo">B07-10-24</span><strong class="eqpStatus">POWEROFF</strong></h2><h3 class="pTitle">特大壁球</h3><p><span class="pTarget">目標量<strong class="pTargetRate">100</strong></span><span class="pReal">實際量<strong class="pRealRate">80</strong></span></p></div><ul class="pInfo"><li><span class="rate1T">稼動率</span><strong class="rate1V">88%</strong></li><li><span class="rate2T">達成率</span><strong class="rate2V">80%</strong></li><li><span class="rate3T">OEE</span><strong class="rate3V">65%</strong></li></ul></div></div>
+        
+     </div>
+    </div>
+    <!-- 主設計 END -->
+    <div id="footer" class="position-fixed bottom-0 right-0 left-0 w-100"></div>
+
+  </div>
+  <div class="mainBG fixed left-0 top-0 right-0 bottom-0"></div>
+
+  <script src="../../js/weyu/menu.js"></script>
+  <script src="../../js/comm/bootstrap.min.js"></script>
+  <script src="../../js/comm/jquery.min.js"></script>
+  <script src="../../js/weyu/weyu_config.js"></script>
+  <!-- <script src="../../js/weyu/weyu_comm_api_function.js"></script> -->
+  <!-- <script src="../../js/weyu/weyu_comm_function.js"></script> -->
+  <!-- <script src="../js/weyu/weyu_check.js"></script> -->
+  <script src="../template09/template09.js"></script>
+  <script src="../../js/weyu/weyu_header.js"></script>
+  <!-- <script src="../../js/weyu/weyu_menu.js"></script> -->
+  <script src="../../js/weyu/weyu_footer.js"></script>
+  <script src="../../js/weyu/weyu_right_navbar.js"></script>
+
+  <!-- 多語系翻譯 -->
+  <script type="text/javascript">
+    function onLoad() {
+      GetConfig();
+      SetDefaultSelectLang();
+      ChangeLang();//多國語言翻譯
+      console.log('onLoad 成功')
+    };
+    // 左上LOGO文字
+    $('#logotext').html(PROJECT_SAVE_NAME);
+  </script>
+
+</body>
+
+</html>

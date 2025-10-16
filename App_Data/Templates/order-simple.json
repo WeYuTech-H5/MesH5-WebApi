@@ -1,0 +1,24 @@
+{
+  "page": { "width": 595, "height": 842, "marginL": 40, "marginT": 40, "marginR": 40, "marginB": 40 },
+  "fonts": { "regular": "NotoSansTC-Regular.ttf", "bold": "NotoSansTC-Bold.ttf" },
+  "elements": [
+    { "type": "text", "x": 40, "y": 40, "size": 18, "bold": true,  "text": "訂單報表" },
+
+    { "type": "text", "x": 40, "y": 80, "size": 12, "text": "訂單：{{OrderNo}}" },
+    { "type": "text", "x": 40, "y": 98, "size": 12, "text": "客戶：{{Customer}}" },
+    { "type": "text", "x": 40, "y": 116, "size": 12, "text": "日期：{{OrderDate:yyyy-MM-dd}}" },
+
+    { "type": "table",
+      "x": 40, "y": 150, "rowHeight": 22,
+      "columns": [
+        { "header": "品名", "width": 300, "binding": "Name" },
+        { "header": "數量", "width": 120, "binding": "Qty" },
+        { "header": "小計", "width": 100, "binding": "Amount:0" }
+      ],
+      "items": "Items"
+    },
+
+    { "type": "text", "x": 40, "y": 0, "dock": "bottom", "size": 12, "bold": true,
+      "text": "總計：{{Items.Sum(Amount):0}}" }
+  ]
+}

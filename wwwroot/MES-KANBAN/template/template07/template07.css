@@ -1,0 +1,77 @@
+.allWrapper {
+  z-index: 10;
+}
+li {
+  overflow-x: hidden;
+}
+
+.bg-container {
+  /* background-color: #00000043;
+  border: 1px solid #90e3ff6b;
+  width: 98%;
+  margin: auto; */
+}
+
+.chartWrapper {
+  height: 100%;
+  padding: 0 10px 10px 10px;
+}
+
+.top-box{
+  background-color: #00000043;
+  aspect-ratio: 1.5 / 1;
+}
+.top-box-blue{
+  background-color: #00f2ffc0;
+}
+.top-box-outline-blue{
+  border: 1px solid #00f2ffc0;
+}
+.top-box-green{
+  background-color: #66CC99c0;
+}
+.top-box-outline-green{
+  border: 1px solid #66CC99c0;
+}
+
+.bottom-box {
+  background-color: #00000043;
+  border: 1px solid #90c9ff6b;
+  height: 45vh;
+}
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100%;
+}
+.text-content h2 {
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+.text-content p {
+  font-size: clamp(3rem, 6vw, 7rem);
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 輪播表格 START */
+.slider-nav {
+  display: flex;
+  color: white;
+  font-weight: bold;
+  background-color: rgba(100, 100, 100, 0.8);
+}
+.slider-nav div {
+  padding: 3px 20px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  user-select: none;
+}
+.slider-nav div:hover, .slider-nav .active {
+  background-color: rgba(3, 157, 196, 0.6);
+}
+/* 輪播表格 END */

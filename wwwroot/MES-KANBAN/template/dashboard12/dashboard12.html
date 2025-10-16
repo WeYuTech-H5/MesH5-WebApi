@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="../../css/weyu/input.css" rel="stylesheet">
+  <link href="../../css/weyu/weyu_right_navbar.css" rel="stylesheet">
+  <link href="../../css/comm/bootstrap.min.css" rel="stylesheet">
+  <link href="dashboard12.css" rel="stylesheet">
+  <link href="../../css/weyu/template-menu.css" rel="stylesheet">
+
+</head>
+
+<body onload="onLoad()">
+  <div class="allWrapper relative min-h-full">
+    <header class="flex items-center w-full mt-2 overflow-hidden pb-2">
+      <div class="box-header">
+        <button id="menu" class="btn transparent-btn pl-4" aria-expanded="false">
+          <img id="menu-image" src="../../img/comm/icons/hamburger.svg" alt="Menu" />
+        </button>
+        <div id="dropdownMenu" class="menu-content">
+          <div class="d-flex h-100">
+            <button id="closeButton">
+              <img id="close-image" src="../../img/comm/icons/close.svg" alt="Menu" />
+            </button>
+            <div class="menu-tot">
+              <div class="menu-1">
+                <li>
+                  <a class="dropdown-item-title" href="../../index.html">返回首頁</a>
+                </li>
+              </div>
+              <div class="menu-2">
+                <ul id="Menu" class="dropdown-item"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a id="logotext" href="../../index.html" class="fs-4 fw-bold"></a>
+      </div>
+      <div class="box-header">
+        <div class="fw-bold fs-5 Lang">
+          <span class="Lang">水資源看板</span>
+        </div>
+      </div>
+      <div class="box-header">
+        <div class="time" id="current-time"></div>
+        <div id="settings">
+          <img id="settings-image" src="../../img/comm/user-gear-solid.svg" class="settings" alt="Settings" />
+        </div>
+        <div id="dropdown-menu" class="dropdown-content hidden">
+          <div id="langueStatus">Language Status</div>
+          <div id="accountStatus">Account Status</div>
+          <div id="logout">Logout</div>
+        </div>
+      </div>
+    </header>
+    <!-- 主設計 START -->
+    <div class="mb-5 bg-container">
+      <div class="row">
+        <div class="col-md-6 col-xl-3 order-2 order-xl-1 d-flex flex-column custom-area" id="area1">
+          <div id="multiLineAWrapper" class="chartWrapper"></div>
+          <div id="barAWrapper" class="chartWrapper"></div>
+          <div id="multiLineBWrapper" class="chartWrapper"></div>
+        </div>
+        <div class="col-md-12 col-xl-6 order-1 order-xl-2 custom-area" id="area2">
+          <div class="p-2 pe-xl-0 ps-xl-0" style="height: 67%;">
+            <div class="layout-bg">
+              <div class="position-relative" id="layout">
+                <img class="layout-img" src="./water_meter_2.png" alt="">
+                <!-- JS加入數據方塊 -->
+              </div>
+            </div>
+          </div>
+          <div class="pb-3 pe-2 ps-2 pe-xl-0 ps-xl-0" style="height: 33%;">
+            <!-- 輪播表格 -->
+            <div id="carouselExampleIndicators" class="carousel slide d-flex flex-column h-100">
+              <!-- Toggle Switch 按鈕 -->
+              <div class="form-check form-switch position-absolute right-0 mt-1">
+                <label class="form-check-label me-2 text-light fw-bold font-monospace" for="toggleTouch">AutoPlay</label>
+                <input class="form-check-input" type="checkbox" id="toggleTouch">
+              </div>
+              <!-- 導航欄 -->
+              <div class="slider-nav">
+                <div data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active">狀態清單</div>
+                <div data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1">參數設定值</div>
+                <div data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2">運行狀態</div>
+              </div>
+              <!-- 表格 -->
+              <div class="carousel-inner overflow-y-auto">
+                <!-- 插入表格內容 -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-3 order-3 order-xl-3 d-flex flex-column custom-area" id="area3">
+          <div id="multiLineCWrapper" class="chartWrapper mb-md-5"></div>
+          <div id="multiLineDWrapper" class="chartWrapper"></div>
+        </div>
+
+      </div>
+    </div>
+    <!-- 主設計 END -->
+    <div id="footer" class="position-fixed bottom-0 right-0 left-0 w-100"></div>
+
+  </div>
+  <div class="mainBG fixed left-0 top-0 right-0 bottom-0"></div>
+
+  <!-- <script src="../../js/comm/cdn.jsdelivr.net_npm_chart.js"></script> -->
+  <script src="../../js/weyu/menu.js"></script>
+  <script src="../../js/comm/bootstrap.min.js"></script>
+  <script src="../../js/comm/jquery.min.js"></script>
+  <script src="../../js/comm/jquery-ui.js"></script>
+
+  <script src="../../js/weyu/weyu_config.js"></script>
+  <!-- <script src="../../js/weyu/weyu_comm_api_function.js"></script> -->
+  <!-- <script src="../../js/weyu/weyu_comm_function.js"></script> -->
+  <!-- <script src="../../js/weyu/weyu_check.js"></script> -->
+  <script src="../../js/weyu/weyu_header.js"></script>
+  <!-- <script src="../../js/weyu/weyu_menu.js"></script> -->
+  <script src="../../js/weyu/weyu_footer.js"></script>
+  <script src="../../js/weyu/weyu_right_navbar.js"></script>
+  <script src="../../js/comm/echart.min.js"></script>
+  <script src="dashboard12.js"></script>
+
+
+  <!-- 多語系翻譯 -->
+  <script type="text/javascript">
+    function onLoad() {
+      GetConfig();
+      SetDefaultSelectLang();
+      ChangeLang();//多國語言翻譯
+      console.log('onLoad 成功')
+    };
+    // 左上LOGO文字
+    $('#logotext').html(PROJECT_SAVE_NAME);
+  </script>
+
+</body>
+
+</html>

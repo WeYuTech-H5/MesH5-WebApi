@@ -1,0 +1,115 @@
+body {
+    color: #fff;
+}
+#mybody label,
+.custom-file-input,
+.container button {
+    display: block;
+    padding: 0.8rem;
+    margin: 1rem 0 0;
+    color: #Fff;
+    background-color: #0e8845;
+    border-radius: 5px;
+    width: 100%;
+}
+#mybody span {
+    display: inline-block;
+}
+#mybody label#message {
+    background-color: transparent;
+    border: 1px solid #6378ad;
+    min-height: 200px;
+}
+#mybody label#messageFile {
+    background-color: transparent;
+    border: 1px solid #6378ad;
+}
+.custom-file.text-center.me-2.mb-2.image-preview-wrappe {
+    margin-right: 0!important;
+}
+#prefix, #suffix {
+    width: 25%;
+}
+#file-uploader {
+    background-color: #1869b1;
+    cursor: pointer;
+}
+
+#upload-btn {
+    background-color: #1869b1;
+}
+#tableWarpper {
+    display: block;
+    overflow: auto;
+    max-height: 400px;
+    margin-top:5.7em; 
+}
+table {
+    width: 100%;
+}
+table,
+table a {
+    color: #fff;
+}
+th {
+    background-color: #144c7d;
+}
+td {
+    background-color: #3e557e;
+}
+th, td {
+    padding: .5rem;
+    word-wrap: break-word;
+}
+@media screen and (max-width: 768px) {
+}
+.container button, input {
+    border: 0;
+}
+
+/* 功能按鈕選單 */
+#layout1{
+    width: 100%;
+    border-top: #189cf4;
+    background: linear-gradient(to right, rgb(39, 72, 122) 0%, rgb(32, 72, 132)46%, rgb(23, 89, 194) 74%, rgb(0, 58, 140) 100%);
+}
+@media (max-width: 1270px) {
+    #layout1{
+        width: 100%;
+        order:1;
+    }
+}
+
+/* 上排 按鈕集 */
+div#layout1 {
+    padding: 7px 10px 7px 23px;
+    /* padding: 10px; */
+}
+#layout1 button {
+    background-color: #4791ca70;
+    border: 1px solid #4791ca;
+    border-radius: 3px;
+    color: #fff;
+    font-family: Arial;
+    font-size: .9em;
+    font-weight: bold;
+    margin: 0 .2rem;
+    padding: .2rem .5rem;
+
+}
+#layout1 button:hover {
+    background-color: #4791ca;
+}
+
+div#layout1 img {
+    margin-right: 5px;
+    width: 16px;
+}
+
+#layout1 button{
+    font-size: 1.8vh;
+}
+div#layout1 img {
+    margin-right: 5px;
+    width: 2.9vh;
+}

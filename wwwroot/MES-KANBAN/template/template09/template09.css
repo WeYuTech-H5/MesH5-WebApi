@@ -1,0 +1,185 @@
+.allWrapper {
+  z-index: 10;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #000 url(../theme_001/img/html.jpg) 0 0 no-repeat;
+  background-size: 100% 100%;
+  color: #fff;
+  font-family: Arial, "微軟正黑體";
+  margin: 0;
+  min-height: 100vh;
+  min-width: 320px;
+  padding: 10px 5px;
+}
+
+/*--- p Start ---*/
+.pCard {
+  margin-bottom: 5px;
+  padding: 5px;
+  position: relative;
+  display: table;
+  width: 100%;
+}
+.pIntro {
+  display: table-cell;
+  width: 58%;
+}
+.pTitle {
+  font-weight: bold;
+}
+.pCard h2,
+.pCard h3,
+.pCard p {
+  line-height: 1.5;
+  margin: 0;
+  padding: 6px 0 6px 5px;
+}
+
+.pCard h2 {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+.pCard h2 span {
+  display: inline-block;
+  min-width: 40%;
+}
+.pCard h2 strong {
+  padding-left: 5px;
+}
+.pCard h3 {
+  font-size: 1.2em;
+  clear: both;
+}
+.pTarget {
+  display: inline-block;
+  width: 50%;
+}
+.pInfo {
+  display: table-cell;
+  list-style: none;
+  margin: 0;
+  padding: 1px;
+  width: 42%;
+}
+.pInfo li {
+  border-bottom: 1px dashed #efefef;
+  clear: both;
+  font-size: 1.2em;
+  margin-bottom: 3px;
+  padding-bottom: 5px;
+  padding-right: 2px;
+  text-align: right;
+  position: relative;
+}
+.pInfo li:last-child {
+  border-bottom: 0;
+  margin-bottom: -3px;
+  padding-bottom: 0;
+}
+.pInfo li span {
+  font-size: 0.7em;
+  vertical-align: top;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  text-align: right;
+  width: 35%;
+}
+
+@media all and (min-width: 1200px) and (max-width: 1350px) {
+  .pInfo li {
+    font-size: 1em;
+  }
+  .pCard p {
+    font-size: 0.9em;
+  }
+}
+/*--- Default Colors ---*/
+h2 {
+  background-color: #0056a6; /* 深藍，沉穩 */
+}
+h3 {
+  background-color: #004080; /* 藍黑，專業 */
+}
+p {
+  background-color: #002f5c; /* 暗藍，穩重 */
+}
+.pInfo {
+  background-color: #2b78b9; /* 天藍，明亮 */
+}
+
+/*--- RUN ---*/
+.RUN h2 {
+  background-color: #4caf50; /* 清新綠 */
+}
+.RUN h3 {
+  background-color: #388e3c; /* 深綠 */
+}
+.RUN p {
+  background-color: #2e7d32; /* 暗綠 */
+}
+.RUN .pInfo {
+  background-color: #4e8c52; /* 淺綠，活力 */
+}
+
+/*--- IDLE ---*/
+.IDLE h2 {
+  background-color: #ffc107; /* 柔和金黃 */
+}
+.IDLE h3 {
+  background-color: #e0a800; /* 深金黃 */
+}
+.IDLE p {
+  background-color: #c79100; /* 古銅黃 */
+}
+.IDLE .pInfo {
+  background-color: #cfa101; /* 柔亮金黃 */
+}
+
+/*--- ERROR ---*/
+.ERROR h2 {
+  background-color: #e53935; /* 鮮明紅 */
+}
+.ERROR h3 {
+  background-color: #c62828; /* 深紅 */
+}
+.ERROR p {
+  background-color: #b71c1c; /* 暗紅 */
+}
+.ERROR .pInfo {
+  background-color: #d64343; /* 淡粉紅，對比 */
+}
+
+/*--- POWEROFF ---*/
+.POWEROFF h2 {
+  background-color: #757575; /* 中性灰 */
+}
+.POWEROFF h3 {
+  background-color: #616161; /* 深灰 */
+}
+.POWEROFF p {
+  background-color: #424242; /* 暗灰 */
+}
+.POWEROFF .pInfo {
+  background-color: #8a8a8a; /* 柔和灰 */
+}
+
+/*--- OTHERS ---*/
+.OTHERS h2 {
+  background-color: #673ab7; /* 深紫 */
+}
+.OTHERS h3 {
+  background-color: #512da8; /* 紫藍 */
+}
+.OTHERS p {
+  background-color: #4527a0; /* 暗紫藍 */
+}
+.OTHERS .pInfo {
+  background-color: #7442a8; /* 柔紫，點綴 */
+}

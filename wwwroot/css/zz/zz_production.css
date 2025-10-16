@@ -1,0 +1,96 @@
+
+.container-head .btn img {
+    margin-right: .5rem;
+}
+.container-head .btn {
+    display: flex;
+    align-items: center;
+}
+
+#layout1 {
+    width: 100%;
+    border-top: #189cf4;
+    background: linear-gradient(to right, rgb(39, 72, 122) 0%, rgb(32, 72, 132)46%, rgb(23, 89, 194) 74%, rgb(0, 58, 140) 100%);
+}
+
+.language>* {
+    display: flex;
+    align-items: center;
+}
+.button {
+    margin: 1rem auto;
+}
+.sign-out button {
+    border: none;
+    background: #404E5C;
+    color: #fff;
+    padding: 5px;
+    font-size: 20px;
+}
+#mybody .dataTables_wrapper .dataTables_paginate .paginate_button,
+#mybody .dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+#mybody .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, 
+#mybody .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, 
+#mybody .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active,
+#mybody .button a,
+#mybody .dataTables_wrapper .dataTables_paginate .paginate_button
+#mybody .button button,
+#layout1 button:hover {
+    color: aliceblue!important;
+    background-color: #3c4a70!important;
+    border: 1px solid #e0e0ed!important;
+    display: inline-flex;
+}
+
+.button button,
+#layout1 button {
+    color: #e0e4ed;
+    font-weight: 900;
+    border-color: #3c4a70;
+    background-color: #404E5C;
+    width: auto;
+    font-size: 14px;
+    border: 1px solid #e0e0ed;
+    box-shadow: 0 0 2px #0008;
+}
+
+
+.button {
+    display: flex;
+    justify-content: space-between;
+}
+.button button,
+#layout1 button:hover {
+    color: aliceblue;
+    background-color: #3c4a70;
+    border: 1px solid #e0e0ed;
+}
+
+.button button,
+#layout1 button {
+    background-color: #4791ca70;
+    border: 1px solid #4791ca;
+    border-radius: 3px;
+    color: #fff;
+    font-family: Arial;
+    font-size: .9em;
+    font-weight: bold;
+    margin: 0 .2rem;
+    padding: .2rem .5rem;
+}
+.button button,
+#layout1 button:hover {
+    background-color: #4791ca;
+}
+
+label {
+    color: #fff;
+}
+
+.layout-btns {
+    padding: 7px 10px;
+}
+
+#itemList {
+    margin: 1rem auto;
+}

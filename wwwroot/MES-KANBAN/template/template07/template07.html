@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="../../css/weyu/input.css" rel="stylesheet">
+  <link href="../../css/weyu/weyu_right_navbar.css" rel="stylesheet">
+  <link href="../../css/comm/bootstrap.min.css" rel="stylesheet">
+  <link href="../template07/template07.css" rel="stylesheet">
+  <link href="../../css/weyu/template-menu.css" rel="stylesheet">
+
+</head>
+
+<body onload="onLoad()">
+  <div class="allWrapper relative min-h-full">
+    <header class="flex items-center w-full mt-2 overflow-hidden pb-2">
+      <div class="box-header">
+        <button id="menu" class="btn transparent-btn pl-4" aria-expanded="false">
+          <img id="menu-image" src="../../img/comm/icons/hamburger.svg" alt="Menu" />
+        </button>
+        <div id="dropdownMenu" class="menu-content">
+          <div class="d-flex h-100">
+            <button id="closeButton">
+              <img id="close-image" src="../../img/comm/icons/close.svg" alt="Menu" />
+            </button>
+            <div class="menu-tot">
+              <div class="menu-1">
+                <li>
+                  <a class="dropdown-item-title" href="../list/list.html">返回樣式列表</a>
+                </li>
+              </div>
+              <div class="menu-2">
+                <ul id="Menu" class="dropdown-item"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a id="logotext" href="../../index.html" class="fs-4 fw-bold"></a>
+      </div>
+      <div class="box-header">
+        <div class="fw-bold fs-5 Lang">
+          <span class="Lang">Operations Dashboard</span>
+        </div>
+      </div>
+      <div class="box-header">
+        <div class="time" id="current-time"></div>
+        <div id="settings">
+          <img id="settings-image" src="../../img/comm/user-gear-solid.svg" class="settings" alt="Settings" />
+        </div>
+        <div id="dropdown-menu" class="dropdown-content hidden">
+          <div id="langueStatus">Language Status</div>
+          <div id="accountStatus">Account Status</div>
+          <div id="logout">Logout</div>
+        </div>
+      </div>
+    </header>
+    <!-- 主設計 START -->
+    <div class="container-fluid mb-lg-5">
+      <div class="row">
+        <!-- 左上 文字 -->
+        <div class="col-6 col-md-3 mb-4">
+          <div class="top-box top-box-blue">
+            <div class="text-content">
+              <h2>產線一</h2>
+              <p>99</p>
+            </div>
+          </div>
+        </div>
+        <!-- 左上 扇形圖 -->
+        <div class="col-6 col-md-3 mb-4">
+          <div class="top-box top-box-outline-blue">
+            <div id="semiDoughnutAWrapper" class="chartWrapper"></div>
+          </div>
+        </div>
+         <!-- 右上 文字 -->
+         <div class="col-6 col-md-3 mb-4">
+          <div class="top-box top-box-green">
+            <div class="text-content">
+              <h2>產線二</h2>
+              <p>165</p>
+            </div>
+          </div>
+        </div>
+        <!-- 右上 扇形圖 -->
+        <div class="col-6 col-md-3 mb-4">
+          <div class="top-box top-box-outline-green">
+            <div id="semiDoughnutBWrapper" class="chartWrapper"></div>
+          </div>
+        </div>
+        <!-- 左下 雷達圖 -->
+        <div class="col-md-6 col-lg-4 col-xxl-3 mb-4">
+          <div class="bottom-box">
+            <div id="radarWrapper" class="chartWrapper"></div>
+          </div>
+        </div>
+        <!-- 右下 表格 -->
+        <div class="col-md-6 col-lg-8 col-xxl-9 mb-4">
+          <div class="bottom-box">
+            <div id="carouselExampleIndicators" class="carousel slide d-flex flex-column h-100">
+              <!-- Toggle Switch 按鈕 -->
+              <div class="form-check form-switch position-absolute right-0 mt-1">
+                <label class="form-check-label me-2 text-light fw-bold font-monospace" for="toggleTouch">AutoPlay</label>
+                <input class="form-check-input" type="checkbox" id="toggleTouch">
+              </div>
+              <div class="slider-nav">
+                <div data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active">產線一</div>
+                <div data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1">產線二</div>
+              </div>
+              <div class="carousel-inner overflow-y-auto">
+                <!-- 插入表格內容 -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- 主設計 END -->
+    <div id="footer" class="position-fixed bottom-0 right-0 left-0 w-100"></div>
+
+  </div>
+  <div class="mainBG fixed left-0 top-0 right-0 bottom-0"></div>
+
+  <!-- <script src="../js/comm/cdn.jsdelivr.net_npm_chart.js"></script> -->
+  <script src="../../js/weyu/menu.js"></script>
+  <script src="../../js/comm/bootstrap.min.js"></script>
+  <script src="../../js/comm/jquery.min.js"></script>
+  <script src="../../js/weyu/weyu_config.js"></script>
+  <script src="../../js/weyu/weyu_comm_api_function.js"></script>
+  <script src="../../js/weyu/weyu_comm_function.js"></script>
+  <script src="../js/weyu/weyu_check.js"></script>
+  <script src="../template07/template07.js"></script>
+  <script src="../../js/weyu/weyu_header.js"></script>
+  <!-- <script src="../../js/weyu/weyu_menu.js"></script> -->
+  <script src="../../js/weyu/weyu_footer.js"></script>
+  <script src="../../js/weyu/weyu_right_navbar.js"></script>
+
+  <script src="../../js/comm/chartjs-plugin-datalabels.min.js"></script>
+  <script src="../../js/comm/cdn.jsdelivr.net_npm_chart.js"></script>
+  <script src="../../js/comm/cdn.chart.true_numb.js"></script>
+
+  <!-- 多語系翻譯 -->
+  <script type="text/javascript">
+    function onLoad() {
+      GetConfig();
+      SetDefaultSelectLang();
+      ChangeLang();//多國語言翻譯
+      console.log('onLoad 成功')
+    };
+    // 左上LOGO文字
+    $('#logotext').html(PROJECT_SAVE_NAME);
+  </script>
+
+</body>
+
+</html>

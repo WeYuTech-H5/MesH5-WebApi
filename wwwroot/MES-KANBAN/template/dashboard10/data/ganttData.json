@@ -1,0 +1,85 @@
+{
+    "labels": ["機況"],
+    "datasets": [
+        {
+            "label": "Run",
+            "data": [
+                ["2022-01-01T00:00", "2022-01-01T01:30"]
+            ],
+            "backgroundColor": ["green"],
+            "categoryPercentage": 1,
+            "barPercentage": 1
+        },
+        {
+            "label": "Idle",
+            "data": [
+                ["2022-01-01T01:30", "2022-01-01T02:30"]
+            ],
+            "backgroundColor": ["orange"],
+            "categoryPercentage": 1,
+            "barPercentage": 1
+        },
+        {
+            "label": "Run",
+            "data": [
+                ["2022-01-01T02:30", "2022-01-01T03:00"]
+            ],
+            "backgroundColor": ["green"],
+            "categoryPercentage": 1,
+            "barPercentage": 1
+        },
+        {
+            "label": "Error",
+            "data": [
+                ["2022-01-01T03:00", "2022-01-01T03:30"]
+            ],
+            "backgroundColor": ["red"],
+            "categoryPercentage": 1,
+            "barPercentage": 1
+        },{
+            "label": "Run",
+            "data": [
+                ["2022-01-01T03:30", "2022-01-01T04:30"]
+            ],
+            "backgroundColor": ["green"],
+            "categoryPercentage": 1,
+            "barPercentage": 1
+        },
+        {
+            "label": "Idle",
+            "data": [
+                ["2022-01-01T04:30", "2022-01-01T05:00"]
+            ],
+            "backgroundColor": ["orange"],
+            "categoryPercentage": 1,
+            "barPercentage": 1
+        },
+        {
+            "label": "Run",
+            "data": [
+                ["2022-01-01T05:00", "2022-01-01T07:30"]
+            ],
+            "backgroundColor": ["green"],
+            "categoryPercentage": 1,
+            "barPercentage": 1
+        },
+        {
+            "label": "PowerOff",
+            "data": [
+                ["2022-01-01T07:30", "2022-01-01T09:30"]
+            ],
+            "backgroundColor": ["#888"],
+            "categoryPercentage": 1,
+            "barPercentage": 1
+        },
+        {
+            "label": "Run",
+            "data": [
+                ["2022-01-01T09:30", "2022-01-01T10:30"]
+            ],
+            "backgroundColor": ["green"],
+            "categoryPercentage": 1,
+            "barPercentage": 1
+        }
+    ]
+}

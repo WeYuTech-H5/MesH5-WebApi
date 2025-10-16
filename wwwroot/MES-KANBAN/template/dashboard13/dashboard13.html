@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index</title>
+    <link rel="stylesheet" href="../../css/comm/bootstrap.min.css" />
+    <link rel="stylesheet" href="dashboard13.css" />
+    <style>
+      .table-container {
+      height: 250px; /* 设置最大高度 */
+      overflow-y: auto; /* 垂直滚动 */
+    }
+
+    /* 固定表头 */
+    .fixed-header thead {
+      position: sticky;
+      top: 0;
+      background-color: #fff; /* 表头背景色 */
+      z-index: 1; /* 提高 z-index 以覆盖 tbody */
+    }
+
+    /* 设置 tbody 的高度 */
+    .scrollable-body tbody {
+      height: auto; /* 设置 tbody 的高度，根据需要调整 */
+      overflow-x: auto; /* 水平滚动 */
+    }
+
+    /* 去除 tbody 的垂直边距，避免出现多余的空白 */
+    .scrollable-body tbody tr {
+      vertical-align: top;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav
+            id="menuMain"
+            class="navbar navbar-expand-md mt-3 mb-3 rounded-2"
+            aria-label="Offcanvas navbar large"
+          >
+            <div class="container-fluid">
+              <h1 class="">
+                Production Plan
+                <small class="float-end" id="timming"></small>
+              </h1>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="cardWrapper rounded-2 p-3 mb-3 dounentWrapper">
+            <h2 class="">
+              Production Plan<small class="float-end">Today</small>
+            </h2>
+            <div class="row">
+              <div class="col-md-4">
+                <h3>Capacity</h3>
+                <div><span id="Capacity"></span><small>m/Day</small></div>
+                <h3>Planned Qty</h3>
+                <div><span id="Planned_Qty"></span><small>m/Day</small></div>
+              </div>
+              <div class="col-md-4">
+                <h3>Use Rate</h3>
+                <div class="textWrapper">
+                  <div class="text" id="Use_Rate"></div>
+                  <canvas id="useRate" height="100" width="100"></canvas>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <h3>All Machine</h3>
+                <div class="mb-5" id="All_Machine"></div>
+                <h3>Active Machine</h3>
+                <div id="Active_Machine"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="cardWrapper rounded-2 p-3 mb-3 dounentWrapper">
+            <div class="row">
+              <div class="col-12">
+                <h2 class="">
+                  Downtime Causes<small class="float-end">Today</small>
+                </h2>
+              </div>
+              <div class="col-md-5 col-lg-4">
+                <div class="textWrapper">
+                  <div class="text" id="Run_Rate"></div>
+                  <canvas id="downtimeCauses" height="100" width="100"></canvas>
+                </div>
+              </div>
+              <div class="col-md-7 col-lg-8">
+                <h3 class="border-bottom mt-4">
+                  Run
+                  <div class="float-end" id="Run"></div>
+                </h3>
+                <h3 class="border-bottom">
+                  Idle
+                  <div class="float-end" id="Idle"></div>
+                </h3>
+                <h3 class="mb-5">
+                  PowerOff
+                  <div class="float-end" id="PowerOff"></div>
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="cardWrapper rounded-2 p-3">
+            <h2 class="">
+              Production<small class="float-end">Today</small>
+            </h2>
+            <div class="table-responsive">
+              <table class="table display" id="TopProduction">
+                <thead>
+                  <th>Name</th>
+                  <th>Status</th>
+                  <th>Wait</th>
+                  <th>InProcess</th>
+                  <th>Out</th>
+                  <th>Complete</th>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="cardWrapper rounded-2 p-3">
+            <h2 class="">
+              In Progress<small class="float-end">Today</small>
+            </h2>
+            <div class="table-responsive">
+              <table class="table display"  id="InProgress">
+                <thead>
+                  <tr>
+                    <th>MC</th>
+                    <th>Time</th>
+                    <th>Part No.</th>
+                    <th>Part Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer mt-auto py-1 text-center">
+      <div class="container-fluid">
+        <small>© COPYRIGHT – WEYU TECHNOLOGY CO.,LTD.</small>
+      </div>
+    </footer>
+    <script src="../../js/comm/jquery.min.js"></script>
+    <script src="../../js/comm/bootstrap.min.js"></script>
+    <script src="../../js/comm/cdn.jsdelivr.net_npm_chart.js"></script>
+    <script src="../../js/weyu/weyu_config.js"></script>
+    <script src="dashboard13.js"></script>
+  </body>
+</html>

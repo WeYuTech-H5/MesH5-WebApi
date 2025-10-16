@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title class="Lang">Daily Water Flow</title>
+    <link href="../../../css/comm/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../../css/weyu/functionList.css" rel="stylesheet" />
+    <link href="../../../css/comm/flatpickr.min.css" rel="stylesheet">
+    <!-- <link href="../css/weyu/loading.css" rel="stylesheet"> -->
+    <link href="../../../css/comm/dataTables.min.css" rel="stylesheet" />
+    <link href="../../../css/weyu/ePower.css" rel="stylesheet" />
+    <link href="../../../css/weyu/defaultBTN.css" rel="stylesheet" />
+    <link href="../../../css/weyu/user_account.css" rel="stylesheet" />
+    <link href="../../../css/weyu/offcanvas.css" rel="stylesheet" />
+  </head>
+  <body onload="onLoad()">
+    <div class="container">
+      <div class="row">
+        <div class="col-9">
+          <h1>
+            <button
+              class="btn"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasExample"
+              aria-controls="offcanvasExample"
+            >
+              <img src="../../../img/zz/hamburger.svg" class="btnHamburger w-5" />
+            </button>
+            <a href="../../../EMS-index.html" class="text-decoration-none text-white fs-4 fs-bold">
+              EMS RWD
+            </a>
+            <span class="Lang">Daily Water Flow</span>
+          </h1>
+        </div>
+        <div class="col-3 text-end">
+          <div class="dropdown" id="mainMenu">
+            <button class="btn btn-secondary dropdown-toggle mainMenu-btn mt-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../../../img/zz/user-gear-solid.svg" class="" style="height: 1.5rem" alt="account">
+            </button>
+            <ul class="dropdown-menu dropdown-content" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" id="langueStatus">ENGLISH</a></li>
+              <li><a class="dropdown-item" id="accountStatus">Account</a></li>
+              <li><a class="dropdown-item" id="changePassword">Change Password</a></li>
+              <li><a class="dropdown-item" id="logout">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid menu">
+      <div class="row">
+        <div class="col-12">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="flex">
+                  <a href="Tap_water_card.html?LEVEL=L1">
+                    <img src="../../../img/zz/info-active.svg" alt="" />
+                    <span class="Lang">City Water Current Info</span>
+                  </a>
+                  <a href="gemtek_query_TW.html?LEVEL=L1">
+                    <img src="../../../img/zz/info-active.svg" alt="" />
+                    <span class="Lang">Daily Factory Water Flow</span>
+                  </a>
+                  <a href="All_query.html?LEVEL=L1">
+                    <img src="../../../img/zz/info-active.svg" alt="" />
+                    <span class="Lang">Daily Water Flow</span>
+                  </a>
+                  <a href="15min_query.html?LEVEL=L1">
+                    <img src="../../../img/zz/info-active.svg" alt="" />
+                    <span class="Lang">Water Flow History</span>
+                  </a>
+                  <a href="../setup/master-maintain-tw.html?MODULE_NAME=EM_MAINTAIN&SID=353435106050671&LEVEL=L3">
+                    <img src="../../../img/zz/setting-active.svg" alt="" />
+                    <span class="Lang">City Water Maintenance</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-3">
+      <div class="row">
+        <div id="meter-container" class="col-md-12 col-lg-12">
+            <div class="d-flex justify-content-between align-items-center">
+              <button
+                class="btn btn-default"
+                data-bs-toggle="modal"
+                data-bs-target="#queryModal"
+              >
+                <img src="../../../img/zz/search.svg" class="w-4 mr-2" />
+                <span class="Lang">Search</span>
+              </button>
+              <h1 class="text-center mx-auto fw-bold Lang" id="queryTitle">每日流量</h2>
+                <button class="btn btn-default" id="exportBtn">
+                  <img src="../../../img/comm/icons/edit.svg" class="w-4 mr-2" />
+                  <span>Excel</span>
+                </button>
+            </div>
+      <!-- Datatable -->
+          <div class="table-responsive pt-3">
+            <table id="fuelTable" class="w-100 display">
+              <thead>
+                <tr>
+                  <th>Loading...</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Sidebar 結構 -->
+  <!-- <div class="offcanvas offcanvas-start" 
+  tabindex="-1" 
+  id="offcanvasExample" 
+  aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h2 class="offcanvas-title fw-bold fs-1" id="offcanvasExampleLabel">EMS RWD</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="list-group custom-menu">
+            <li class="list-group-item">
+                <img src="../../../img/weyu/electric.svg" alt="electric">
+                <a href="../functionList.html" class="Lang">Electricity</a>
+            </li>
+            <li class="list-group-item">
+              <img src="../../../img/comm/earth-asia-solid.svg" alt="electric">
+              <a href="../air_meter/air_card.html" class="Lang">Air Flow</a>
+            </li>
+            <li class="list-group-item">
+              <img src="../../../img/comm/earth-asia-solid.svg" alt="electric">
+              <a href="../air_meter/nitrogen_card.html" class="Lang">Nitrogen Flow</a>
+            </li>
+            <li class="list-group-item">
+              <img src="../../../img/comm/drop-svgrepo-com.svg" alt="electric">
+              <a href="Tap_water_card.html" class="Lang">City Water</a>
+            </li>
+            <li class="list-group-item">
+              <img src="../../../img/comm/drop-svgrepo-com.svg" alt="electric">
+              <a href="Waste_water_card.html" class="Lang">Wastewater</a>
+            </li>
+        </ul>
+    </div>
+  </div> -->
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="queryModal"
+      tabindex="-1"
+      aria-labelledby="queryModalSearch"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-3 text-black-50 Lang" id="queryModalSearch">Query</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body text-black">
+            <div id="modalContent"></div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              <span class="Lang">Close</span>
+            </button>
+            <button
+            type="button"
+            id="searchBtn"
+            class="btn btn-primary"
+          >
+            <span class="Lang">Search</span>
+          </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../../js/comm/jquery.min.js"></script>
+    <script src="../../../js/comm/bootstrap.min.js"></script>
+    <script src="../../../js/comm/Chart.bundle.js"></script>
+    <script src="../../../js/comm/cdn.jsdelivr.net_npm_chart.js"></script>
+    <script src="../../../js/weyu/weyu_config.js"></script>
+    <script src="../../../js/weyu/weyu_comm_api_function.js"></script>
+    <script src="../../../js/weyu/weyu_comm_function.js"></script>
+    <script src="../../../js/weyu/weyu_sidebar_menu.js"></script>
+    <!-- <script src="barChart.js"></script> -->
+    <script src="query.js"></script>
+    <script src="../../../js/comm/dataTables.min.js"></script>
+    <script src="../../../js/comm/flatpickr.min.js"></script>
+    <!-- <script src="../js/weyu/weyu_check.js"></script> -->
+    <script src="../../../js/weyu/weyu_header.js"></script>
+    <script src="../../../js/weyu/weyu_footer.js"></script>
+    <!-- <script src="../js/weyu/weyu_loading.js"></script> -->
+
+    <!-- 多語系翻譯 -->
+    <script type="text/javascript">
+      function onLoad() {
+        GetConfig();
+        SetDefaultSelectLang();
+        ChangeLang(); //多國語言翻譯
+      }
+      // 左上LOGO文字
+      $("#logotext").html(PROJECT_SAVE_NAME);
+    </script>
+    <script>
+      $(document).ready(function () {
+        $('#fuelTable').DataTable();
+        $(".subMenu").click(function () {
+          $(".subMenu li").toggle();
+        });
+      });
+    </script>
+  </body>
+</html>

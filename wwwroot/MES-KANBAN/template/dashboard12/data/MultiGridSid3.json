@@ -1,0 +1,134 @@
+{
+    "result": true,
+    "Report_Schema": [
+        {
+            "QR_SID": 332617798670170,
+            "QR_CODE": "V_ZZ_SIC_EQP_STATUS_RT",
+            "QR_NAME": "V_ZZ_SIC_EQP_STATUS_RT",
+            "MASTER_SQL": "SELECT EQP_NO, STATUS FROM EQP_MASTER WHERE EQP_NO IN ('RT-C13', 'RT-C14', 'RT-C15', 'RT-C16', 'RT-C17', 'RT-C18', 'RT-C19', 'RT-C20', 'RT-C21', 'RT-C22', 'RT-C23', 'RT-C24') AND {con}",
+            "VALID_GRID": "false",
+            "VALID_CHART": "false",
+            "CREATE_USER": "ADMINV2",
+            "CREATE_TIME": "2023-11-15T15:33:10.47",
+            "EDIT_USER": "ADMINV2",
+            "EDIT_TIME": "2023-11-15T15:33:10.47",
+            "CHART_TITLE": "",
+            "CHART_SUB_TITLE": "",
+            "DBLink": "SELF",
+            "VALID_REFRESH": "false",
+            "VALID_EXPORT": "false",
+            "xRotation": 0,
+            "VALID_PAGE": "true                                              ",
+            "GETDATAWHENFIRSTOPEN": null,
+            "SHOWGRIDTITLE": "true                                              ",
+            "GRIDROWBACKGROUND_FIELD": "",
+            "GRIDROWFOREGROUND_FIELD": "",
+            "ADDED_SQL": ""
+        }
+    ],
+    "Query_Cond": [],
+    "Grid_Schema": [
+        {
+            "QR_SID": 332617798670170,
+            "GRID_SID": 332695990480607,
+            "VALID_GRID": "false",
+            "ROWNUM": 10,
+            "VALID_REFRESH": "false",
+            "GRID_CAPTION": "運行狀態",
+            "FIELDNAME": "EQP_NO",
+            "FIELDDATATYPE": "System.String",
+            "SHOW": "Yes",
+            "CAPTION": "EQP_NO",
+            "WIDTH": 0,
+            "CREATE_USER": "ADMINV2",
+            "CREATE_TIME": "2023-11-15T15:33:10.483",
+            "EDIT_USER": "ADMINV2",
+            "EDIT_TIME": "2023-11-15T15:33:10.483",
+            "SEQ": 1,
+            "COLOR_OP": "",
+            "COLOR_OP_VALUE": "",
+            "FIELD_COLOR": "",
+            "CanHyperLink": "N",
+            "HyberLinkURL": "",
+            "HyperLinkFields": "",
+            "HyberLinkTitle": "",
+            "IFrameLoad": "N"
+        },
+        {
+            "QR_SID": 332617798670170,
+            "GRID_SID": 332695990483780,
+            "VALID_GRID": "false",
+            "ROWNUM": 10,
+            "VALID_REFRESH": "false",
+            "GRID_CAPTION": "運行狀態",
+            "FIELDNAME": "STATUS",
+            "FIELDDATATYPE": "System.String",
+            "SHOW": "Yes",
+            "CAPTION": "STATUS",
+            "WIDTH": 0,
+            "CREATE_USER": "ADMINV2",
+            "CREATE_TIME": "2023-11-15T15:33:10.483",
+            "EDIT_USER": "ADMINV2",
+            "EDIT_TIME": "2023-11-15T15:33:10.483",
+            "SEQ": 2,
+            "COLOR_OP": "",
+            "COLOR_OP_VALUE": "",
+            "FIELD_COLOR": "",
+            "CanHyperLink": "N",
+            "HyberLinkURL": "",
+            "HyperLinkFields": "",
+            "HyberLinkTitle": "",
+            "IFrameLoad": "N"
+        }
+    ],
+    "Grid_Data": [
+        {
+            "EQP_NO": "RT-C13",
+            "STATUS": "COOLING"
+        },
+        {
+            "EQP_NO": "RT-C14",
+            "STATUS": "COOLING"
+        },
+        {
+            "EQP_NO": "RT-C15",
+            "STATUS": "COOLING"
+        },
+        {
+            "EQP_NO": "RT-C16",
+            "STATUS": "COOLING"
+        },
+        {
+            "EQP_NO": "RT-C17",
+            "STATUS": "COOLING"
+        },
+        {
+            "EQP_NO": "RT-C18",
+            "STATUS": "COOLING"
+        },
+        {
+            "EQP_NO": "RT-C19",
+            "STATUS": "Run"
+        },
+        {
+            "EQP_NO": "RT-C20",
+            "STATUS": "COOLING"
+        },
+        {
+            "EQP_NO": "RT-C21",
+            "STATUS": "COOLING"
+        },
+        {
+            "EQP_NO": "RT-C22",
+            "STATUS": "Run"
+        },
+        {
+            "EQP_NO": "RT-C23",
+            "STATUS": "COOLING"
+        },
+        {
+            "EQP_NO": "RT-C24",
+            "STATUS": "COOLING"
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+[
+    {
+        "Equipment": "B-01",
+        "status": "Run",
+        "product": "desk",
+        "output": 45
+    },
+    {
+        "Equipment": "B-02",
+        "status": "Idle",
+        "product": "desk",
+        "output": 30
+    },
+    {
+        "Equipment": "B-03",
+        "status": "Run",
+        "product": "office chair",
+        "output": 28
+    },
+    {
+        "Equipment": "B-04",
+        "status": "Error",
+        "product": "office chair",
+        "output": 0
+    },
+    {
+        "Equipment": "B-05",
+        "status": "Run",
+        "product": "office chair",
+        "output": 12
+    },
+    {
+        "Equipment": "B-06",
+        "status": "Run",
+        "product": "office chair",
+        "output": 29
+    },
+    {
+        "Equipment": "B-07",
+        "status": "Idle",
+        "product": "office chair",
+        "output": 31
+    }
+]

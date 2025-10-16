@@ -1,0 +1,221 @@
+{
+  "kWh": {
+    "xAxis": {
+        "type": "category",
+        "data": ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13"],
+        "axisLine": {"lineStyle": {"color": "#ffffff95"}, "show": false},
+        "axisTick": {"show": false}
+    },
+    "yAxis": {
+        "type": "value",
+        "min": 0,
+        "max": 800,
+        "splitLine": {"show": false},
+        "axisLabel": {"show": false}
+    },
+    "series": [{
+        "name": "kWh (24hr)",
+        "type": "line",
+        "data": [127.79, 308.54, 303.53, 293.78, 228.69, 259.04, 319.56, 255.21, 473.81, 622.09, 683.16, 587.95, 251.83, 294.43],
+        "itemStyle": {"color": "#42f59e"},
+        "lineStyle": {"width": 2},
+        "areaStyle": {"color": "rgba(50, 180, 100, .5)"},
+        "smooth": true,
+        "emphasis": {"focus": "series"},
+        "markLine": {
+          "symbol": ["none","none"],
+          "data": [
+            {
+              "type":"max",
+              "name":"最高需量",
+              "label": {
+                "position": "start",
+                "offset": [150, 0],
+                "formatter": "{b}\r{c}",
+                "fontSize": 12
+              },
+              "emphasis": {
+                "label": {
+                  "fontSize": 14
+                }
+              }
+            },
+            {
+              "yAxis": 500,
+              "silent": false,
+              "name": "契約容量",
+              "lineStyle": {
+                "tyle": "solid",
+                "color": "red"
+              },
+              "label": {
+                "position": "start",
+                "offset": [100, 0],
+                "formatter": "{b}\r{c}",
+                "fontSize": 12
+              },
+              "emphasis": {
+                "label": {
+                  "fontSize": 14
+                }
+              }
+            }
+          ]
+        }
+    }]
+  },
+  "Frequency": {
+    "xAxis": {
+        "type": "category",
+        "data": ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13"],
+        "axisLine": {"lineStyle": {"color": "#ffffff95"}, "show": false},
+        "axisTick": {"show": false}
+    },
+    "yAxis": {
+        "type": "value",
+        "min": 49.95,
+        "max": 50.05,
+        "splitLine": {"show": false},
+        "axisLabel": {"show": false}
+    },
+    "series": [{
+        "name": "Frequency (24 hr)",
+        "type": "line",
+        "data": [49.98, 49.99, 50.03, 50.02, 50, 50, 50, 49.99, 50, 50, 49.97, 50.02, 49.99, 50.02],
+        "itemStyle": {"color": "#42f59e"},
+        "lineStyle": {"width": 2},
+        "areaStyle": {"color": "rgba(50, 180, 100, .5)"},
+        "smooth": true,
+        "emphasis": {"focus": "series"}
+    }]
+  },
+  "PF": {
+    "xAxis": {
+        "type": "category",
+        "data": ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13"],
+        "axisLine": {"lineStyle": {"color": "#ffffff95"}, "show": false},
+        "axisTick": {"show": false}
+    },
+    "yAxis": {
+        "type": "value",
+        "min": 0.9,
+        "max": 1.1,
+        "splitLine": {"show": false},
+        "axisLabel": {"show": false}
+    },
+    "series": [{
+        "name": "Power Factor (24 hrs)",
+        "type": "line",
+        "data": [1.05, 0.94, 0.95, 1, 1, 1.01, 0.96, 0.98, 0.98, 0.95, 0.97, 0.94, 0.97, 0.94],
+        "itemStyle": {"color": "#42f59e"},
+        "lineStyle": {"width": 2},
+        "areaStyle": {"color": "rgba(50, 180, 100, .5)"},
+        "smooth": true,
+        "emphasis": {"focus": "series"}
+    }]
+  },
+  "kW": {
+    "xAxis": {
+        "type": "category",
+        "data": ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13"],
+        "axisLine": {"lineStyle": {"color": "#ffffff95"}, "show": false},
+        "axisTick": {"show": false}
+    },
+    "yAxis": {
+        "type": "value",
+        "min": 0,
+        "splitLine": {"show": false},
+        "axisLabel": {"show": false}
+    },
+    "series": [{
+        "name": "kW (24hrs)",
+        "type": "line",
+        "data": [127.79, 308.54, 303.53, 293.78, 228.69, 259.04, 319.56, 255.21, 473.81, 622.09, 683.16, 587.95, 251.83, 294.43],
+        "itemStyle": {"color": "#42f59e"},
+        "lineStyle": {"width": 2},
+        "areaStyle": {"color": "rgba(50, 180, 100, .5)"},
+        "smooth": true,
+        "emphasis": {"focus": "series"}
+    }]
+  },
+  "Current": {
+    "xAxis": {
+        "type": "category",
+        "data": ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13"],
+        "axisLine": {"lineStyle": {"color": "#ffffff95"}, "show": false},
+        "axisTick": {"show": false}
+    },
+    "yAxis": {
+        "type": "value",
+        "min": 0,
+        "splitLine": {"show": false},
+        "axisLabel": {"show": false}
+    },
+    "series": [{
+        "name": "Current (24 hrs)",
+        "type": "line",
+        "data": [1.68, 4.43, 4.2, 3.61, 3.39, 3.57, 3.96, 9.54, 4.04, 3.19, 1.35, 4.08, 3.76, 3.88],
+        "itemStyle": {"color": "#42f59e"},
+        "lineStyle": {"width": 2},
+        "areaStyle": {"color": "rgba(50, 180, 100, .5)"},
+        "smooth": true,
+        "emphasis": {"focus": "series"}
+    }]
+  },
+  "monthlyUsage": {
+    "xAxis": {
+      "type": "category",
+      "data": [
+        "10-22", "10-23", "10-24", "10-25", "10-26", "10-27", "10-28", "10-29", "10-30", "10-31", 
+        "11-01", "11-02", "11-03", "11-04", "11-05", "11-06", "11-07", "11-08", "11-09", "11-10", 
+        "11-11", "11-12", "11-13", "11-14", "11-15", "11-16", "11-17", "11-18", "11-19", "11-20"
+      ],
+      "axisLine": {"lineStyle": {"color": "#ffffff95"}, "show": false},
+      "axisTick": {"show": false}
+    },
+    "yAxis": {
+      "type": "value",
+      "min": 0,
+      "splitLine": {"show": false},
+      "axisLabel": {"show": false}
+    },
+    "series": [{
+      "name": "Monthly Usage",
+      "type": "line",
+      "data": [
+        2493.5, 1967.3, 742, 2527, 26.1, 2150.3, 2580, 2644.3, 2783.3, 2533.7,
+        2175.9, 2563.5, 2380.4, 1971.3, 2335.6, 2210.8, 2867.7, 494.4, 2575.5, 2485.9,
+        2415.2, 2631.5, 2677.9, 2305.8, 2407.2, 2378.3, 723.4, 1987.1, 2417.4, 2843.7
+      ],
+      "itemStyle": {"color": "#42f59e"},
+      "lineStyle": {"width": 2},
+      "areaStyle": {"color": "rgba(50, 180, 100, .5)"},
+      "smooth": true,
+      "emphasis": {"focus": "series"}
+    }]
+  },
+  "yearlyUsage": {
+    "xAxis": {
+        "type": "category",
+        "data": ["2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11"],
+        "axisLine": {"lineStyle": {"color": "#ffffff95"}, "show": false},
+        "axisTick": {"show": false}
+    },
+    "yAxis": {
+        "type": "value",
+        "min": 0,
+        "splitLine": {"show": false},
+        "axisLabel": {"show": false}
+    },
+    "series": [{
+        "name": "Yearly Usage",
+        "type": "line",
+        "data": [22351, 22047, 21960, 23128, 48963, 49936, 54360, 68548.5, 61981.2, 65290.3, 44030.3],
+        "itemStyle": {"color": "#42f59e"},
+        "lineStyle": {"width": 2},
+        "areaStyle": {"color": "rgba(50, 180, 100, .5)"},
+        "smooth": true,
+        "emphasis": {"focus": "series"}
+    }]
+  }
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="../../css/weyu/input.css" rel="stylesheet">
+  <link href="../../css/zz/board1.css" rel="stylesheet">
+  <link href="../../css/weyu/loading.css" rel="stylesheet">
+  <link href="../../css/weyu/weyu_right_navbar.css" rel="stylesheet">
+  <style>
+    .hidden-navbar {
+      display: none;
+    }
+  </style>
+  <script src="../../js/comm/cdn.tailwindcss.com.js"></script>
+</head>
+<body>
+  <div id="allWrapper" class="relative text-sm z-10">
+    <header class="flex items-center w-full mt-2">
+
+      <button id="toggleButton" class="text-white font-bold p-2 pl-4">
+        <img src="../../img/comm/icons/hamburger.svg" alt="Menu" />
+      </button>
+    
+      <a href="../../index.html" id="logotext" class="text-white text-xl font-bold"></a>
+    
+      <nav id="navbar" class="fixed z-10 top-0 left-0 bg-black hidden-navbar h-screen overflow-hidden w-full transition-all duration-200 bg-opacity-60">
+        <div class="bg-blue-950 w-2/3 lg:w-1/4 h-screen">
+          <div class="flex items-center">
+            
+            <button id="closeButton" class="text-white font-bold p-4">
+              <img src="../../img/comm/icons/close.svg" alt="Menu" />
+            </button>
+
+            <button type="button" class="text-white text-xl font-bold"></button>
+
+          </div>
+          
+          <div id="menuList"></div>
+          
+        </div>
+      </nav>
+      
+      <div id="title" class="text-sky-200 font-bold flex flex-grow items-center">
+        NG Pereto
+      </div>
+
+      <div id="settings">
+        <img id="settings-image" src="../../img/comm/user-gear-solid.svg" style="height: 1.5rem; width: 1.5rem" alt="Settings" />
+      </div>
+
+      <div id="dropdown-menu" class="dropdown-content hidden">
+        <div id="langueStatus">Language Status</div>
+        <div id="accountStatus">Account Status</div>
+        <div id="logout">Logout</div>
+      </div>
+
+    </header>
+
+    <div class="pb-10 px-10 h-3/4">
+      <h2 class="flex justify-center items-center text-center text-white font-bold text-xl mb-4"> NG Cause Pareto (TOP 10)</h2>
+      <div class="row-span-1 bg-black bg-opacity-20 h-full " style="display: flex; justify-content: center; align-items: center; box-sizing: border-box; height: 80vh; width: 100%">
+          <canvas id="drawpaper"></canvas>
+      </div>
+    </div>
+    
+    <div id="footer" class="fixed bottom-0 w-full"></div>
+
+  </div>
+
+
+  <div class="absolute top-0 bottom-0 right-0 left-0 mainBG flex flex-col"></div>
+
+
+  <script src="../../js/comm/jquery.min.js"></script>
+  <script src="../../js/weyu/weyu_config.js"></script>
+  <script src="../../js/weyu/weyu_comm_api_function.js"></script>
+  <script src="../../js/weyu/weyu_check.js"></script>
+  <script src="../../js/weyu/weyu_header.js"></script>
+  <script src="../../js/weyu/weyu_footer.js"></script>
+  <script src="../../js/weyu/weyu_right_navbar.js"></script>
+  <script src="../../js/comm/cdn.jsdelivr.net_npm_chart.js"></script>
+  <script src="../../js/comm/chartjs-plugin-datalabels.js"></script>
+  <script src="ng-pereto.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+    "labels": ["產品A", "產品B", "產品C"],
+    "datasets": [
+        {
+        "data": [39, 23, 38],
+        "backgroundColor": [
+            "#ffd257",
+            "#2c99b7",
+            "#20f4b3",
+            "#9d5ddd",
+            "#5dc4dd"
+        ],
+        "borderWidth": 0
+        }
+    ]
+}

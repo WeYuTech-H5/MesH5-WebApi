@@ -1,0 +1,24 @@
+{
+  "page": { "width": 595, "height": 842, "marginL": 30, "marginT": 30, "marginR": 30, "marginB": 30 },
+  "fonts": { "regular": "NotoSansTC-Regular.ttf", "bold": "NotoSansTC-Bold.ttf" },
+  "elements": [
+    { "type": "text", "x": 360, "y": 30, "size": 18, "bold": true, "text": "訂單明細（緊湊版）" },
+    { "type": "text", "x": 30,  "y": 70, "size": 12, "text": "客戶：{{Customer}}" },
+    { "type": "text", "x": 30,  "y": 88, "size": 12, "text": "日期：{{OrderDate:yyyy-MM-dd}}" },
+    { "type": "text", "x": 360, "y": 70, "size": 12, "text": "訂單：{{OrderNo}}" },
+
+    { "type": "table",
+      "x": 30, "y": 120, "rowHeight": 22,
+      "columns": [
+        { "header": "{{PART_NO}}", "width": 260, "binding": "Name" },
+        { "header": "單價", "width": 90,  "binding": "UnitPrice:#,0.00", "align":"right" },
+        { "header": "數量", "width": 90,  "binding": "Qty",               "align":"right" },
+        { "header": "小計", "width": 95,  "binding": "Qty*UnitPrice:#,0.00", "align":"right" }
+      ],
+      "items": "Items"
+    },
+
+    { "type": "text", "x": 30, "dock": "bottom", "size": 12, "bold": true,
+      "text": "總計：{{Items.Sum(Qty*UnitPrice):#,0.00}}" }
+  ]
+}

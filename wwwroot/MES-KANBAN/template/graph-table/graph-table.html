@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link href="../../css/weyu/input.css" rel="stylesheet" />
+    <link href="../../css/weyu/weyu_right_navbar.css" rel="stylesheet" />
+    <link href="../../css/comm/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="graph-table.css" />
+    <link href="../../css/comm/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+  </head>
+  <body onload="onLoad()">
+    <div class="relative min-h-full" style="z-index: 1">
+      <header class="w-full mt-2">
+        <a id="logotext" href="../../index.html" class="fs-4 fw-bold ps-3"></a>
+
+        <div id="title" class="fw-bold fs-5 Lang">
+          <span class="Lang">sample</span>
+        </div>
+        <div class="time" id="current-time"></div>
+        <div id="settings">
+          <img
+            id="settings-image"
+            src="../../img/comm/user-gear-solid.svg"
+            style="height: 1.5rem; width: 1.5rem"
+            alt="Settings"
+          />
+        </div>
+
+        <div id="dropdown-menu" class="dropdown-content hidden">
+          <div id="langueStatus">Language Status</div>
+          <div id="accountStatus"><img src="" alt="" />Account Status</div>
+          <div id="logout"><button class="ml-auto p-4">Logout</button></div>
+        </div>
+      </header>
+      <!-- 主設計 START -->
+      <div class="chart-container">
+        <div id="carouselExample" class="carousel slide">
+          <!-- 上方功能方塊 -->
+          <div class="chart-controls row align-items-center mb-3">
+            <div class="col-md-6 col-xl-3 mb-2">
+              <div class="input-group">
+                <span class="input-group-text fw-bold">種類</span>
+                <select class="form-select shadow-none" id="chartType">
+                  <option value="line">折線圖</option>
+                  <option value="bar">柱狀圖</option>
+                  <option value="pie">圓餅圖</option>
+                  <!-- Add more options as needed -->
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-3 mb-2">
+              <div class="input-group">
+                <span class="input-group-text fw-bold">間隔</span>
+                <select class="form-select shadow-none" id="timePeriod">
+                  <option value="hour">時</option>
+                  <option value="day">日</option>
+                  <option value="week">週</option>
+                  <option value="month">月</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-8 col-xl-4 mb-2">
+              <div class="input-group timePeriodPicker d-none">
+                <span class="input-group-text fw-bold">範圍</span>
+                <input
+                  type="text"
+                  id="dateRange"
+                  class="form-control shadow-none bg-white"
+                  placeholder="Select date range"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="col-md-4 col-xl-2 mb-2 d-flex justify-content-end">
+              <div
+                class="btn-toolbar gap-3"
+                role="toolbar"
+                aria-label="Toolbar"
+              >
+                <div class="btn-group" role="group" aria-label="Button Group">
+                  <button
+                    type="button"
+                    class="btn shadow-none switchBtn selected"
+                    data-bs-target="#carouselExample"
+                    data-bs-slide-to="0"
+                  >
+                    <i class="fa-solid fa-chart-line"></i>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn shadow-none switchBtn"
+                    data-bs-target="#carouselExample"
+                    data-bs-slide-to="1"
+                  >
+                    <i class="fa-solid fa-table-list"></i>
+                  </button>
+                </div>
+
+                <button
+                  id="dropdownId"
+                  type="button"
+                  class="btn shadow-none"
+                  data-bs-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="fas fa-ellipsis-v"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownId">
+                  <a class="dropdown-item" href="#" id="downloadJpgBtn"><i class="fa-solid fa-download text-secondary"></i> download .jpg</a>
+                  <a class="dropdown-item" href="#" id="downloadXlsxBtn"><i class="fa-solid fa-download text-secondary"></i> download .xlsx</a>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <!-- 下方顯示區 -->
+          <div class="carousel-inner">
+            <div class="carousel-item display-content active">
+              <!-- chart圖 -->
+              <div class="chart-display h-100">
+                <canvas id="chartCanvas"></canvas>
+              </div>
+            </div>
+            <div class="carousel-item display-content">
+              <!-- 資料Table -->
+              <div class="table-display h-100 overflow-auto">
+                <table id="gridTable" class="table table-light">
+                  <thead>
+                    <tr>
+                      <th scope="col">labels</th>
+                      <th scope="col">values</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- JS動態插入 -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- 資料時間 -->
+          <div class="text-end fs-6 fw-light me-3 updateTime"></div>
+        </div>
+      </div>
+      <!-- 主設計 END -->
+      <div
+        id="footer"
+        class="position-fixed bottom-0 right-0 left-0 w-100"
+      ></div>
+    </div>
+    <div class="mainBG fixed left-0 top-0 right-0 bottom-0"></div>
+
+    <!-- <script src="../../js/comm/cdn.jsdelivr.net_npm_chart.js"></script> -->
+    <script src="../../js/comm/bootstrap.min.js"></script>
+    <script src="../../js/comm/jquery.min.js"></script>
+    <script src="../../js/weyu/weyu_config.js"></script>
+    <!-- <script src="../../js/weyu/weyu_comm_api_function.js"></script> -->
+    <!-- <script src="../../js/weyu/weyu_comm_function.js"></script> -->
+    <!-- <script src="../../js/weyu/weyu_check.js"></script> -->
+    <script src="../../js/weyu/weyu_header.js"></script>
+    <script src="../../js/weyu/weyu_footer.js"></script>
+    <script src="../../js/weyu/weyu_right_navbar.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment/min/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<script src="../../js/comm/xlsx.full.min.js"></script>
+    <script src="graph-table.js"></script>
+    <!-- 多語系翻譯 -->
+    <script type="text/javascript">
+      function onLoad() {
+        GetConfig();
+        SetDefaultSelectLang();
+        ChangeLang(); //多國語言翻譯
+        console.log("onLoad 成功");
+      }
+      // 左上LOGO文字
+      $("#logotext").html(PROJECT_SAVE_NAME);
+    </script>
+  </body>
+</html>

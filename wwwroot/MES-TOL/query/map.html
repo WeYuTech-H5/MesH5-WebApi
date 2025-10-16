@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" href="../map/images/favicon.ico" />
+    <title>配置圖一覽</title>
+    <link rel="stylesheet" href="../map/css/bootstrap.4.4.1.min.css" />
+    <link rel="stylesheet" href="../map/js/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="../map/css/loading_map.css" />
+
+    <link rel="stylesheet" href="../map/css/map.css" />
+  </head>
+  <style>
+    a {
+      color: #fff !important;
+    }
+    /* 样式可以在这里定义 */
+    .image-container {
+      max-width: 50vh; /* 设置图片容器的最大宽度为视口高度的90% */
+      max-height: 50vh; /* 设置图片容器的最大高度为视口高度的90% */
+      overflow: hidden; /* 超出容器的部分将被隐藏 */
+    }
+    .image-container img {
+      width: 75%; /* 图片宽度设置为父容器的100% */
+      height: auto; /* 图片高度自动调整以保持宽高比 */
+      display: block; /* 将图片设为块级元素，使其与父容器等宽 */
+    }
+  </style>
+  <body id="map">
+    <!-- ---------------------------------------------------------------------- loading -->
+    <div class="loading" id="loading">
+      <div class="progress" id="progress">
+        Loading
+        <!-- <img src="../images/loading.gif" alt="this slowpoke moves"  width="100" /> -->
+        <div class="loader"></div>
+      </div>
+    </div>
+    <div id="contentWrapper" class="container">
+      <div
+        id="main-content"
+        class="main"
+        style="background-image: url(../map/images/layout_1.jpg)"
+      ></div>
+      <header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between">
+          <div class="col-2">
+            <a href=""
+              ><img
+                src="../../img/weyu/weyu_icon.png"
+                style="max-width: 120px"
+                alt="威友科技"
+            /></a>
+          </div>
+          <div class="col-3 align-top">
+            <strong id="EQPLAYOUT_TITLE"> </strong>
+          </div>
+          <div class="col-5 align-top">
+            <div>
+              <strong>Status Color Info</strong>
+              <div>
+                <span id="run" style="color: #fff" class="p-1 m-1">RUN</span>
+                <span id="idle" style="color: #fff" class="p-1 m-1">IDLE</span>
+                <span id="error" style="color: #fff" class="p-1 m-1"
+                  >ERROR</span
+                >
+                <span id="poweroff" style="color: #fff" class="p-1 m-1"
+                  >POWEROFF</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-2 text-right align-top">
+            <a
+              href="../../query/grid-smart-query.html?SID=343128535020582&LEVEL=L1"
+              class="btn btn-info"
+            >
+              <!--./index.html-->
+              Back
+            </a>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <script type="text/javascript" src="../map/js/jquery-3.4.1.min.js"></script>
+    <script
+      type="text/javascript"
+      src="../map/js/jquery-ui/jquery-ui.js"
+    ></script>
+    <script type="text/javascript" src="../../js/weyu/weyu_config.js"></script>
+    <script type="text/javascript" src="../map/js/popper.min.js"></script>
+    <script type="text/javascript" src="../map/js/bootstrap.4.4.1.min.js"></script>
+    <script
+      type="text/javascript"
+      src="../map/js/jQuery-slimScroll-master/jquery.slimscroll.min.js"
+    ></script>
+    <script src="../../js/weyu/weyu_comm_function.js"></script>
+    <script src="../../js/weyu/weyu_comm_api_function.js"></script>
+    <script src="../../js/weyu/weyu_check.js"></script>
+    <script src="../../js/weyu/weyu_loading.js"></script>
+
+    <script type="text/javascript" src="map.js"></script>
+    <script></script>
+  </body>
+</html>

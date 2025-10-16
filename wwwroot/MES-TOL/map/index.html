@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="../map/images/favicon.ico">
+  <title>配置圖一覽</title>
+  <link rel="stylesheet" href="../map/css/bootstrap.4.4.1.min.css" />
+  <link rel="stylesheet" href="../map/js/jquery-ui/jquery-ui.css">
+  <link rel="stylesheet" href="../map/css/loading_map.css" >
+
+  <link rel="stylesheet" href="../map/css/default.css" />
+</head>
+<body id="index">
+<!-- ---------------------------------------------------------------------- loading -->
+<div class="loading" id="loading">
+  <div class="progress" id="progress">Loading
+    <!-- <img src="../images/loading.gif" alt="this slowpoke moves"  width="100" /> -->
+    <div class="loader"></div>
+  </div>
+</div>
+
+<div id="contentWrapper" class="container">
+  <header class="blog-header py-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <div class="col-4 pt-1">
+        <a href=""><img src="../map/images/brand.png" alt="威友科技" /></a> <span>配置圖一覽</span>
+      </div>
+      <div class="col-8 text-right">
+        <a class="btn btn-secondary" href="../setup/map-edit.html">
+          新增配置圖
+        </a>
+      </div>
+    </div>
+  </header>  
+  <div id ="main-content" class="main">
+
+    <div id="map-list" class="row">
+
+    </div>
+
+  </div>
+  
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">請問確定要刪除？</h5>
+      </div>
+      <div class="modal-body">
+        此動作無法恢復。
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" id="confirmDel">確定刪除</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript" src="../map/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../map/js/jquery-ui/jquery-ui.js"></script>
+<script type="text/javascript" src="../map/js/popper.min.js"></script>
+<script type="text/javascript" src="../map/js/bootstrap.4.4.1.min.js"></script>
+<script type="text/javascript" src="../map/js/jQuery-slimScroll-master/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="../../js/weyu/weyu_config.js"></script>
+<script src="../../js/weyu/weyu_comm_function.js"></script>
+<script src="../../js/weyu/weyu_comm_api_function.js"></script>
+<script src="../../js/weyu/weyu_check.js"></script>
+<script src="../../js/weyu/weyu_loading.js"></script>
+
+<script type="text/javascript" src="index.js"></script>
+<script>
+function getDelClickID(clickID) {
+    // alert(clickID);
+    let confirmDel = document.getElementById('confirmDel');
+    confirmDel.addEventListener('click', function() {
+      
+      EQPLAYOUTSETUP_DELETE(clickID);
+        
+    });
+    
+}
+
+</script>
+</body>
+</html>

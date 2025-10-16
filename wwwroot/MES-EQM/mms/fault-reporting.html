@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="../../css/weyu/input.css" rel="stylesheet">
+  <link href="../../css/weyu/weyu_right_navbar.css" rel="stylesheet">
+  <link href="../../css/comm/bootstrap.min.css" rel="stylesheet">
+  <link href="fault-reporting.css" rel="stylesheet">
+</head>
+<body onload="onLoad()">
+  <div class="relative min-h-full" style="z-index: 10;">
+    <header class="w-full mt-2">
+
+      <a id="logotext" href="../../index.html" class="fs-4 fw-bold ps-3"></a>
+
+      
+      <div id="title" class="fw-bold fs-5 Lang">
+        <!-- <span class="Lang">機台報修</span> -->
+      </div>
+
+      <div id="settings">
+        <img id="settings-image" src="../../img/comm/user-gear-solid.svg" style="height: 1.5rem; width: 1.5rem" alt="Settings" />
+      </div>
+
+      <div id="dropdown-menu" class="dropdown-content hidden">
+        <div id="langueStatus">Language Status</div>
+        <div id="accountStatus"><img src="" alt="" />Account Status</div>
+        <div id="logout"><button class="ml-auto p-4">
+          Logout
+        </button>
+        </div>
+      </div>
+
+    </header>
+
+    <div id="layout1">
+      <!-- 共用按鈕 -->
+      <div class="layoutOneBtnWrapper">
+        <button id="backButton" class="btn tit Lang"><img src="../../img/comm/circle-chevron-left-solid.svg" alt="返回前頁"><span class="Lang">Back</span></button>
+        <!-- 可以再添加客製按鈕 -->
+      </div>
+    </div>
+
+    <!-- 主設計 START -->
+    <div class="form-container">
+      <div class="c-form-title"><span id="repairType"></span>機台報修</div>
+      <form id="reportForm">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="mb-3">
+              <label for="factory" class="form-label fw-bold">廠區</label>
+              <select class="form-select border-2" id="factory">
+                <option value="">選擇廠區</option>
+                <option value="1">廠區一</option>
+                <option value="2">廠區二</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="mb-3">
+              <label for="machine" class="form-label fw-bold">機台</label>
+              <select class="form-select border-2" id="machine" disabled>
+                <option value="">選擇機台</option>
+                <option value="01">機台01</option>
+                <option value="02">機台02</option>
+                <option value="03">機台03</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="mb-3">
+              <label for="priority" class="form-label fw-bold">優先序</label>
+              <select class="form-select border-2" id="priority" disabled>
+                <option value="低">低</option>
+                <option value="中" selected>中</option>
+                <option value="高">高</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="mb-3">
+              <label for="category" class="form-label fw-bold">故障分類</label>
+              <select class="form-select border-2" id="category" disabled>
+                <option value="">選擇分類</option>
+                <option value="品質">品質</option>
+                <option value="設備">設備</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="mb-3">
+              <label for="reason" class="form-label fw-bold">故障原因</label>
+              <select class="form-select border-2" id="reason" disabled>
+                <option value="">選擇故障原因</option>
+                <option value="原因1">原因1</option>
+                <option value="原因2">原因2</option>
+                <option value="原因3">原因3</option>
+                <option value="原因4">原因4</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="mb-3">
+              <label for="description" class="form-label fw-bold">故障描述</label>
+              <textarea class="form-control border-2" id="description" rows="4" disabled></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end gap-2">
+          <button type="button" class="btn btn-outline-secondary fw-bold" id="resetBtn">清除</button>
+          <button type="button" class="btn btn-primary fw-bold" id="submitBtn" disabled>確定新增</button>
+        </div>
+      </form>
+    </div>
+    <!-- 主設計 END -->
+    <div id="footer" class="position-fixed bottom-0 right-0 left-0 w-100"></div>
+
+  </div>
+
+  <!-- <script src="../../js/comm/cdn.jsdelivr.net_npm_chart.js"></script> -->
+  <script src="../../js/comm/bootstrap.min.js"></script>
+  <script src="../../js/comm/jquery.min.js"></script>
+  <script src="../../js/weyu/weyu_config.js"></script>
+  <script src="../../js/weyu/weyu_comm_api_function.js"></script>
+  <script src="../../js/weyu/weyu_comm_function.js"></script>
+  <!-- <script src="../../js/weyu/weyu_check.js"></script> -->
+  <script src="../../js/weyu/weyu_header.js"></script>
+  <script src="../../js/weyu/weyu_footer.js"></script>
+  <script src="../../js/weyu/weyu_right_navbar.js"></script>
+  <script src="fault-reporting.js"></script>
+  <!-- 多語系翻譯 -->
+  <script type="text/javascript">
+    function onLoad() {
+        GetConfig();
+        SetDefaultSelectLang();
+        ChangeLang();//多國語言翻譯
+        console.log('onLoad 成功')
+    };
+    // 左上LOGO文字
+    $('#logotext').html(PROJECT_SAVE_NAME);
+  </script>
+
+</body>
+</html>

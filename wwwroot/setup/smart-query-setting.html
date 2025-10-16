@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>WeyuBoard</title>
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <link href="../css/comm/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/weyu/smartQuerySetting.css" rel="stylesheet" />
+    <link href="../css/weyu/weyu_right_navbar.css" rel="stylesheet">
+    <link href="../css/weyu/input.css" rel="stylesheet" />
+    <link href="../css/comm/tabulator.min.css" rel="stylesheet" />
+    <link href="../img/fontawesome-free-6.7.1-web/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <link href="../css/comm/bootstrap-select.min.css" rel="stylesheet" >
+
+</head>
+</head>
+
+<body onload="onLoad()" style="overflow-x: hidden">
+    <!-- ------------------------------------------------------------------------------ loading -->
+    <header class="flex items-center w-full mt-2">
+
+        <button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" style="background: transparent; border: 0;">
+            <img src="../img/comm/icons/hamburger.svg" alt="Menu" />
+        </button>
+    
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel" style="background-color: #162a58;">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">WO Maintain</h5>
+            <button type="button" class="" data-bs-dismiss="offcanvas" aria-label="Close" style="background: transparent; border: 0;">
+                <img src="../img/comm/icons/close.svg" alt="Menu" />
+            </button>
+          </div>
+          <div id="menuList" class="offcanvas-body"></div>
+        </div>
+          
+    
+        <h1 style="font-size: 1.25em; font-weight: bold; line-height: 1; margin-top: 0.5em;">
+            <a id="logotext" href="../index.html"></a>
+        </h1>
+        <div class="company">
+            <nav class="navbar"></nav>
+            <div class="board-name" id="midtitle">智能查詢設定</div>
+        </div>
+        <div id="settings">
+            <span id="tokenExpiry"></span>
+            <img id="settings-image" src="../img/comm/user-gear-solid.svg" style="height: 1.5rem; width: 1.5rem" alt="Settings" />
+        </div>
+
+        <div id="dropdown-menu" class="dropdown-content hidden">
+            <div id="langueStatus">Language Status</div>
+            <div id="accountStatus">Account Status</div>
+            <div id="logout">Logout</div>
+        </div>
+    </header>
+    <!-- -----------------------------------------------主要內容 START -->
+    <div id="layout1" class="layout-btns">
+        <div class="layoutOneBtnWrapper">
+            <button id="backButton" class="btn tit Lang"><img src="../img/comm/circle-chevron-left-solid.svg" alt="返回前頁"><span class="Lang">Back</span></button>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="panel-title">
+            <div>
+                <i class="fa-solid fa-pen-to-square"></i>
+                <span id="actionType"></span>
+            </div>
+        </div>
+        <!-- <div class="loading-sign bg-white p-3">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Loading...
+        </div> -->
+        <!-- <div class="panel d-none"> -->
+        <div class="panel">
+            <div class="panel-top">
+                <div class="row">
+                    <div class="col-lg-4 order-lg-1 order-2">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">SQ Code</span>
+                            <input type="text" id="inputCODE" value="EQP_MASTER" class="form-control" autocomplete="off">
+                        </div>
+                            
+                    </div>
+                    <div class="col-lg-4 order-lg-2 order-3">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">SQ Name</span>
+                            <input type="text" id="inputCAPTION" value="機台清單" class="form-control" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 order-lg-3 order-1 mb-2 mb-lg-0 d-flex justify-content-between">
+                        <div class="align-content-center" id="SID"></div>
+                        <div>
+                            <button type="button" class="btn" id="copyBtn">
+                                <i class="fa-solid fa-copy fa-xl text-secondary"></i>
+                            </button>
+                            <button type="submit" class="btn" id="saveBtn">
+                                <i class="fa-solid fa-floppy-disk fa-xl text-primary"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-bottom border border-secondary border-opacity-25 rounded-2 p-2">
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-1">
+                            <label for="" class="form-label">查詢SQL</label>
+                            <textarea class="form-control" name="" id="" rows="3">SELECT * FROM EQP_MASTER WHERE {CON}</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="button" id="verifyBtn">驗證</button>
+                    </div>
+                </div>
+                <div class="tab-container">
+                    <div class="container-header position-relative">
+                        <div class="tab-header">
+                            <button class="tab-btn active">Grid Field</button>
+                            <button class="tab-btn">Condition Field</button>
+                        </div>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active">
+                            <div id="grid-field"></div>
+                        </div>
+                        <div class="tab-pane">
+                            <div class="condition-navbar">
+                                <button type="button" class="btn btn-sm" id="addRow">
+                                    <i class="fa-solid fa-plus fa-lg text-success fw-bold"></i>
+                                </button>
+                                <button type="button" class="btn btn-sm" id="deleteRow">
+                                    <i class="fa-solid fa-minus fa-lg text-danger fw-bold"></i>
+                                </button>
+                                <!-- <button type="button" class="btn btn-sm" id="saveCondition">
+                                    <i class="fa-solid fa-floppy-disk fa-lg text-primary"></i>
+                                </button> -->
+                            </div>
+                            <div id="condition-field"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal" id="copyModal" tabindex="-1" aria-labelledby="copyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered"> <!-- 垂直置中 + 小尺寸 -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="copyModalLabel">Save as</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- 代碼輸入欄位 -->
+                    <div class="mb-3">
+                        <label for="copyCODE" class="form-label">代碼</label>
+                        <input type="text" class="form-control" id="copyCODE" placeholder="輸入代碼"/>
+                    </div>
+                    <!-- 標題輸入欄位 -->
+                    <div class="mb-3">
+                        <label for="copyCAPTION" class="form-label">標題</label>
+                        <input type="text" class="form-control" id="copyCAPTION" placeholder="輸入標題"/>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">返回</button>
+                    <button type="button" class="btn btn-primary" id="copySaveBtn">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="setupModal" tabindex="-1" aria-labelledby="setupModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered"> <!-- 垂直置中 + 小尺寸 -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="setupModalLabel">Save as</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="setup-field"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">返回</button>
+                    <button type="button" class="btn btn-primary" id="setupSaveBtn">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- -----------------------------------------------主要內容 END -->
+    <footer>
+        <p style="text-align: right; margin-right: 10px; font-size:14px;">
+            Copr. 2025 WeYu Technology Co., Ltd. All Rights Reserved.
+        </p>
+    </footer>
+
+    <script src="../js/comm/jquery.min.js"></script>
+    <script src="../js/weyu/weyu_config.js"></script>
+    <script src="../js/weyu/weyu_comm_api_function.js"></script>
+    <script src="../js/weyu/weyu_comm_function.js"></script>
+    <script src="../js/weyu/weyu_check.js"></script>
+    <script src="../js/comm/bootstrap.min.js"></script>
+    <script src="../js/comm/bootstrap-select.min.js"></script>
+    <script src="../js/comm/tabulator.min.js"></script>
+    <script src="./smart-query-setting.js"></script>
+    <script src="../js/weyu/weyu_right_navbar.js"></script>
+    <script src="../js/weyu/weyu_header.js"></script>
+    <script src="../img/fontawesome-free-6.7.1-web/js/all.min.js"></script>
+    
+    <!-- 多語系翻譯 -->
+    <script type="text/javascript">
+        function onLoad() {
+            DebugLog('onLoad Start');
+            GetConfig();
+            SetDefaultSelectLang();
+            ChangeLang(); //多國語言翻譯
+
+            DebugLog('onLoad END');
+        }
+        $(document).ready(function() {
+            
+            DebugLog('ready Start');
+            $('#offcanvasWithBothOptionsLabel').html(PROJECT_SAVE_NAME);
+            $('#logotext').html(PROJECT_SAVE_NAME);
+
+            $('#selectlang').on('change', function() {
+                try {
+                    DebugLog('selectlang on_change ' + this.value);
+                    UIChangeLng(this.value);
+                    //localStorageSetItem("eqp", this.value);
+                } catch (errorMessage) {
+                    DebugLogAndAlert(errorMessage);
+                }
+            });
+
+            DebugLog('ready END');
+
+            $('#tokenExpiry').text('登入有效期:' + localStorage.getItem(PROJECT_SAVE_NAME+'_BI_TokenExpiry'));
+        });
+    </script>
+</body>
+
+</html>

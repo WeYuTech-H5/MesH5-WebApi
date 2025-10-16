@@ -1,0 +1,42 @@
+[
+    {
+        "EQP_NO": "RT-C01",
+        "STATUS": "Run",
+        "STATUS_CHANGE_TIME": "2024-12-06 09:59:37.313"
+    },
+    {
+        "EQP_NO": "RT-C03",
+        "STATUS": "COOLING",
+        "STATUS_CHANGE_TIME": "2024-12-06 09:59:36.347"
+    },
+    {
+        "EQP_NO": "RT-C07",
+        "STATUS": "Run",
+        "STATUS_CHANGE_TIME": "2024-12-06 09:59:35.417"
+    },
+    {
+        "EQP_NO": "RT-C08",
+        "STATUS": "COOLING",
+        "STATUS_CHANGE_TIME": "2024-12-06 09:59:35.743"
+    },
+    {
+        "EQP_NO": "RT-C14",
+        "STATUS": "Run",
+        "STATUS_CHANGE_TIME": "2024-12-06 08:46:17.930"
+    },
+    {
+        "EQP_NO": "RT-C20",
+        "STATUS": "COOLING",
+        "STATUS_CHANGE_TIME": "2024-12-06 08:46:16.807"
+    },
+    {
+        "EQP_NO": "RT-C24",
+        "STATUS": "Run",
+        "STATUS_CHANGE_TIME": "2024-12-06 08:46:17.613"
+    },
+    {
+        "EQP_NO": "RT-C28",
+        "STATUS": "COOLING",
+        "STATUS_CHANGE_TIME": "2024-12-06 08:48:49.417"
+    }
+]

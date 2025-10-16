@@ -1,0 +1,77 @@
+.allWrapper {
+    z-index: 10;
+}
+
+li {
+    overflow-x: hidden;
+}
+
+.chart-box {
+    background-color: #00000043;
+    border: 3px solid #90e3ff6b;
+    border-radius: .25em;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+.chart-title{
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 5px;
+}
+.chartWrapper {
+    height: 100%;
+    /* flex-grow: 1; */
+    padding: 0 10px 10px 10px;
+}
+.extend-button{
+    cursor: pointer;
+    width: 2rem; /* 初始大小 */
+    transition: transform 0.3s ease,opacity 0.3s ease; /* 變大時的過渡效果 */
+    transform-origin: center; /* 放大時以圖標中心為基點 */
+    opacity: 0.5;
+}
+.extend-button:hover {
+    transform: scale(1.1); /* 在 hover 時放大 1.1 倍 */
+    opacity: 1;
+}
+
+/* 隱藏彈出框的模態背景 */
+.modal-backdrop {
+    display: none;
+}
+#extendContainer {
+    background: radial-gradient(circle, #004f79, #013865,#001c38 ); /* 藏青色渐变 */
+}
+
+.extend-modal-close{
+    cursor: pointer;
+    width: 3rem; /* 初始大小 */
+    transition: transform 0.3s ease,opacity 0.3s ease; /* 變大時的過渡效果 */
+    transform-origin: center; /* 放大時以圖標中心為基點 */
+    opacity: 0.5;
+}
+.extend-modal-close:hover {
+    transform: scale(1.1); /* 在 hover 時放大 1.1 倍 */
+    opacity: 1;
+}
+
+/* 輪播表格 START */
+.slider-nav {
+    display: flex;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(100, 100, 100, 0.8);
+}
+.slider-nav div {
+    padding: 3px 20px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    user-select: none;
+}
+.slider-nav div:hover, .slider-nav .active {
+    background-color: rgba(3, 157, 196, 0.6);
+}
+/* 輪播表格 END */

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>WeyuBoard</title>
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <link href="../../css/comm/dataTables.min.css" rel="stylesheet">
+  <link href="../../css/comm/bootstrap.min.css" rel="stylesheet">
+  <link href="../../css/zz//eqp-status-change.css" rel="stylesheet" media="all">
+  <link href="../../MES-WIP/OPI/css/jquery.datetimepicker.min.css" rel="stylesheet">
+  <link href="../../css/weyu/input.css" rel="stylesheet">
+  <link href="../../css/weyu/weyu_right_navbar.css" rel="stylesheet">
+  <link href="../../MES-WIP/css/wo-check-in-out.css" rel="stylesheet">
+  <link href="./dashboard007.css" rel="stylesheet">
+
+</head>
+<style>
+  header {
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    margin-top: 0rem;
+  }
+
+  .col-sm-4 {
+    padding-right: 20px;
+    font-size: 20px;
+  }
+
+  .col-sm-4:not(:last-child) {
+    border-right: 1px solid #ccc;
+  }
+
+  #eqp-status-table thead th {
+    padding: 10px 12px !important;
+    vertical-align: middle !important;
+  }
+</style>
+
+<body onload="onLoad()" style="overflow-x: hidden">
+  <!-- ------------------------------------------------------------------------------ loading -->
+
+  <div class="loading" id="loading">
+    <div class="progress" id="progress">
+      Loading
+      <div class="loader"></div>
+    </div>
+  </div>
+
+  <header>
+    <button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+      aria-controls="offcanvasWithBothOptions" style="background: transparent; border: 0" disabled>
+      <img src="../../img/comm/icons/hamburger.svg" alt="Menu" />
+    </button>
+
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+      aria-labelledby="offcanvasWithBothOptionsLabel" style="background-color: #162a58">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+          Title
+        </h5>
+        <button type="button" class="" data-bs-dismiss="offcanvas" aria-label="Close"
+          style="background: transparent; border: 0">
+          <img src="../../img/comm/icons/close.svg" alt="Menu" />
+        </button>
+      </div>
+      <div id="menuList" class="offcanvas-body"></div>
+    </div>
+
+    <h1 style="
+          font-size: 1.25em;
+          font-weight: bold;
+          line-height: 1;
+          margin-top: 0.5em;
+        ">
+      <a id="logotext" href="../../index.html">Title</a>
+    </h1>
+    <div id="midtitle" class="title Lang">WO Report OPI</div>
+    <div id="welcome"></div>
+    <div id="settings">
+      <img id="settings-image" src="../../img/comm/user-gear-solid.svg" style="height: 1.5rem; width: 1.5rem"
+        alt="Settings" />
+    </div>
+
+    <div id="dropdown-menu" class="dropdown-content hidden">
+      <div id="langueStatus">Language Status</div>
+      <div id="accountStatus">Account Status</div>
+      <div id="logout">Logout</div>
+    </div>
+  </header>
+  <div id="layout1">
+    <!-- 共用按鈕 -->
+    <button id="backButton" class="btn tit Lang"><img src="../../img/comm/circle-chevron-left-solid.svg"
+        alt="返回前頁"><span class="Lang">Back</span></button>
+  </div>
+  <!-- -----------------------------------------------主要內容 -->
+  <div style="margin-top:20px" id="mybody">
+    <div class="container">
+      <div class="row rowContentWrapper">
+
+
+        <div class="col-sm-12">
+
+          <div class="col-sm-4 d-flex align-items-center gap-2">
+            <div class="Lang" style="width: 30%; text-align: center;">Equipment</div>
+            <button class="input-button" style="width: 70% ;text-align: center;" id="EQP_NO">select equipment</button>
+          </div>
+
+          <div class="col-sm-4 d-flex align-items-center gap-2">
+            <div class="Lang" style="width: 30%; text-align: center;">Eqp Status</div>
+            <button class="input-button" style="width: 70% ;text-align: center;" id="EQP_STATUS">select status</button>
+          </div>
+
+          <div class="col-sm-4 d-flex align-items-center gap-2">
+            <div class="Lang" style="width: 30%; text-align: center;">Reason Code</div>
+            <button class="input-button" style="width: 70% ;text-align: center;" id="REASON_CODE">select reason
+              code</button>
+          </div>
+        </div>
+
+        <div class="col-sm-12 mt-2 d-flex justify-content-end">
+          <button type="button" id="submit-btn" class="Lang button button-blue">Submit</button>
+        </div>
+
+
+        <div class="col-sm-12 mt-3">
+          <div id="tableContainer">
+            <table id="eqp-status-table"></table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="optionModal" tabindex="-1" aria-labelledby="optionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-fullscreen-md-down">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Click to select</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row align-items-center mb-3 bg-primary-subtle p-1 rounded-3">
+            <label for="keyword" class="col-auto col-form-label fs-4">Search</label>
+            <div class="col">
+              <input type="text" class="form-control" id="keyword" autocomplete="off">
+            </div>
+          </div>
+          <div class="option-content">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p style="text-align: center; margin-right: 10px; font-size: 14px;color:white">
+      Copr. 2023 WeYu Technology Co., Ltd. All Rights Reserved.
+    </p>
+  </footer>
+  <script src="../../js/comm/jquery.min.js"></script>
+  <script>
+    var VersionTime = new Date().getTime();
+  </script>
+  <script src="../../js/comm/eqp/Chart.min.js"></script>
+  <script src="../../js/comm/Chart.bundle.js"></script>
+  <script src="../../js/comm/chartjs-plugin-gantt.min.js"></script>
+  <script src="chart_config.js"></script>
+  <script src="../../js/weyu/weyu_config.js?v=" +VersionTime></script>
+  <script src="../../js/weyu/weyu_comm_api_function.js?v=" +VersionTime></script>
+  <script src="../../js/weyu/weyu_comm_function.js?v=" +VersionTime></script>
+  <script src="../../js/weyu/weyu_check.js?v=" +VersionTime></script>
+  <!-- <script src="../js/weyu/loading.js"></script> -->
+  <script src="../../js/comm/dataTables.min.js"></script>
+  <script src="../../js/comm/bootstrap.min.js"></script>
+  <script defer src="../../js/weyu/weyu_header.js"></script>
+  <script src="../../js/weyu/weyu_right_navbar.js"></script>
+
+  <script src="eqp_status.js"></script>
+
+  <!-- 多語系翻譯 -->
+
+  <script type="text/javascript">
+    function onLoad() {
+      DebugLog("onLoad Start");
+      GetConfig();
+      SetDefaultSelectLang();
+      ChangeLang(); //多國語言翻譯
+
+      DebugLog("onLoad END");
+    }
+    $(document).ready(function () {
+      DebugLog("ready Start");
+      $("#offcanvasWithBothOptionsLabel").html(PROJECT_SAVE_NAME);
+      $("#logotext").html(PROJECT_SAVE_NAME);
+      $("#selectlang").on("change", function () {
+        try {
+          DebugLog("selectlang on_change " + this.value);
+          UIChangeLng(this.value);
+          //localStorageSetItem("eqp", this.value);
+        } catch (errorMessage) {
+          DebugLogAndAlert(errorMessage);
+        }
+      });
+
+      DebugLog("ready END");
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+#layout2 {
+  background-color: #dbdbdb5b;
+  width: 98.5%;
+  margin: 40px auto;
+  border: 1px solid #333;
+}
+
+#EQPNO{
+  color: #fff;
+  font-size: 3vh;
+  padding: 15px 10px 0 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #eee;
+  min-height: 100vh;
+  min-width: 320px;
+  font-family: 'Noto Sans TC', 'Microsoft JhengHei', '微軟正黑體';
+}
+/* 標誌商標時間 */
+header {
+  background: #43454e;
+  border-top: 1px solid #666;
+  border-bottom: 5px solid #ffce00;
+}
+.navbar {
+  padding: 0;
+}
+h2.title {
+  color: #fff;
+  font-size: 1.2em;
+  letter-spacing: 0;
+  padding: 15px 0 0;
+  text-align: center;
+}
+time{
+  color: #fff;
+  display: block;
+  margin-right: 40px;
+  padding: 15px 10px 0 0;
+  font-size: 1.2em;
+  text-align: right;
+}
+#date{
+  justify-content: center;
+  align-items: center;
+  height: 24.8px ;
+}
+
+/* 主內容區 */
+.chartWrapper {
+  color: #898772;
+  margin-top: 20px;
+  padding-top: 20px;
+  position: relative;
+  background-color: rgba(255,255,255,.5);
+  border-top: 1px solid #fff;
+  border-bottom: 5px solid #ddd;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.27);
+  height: 20vh;
+  position: relative;
+}
+
+#chartCWrapper {
+  height: 25vh;
+  max-height: 25vh;
+  padding-top: 0px;
+}
+#chartFWrapper {
+  height: 17vh;
+}
+#chartGWrapper {
+  height: 12vh;
+}
+
+#titleAWrapper,
+#titleBWrapper,
+#titleCWrapper,
+#titleDWrapper,
+#titleEWrapper{
+  padding-top: 0px;
+}
+
+.singleChart .chartWrapper {
+  height: 80vh;
+}
+.section  {
+  position: relative;
+}
+.section .val {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+h3 {
+  font-size: 1em;
+  margin-bottom: 0;
+  margin-top: 10px;
+  text-align: center;
+}
+#colors span {
+  color: #fff;
+  display: inline-block;
+  font-size: .8em;
+  margin: 0 5px;
+  padding: 2px 10px;
+}
+#colors {
+  margin-top: 5px;
+  margin-bottom: -10px;
+  text-align: center;
+}
+
+#OUTPUT_DAY,
+#OUTPUT_NIGHT,
+#OUTPUT_TOTAL,
+#KEYIN_OUTPUT_DAY,
+#KEYIN_OUTPUT_NIGHT,
+#KEYIN_OUTPUT_TOTAL,
+#totalOEE{
+  font-size: 3vw !important;
+  text-align: center;
+  margin: auto;
+  line-height: 3.2vw;
+}
+
+.context {
+  flex: 1;
+  text-align: center;
+  font-size: 1.2vw
+}
+
+.context p {
+  margin-bottom: 0 !important;
+}
+
+.divider {
+  position: relative;
+  top: 5%;
+  width: 1.5px;
+  height: 90%;
+  background-color: grey; /* 可以根據需要調整顏色 */
+}
+
+.horizon {
+  position: relative;
+  left: 5%;
+  width: 90%;
+  height: 1.5px;
+  background-color: grey; /* 可以根據需要調整顏色 */
+}
+
+@media all and (max-width: 991px) {
+  .brand,
+  #timenow time {
+    text-align: center;
+  }
+}
+
+/* 提示文字 */
+.OEE_HINT {
+  /* position: absolute;
+  top: -6px;
+  left: 110px;
+  font-size: 2rem; */
+}
+
+.OEE_HINT .OEE_HINT_TEXT {
+  font-size:1rem;
+  visibility: hidden;
+  width: 100%;
+  background-color: rgb(251, 255, 211);
+  color: #000000;
+  border: 1px solid rgba(0, 0, 0, 0.678);
+  text-align: left;
+  border-radius: 6px;
+  padding: 5px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  right: 75%;
+  top: 30px;
+}
+
+.OEE_HINT:hover .OEE_HINT_TEXT {
+  visibility: visible;
+}
+
+#high-square,
+#mid-square,
+#low-square{
+  font-size: 1.8rem;
+}
+
+#EQPList{
+  min-width: 220px;
+}

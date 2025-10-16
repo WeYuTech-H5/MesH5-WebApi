@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>WeyuBoard</title>
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <link href="../../../css/comm/dataTables.min.css" rel="stylesheet">
+  <link href="../../../css/comm/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../css/zz//eqp-status-change-sc.css" rel="stylesheet" media="all">
+  <link href="../js/chart_config.js" rel="stylesheet">
+  <link href="../../../css/weyu/input.css" rel="stylesheet">
+  <link href="../../../css/weyu/weyu_right_navbar.css" rel="stylesheet">
+  <link href="../../css/wo-scheduke.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+  .Lang.title {
+    word-wrap: break-word;
+    /* 換行 */
+    white-space: normal;
+    /* 可自動斷行 */
+    overflow-wrap: break-word;
+  }
+
+  .w-15 {
+    width: 15%;
+  }
+
+  .w-10 {
+    width: 10%;
+  }
+
+  header {
+    padding-bottom: 0.5rem;
+    margin-top: 0.5em;
+  }
+
+  .title1 {
+    width: 15% !important;
+  }
+
+  .Completedbox {
+    display: flex;
+    justify-content: left !important;
+    /* 水平置中 */
+    align-items: center;
+  }
+
+  /* 放大 checkbox */
+  .custom-checkbox {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    accent-color: #007bff;
+    /* 可選：更改打勾色 (支援度高) */
+  }
+
+  #totalInputNG[readonly] {
+    background-color: #f5f5f5;
+    /* 淺灰背景 */
+    color: #6c757d;
+    /* 中灰字體 */
+    cursor: not-allowed;
+    /* 鼠標變禁止符號 */
+  }
+</style>
+
+<body onload="onLoad()" style="overflow-x: hidden">
+  <!-- ------------------------------------------------------------------------------ loading -->
+
+  <div class="loading" id="loading">
+    <div class="progress" id="progress">
+      Loading
+      <div class="loader"></div>
+    </div>
+  </div>
+
+  <header>
+    <button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+      aria-controls="offcanvasWithBothOptions" style="background: transparent; border: 0" disabled>
+      <img src="../../../img/comm/icons/hamburger.svg" alt="Menu" />
+    </button>
+
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+      aria-labelledby="offcanvasWithBothOptionsLabel" style="background-color: #162a58">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+          Title
+        </h5>
+        <button type="button" class="" data-bs-dismiss="offcanvas" aria-label="Close"
+          style="background: transparent; border: 0">
+          <img src="../../../img/comm/icons/close.svg" alt="Menu" />
+        </button>
+      </div>
+      <div id="menuList" class="offcanvas-body"></div>
+    </div>
+
+    <h1 style="
+          font-size: 1.25em;
+          font-weight: bold;
+          line-height: 1;
+          margin-top: 0.5em;
+        ">
+      <a id="logotext" href="../../../index.html">Title</a>
+    </h1>
+    <div id="midtitle" class="title Lang">WO Report OPI</div>
+    <div id="welcome"></div>
+    <div id="settings">
+      <img id="settings-image" src="../../../img/comm/user-gear-solid.svg" style="height: 1.5rem; width: 1.5rem"
+        alt="Settings" />
+    </div>
+
+    <div id="dropdown-menu" class="dropdown-content hidden">
+      <div id="langueStatus">Language Status</div>
+      <div id="accountStatus">Account Status</div>
+      <div id="logout">Logout</div>
+    </div>
+  </header>
+  <div id="layout1">
+    <!-- 共用按鈕 -->
+    <button id="backButton" class="btn tit Lang"><img src="../../../img/comm/circle-chevron-left-solid.svg"
+        alt="返回前頁"><span class="Lang">Back</span></button>
+  </div>
+  <!-- -----------------------------------------------主要內容 -->
+  <div style="margin-top:20px" id="mybody">
+    <div class="container">
+      <div class="row rowContentWrapper">
+        <div class="col-sm-12">
+          <div class="Lang title">Department</div>
+          <div class="Lang text" id="DEPARTMENT"></div>
+          <div class="Lang title">Equipment</div>
+          <div class="Lang text">
+            <div id="EQP_NO"></div>
+            <div id="EQPNAME"></div>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="Lang title">Account</div>
+          <div class="Lang text" id="ACCOUNT_NO">
+          </div>
+          <div class="Lang title">WO</div>
+          <div class="Lang text" id="WO"></div>
+        </div>
+        <div class="col-sm-12">
+          <div class="Lang title">Mold No</div>
+          <div class="Lang text" id="MOLD_NO"></div>
+          <div class="Lang title">Part NO</div>
+          <div class="Lang text" id="PART_NO"></div>
+        </div>
+        <div class="col-sm-12">
+          <div class="Lang title">SCHEDULES_TIME</div>
+          <div class="Lang text" id="SCHEDULES_TIME"></div>
+          <div class="Lang title">Part Name</div>
+          <div class="Lang text" id="PART_NAME"></div>
+        </div>
+        <!-- <div class="col-sm-12">
+          <div class="Lang title">CUR_CAV</div>
+          <div class="Lang text" id="CUR_CAV"></div>
+          <div class="Lang title">CYCLE_TIME(seconds)</div>
+          <div class="Lang text" id="CYCLE_TIME"></div>
+        </div>
+        <div class="col-sm-12">
+          <div class="Lang title">TARGET_SHOT</div>
+          <div class="Lang text" id="TARGET_SHOT"></div>
+          <div class="Lang title">TARGET_PCS</div>
+          <div class="Lang text" id="TARGET_PCS"></div>
+        </div> -->
+        <div class="col-sm-12">
+          <div class="Lang title">Completed</div>
+          <div class="Lang Completedbox text">
+            <input type="checkbox" id="CompletedCheck" class="custom-checkbox">
+          </div>
+          <div class="Lang title">COMPLETED TIME</div>
+          <div class="Lang text" id="COMPLETED_TIME"></div>
+        </div>
+        <div class="col-sm-12">
+          <div class="Lang  title">QTY</div>
+          <div class="Lang text2 d-flex NG-btn">
+            <button class="w-10" style="cursor: default; background-color: #f0f0f0; border-radius: 0;">OK</button>
+            <button class="w-25 text-start" style="border-radius:0" id="OK_QTY"></button>
+            <button class="w-10" style="cursor: default; background-color: #f0f0f0; border-radius: 0;">NG</button>
+            <button class="w-25 text-start" style="border-radius:0" id="NG_QTY"></button>
+            <button class="w-15 input-button" id="AddNGBtn" data-bs-toggle="modal" data-bs-target="#NGModal"
+              onclick="CleanNgPage()">ADD</button>
+            <button class="w-15 input-button" id="EditNGBtn" data-bs-toggle="modal" data-bs-target="#NGHISTModal"
+              onclick="CleanNgPage()">HIST</button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="container btnTools">
+    <div class="row">
+      <div class="col-sm-12 d-flex justify-content-center gap-2">
+        <!-- <button type="button" id="checkOutBtn" class="Lang btn btn-success">Check-Out</button> -->
+        <button type="button" id="checkOutBtn" class="Lang button button-green">Back</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal for Input -->
+  <div class="modal fade" id="NGModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="NGModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-fullscreen-xl-down modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="NGModalModalLabel">input</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="col-lg-6 col-sm-12 p-1 fs-4" id="reportTimeWrapper" style="display:none"><span
+              class="fw-bold">Report time: </span><span id="ng-report-time"></span></div>
+          <div class="row" id="ng-info">
+            <div class="col-lg-6 col-sm-12 p-1 fs-4 d-flex align-items-center"><span class="fw-bold">Total
+                OK:</span><input type="number" id="totalInputOK"></div>
+            <div class="col-lg-6 col-sm-12 p-1 fs-4 d-flex align-items-center"><span class="fw-bold">Total
+                NG:</span><input type="number" id="totalInputNG" readonly></div>
+
+            <!-- <div class="col-12 p-1 fs-4 d-flex align-items-start"><span class="fw-bold">Remark:</span></div> -->
+            <!-- <div class="col-12 d-flex justify-content-center"><textarea id="ng-comment"></textarea></div> -->
+            <div class="col-12 p-1 fs-4 d-flex align-items-start"><span class="fw-bold">Remark:</span><textarea
+                id="ng-comment"></textarea></div>
+
+          </div>
+          <div id="ng-divData"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="ng-saveNgBtn">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal for NG History -->
+  <div class="modal fade" id="NGHISTModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="NGHISTModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-fullscreen-xl-down modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="NGHISTModalModalLabel">NG History</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <thead>
+              <tr class="border-bottom">
+                <th scope="col">UID</th>
+                <th scope="col">Report-time</th>
+                <th scope="col">OK Qty</th>
+                <th scope="col">NG Qty</th>
+                <!-- <th scope="col">Summary</th> -->
+                <th scope="col">Comment</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody id="ng-hist-list">
+              <!-- <tr>
+              <th scope="row">1</th>
+              <td>2024-05-30 10:13</td>
+              <td>13</td>
+              <td class="summary">碰傷:5, 黑點:2, 變形:6</td>
+              <td>comment here...</td>
+              <td><button class="btn btn-warning" onclick="LoadNgEditPage('35231307624300')">Edit</button></td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>2024-05-30 10:16</td>
+              <td>6</td>
+              <td class="summary">黑點:6</td>
+              <td>comment here...</td>
+              <td><button class="btn btn-warning" onclick="LoadNgEditPage('35231214830700')">Edit</button></td>
+            </tr> -->
+              <!-- 你可以繼續添加更多的紀錄 -->
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p style="text-align: center; margin-right: 10px; font-size: 14px;color:white">
+      Copr. 2023 WeYu Technology Co., Ltd. All Rights Reserved.
+    </p>
+  </footer>
+  <script src="../../../js/comm/jquery.min.js"></script>
+  <script>
+    var VersionTime = new Date().getTime();
+  </script>
+  <script src="../../../js/comm/eqp/Chart.min.js"></script>
+  <script src="../../../js/comm/Chart.bundle.js"></script>
+  <script src="../../../js/comm/chartjs-plugin-gantt.min.js"></script>
+  <script src="../js/chart_config.js"></script>
+  <script src="../../../js/weyu/weyu_config.js?v=" +VersionTime></script>
+  <script src="../../../js/weyu/weyu_comm_api_function.js?v=" +VersionTime></script>
+  <script src="../../../js/weyu/weyu_comm_function.js?v=" +VersionTime></script>
+  <script src="../../../js/weyu/weyu_check.js?v=" +VersionTime></script>
+  <script src="../../../js/comm/dataTables.min.js"></script>
+  <script src="../../../js/comm/bootstrap.min.js"></script>
+  <script defer src="../../../js/weyu/weyu_header.js"></script>
+  <script src="../../../js/weyu/weyu_right_navbar.js"></script>
+
+  <script src="wo-schedule.js"></script>
+
+  <!-- 多語系翻譯 -->
+
+  <script type="text/javascript">
+    function onLoad() {
+      DebugLog("onLoad Start");
+      GetConfig();
+      SetDefaultSelectLang();
+      ChangeLang(); //多國語言翻譯
+
+      DebugLog("onLoad END");
+    }
+    $(document).ready(function () {
+      DebugLog("ready Start");
+      $("#offcanvasWithBothOptionsLabel").html(PROJECT_SAVE_NAME);
+      $("#logotext").html(PROJECT_SAVE_NAME);
+      $("#selectlang").on("change", function () {
+        try {
+          DebugLog("selectlang on_change " + this.value);
+          UIChangeLng(this.value);
+          //localStorageSetItem("eqp", this.value);
+        } catch (errorMessage) {
+          DebugLogAndAlert(errorMessage);
+        }
+      });
+
+      DebugLog("ready END");
+    });
+  </script>
+</body>
+
+</html>

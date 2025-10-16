@@ -1,0 +1,43 @@
+body,
+html {
+  scroll-behavior: smooth;
+}
+.slideWrapperTop {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
+  margin: auto auto .5rem;
+  width: 100%;
+}
+.wrapper {
+  transition: transform 0.5s ease;
+}
+.slideWrapperTop .chartBox {
+  margin: auto;
+  flex-shrink: 0;
+  width: 100%;
+}
+.chartBox {
+  cursor: pointer;
+}
+
+.sliderContainer,
+.sliderContainer2 {
+  width: 100%;
+  overflow: hidden;
+}
+
+.sliderWrapper,
+.sliderWrapper2 {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.sliders,
+.sliders2 {
+  margin: auto;
+  width: 100%;
+  flex-shrink: 0;
+}

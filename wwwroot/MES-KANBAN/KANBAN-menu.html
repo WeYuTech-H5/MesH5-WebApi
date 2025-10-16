@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KANBAN-menu</title>
+  <link href="../css/weyu/input.css" rel="stylesheet">
+  <link href="../css/weyu/weyu_right_navbar.css" rel="stylesheet">
+  <link href="../css/zz/zz_production.css" rel="stylesheet">
+  <!-- <script src="js/comm/cdn.tailwindcss.com.js"></script> -->
+  <script src="../css/comm/cdn.tailwindcss.com.css"></script>
+
+</head>
+<body onload="onLoad()">
+  <div class="relative min-h-full z-10">
+    <header class="flex items-center w-full mt-2">
+
+      <a id="logotext" class="text-white text-xl font-bold pl-6" href="../index.html">ESG</a>
+
+      
+      <div id="title" class="text-sky-200 font-bold flex flex-grow items-center ml-3 Lang">
+        <span id="ProductionTitle" >Production mgt.</span>
+      </div>
+
+      <div id="settings">
+        <img id="settings-image" src="../img/comm/user-gear-solid.svg" style="height: 1.5rem; width: 1.5rem" alt="Settings" />
+      </div>
+
+      <div id="dropdown-menu" class="dropdown-content hidden">
+        <div id="langueStatus">Language Status</div>
+        <div id="accountStatus"><img src="" alt="" />Account Status</div>
+        <div id="logout"><button class=" text-sky-200 ml-auto p-4">
+          Logout
+        </button>
+        </div>
+      </div>
+
+    </header>
+    <div id="layout1" class="layout-btns">
+        <!-- Button trigger modal -->
+        <div id="container" class="container-head">
+            <button id="backButton" class="btn tit Lang"><img src="../img/comm/circle-chevron-left-solid.svg" alt="返回前頁"><span class="Lang">Back</span></button>
+            
+        </div>
+        <!-- Modal -->
+    </div>
+    <div id="itemList" class="flex flex-wrap flex-row mr-1 ml-4"></div>
+    
+    <div id="footer" class="fixed bottom-0 w-full"></div>
+
+  </div>
+  <div class="mainBG fixed left-0 top-0 right-0 bottom-0"></div>
+
+  <script src="../js/comm/jquery.min.js"></script>
+  <script src="../js/weyu/weyu_config.js"></script>
+  <script src="../js/weyu/weyu_comm_api_function.js"></script>
+  <script src="../js/weyu/weyu_comm_function.js"></script>
+  <script src="../js/weyu/weyu_check.js"></script>
+      <script src="../js/weyu/weyu_footer.js"></script>
+      <script src="../js/weyu/weyu_header.js"></script>
+  <script src="../js/weyu/weyu_right_navbar.js"></script>
+  <script src="KANBAN-menu.js"></script>
+  <!-- 多語系翻譯 -->
+  <script type="text/javascript">
+    function onLoad() {
+        GetConfig();
+        SetDefaultSelectLang();
+        ChangeLang();//多國語言翻譯
+        console.log('onLoad 成功')
+    };  
+
+    // 左上LOGO文字
+    $('#logotext').html(PROJECT_SAVE_NAME);
+
+  </script>
+
+
+
+</body>
+</html>

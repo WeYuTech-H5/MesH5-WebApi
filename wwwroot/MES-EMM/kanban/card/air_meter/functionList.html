@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>全廠Air Meter Current Info</title>
+    <link href="../../../css/comm/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../../css/weyu/footer.css" rel="stylesheet" />
+    <link href="../../../css/weyu/functionList.css" rel="stylesheet" />
+    <link href="../../../css/weyu/defaultBTN.css" rel="stylesheet" />
+    <link href="../../../css/weyu/user_account.css" rel="stylesheet" />
+    <link href="../../../css/weyu/offcanvas.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-9">
+          <h1>
+            <!-- <button
+              class="btn"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasExample"
+              aria-controls="offcanvasExample"
+            >
+              <img src="../../../img/zz/hamburger.svg" class="btnHamburger w-5" />
+            </button> -->
+            <a href="../../../EMS-index.html" class="text-decoration-none text-white fs-4 fs-bold">戰情看板</a>
+            <span>全廠Air Meter Current Info</span>
+          </h1>
+        </div>
+        <div class="col-3 text-end">
+          <div class="dropdown" id="mainMenu">
+            <button class="btn btn-secondary dropdown-toggle mainMenu-btn mt-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../../../img/zz/user-gear-solid.svg" class="" style="height: 1.5rem" alt="account">
+            </button>
+            <ul class="dropdown-menu dropdown-content" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" id="langueStatus">ENGLISH</a></li>
+              <li><a class="dropdown-item" id="accountStatus">Account</a></li>
+              <li><a class="dropdown-item" id="logout">Logout</a></li>
+            </ul>
+          </div>
+          <!-- <a href=""
+            ><img
+              src="../../../img/zz/user-gear-solid.svg"
+              class="mt-3"
+              style="height: 1.5rem"
+              alt=""
+          /></a> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid menu">
+      <div class="row">
+        <div class="col-12">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="flex">
+                  <!-- <a href="/EMS-index.html" class="active">
+                    <img src="../../../img/comm/circle-chevron-left-solid.svg" alt="" />Back
+                  </a> -->
+                  <!-- <a href="../../Taipower.html" class="active">
+                    <img src="../../../img/zz/elect-active.svg" alt="" />e-台電
+                  </a> -->
+                  <!-- <a href="../../EMS-Ekanban.html" class="active">
+                    <img src="../../../img/zz/percent-active.svg" alt="" />e-Kanban
+                  </a> -->
+                  <a href="#">
+                    <img src="../../../img/zz/info-active.svg" alt="" />本日全廠Air Meter Current Info
+                  </a>
+                  <a href="air_card.html">
+                    <img src="../../../img/zz/info-active.svg" alt="" />本日Air Flow Current Info
+                  </a>
+                  <a href="nitrogen_card.html">
+                    <img src="../../../img/zz/info-active.svg" alt="" />本日EMS RWD即時資訊
+                  </a>
+                  <a href="All_query.html">
+                    <img src="../../../img/zz/info-active.svg" alt="" />Daily Air Flow
+                  </a>
+                  <a href="15min_query.html">
+                    <img src="../../../img/zz/info-active.svg" alt="" />Air Flow History
+                  </a>
+                  <!-- <a href="">
+                    <img src="../../../img/zz/percent-active.svg" alt="" />用電佔比
+                  </a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-3">
+      <div class="row">
+        <!-- <div class="col-md-12 col-lg-3 aside">
+          <div class="mr-1 ml-1 contentWrapper">
+            <ul class="subMenu">
+              <li><a href="functionList.html?LEVLE=L1?LIST=ALL">GEMTEK (VN)</a></li>
+              <li><a href="air_card.html?LEVEL=L1">空氣即時資訊</a></li>
+              <li><a href="nitrogen_card.html?LEVLE=L1">氮氣即時資訊</a></li>
+              <li><a href="functionList.html?LEVLE=L1?LIST=OTHER">Other</a></li>
+            </ul>
+          </div>
+        </div> -->
+        <div id="meter-container" class="col-md-12 col-lg-12">
+          <!-- 主機台 -->
+         <!-- <div class="row">
+            <div class="col-md-12 col-lg-5 order-3 order-lg-2 main">
+               <div class="mr-1 ml-1 contentWrapper">
+                <div class="detailWrapper">
+                  <div class="detail">
+                    <span><strong id="mainEQPNO">WEYU-EM</strong></span>
+                    <span>
+                      <button
+                        class="btn"
+                        onclick="functionListDetail('WEYU-EM')"
+                      >
+                        <img src="../../img/zz/newWindow.svg" alt="" />
+                      </button>
+                    </span>
+                  </div>
+                  <div class="detail">
+                    <span>Voltage</span>
+                    <span id="Voltage">12345</span>
+                  </div>
+                  <div class="detail">
+                    <span>Current</span>
+                    <span id="Current"></span>
+                  </div>
+                  <div class="detail">
+                    <span>kW Total</span>
+                    <span id="KWtotal"><br />2023-08-31 08:42:22</span>
+                  </div>
+                  <div class="detail">
+                    <span>最大能耗</span>
+                    <span id="kVAtotal">454 / 469 / 464</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12 col-lg-7 order-2 order-lg-3 asideBoard">
+              <div class="mr-1 ml-1 contentWrapper d-flex">
+                <div class="detailWrapper">
+                  <div class="detail">
+                    <span><strong>即時值</strong></span>
+                    <span></span>
+                  </div>
+                  <div class="detail">
+                    <span>Vin_ab</span>
+                    <span id="Vin_ab">22742</span>
+                  </div>
+                  <div class="detail">
+                    <span>Vin_bc</span>
+                    <span id="Vin_bc">22822</span>
+                  </div>
+                  <div class="detail">
+                    <span>Vin_c</span>
+                    <span id="Vin_c">22689</span>
+                  </div>
+                  <div class="detail">
+                    <span>I_a</span>
+                    <span id="I_a">36</span>
+                  </div>
+                  <div class="detail">
+                    <span>I_b</span>
+                    <span id="I_b">37</span>
+                  </div>
+                </div>
+                <div class="division"></div>
+
+                <div class="detailWrapper">
+                  <div class="detail">
+                    <span>&nbsp;&nbsp;</span>
+                    <span></span>
+                  </div>
+                  <div class="detail">
+                    <span>I_c</span>
+                    <span id="I_c">37</span>
+                  </div>
+                  <div class="detail">
+                    <span>kw_totc</span>
+                    <span id="kw_totc">1739</span>
+                  </div>
+                  <div class="detail">
+                    <span>Fre</span>
+                    <span id="Fre">60</span>
+                  </div>
+                  <div class="detail">
+                    <span>PF</span>
+                    <span id="PF">1</span>
+                  </div>
+                </div>
+              </div> 
+            </div>
+          </div> -->
+          
+          <div class="row">
+            <div class="col-md-12 mt-2">
+              <div class="d-flex justify-content-center align-center">
+                <h1 class="fs-1">Air Meter Current Info</h1>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-12 subMain">
+              <div class="row itemWrapper">
+                <!-- 子機台1 -->
+                <div class="col-12 col-lg-5 item error">
+                  <div class="mr-1 ml-2 contentWrapper">
+                    <div class="detailWrapper">
+                      <div class="detail">
+                        <span><strong id="mainEQPNO1">FAB1-AIR-FLOW</strong></span>
+                        <span>
+                          <button
+                            class="btn"
+                            onclick="functionListDetail('FAB1_AIRFLOW')"
+                          >
+                            <img src="../../../img/zz/newWindow.svg" alt="" /></button
+                        ></span>
+                      </div>
+                      <div class="detail">
+                        <span>Temperature</span>
+                        <span id="Temp1">0.010</span>
+                      </div>
+                      <div class="detail">
+                        <span>Pressure</span>
+                        <span id="Pressure1">0.000</span>
+                      </div>
+                      <div class="detail">
+                        <span>Frequency</span>
+                        <span id="Freq1">380.100</span>
+                      </div>
+                      <div class="detail">
+                        <span>順時流量</span>
+                        <span id="Flow1">380.100</span>
+                      </div>
+                      <div class="detail">
+                        <span>Cumulative Flow</span>
+                        <span id="Degree1">380.100</span>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 子機台2 -->
+                <div class="col-12 col-lg-5 item idle">
+                  <div class="mr-1 ml-2 contentWrapper">
+                    <div class="detailWrapper">
+                      <div class="detail">
+                        <span><strong id="mainEQPNO2">FAB1-N-FLOW</strong></span>
+                        <span>
+                          <button
+                            class="btn"
+                            onclick="functionListDetail('FAB1_NFLOW')"
+                          >
+                            <img src="../../../img/zz/newWindow.svg" alt="" /></button
+                        ></span>
+                      </div>
+                      <div class="detail">
+                        <span>Temperature</span>
+                        <span id="Temp2">0.010</span>
+                      </div>
+                      <div class="detail">
+                        <span>Pressure</span>
+                        <span id="Pressure2">0.000</span>
+                      </div>
+                      <div class="detail">
+                        <span>Frequency</span>
+                        <span id="Freq2">380.100</span>
+                      </div>
+                      <div class="detail">
+                        <span>順時流量</span>
+                        <span id="Flow2">380.100</span>
+                      </div>
+                      <div class="detail">
+                        <span>Cumulative Flow</span>
+                        <span id="Degree2">380.100</span>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- 子機台3 -->
+                <div class="col-12 col-lg-5 item run">
+                  <div class="mr-1 ml-2 contentWrapper">
+                    <div class="detailWrapper">
+                      <div class="detail">
+                        <span><strong id="mainEQPNO3">FAB2-AIR-FLOW</strong></span>
+                        <button
+                          class="btn"
+                          onclick="functionListDetail('FAB2_AIRFLOW')"
+                        >
+                          <img src="../../../img/zz/newWindow.svg" alt="" />
+                        </button>
+                      </div>
+                      <div class="detail">
+                        <span>Temperature</span>
+                        <span id="Temp3">0.010</span>
+                      </div>
+                      <div class="detail">
+                        <span>Pressure</span>
+                        <span id="Pressure3">0.000</span>
+                      </div>
+                      <div class="detail">
+                        <span>Frequency</span>
+                        <span id="Freq3">380.100</span>
+                      </div>
+                      <div class="detail">
+                        <span>順時流量</span>
+                        <span id="Flow3">380.100</span>
+                      </div>
+                      <div class="detail">
+                        <span>Cumulative Flow</span>
+                        <span id="Degree3">380.100</span>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 子機台4 -->
+                <div class="col-12 col-lg-5 item">
+                  <div class="mr-1 ml-2 contentWrapper">
+                    <div class="detailWrapper">
+                      <div class="detail">
+                        <span><strong id="mainEQPNO4">FAB2-N-FLOW</strong></span>
+                        <button
+                          class="btn"
+                          onclick="functionListDetail('FAB2_NFLOW')"
+                        >
+                          <img src="../../../img/zz/newWindow.svg" alt="" />
+                        </button>
+                      </div>
+                      <div class="detail">
+                        <span>Temperature</span>
+                        <span id="Temp4">0.010</span>
+                      </div>
+                      <div class="detail">
+                        <span>Pressure</span>
+                        <span id="Pressure4">0.000</span>
+                      </div>
+                      <div class="detail">
+                        <span>Frequency</span>
+                        <span id="Freq4">380.100</span>
+                      </div>
+                      <div class="detail">
+                        <span>順時流量</span>
+                        <span id="Flow4">380.100</span>
+                      </div>
+                      <div class="detail">
+                        <span>Cumulative Flow</span>
+                        <span id="Degree4">380.100</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 子機台5 -->
+                <div class="col-12 col-lg-5 item idle">
+                  <div class="mr-2 contentWrapper">
+                    <div class="detailWrapper">
+                      <div class="detail">
+                        <span><strong id="mainEQPNO5">FAB3-AIR-FLOW</strong></span>
+                        <span>
+                          <button
+                            class="btn"
+                            onclick="functionListDetail('FAB3_AIRFLOW')"
+                          >
+                            <img src="../../../img/zz/newWindow.svg" alt="" />
+                          </button>
+                        </span>
+                      </div>
+                      <div class="detail">
+                        <span>Temperature</span>
+                        <span id="Temp5">0.010</span>
+                      </div>
+                      <div class="detail">
+                        <span>Pressure</span>
+                        <span id="Pressure5">0.000</span>
+                      </div>
+                      <div class="detail">
+                        <span>Frequency</span>
+                        <span id="Freq5">380.100</span>
+                      </div>
+                      <div class="detail">
+                        <span>順時流量</span>
+                        <span id="Flow5">380.100</span>
+                      </div>
+                      <div class="detail">
+                        <span>Cumulative Flow</span>
+                        <span id="Degree5">380.100</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 子機台6 -->
+                <div class="col-12 col-lg-5 item run">
+                  <div class="mr-2 contentWrapper">
+                    <div class="detailWrapper">
+                      <div class="detail">
+                        <span><strong id="mainEQPNO6">FAB3-N-FLOW</strong></span>
+                        <span>
+                          <button
+                            class="btn"
+                            onclick="functionListDetail('FAB3_NFLOW')"
+                          >
+                            <img src="../../../img/zz/newWindow.svg" alt="" />
+                          </button>
+                        </span>
+                      </div>
+                      <div class="detail">
+                        <span>Temperature</span>
+                        <span id="Temp6">0.010</span>
+                      </div>
+                      <div class="detail">
+                        <span>Pressure</span>
+                        <span id="Pressure6">0.000</span>
+                      </div>
+                      <div class="detail">
+                        <span>Frequency</span>
+                        <span id="Freq6">380.100</span>
+                      </div>
+                      <div class="detail">
+                        <span>順時流量</span>
+                        <span id="Flow6">380.100</span>
+                      </div>
+                      <div class="detail">
+                        <span>Cumulative Flow</span>
+                        <span id="Degree6">380.100</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              <!-- 子機台7 -->
+              <!-- <div class="col-12 col-lg-5 item run">
+                <div class="mr-2 contentWrapper">
+                  <div class="detailWrapper">
+                    <div class="detail">
+                      <span><strong id="mainEQPNO7">MP1</strong></span>
+                      <span>
+                        <button
+                          class="btn"
+                          onclick="functionListDetail('MP1')"
+                        >
+                          <img src="../../img/zz/newWindow.svg" alt="" />
+                        </button>
+                      </span>
+                    </div>
+                    <div class="detail">
+                      <span>kWh</span>
+                      <span id="kWhTotal7">22742 / 22822 / 22689</span>
+                    </div>
+                    <div class="detail">
+                      <span>Voltage</span>
+                      <span id="Voltage7">22742 / 22822 / 22689</span>
+                    </div>
+                    <div class="detail">
+                      <span>Volt</span>
+                      <span id="Volt7">22742 / 22822 / 22689</span>
+                    </div>
+                    <div class="detail">
+                      <span>Current</span>
+                      <span id="Current7">36 / 37 / 37</span>
+                    </div>
+                    <div class="detail">
+                      <span>Total kW</span>
+                      <span id="KWtotal7">1739<br />2023-08-31 08:42:22</span>
+                    </div>
+                    <div class="detail">
+                      <span>Total kVA</span>
+                      <span id="kVAtotal7">123<br />2023-08-31 08:42:22</span>
+                    </div>
+                    <div class="detail">
+                      <span>Total kVAr</span>
+                      <span id="kVARtotal7">123<br />2023-08-31 08:42:22</span>
+                    </div>
+                    <div class="detail">
+                      <span>Avgerage PF</span>
+                      <span id="avgPF7">36 / 37 / 37</span>
+                    </div>
+                    <div class="detail">
+                      <span>Freq</span>
+                      <span id="Freq7">36 / 37 / 37</span>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- 子機台8 -->
+              <!-- <div class="col-12 col-lg-5 item">
+                <div class="mr-2 contentWrapper">
+                  <div class="detailWrapper">
+                    <div class="detail">
+                      <span><strong id="mainEQPNO8">MP2</strong></span>
+                      <span>
+                        <button
+                          class="btn"
+                          onclick="functionListDetail('MP2')"
+                        >
+                          <img src="../../img/zz/newWindow.svg" alt="" />
+                        </button>
+                      </span>
+                    </div>
+                    <div class="detail">
+                      <span>kWh</span>
+                      <span id="kWhTotal8">22842 / 22822 / 22689</span>
+                    </div>
+                    <div class="detail">
+                      <span>Voltage</span>
+                      <span id="Voltage8">22842 / 22822 / 22689</span>
+                    </div>
+                    <div class="detail">
+                      <span>Volt</span>
+                      <span id="Volt8">22842 / 22822 / 22689</span>
+                    </div>
+                    <div class="detail">
+                      <span>Current</span>
+                      <span id="Current8">36 / 38 / 38</span>
+                    </div>
+                    <div class="detail">
+                      <span>Total kW</span>
+                      <span id="KWtotal8">1839<br />2023-08-31 08:42:22</span>
+                    </div>
+                    <div class="detail">
+                      <span>Total kVA</span>
+                      <span id="kVAtotal8">123<br />2023-08-31 08:42:22</span>
+                    </div>
+                    <div class="detail">
+                      <span>Total kVAr</span>
+                      <span id="kVARtotal8">123<br />2023-08-31 08:42:22</span>
+                    </div>
+                    <div class="detail">
+                      <span>Avgerage PF</span>
+                      <span id="avgPF8">36 / 38 / 38</span>
+                    </div>
+                    <div class="detail">
+                      <span>Freq</span>
+                      <span id="Freq8">36 / 38 / 38</span>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- 子機台9 -->
+              <!-- <div class="col-12 col-lg-5 item error">
+                <div class="mr-2 contentWrapper">
+                  <div class="detailWrapper">
+                    <div class="detail">
+                      <span><strong id="mainEQPNO9">ACMP</strong></span>
+                      <span>
+                        <button
+                          class="btn"
+                          onclick="functionListDetail('ACMP')"
+                        >
+                          <img src="../../img/zz/newWindow.svg" alt="" />
+                        </button>
+                      </span>
+                    </div>
+                    <div class="detail">
+                      <span>kWh</span>
+                      <span id="kWhTotal9">22942 / 22922 / 22699</span>
+                    </div>
+                    <div class="detail">
+                      <span>Voltage</span>
+                      <span id="Voltage9">22942 / 22922 / 22699</span>
+                    </div>
+                    <div class="detail">
+                      <span>Volt</span>
+                      <span id="Volt9">22942 / 22922 / 22699</span>
+                    </div>
+                    <div class="detail">
+                      <span>Current</span>
+                      <span id="Current9">36 / 39 / 39</span>
+                    </div>
+                    <div class="detail">
+                      <span>Total kW</span>
+                      <span id="KWtotal9">1939<br />2023-09-31 09:42:22</span>
+                    </div>
+                    <div class="detail">
+                      <span>Total kVA</span>
+                      <span id="kVAtotal9">123<br />2023-09-31 09:42:22</span>
+                    </div>
+                    <div class="detail">
+                      <span>Total kVAr</span>
+                      <span id="kVARtotal9">123<br />2023-09-31 09:42:22</span>
+                    </div>
+                    <div class="detail">
+                      <span>Avgerage PF</span>
+                      <span id="avgPF9">36 / 39 / 39</span>
+                    </div>
+                    <div class="detail">
+                      <span>Freq</span>
+                      <span id="Freq9">36 / 39 / 39</span>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="offcanvas offcanvas-start" 
+    tabindex="-1" 
+    id="offcanvasExample" 
+    aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+          <!-- <img src="../../../img/comm/drop-svgrepo-com.svg" alt="water"> -->
+          <h2 class="offcanvas-title fw-bold" id="offcanvasExampleLabel">EMS RWD</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+          <!-- 側邊欄內的選單 -->
+          <ul class="list-group custom-menu">
+              <li class="list-group-item">
+                  <img src="../../../img/weyu/electric.svg" alt="electric">
+                  <a href="../functionList.html" class="Lang">Electricity</a>
+              </li>
+              <li class="list-group-item">
+                <img src="../../../img/comm/earth-asia-solid.svg" alt="electric">
+                <a href="air_card.html" class="Lang">Air Flow</a>
+              </li>
+              <li class="list-group-item">
+                <img src="../../../img/comm/earth-asia-solid.svg" alt="electric">
+                <a href="nitrogen_card.html" class="Lang">Nitrogen Flow</a>
+              </li>
+              <li class="list-group-item">
+                <img src="../../../img/comm/drop-svgrepo-com.svg" alt="electric">
+                <a href="../../card/water_meter/Tap_water_card.html" class="Lang">City Water</a>
+              </li>
+              <li class="list-group-item">
+                <img src="../../../img/comm/drop-svgrepo-com.svg" alt="electric">
+                <a href="../../card/water_meter/Waste_water_card.html" class="Lang">Wastewater</a>
+              </li>
+          </ul>
+      </div>
+    </div>
+
+    <div id="footer" class="fixed bottom-0 w-full"></div>
+    <script src="../../../js/weyu/weyu_footer2.js"></script>
+    <script src="../../../js/comm/jquery.min.js"></script>
+    <script src="../../../js/comm/bootstrap.min.js"></script>
+    <script src="../../../js/weyu/weyu_config.js"></script>
+    <script src="../../../js/weyu/weyu_comm_api_function.js"></script>
+    <script src="../../../js/weyu/weyu_comm_function.js"></script>
+    <script src="functionList.js"></script>
+    <!-- <script src="../js/weyu/weyu_check.js"></script> -->
+    <script src="../../../js/weyu/weyu_header.js"></script>
+    <script src="../../../js/weyu/weyu_footer.js"></script>
+    <!-- <script src="../js/weyu/weyu_loading.js"></script> -->
+
+    <!-- 多語系翻譯 -->
+    <script type="text/javascript">
+      function onLoad() {
+        GetConfig();
+        SetDefaultSelectLang();
+        ChangeLang(); //多國語言翻譯
+      }
+      // 左上LOGO文字
+      $("#logotext").html(PROJECT_SAVE_NAME);
+    </script>
+    <script>
+      $(document).ready(function () {
+        $(".subMenu").click(function () {
+          $(".subMenu li").toggle();
+        });
+      });
+    </script>
+
+    <script>
+      function functionListDetail(EQP_NO) {
+        document.body.style.opacity = 0;
+        setTimeout(function () {
+          window.location.href = "functionListDetail.html?EQP_NO=" + EQP_NO;
+        }, 500);
+      }
+    </script>
+  </body>
+</html>

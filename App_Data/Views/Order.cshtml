@@ -1,0 +1,23 @@
+@model OrderVm
+<!DOCTYPE html><html><head><meta charset="utf-8"/>
+<style>
+  body{font-family:"Microsoft JhengHei","Noto Sans CJK TC",sans-serif;font-size:12px}
+  h1{font-size:18px;margin-bottom:12px}
+  table{width:100%;border-collapse:collapse}
+  th,td{border:1px solid #999;padding:6px;text-align:left}
+  th{background:#eee}
+  .total{margin-top:12px;text-align:right;font-weight:bold}
+</style></head><body>
+<h1>訂單報表 - 訂單：@Model.OrderNo</h1>
+<div>客戶：@Model.Customer</div>
+<div>日期：@Model.OrderDate.ToString("yyyy-MM-dd")</div>
+<table>
+  <thead><tr><th>品名</th><th>數量</th><th>小計</th></tr></thead>
+  <tbody>
+  @foreach (var it in Model.Items ?? new List<OrderItemVm>()) {
+    <tr><td>@it.Name</td><td>@it.Qty</td><td>@it.Amount.ToString("0")</td></tr>
+  }
+  </tbody>
+</table>
+<div class="total">總計：@((Model.Items??new List<OrderItemVm>()).Sum(x=>x.Amount).ToString("0"))</div>
+</body></html>

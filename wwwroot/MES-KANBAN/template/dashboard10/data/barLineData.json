@@ -1,0 +1,52 @@
+{
+    "labels": [
+        "機台A",
+        "機台B",
+        "機台C",
+        "機台D",
+        "機台E"
+    ],
+    "datasets": [{
+        "type": "line",
+        "label": "AVG",
+        "pointBackgroundColor": "#FFCC00",
+        "borderColor": "#FFCC00",
+        "borderWidth": 3,
+        "tension": 0.4,
+        "data": [
+            25,
+            55,
+            25,
+            35,
+            50
+        ]
+    }, {
+        "type": "bar",
+        "label": "product A",
+        "backgroundColor": "#0066CC",
+        "borderWidth": 0,
+        "data": [
+            20,
+            50,
+            30,
+            40,
+            60
+        ],
+        "categoryPercentage": 0.5,
+        "barPercentage": 1
+    }, {
+        "type": "bar",
+        "label": "product B",
+        "backgroundColor": "#33CC99",
+        "borderWidth": 0,
+        "data": [
+            30,
+            60,
+            20,
+            30,
+            40
+        ],
+        "categoryPercentage": 0.5,
+        "barPercentage": 1
+    }]
+}

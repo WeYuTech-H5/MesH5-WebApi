@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="../../css/weyu/input.css" rel="stylesheet">
+  <link href="../../css/weyu/weyu_right_navbar.css" rel="stylesheet">
+  <link href="../../css/comm/bootstrap.min.css" rel="stylesheet">
+  <link href="../../css/weyu/template-menu.css" rel="stylesheet">
+  <link href="../../css/comm/daterangepicker.css" rel="stylesheet">
+  <link href="ng-pareto.css" rel="stylesheet">
+  <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+
+
+</head>
+
+<body onload="onLoad()">
+  <div class="allWrapper relative min-h-full">
+    <header class="flex items-center w-full mt-2 overflow-hidden pb-2">
+      <div class="box-header">
+        <button id="menu" class="btn transparent-btn pl-4" aria-expanded="false">
+          <img id="menu-image" src="../../img/comm/icons/hamburger.svg" alt="Menu" />
+        </button>
+        <div id="dropdownMenu" class="menu-content">
+          <div class="d-flex h-100">
+            <button id="closeButton">
+              <img id="close-image" src="../../img/comm/icons/close.svg" alt="Menu" />
+            </button>
+            <div class="menu-tot">
+              <div class="menu-1">
+                <li>
+                  <a class="dropdown-item-title" href="../list/list.html">返回樣式列表</a>
+                </li>
+              </div>
+              <div class="menu-2">
+                <ul id="Menu" class="dropdown-item"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a id="logotext" href="../../index.html" class="fs-4 fw-bold"></a>
+      </div>
+      <div class="box-header">
+        <div class="fw-bold fs-5 Lang">
+          <span class="Lang">NG Pareto</span>
+        </div>
+      </div>
+      <div class="box-header">
+        <div class="time" id="current-time"></div>
+        <div id="settings">
+          <img id="settings-image" src="../../img/comm/user-gear-solid.svg" class="settings" alt="Settings" />
+        </div>
+        <div id="dropdown-menu" class="dropdown-content hidden">
+          <div id="langueStatus">Language Status</div>
+          <div id="accountStatus">Account Status</div>
+          <div id="logout">Logout</div>
+        </div>
+      </div>
+    </header>
+    <!-- 主設計 START -->
+    <div class="mb-lg-5 bg-container">
+      <div class="panel">
+        <div class="filter-opitons">
+          <div class="row">
+            <div class="col-lg-4 col-md-6 col-10">
+              <div class="input-group timePeriodPicker">
+                <span class="input-group-text fw-bold">範圍</span>
+                <input
+                  type="text"
+                  id="dateRange"
+                  class="form-control shadow-none bg-white"
+                  placeholder="Select date range"
+                  readonly
+                />
+              </div>
+            </div>
+            <!-- <div class="col text-end">
+              <button
+                id="dropdownId"
+                type="button"
+                class="btn shadow-none"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-download fa-xl"></i>
+              </button>
+              <div class="dropdown-menu p-0" aria-labelledby="dropdownId">
+                <a class="dropdown-item text-dark" href="#" id="downloadXlsxBtn"><i class="fa-solid fa-table fa-lg"></i> download .xlsx</a>
+                <a class="dropdown-item text-dark" href="#" id="downloadJpgBtn"><i class="fa-regular fa-file-image fa-lg"></i> download .jpg</a>
+              </div>
+            </div> -->
+          </div>
+        </div>
+        <div class="chart-container">
+          <div class="chart-wrapper" id="paretoWrapper"></div>
+        </div>
+      </div>
+    </div>
+    <!-- 主設計 END -->
+    <div id="footer" class="position-fixed bottom-0 right-0 left-0 w-100"></div>
+
+  </div>
+  <div class="mainBG fixed left-0 top-0 right-0 bottom-0"></div>
+
+  <!-- <script src="../js/comm/cdn.jsdelivr.net_npm_chart.js"></script> -->
+  <script src="../../js/weyu/menu.js"></script>
+  <script src="../../js/comm/bootstrap.min.js"></script>
+  <script src="../../js/comm/jquery.min.js"></script>
+  <script src="../../js/weyu/weyu_config.js"></script>
+  <!-- <script src="../../js/weyu/weyu_comm_api_function.js"></script> -->
+  <!-- <script src="../../js/weyu/weyu_comm_function.js"></script> -->
+  <!-- <script src="../js/weyu/weyu_check.js"></script> -->
+  <script src="../../js/weyu/weyu_header.js"></script>
+  <!-- <script src="../../js/weyu/weyu_menu.js"></script> -->
+  <script src="../../js/weyu/weyu_footer.js"></script>
+  <script src="../../js/weyu/weyu_right_navbar.js"></script>
+  <script src="../../js/comm/echart.min.js"></script>
+  <script src="../../js/comm/moment.min.js"></script>
+  <script src="../../js/comm/daterangepicker.min.js"></script>
+	<script src="../../js/comm/xlsx.full.min.js"></script>
+  <script src="ng-pareto.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js"></script>
+
+  <!-- 多語系翻譯 -->
+  <script type="text/javascript">
+    function onLoad() {
+      GetConfig();
+      SetDefaultSelectLang();
+      ChangeLang();//多國語言翻譯
+      console.log('onLoad 成功')
+    };
+    // 左上LOGO文字
+    $('#logotext').html(PROJECT_SAVE_NAME);
+  </script>
+
+</body>
+
+</html>

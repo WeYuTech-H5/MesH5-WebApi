@@ -1,0 +1,38 @@
+.time-picker {
+    display: inline-block;
+    padding: 10px;
+    background: #eeeeee;
+    border-radius: 6px;
+}
+
+.time-picker__select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    text-align: center;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    padding: 3px 10px;
+    background: #ffffff;
+    cursor: pointer;
+    font-family: 'Heebo', sans-serif;
+}
+
+
+#session-date {
+    display: inline-block;
+    position: relative;
+    
+}
+
+#session-date::-webkit-calendar-picker-indicator {
+    display: inline-block;
+    position: relative;
+    background: transparent;
+    color: transparent;
+    cursor: pointer;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}

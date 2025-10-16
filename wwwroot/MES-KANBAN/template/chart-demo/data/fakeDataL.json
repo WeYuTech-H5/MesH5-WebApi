@@ -1,0 +1,70 @@
+{
+    "labels": [
+        "人員A",
+        "人員B",
+        "人員C",
+        "人員D",
+        "人員E",
+        "人員F",
+        "人員G",
+        "人員H",
+        "人員I",
+        "人員J"
+    ],
+    "datasets": [
+        {
+            "label": "產品 A",
+            "pointBackgroundColor": "#66CC99",
+            "borderColor": "#66CC99",
+            "tension": 0.4,
+            "data": [
+                15,
+                36,
+                14,
+                63,
+                14,
+                15,
+                36,
+                14,
+                63,
+                14
+            ]
+        },
+        {
+            "label": "產品 B",
+            "pointBackgroundColor": "#00CCFF",
+            "borderColor": "#00CCFF",
+            "tension": 0.4,
+            "data": [
+                20,
+                10,
+                30,
+                38,
+                25,
+                20,
+                10,
+                30,
+                38,
+                25
+            ]
+        },
+        {
+            "label": "產品 C",
+            "pointBackgroundColor": "#9933FF",
+            "borderColor": "#9933FF",
+            "tension": 0.4,
+            "data": [
+                30,
+                25,
+                53,
+                13,
+                55,
+                30,
+                25,
+                53,
+                13,
+                55
+            ]
+        }
+    ]
+}

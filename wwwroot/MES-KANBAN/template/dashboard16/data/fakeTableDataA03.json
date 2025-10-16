@@ -1,0 +1,20 @@
+[
+    {
+        "Equipment": "C-01",
+        "status": "Run",
+        "product": "desk",
+        "output": 36
+    },
+    {
+        "Equipment": "C-02",
+        "status": "Idle",
+        "product": "office chair",
+        "output": 40
+    },
+    {
+        "Equipment": "C-03",
+        "status": "Run",
+        "product": "office chair",
+        "output": 40
+    }
+]

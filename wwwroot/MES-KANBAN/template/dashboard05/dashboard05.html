@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kanban</title>
+  <link href="../../css/comm/bootstrap.4.4.1.min.css" rel="stylesheet" />
+  <link href="../../css/weyu/weyu_right_navbar.css" rel="stylesheet" />
+  <link href="dashboard05.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- 商標標題時間 -->
+  <header class="flex items-center w-100 pt-2 mb-2">
+    <div class="col-1"><!-- Menu BTN --></div>
+    <div id="title" class="col-md-8 col-lg-10 text-center position-relative">
+      Operations Dashboard
+      <div id="timming" class="">14:30</div>
+    </div>
+
+    <div id="settings" class="col-1 position-relative text-end">
+      <img id="settings-image" src="../../img/comm/user-gear-solid.svg" style="height: 1.5rem; width: 1.5rem"
+        alt="Settings" />
+    </div>
+    <div id="dropdown-menu" class="dropdown-content hidden">
+      <div id="langueStatus">Language Status</div>
+      <div id="accountStatus">Account Status</div>
+      <div id="logout">Logout</div>
+    </div>
+  </header>
+
+  <!-- 內容開始 -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 col-lg-10 main">
+        <div class="d-flex flex-row text-center justify-content-between">
+          <div class="box box-width-100">
+            當前用電量<span>
+              <strong id="dailyAmount">6458.4</strong>
+              <small>kWh</small>
+            </span>
+          </div>
+          <div class="box box-width-100">
+            電壓<span>
+              <strong id="voltageAmount">220.0</strong>
+              <small>v</small>
+            </span>
+          </div>
+          <div class="box box-width-100">
+            功率因數<span>
+              <strong id="PFamount">0.83</strong>
+            </span>
+          </div>
+          <div class="box box-width-100">
+            需量<span>
+              <strong id="demandAmount">4346.3</strong>
+              <small>kW</small>
+            </span>
+          </div>
+          <div class="box box-width-100">
+            電流<span>
+              <strong id="currentAmount">16.3</strong>
+              <small>A</small>
+            </span>
+          </div>
+        </div>
+        <div class="d-flex flex-row justify-content-between">
+          <div class="text-center box box5">
+            <div class="canvasWrapper">
+              <canvas id="boxA" width="100%"></canvas>
+            </div>
+          </div>
+          <div class="text-center box box5">
+            <div class="canvasWrapper">
+              <canvas id="boxB" width="100%"></canvas>
+            </div>
+          </div>
+          <div class="text-center box box5">
+            <div class="canvasWrapper">
+              <canvas id="boxC" width="100%"></canvas>
+            </div>
+          </div>
+          <div class="text-center box box5">
+            <div class="canvasWrapper">
+              <canvas id="boxD" width="100%"></canvas>
+            </div>
+          </div>
+          <div class="text-center box box5">
+            <div class="canvasWrapper">
+              <canvas id="boxE" width="100%"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-row justify-content-between">
+          <div class=" box4">
+            <div class="box box-width-100 box-m-height-2">
+              <div class="canvasWrapper">
+                本月用電量
+                <span>
+                  <strong id="monthUsed">32458.6</strong>
+                  <small>kWh</small>
+                </span>
+              </div>
+            </div>
+            <div class="box box-width-100 box-m-height-3">
+              <div class="canvasWrapper">
+                <canvas id="boxF" width="100%"></canvas>
+              </div>
+            </div>
+            <div class="box box-width-100 box-m-height-2">
+              <div class="canvasWrapper">
+                年度用電量
+                <span>
+                  <strong id="yearUsed">832458.1</strong>
+                  <small>kWh</small>
+                </span>
+              </div>
+            </div>
+            <div class="box box-width-100 box-m-height-3">
+              <div class="canvasWrapper">
+                <canvas id="boxG" width="100%"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="box box-width-50">
+            設備用電比例
+            <div class="canvasWrapper">
+              <canvas id="boxH" width="100%"></canvas>
+            </div>
+          </div>
+          <div class="box2">
+            <div class="box">
+              廠區用電趨勢 ( 當前 )
+              <div class="canvasWrapper">
+                <canvas id="boxI" width="100%"></canvas>
+              </div>
+            </div>
+            <div class="box">
+              廠區用電趨勢 ( 當月 )
+              <div class="canvasWrapper">
+                <canvas id="boxJ" width="100%"></canvas>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-2 aside">
+        <div class="box box-width-100 box-height-100">
+          用電排行
+          <div class="table-responsive">
+            <table width="100%" class="table" id="rankingTable">
+              <tbody>
+                <tr>
+                  <td width="20%">1</td>
+                  <td width="40%">設備名稱</td>
+                  <td width="40%">12345</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>設備名稱</td>
+                  <td>12345</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>設備名稱</td>
+                  <td>12345</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>設備名稱</td>
+                  <td>12345</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>設備名稱</td>
+                  <td>12345</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>設備名稱</td>
+                  <td>12345</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>設備名稱</td>
+                  <td>12345</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>設備名稱</td>
+                  <td>12345</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>設備名稱</td>
+                  <td>12345</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>設備名稱</td>
+                  <td>12345</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>設備名稱</td>
+                  <td>12345</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>設備名稱</td>
+                  <td>12345</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>設備名稱</td>
+                  <td>12345</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>設備名稱</td>
+                  <td>12345</td>
+                </tr>
+                <tr>
+                  <td>15</td>
+                  <td>設備名稱</td>
+                  <td>12345</td>
+                </tr>
+                <tr>
+                  <td>16</td>
+                  <td>設備名稱</td>
+                  <td>12345</td>
+                </tr>
+                <tr>
+                  <td>17</td>
+                  <td>設備名稱</td>
+                  <td>12345</td>
+                </tr>
+                <tr>
+                  <td>18</td>
+                  <td>設備名稱</td>
+                  <td>12345</td>
+                </tr>
+                <tr>
+                  <td>19</td>
+                  <td>設備名稱</td>
+                  <td>12345</td>
+                </tr>
+                <tr>
+                  <td>20</td>
+                  <td>設備名稱</td>
+                  <td>12345</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="col-12 text-center">
+    <small>© COPYRIGHT – WEYU TECHNOLOGY CO.,LTD.</small>
+  </footer>
+
+  <script src="../../js/comm/jquery.min.js"></script>
+  <script src="../../js/comm/bootstrap.min.js"></script>
+  <script src="../../js/comm/Chart.bundle.js"></script>
+  <script src="../../js/comm/cdn.jsdelivr.net_npm_chart.js"></script>
+  <script src="../../js/weyu/weyu_config.js"></script>
+  <script src="../../js/weyu/weyu_header.js"></script>
+  <script src="../../js/weyu/weyu_right_navbar.js"></script>
+  <script src="../../js/weyu/weyu_menu.js"></script>
+  <script src="../../js/weyu/weyu_menu_bs.js"></script>
+  <script src="../../js/weyu/weyu_comm_api_function.js"></script>
+  <script src="../../js/weyu/weyu_comm_function.js"></script>
+  <script src="dashboard05.js"></script>
+</body>
+
+</html>

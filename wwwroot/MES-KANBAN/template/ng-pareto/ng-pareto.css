@@ -1,0 +1,33 @@
+.allWrapper {
+  z-index: 10;
+}
+li {
+  overflow-x: hidden;
+}
+
+.bg-container {
+  background-color: #00000043;
+  border: 1px solid #90e3ff6b;
+  border-radius: 5px;
+  /* height: 100vh; */
+  width: 98%;
+  margin: auto;
+}
+.filter-opitons{
+  background-color: #bbe1fc;
+  border-radius: 5px 5px 0 0;
+  padding: 10px;
+}
+/* .chart-container{
+  padding: 8px;
+} */
+.chart-wrapper {
+  height: 70vh;
+  border: 1px solid #90e3ff6b;
+}
+
+
+#dateRange {
+	cursor: pointer;
+
+}

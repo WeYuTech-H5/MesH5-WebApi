@@ -1,0 +1,49 @@
+{
+  "page": { "width": 842, "height": 595, "marginL": 24, "marginT": 24, "marginR": 24, "marginB": 24 },
+  "fonts": { "regular": "NotoSansTC-Regular.ttf", "bold": "NotoSansTC-Bold.ttf" },
+
+  "elements": [
+    { "type": "text", "x": 80,  "y": 10, "size": 18, "bold": true, "text": "{{CompanyName}}" },
+
+    { "type": "text", "y": 34, "size": 14, "bold": true, "text": "{{TitleThai}}", "halign": "center" },
+    { "type": "text", "x": 315, "y": 52, "size": 14, "bold": true, "text": "Daily Schedule Table" , "halign": "center"},
+
+    { "type": "text", "x": 24,  "y": 74, "size": 11, "text": "Date: {{ReportDate:yyyy/MM/dd HH:mm}}" },
+    { "type": "text", "x": 720, "y": 74, "size": 11, "text": "Class: {{ClassName}}" },
+
+    { "type": "table",
+      "id": "main",
+      "x": 24, "y": 98, "rowHeight": 20,
+      "headerBg": "#EDEDED",
+      "rowStripeEvery": 2,
+      "rowStripeColor": "#F7F7F7",
+      "columns": [
+        { "header": "No.",        "width": 28,  "binding": "No",        "align":"right" },
+        { "header": "ID",         "width": 28,  "binding": "ID",        "align":"right" },
+        { "header": "SetCycle",   "width": 60,  "binding": "SetCycle",  "align":"right" },
+        { "header": "Short Name", "width": 110, "binding": "ShortName" },
+        { "header": "Mold No.#",  "width": 120, "binding": "MoldNo" },
+        { "header": "Mold Type",  "width": 70,  "binding": "MoldType" },
+        { "header": "Density",    "width": 50,  "binding": "Density",   "align":"right" },
+        { "header": "Try",        "width": 28,  "binding": "TryMark",   "align":"right" },
+        { "header": "DO",         "width": 28,  "binding": "DOMark",    "align":"right" },
+        { "header": "RUN",        "width": 32,  "binding": "RUNMark",   "align":"right" },
+        { "header": "Plan Time",  "width": 70,  "binding": "PlanTime" },
+        { "header": "Real Time",  "width": 70,  "binding": "RealTime" },
+        { "header": "Sign In",    "width": 60,  "binding": "SignIn" },
+        { "header": "Quantity",   "width": 55,  "binding": "Quantity:#,0", "align":"right" }
+      ],
+      "items": "Rows"
+    },
+
+    { "type": "line", "anchor": "main", "x": 60,  "y": 30, "x2": 280, "y2": 30, "stroke": 1.5, "color": "#000000" },
+    { "type": "line", "anchor": "main", "x": 320, "y": 30, "x2": 540, "y2": 30, "stroke": 1.5, "color": "#000000" },
+    { "type": "line", "anchor": "main", "x": 580, "y": 30, "x2": 800, "y2": 30, "stroke": 1.5, "color": "#000000" },
+
+    { "type": "text", "anchor": "main", "x": 120, "y": 44, "size": 11, "text": "Manager" },
+    { "type": "text", "anchor": "main", "x": 350, "y": 44, "size": 11, "text": "Production/Mold Dep" },
+    { "type": "text", "anchor": "main", "x": 630, "y": 44, "size": 11, "text": "Planning Dep" },
+
+    { "type": "text", "anchor": "main", "x": 720, "y": 64, "size": 11, "bold": true, "text": "F-PLN-001A" }
+  ]
+}

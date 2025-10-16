@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="../../css/weyu/input.css" rel="stylesheet">
+  <link href="../../css/weyu/weyu_right_navbar.css" rel="stylesheet">
+  <link href="../../css/comm/bootstrap.min.css" rel="stylesheet">
+  <link href="list.css" rel="stylesheet">
+</head>
+<body onload="onLoad()">
+  <div class="relative min-h-full" style="z-index: 1;">
+    <header class="w-full mt-2">
+
+      <a id="logotext" href="../../index.html" class="fs-4 fw-bold ps-3"></a>
+      
+      <div id="title" class="fw-bold fs-5 Lang">
+        <span class="Lang">DEMO</span>
+      </div>
+      <div class="time" id="current-time"></div>
+      <div id="settings">
+        <img id="settings-image" src="../../img/comm/user-gear-solid.svg" style="height: 1.5rem; width: 1.5rem" alt="Settings" />
+      </div>
+
+      <div id="dropdown-menu" class="dropdown-content hidden">
+        <div id="langueStatus">Language Status</div>
+        <div id="accountStatus"><img src="" alt="" />Account Status</div>
+        <div id="logout"><button class="ml-auto p-4">
+          Logout
+        </button>
+        </div>
+      </div>
+
+    </header>
+    <!-- 主設計 START -->
+    <div class="container-xxl pb-5">
+      <!-- 篩選區域 -->
+      <div class="filter-section">
+          <div class="filter-title">解決方案類別 :</div>
+          <div class="d-flex flex-wrap" id="category-filters">
+            <button type="button" class="btn filter-button fw-bold active" data-type="category" data-filter="all">全部</button>
+            <button type="button" class="btn filter-button fw-bold" data-type="category" data-filter="mes">MES</button>
+            <button type="button" class="btn filter-button fw-bold" data-type="category" data-filter="ems">EMS</button>
+            <button type="button" class="btn filter-button fw-bold" data-type="category" data-filter="wip">WIP</button>
+            <button type="button" class="btn filter-button fw-bold" data-type="category" data-filter="overview">系統整合</button>
+            <button type="button" class="btn filter-button fw-bold" data-type="category" data-filter="template">排版範例</button>
+            <button type="button" class="btn filter-button fw-bold" data-type="category" data-filter="module">功能模組</button>
+          </div>
+          <!-- 關鍵字篩選 -->
+          <div>
+              <div class="filter-title mt-2 border-bottom border-secondary border-opacity-25">關鍵字篩選 ：</div>
+              <div class="d-flex flex-wrap" id="keywords-filter">
+                  <!-- 通過 JavaScript 動態添加 -->
+              </div>
+          </div>
+      </div>
+
+      <!-- 作品展示區域 -->
+      <div class="row g-3" id="portfolio-container">
+          <!-- 作品項目將通過 JavaScript 動態添加 -->
+      </div>
+
+      <!-- 無結果提示 -->
+      <div id="no-results" class="text-center py-5 d-none">
+          <h3 class="text-light">沒有符合條件的結果</h3>
+      </div>
+  </div>
+    <!-- 主設計 END -->
+    <div id="footer" class="position-fixed bottom-0 right-0 left-0 w-100"></div>
+
+  </div>
+  <div class="mainBG fixed left-0 top-0 right-0 bottom-0"></div>
+
+  <!-- <script src="../../js/comm/cdn.jsdelivr.net_npm_chart.js"></script> -->
+  <script src="../../js/comm/jquery.min.js"></script>
+  <script src="../../js/comm/bootstrap.min.js"></script>
+  <script src="../../js/weyu/weyu_config.js"></script>
+  <!-- <script src="../../js/weyu/weyu_comm_api_function.js"></script> -->
+  <!-- <script src="../../js/weyu/weyu_comm_function.js"></script> -->
+  <!-- <script src="../../js/weyu/weyu_check.js"></script> -->
+  <script src="../../js/weyu/weyu_header.js"></script>
+  <script src="../../js/weyu/weyu_footer.js"></script>
+  <script src="../../js/weyu/weyu_right_navbar.js"></script>
+  <script src="list.js"></script>
+  <!-- 多語系翻譯 -->
+  <script type="text/javascript">
+    function onLoad() {
+        GetConfig();
+        SetDefaultSelectLang();
+        ChangeLang();//多國語言翻譯
+        console.log('onLoad 成功')
+    };
+    // 左上LOGO文字
+    $('#logotext').html(PROJECT_SAVE_NAME);
+  </script>
+
+</body>
+</html>

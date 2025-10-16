@@ -1,0 +1,16 @@
+{
+  "labels": ["Alice", "Brian", "Charlotte", "David", "Emma"],
+  "datasets": [
+    {
+      "backgroundColor": [
+        "rgba(59, 221, 227, 0.7)",
+        "rgba(59, 149, 227, 0.7)",
+        "rgba(59, 91, 227, 0.7)",
+        "rgba(98, 59, 227, 0.7)",
+        "rgba(59, 227, 72, 0.7)"
+      ],
+      "borderWidth": 0,
+      "data": [77, 93, 98, 45, 42]
+    }
+  ]
+}

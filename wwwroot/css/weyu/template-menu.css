@@ -1,0 +1,118 @@
+#dropdown-menu,
+#dropdownMenu {
+    display: none;
+    position: fixed;
+}
+
+.settings {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+#toggleButton {
+    padding-left: 1rem;
+}
+
+.transparent-btn {
+    background-color: transparent;
+    border: none;
+}
+
+.dropdownMenu.show {
+    left: 0;
+}
+
+.menu-content {
+    display: none;
+    position: fixed;
+    background-color: #1d2534;
+    border-right: 1px solid rgba(38, 80, 179, 1);
+    height: 100vh;
+    width: 25%;
+    top: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    transition: left 0.3s ease;
+}
+
+#closeButton {
+    display: flex;
+    background-color: transparent;
+    margin-top: 2.5vh;
+    border: none;
+    padding: 0 .5rem 0 1.5rem;
+}
+
+.menu-1{
+    margin-top: 2.5vh;
+    list-style: none;
+}
+
+.menu-2 {
+    list-style: none;
+    margin-top: 5vh;
+}
+
+.menu-2 .dropdown-item {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 10px 0;
+}
+
+.box-header:nth-child(1),
+.box-header:nth-child(3) {
+    flex: 0 0 30%;
+}
+.box-header:nth-child(3) {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    flex: 0 0 30%;
+}
+
+.box-header:nth-child(2) {
+    flex: 0 0 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.box-header {
+    display: flex;
+    align-items: center;
+}
+
+.menu-tot {
+    width: 80%;
+    padding: 0px 30px;
+}
+
+.menu-2 a {
+    background: #3976ac;
+    border-left: 5px solid #739ad3;
+    padding: .5rem 1rem;
+}
+
+.menu-2 a:hover {
+    background: #6353a2;
+    border-left: 5px solid #ffeb77;
+}
+.box-title {
+    padding-top : 5vh;
+    font-size: 16px;
+}
+#logotext {
+    border-right: 1px solid #38719d;
+    margin-right: 1rem;
+    padding-right: 1rem;
+    color: #b9def6;
+  }
+  #menu-image {
+    width: 1.3rem!important;
+    margin-left: .8rem;
+  }
+  .time{
+    margin-right: 10vh;
+  }

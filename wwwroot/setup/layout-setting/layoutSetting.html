@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>WeyuBoard</title>
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <link href="../../css/comm/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../css/weyu/weyu_right_navbar.css" rel="stylesheet">
+    <link href="../../css/weyu/input.css" rel="stylesheet" />
+    <link href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css" rel="stylesheet" >
+    <link href="../../img/fontawesome-free-6.7.1-web/css/all.min.css" rel="stylesheet" />
+    <link href="layoutSetting.css" rel="stylesheet">
+
+</head>
+</head>
+
+<body onload="onLoad()" style="overflow-x: hidden">
+    <!-- ------------------------------------------------------------------------------ loading -->
+    <header class="flex items-center w-full mt-2">
+
+        <button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" style="background: transparent; border: 0;">
+            <img src="../../img/comm/icons/hamburger.svg" alt="Menu" />
+        </button>
+    
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel" style="background-color: #162a58;">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">WO Maintain</h5>
+            <button type="button" class="" data-bs-dismiss="offcanvas" aria-label="Close" style="background: transparent; border: 0;">
+                <img src="../../img/comm/icons/close.svg" alt="Menu" />
+            </button>
+          </div>
+          <div id="menuList" class="offcanvas-body"></div>
+        </div>
+          
+    
+        <h1 style="font-size: 1.25em; font-weight: bold; line-height: 1; margin-top: 0.5em;">
+            <a id="logotext" href="../../index.html"></a>
+        </h1>
+        <div class="company">
+            <nav class="navbar"></nav>
+            <div class="board-name" id="midtitle">主檔維護設定</div>
+        </div>
+        <div id="settings">
+            <img id="settings-image" src="../../img/comm/user-gear-solid.svg" style="height: 1.5rem; width: 1.5rem" alt="Settings" />
+        </div>
+
+        <div id="dropdown-menu" class="dropdown-content hidden">
+            <div id="langueStatus">Language Status</div>
+            <div id="accountStatus">Account Status</div>
+            <div id="logout">Logout</div>
+        </div>
+    </header>
+    <!-- -----------------------------------------------主要內容 START -->
+    <div id="layout1" class="layout-btns">
+        <div class="layoutOneBtnWrapper">
+            <button id="backButton" class="btn tit Lang"><img src="../../img/comm/circle-chevron-left-solid.svg" alt="返回前頁"><span class="Lang">Back</span></button>
+        </div>
+    </div>
+    <div class="container mt-2 pt-2 pb-4 bg-white rounded">
+      <h3 id="actionType"></h3>
+      <div class="row">
+        <!-- 左方區域 -->
+        <div class="col-md-8 d-flex justify-content-center align-items-center">
+          <div id="imagePreview" class="border w-100 d-flex justify-content-center align-items-center" style="background-color: #f8f9fa; position: relative; overflow: hidden;">
+            <!-- <img src="http://localhost/MES-H5Api/Content/File/20250116103959.png" class="w-100 h-auto"> -->
+            <div class="d-flex align-items-center opacity-50 bg-img" style="height: 500px; ">圖片預覽區域</div>
+          </div>
+        </div>
+        <!-- 右方區域 -->
+        <div class="col-md-4 d-flex flex-column">
+          <div class="mb-3">
+            <label for="layoutCode" class="form-label">Layout Code</label>
+            <input type="text" id="layoutCode" class="form-control" placeholder="輸入檔案代碼">
+          </div>
+          <div class="mb-3">
+            <label for="layoutName" class="form-label">Layout Name</label>
+            <input type="text" id="layoutName" class="form-control" placeholder="輸入檔案名稱">
+          </div>
+          <div class="mb-3">
+            <label for="fileInput" class="form-label">上傳圖片</label>
+            <input type="file" id="fileInput" class="form-control" accept="image/*">
+          </div>
+          <div class="mt-auto">
+            <button id="deleteButton" class="btn btn-outline-danger w-100 mb-2 d-none">刪除Layout</button>
+            <button id="addObject" class="btn btn-secondary w-100 mb-2" data-bs-toggle="modal" data-bs-target="#addObjectModal">+新增Object</button>
+            <button id="submitButton" class="btn btn-primary w-100">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="copyModal" tabindex="-1" aria-labelledby="copyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered"> <!-- 垂直置中 + 小尺寸 -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="copyModalLabel">Save as</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- 代碼輸入欄位 -->
+                    <div class="mb-3">
+                        <label for="copyCODE" class="form-label">代碼</label>
+                        <input type="text" class="form-control" id="copyCODE" placeholder="輸入代碼"/>
+                    </div>
+                    <!-- 標題輸入欄位 -->
+                    <div class="mb-3">
+                        <label for="copyCAPTION" class="form-label">標題</label>
+                        <input type="text" class="form-control" id="copyCAPTION" placeholder="輸入標題"/>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">返回</button>
+                    <button type="button" class="btn btn-primary" id="copySaveBtn">保存</button>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+
+    <!-- -----------------------------------------------主要內容 END -->
+    <footer>
+      <p style="text-align: right; margin-right: 10px; font-size:14px;" class="text-light text-center">
+          Copr. 2025 WeYu Technology Co., Ltd. All Rights Reserved.
+      </p>
+    </footer>
+
+    <!-- <script src="../../js/comm/cdn.jsdelivr.net_npm_chart.js"></script> -->
+    <script src="../../js/weyu/menu.js"></script>
+    <script src="../../js/comm/bootstrap.min.js"></script>
+    <script src="../../js/comm/jquery.min.js"></script>
+    <script src="../../js/comm/jquery-ui.js"></script>
+
+    <script src="../../js/weyu/weyu_config.js"></script>
+    <script src="../../js/weyu/weyu_comm_api_function.js"></script>
+    <script src="../../js/weyu/weyu_comm_function.js"></script>
+    <script src="../../../../js/weyu/weyu_check.js"></script>
+    <script src="../../js/weyu/weyu_header.js"></script>
+    <!-- <script src="../../js/weyu/weyu_menu.js"></script> -->
+    <script src="../../img/fontawesome-free-6.7.1-web/js/all.min.js"></script>
+    <script src="../../js/weyu/weyu_footer.js"></script>
+    <script src="../../js/weyu/weyu_right_navbar.js"></script>
+    
+    <script type="module" src="layoutSetting.js"></script>
+    <!-- 多語系翻譯 -->
+    <script type="text/javascript">
+        function onLoad() {
+            DebugLog('onLoad Start');
+            GetConfig();
+            SetDefaultSelectLang();
+            ChangeLang(); //多國語言翻譯
+
+            DebugLog('onLoad END');
+        }
+        $(document).ready(function() {
+            
+            DebugLog('ready Start');
+            $('#offcanvasWithBothOptionsLabel').html(PROJECT_SAVE_NAME);
+            $('#logotext').html(PROJECT_SAVE_NAME);
+
+            $('#selectlang').on('change', function() {
+                try {
+                    DebugLog('selectlang on_change ' + this.value);
+                    UIChangeLng(this.value);
+                    //localStorageSetItem("eqp", this.value);
+                } catch (errorMessage) {
+                    DebugLogAndAlert(errorMessage);
+                }
+            });
+
+            DebugLog('ready END');
+        });
+    </script>
+</body>
+
+</html>

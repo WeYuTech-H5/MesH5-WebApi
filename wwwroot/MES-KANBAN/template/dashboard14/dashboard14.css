@@ -1,0 +1,212 @@
+/* 定義全域變數：內容背景色為半透明白色 */
+:root {
+    --content-bg-color: rgba(0, 11, 55, 0.5);
+}
+
+/* 設定 HTML 和 body 的文字顏色為白色 */
+html,
+body {
+    color: white;
+}
+
+/* 外層容器：設定 z-index 為 10，確保元素層級較高 */
+.allWrapper {
+    z-index: 10;
+}
+
+/* li 元素：隱藏橫向內容溢出 */
+li {
+    overflow-x: hidden;
+}
+
+/* 隱藏滾動條 */
+/* *::-webkit-scrollbar {
+    display: none;
+} */
+
+/* 區塊容器：原本的背景色註解掉 */
+.section-box {
+    /* background-color: rgba(136, 136, 136, 0.374); */
+}
+
+/* wrapper */
+.chartWrapper {
+    height: 100%;
+}
+.chart-container .chartWrapper {
+    padding: 0 10px 20px 10px;
+}
+
+/* 桌面版樣式 */
+@media screen and (min-width: 768px) {
+    /* 頂部區塊：設定為五等分網格佈局 */
+    .section-box-top {
+        display: flex;
+        margin-bottom: 5px;
+        height: 200px;
+    }
+    .section-box-top > *{
+        flex: 0 0 auto;
+        width: 20%;
+    }
+    
+    /* 底部區塊：網格佈局分為三等分 */
+    .section-box-bottom {
+        display: flex;
+        margin-bottom: 5px;
+        height: 600px;
+    }
+    .section-box-bottom > *{
+        flex: 0 0 auto;
+    }
+    .section-box-bottom > *:nth-child(1){
+        width: 20%;
+    }
+    .section-box-bottom > *:nth-child(2){
+        width: 40%;
+    }
+    .section-box-bottom > *:nth-child(3){
+        width: 40%;
+    }
+
+    .section-box-bottom .group-items{
+        height: calc(50% - 2.5px);
+    }
+    .section-box-bottom .group-items:first-child{
+        margin-bottom: 5px;
+    }
+
+    /* 每組項目：除了第 5 項外，每組加右邊距 */
+    .group-items:not(:nth-child(5)) {
+        padding-right: 5px;
+    }
+}
+
+/* 項目群組：統一垂直排列、加間距、置中文字 */
+.group-items {
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+/* 文字項目樣式 */
+.item-text {
+    background-color: var(--content-bg-color);
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+/* 圖表項目樣式 */
+.item-chart {
+    background-color: var(--content-bg-color);
+    height: 60%;
+}
+
+/* 文字標籤樣式 */
+.text-label {
+    font-size: 1rem;
+}
+
+/* 數值文字樣式 */
+.text-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* 數值後綴單位樣式 */
+.text-value::after {
+    content: attr(data-unit);
+    font-size: 0.85rem;
+    margin-left: 3px;
+    color: goldenrod;
+}
+
+/* 圖表容器：垂直排列並設定最小高度 */
+.chart-container {
+    display: flex;
+    flex-direction: column; /* 垂直排列子元素 */
+    min-height: 400px;
+    background-color: var(--content-bg-color);
+}
+
+#pieAWrapper {
+    min-height: 400px;
+}
+#multiLineAWrapper,
+#barAWrapper {
+    min-height: 200px;
+}
+
+/* 表格容器背景色 */
+.table-container  {
+    position: relative; /* 需要设置父容器为 relative */
+    background-color: var(--content-bg-color);
+    height: 805px;
+    overflow: auto;
+}
+
+.table-container::-webkit-scrollbar {
+    display: none;
+}
+
+.table-container table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+/* 固定表格标题和 h3 */
+.table-container h3,
+.table-container th {
+    position: sticky;
+    z-index: 10; /* 确保在内容上方 */
+    background-color: rgba(0, 11, 55); /* 背景色 */
+}
+.table-container h3 {
+    top: 0; /* 固定在顶部 */
+    box-sizing: border-box; /* 確保邊框包含在高度內 */
+    border-bottom: 2px solid goldenrod; /* 邊框寬度 */
+    line-height: 48px; /* 調整行高 */
+    height: 50px; /* 固定總高度 */
+    margin-bottom: 0; /* 確保外距不影響高度 */
+}
+.table-container th {
+    top: 50px; /* 固定在h3下方 */
+}
+.table-container tbody tr {
+    line-height: 32px;
+    border-bottom: 1.5px dotted rgba(174, 174, 174, 0.5)
+}
+
+/* 包含表格的區塊，增加底部間距 */
+div:has(.table-container) {
+    padding-bottom: 5px;
+}
+
+/* 手機版樣式 */
+@media screen and (max-width: 768px) {
+    /* 項目群組：切換為水平排列 */
+    .group-items {
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* 手機版文字項目寬高調整 */
+    .item-text {
+        text-align: center;
+        width: 30%;
+        height: 80px;
+    }
+
+    /* 手機版圖表項目寬高調整 */
+    .item-chart {
+        width: 70%;
+        height: 80px;
+    }
+
+    /* 與表格距離 */
+    .chart-container:last-child {
+        margin-bottom: 10px;
+    }
+}
